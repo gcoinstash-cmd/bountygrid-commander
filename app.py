@@ -482,22 +482,29 @@ HTML_PAGE = """<!DOCTYPE html>
 
         <!-- FINANCIAL STATEMENT -->
         <div class="card">
-            <div class="card-title">💰 Master Financial Statements</div>
+            <div class="card-title">
+                <span>💰 Master Financial Statements</span>
+                <span style="color:var(--accent-green); font-size:10px; font-weight:700;">100% BALANCED</span>
+            </div>
             <div class="grid-3">
                 <div class="stat-box">
                     <div class="stat-val" id="stat-gross" style="color:var(--accent-cyan);">$33,880</div>
-                    <div class="stat-label">Gross Pipeline</div>
+                    <div class="stat-label">Cumulative Gross</div>
                 </div>
                 <div class="stat-box">
                     <div class="stat-val" id="stat-ar" style="color:var(--accent-gold);">$28,450</div>
-                    <div class="stat-label">In Review</div>
+                    <div class="stat-label">In Review (AR)</div>
                 </div>
                 <div class="stat-box">
                     <div class="stat-val" id="stat-cash" style="color:var(--accent-green);">$5,430</div>
-                    <div class="stat-label">Stripe Cash</div>
+                    <div class="stat-label">Cumulative Cash</div>
                 </div>
             </div>
+            <div style="font-size:11px; color:#8b949e; text-align:center; margin-top:10px; padding-top:8px; border-top:1px solid rgba(255,255,255,0.06);">
+                💵 <b>Cumulative Stripe Cash</b> (<span style="color:var(--accent-green); font-weight:700;" id="footnote-cash">$5,430</span>) + ⏳ <b>AR</b> (<span style="color:var(--accent-gold); font-weight:700;" id="footnote-ar">$28,450</span>) = 📊 <b>Cumulative Pipeline</b> (<span style="color:var(--accent-cyan); font-weight:700;" id="footnote-gross">$33,880</span>)
+            </div>
         </div>
+
 
         <!-- REPO ECOSYSTEM BREAKDOWN CAROUSEL -->
         <div class="card">
@@ -1090,7 +1097,16 @@ HTML_PAGE = """<!DOCTYPE html>
                 document.getElementById('stat-gross').innerText = '$' + Math.round(Number(data.gross_pipeline)).toLocaleString('en-US', {maximumFractionDigits: 0});
                 document.getElementById('stat-ar').innerText = '$' + Math.round(Number(data.ar)).toLocaleString('en-US', {maximumFractionDigits: 0});
                 document.getElementById('stat-cash').innerText = '$' + Math.round(Number(data.cash)).toLocaleString('en-US', {maximumFractionDigits: 0});
+                
+                const fnGross = document.getElementById('footnote-gross');
+                if (fnGross) fnGross.innerText = '$' + Math.round(Number(data.gross_pipeline)).toLocaleString('en-US');
+                const fnAr = document.getElementById('footnote-ar');
+                if (fnAr) fnAr.innerText = '$' + Math.round(Number(data.ar)).toLocaleString('en-US');
+                const fnCash = document.getElementById('footnote-cash');
+                if (fnCash) fnCash.innerText = '$' + Math.round(Number(data.cash)).toLocaleString('en-US');
+
                 document.getElementById('stat-daily-rev').innerText = '+$' + Math.round(Number(data.daily)).toLocaleString('en-US', {maximumFractionDigits: 0});
+
                 const prsCountToday = data.daily_prs !== undefined ? data.daily_prs : 16;
                 const labelEl = document.getElementById('stat-daily-label');
                 if (labelEl) labelEl.innerText = `Today's Rev (${prsCountToday} PRs)`;
