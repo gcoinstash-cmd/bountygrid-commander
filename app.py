@@ -506,47 +506,40 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card">
             <div class="card-title">
                 <span>🎛️ Pipeline by Ecosystem</span>
-                <span style="color:var(--accent-cyan); font-size:10px;">9 Organizations</span>
+                <span style="color:var(--accent-cyan); font-size:10px;" id="eco-count-label">9 Organizations</span>
             </div>
-            <div class="repo-carousel">
-                <div class="repo-pill-card">
-                    <span class="repo-pill-name">🕷️ ProjectDiscovery</span>
-                    <span class="repo-pill-val">$5,375</span>
-                </div>
+            <div class="repo-carousel" id="repo-carousel-container">
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">⛓️ Lilly Protocol</span>
-                    <span class="repo-pill-val">$1,930</span>
-                </div>
-                <div class="repo-pill-card">
-                    <span class="repo-pill-name">🎥 CapSoftware</span>
-                    <span class="repo-pill-val">$1,800</span>
-                </div>
-                <div class="repo-pill-card">
-                    <span class="repo-pill-name">📐 TSCircuit</span>
-                    <span class="repo-pill-val">$1,650</span>
-                </div>
-                <div class="repo-pill-card">
-                    <span class="repo-pill-name">🪙 OphirPay</span>
-                    <span class="repo-pill-val">$1,200</span>
+                    <span class="repo-pill-val">$6,430</span>
                 </div>
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">🛡️ Permify</span>
-                    <span class="repo-pill-val">$750</span>
+                    <span class="repo-pill-val">$5,250</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">📐 TSCircuit</span>
+                    <span class="repo-pill-val">$3,450</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">🕷️ ProjectDiscovery</span>
+                    <span class="repo-pill-val">$3,100</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">🪙 OphirPay</span>
+                    <span class="repo-pill-val">$800</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">🎥 CapSoftware</span>
+                    <span class="repo-pill-val">$700</span>
                 </div>
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">💼 Twenty CRM</span>
                     <span class="repo-pill-val">$700</span>
                 </div>
-                <div class="repo-pill-card">
-                    <span class="repo-pill-name">📅 Cal.com</span>
-                    <span class="repo-pill-val">$400</span>
-                </div>
-                <div class="repo-pill-card">
-                    <span class="repo-pill-name">⚡ Exo Inference</span>
-                    <span class="repo-pill-val">$500</span>
-                </div>
             </div>
         </div>
+
 
         <!-- BURST VELOCITY -->
         <div class="card">
@@ -1135,8 +1128,24 @@ HTML_PAGE = """<!DOCTYPE html>
                     const wPip = document.getElementById('window-pipeline-val');
                     if (wPip) wPip.innerText = '$' + Math.round(Number(data.gross_pipeline)).toLocaleString('en-US') + ' pipeline';
                     renderRadarList();
+
+                    // Dynamically render live ecosystem breakdown in Forecast section
+                    if (data.ecosystems && data.ecosystems.length > 0) {
+                        const ecoContainer = document.getElementById('repo-carousel-container');
+                        const ecoLabel = document.getElementById('eco-count-label');
+                        if (ecoLabel) ecoLabel.innerText = `${data.ecosystems.length} Organizations`;
+                        if (ecoContainer) {
+                            ecoContainer.innerHTML = data.ecosystems.map(eco => `
+                                <div class="repo-pill-card">
+                                    <span class="repo-pill-name">${eco.icon} ${eco.name}</span>
+                                    <span class="repo-pill-val">$${Math.round(eco.value).toLocaleString('en-US')}</span>
+                                </div>
+                            `).join('');
+                        }
+                    }
                 }
             } catch(e) {
+
 
 
                 updateConnectionStatus(false);
@@ -1371,6 +1380,7 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 daily_rev = 0.0
                 daily_prs_count = 0
                 active_prs = []
+                ecosystems = {}
                 r_scan = 2
 
                 while ws_ledger.cell(r_scan, 2).value is not None:
@@ -1397,7 +1407,32 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                         daily_rev += net_val
                         daily_prs_count += 1
 
+                    # Compute ecosystem totals (excluding closed)
+                    if 'Closed' not in st_str:
+                        d_low = desc_str.lower()
+                        tx_low = tx.lower()
+                        eco_name = "Other"
+                        eco_icon = "📦"
+                        if any(k in d_low or k in tx_low for k in ["katana", "subfinder", "dnsx", "httpx", "pd-"]):
+                            eco_name, eco_icon = "ProjectDiscovery", "🕷️"
+                        elif "lilly" in d_low or "lilly" in tx_low:
+                            eco_name, eco_icon = "Lilly Protocol", "⛓️"
+                        elif "permify" in d_low or "permify" in tx_low:
+                            eco_name, eco_icon = "Permify", "🛡️"
+                        elif "cap" in d_low or "cap" in tx_low:
+                            eco_name, eco_icon = "CapSoftware", "🎥"
+                        elif any(k in d_low or k in tx_low for k in ["tscircuit", "schematic", "ts-"]):
+                            eco_name, eco_icon = "TSCircuit", "📐"
+                        elif "twenty" in d_low or "tw-" in tx_low:
+                            eco_name, eco_icon = "Twenty CRM", "💼"
+                        elif "ophir" in d_low or "ophir" in tx_low:
+                            eco_name, eco_icon = "OphirPay", "🪙"
+                        elif "documenso" in d_low or "doc" in tx_low:
+                            eco_name, eco_icon = "Documenso", "📄"
 
+                        if eco_name not in ecosystems:
+                            ecosystems[eco_name] = {"icon": eco_icon, "name": eco_name, "value": 0.0}
+                        ecosystems[eco_name]["value"] += net_val
 
                     gh_url, repo_label = resolve_github_link(tx, desc_str)
 
@@ -1410,17 +1445,11 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                     })
                     r_scan += 1
 
-                # Compute today's latest sprint receipt if any
-
                 daily_avg = gross / 7.0
                 weekly_rev = gross
                 weekly_avg = gross
 
-                today_sprint_prs = []
-                for p in active_prs:
-                    if p.get('status') == 'Pending Merge':
-                        today_sprint_prs.append(p)
-
+                sorted_ecosystems = sorted(ecosystems.values(), key=lambda x: x["value"], reverse=True)
 
                 data = {
                     'gross_pipeline': gross,
@@ -1432,6 +1461,7 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                     'daily_avg': daily_avg,
                     'weekly': weekly_rev,
                     'weekly_avg': weekly_avg,
+                    'ecosystems': sorted_ecosystems,
                     'active_prs': active_prs[::-1],
                     'latest_sprint': {
                         'count': min(5, len(active_prs)),
@@ -1440,6 +1470,7 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                         'total_rows': prs
                     }
                 }
+
 
 
             except Exception as e:
