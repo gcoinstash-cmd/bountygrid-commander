@@ -513,7 +513,7 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card">
             <div class="card-title">
                 <span>🎛️ Pipeline by Ecosystem</span>
-                <span style="color:var(--accent-cyan); font-size:10px;" id="eco-count-label">12 Organizations</span>
+                <span style="color:var(--accent-cyan); font-size:10px;" id="eco-count-label">25 Organizations</span>
             </div>
             <div class="repo-carousel" id="repo-carousel-container">
                 <div class="repo-pill-card">
@@ -562,6 +562,58 @@ HTML_PAGE = """<!DOCTYPE html>
                 </div>
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">🚨 KeepHQ</span>
+                    <span class="repo-pill-val">$0</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">🌌 Exo Explore</span>
+                    <span class="repo-pill-val">$0</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">⚡ Capacitor-Updater</span>
+                    <span class="repo-pill-val">$0</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">🗄️ Formbricks</span>
+                    <span class="repo-pill-val">$0</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">🔔 Novu</span>
+                    <span class="repo-pill-val">$0</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">💬 Chatwoot</span>
+                    <span class="repo-pill-val">$0</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">📊 PostHog</span>
+                    <span class="repo-pill-val">$0</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">🌐 Directus</span>
+                    <span class="repo-pill-val">$0</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">🔐 Infisical</span>
+                    <span class="repo-pill-val">$0</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">📈 OpenSign</span>
+                    <span class="repo-pill-val">$0</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">🛠️ ToolJet</span>
+                    <span class="repo-pill-val">$0</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">📬 Dub.co</span>
+                    <span class="repo-pill-val">$0</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">🧱 Strapi</span>
+                    <span class="repo-pill-val">$0</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">⚡ Trigger.dev</span>
                     <span class="repo-pill-val">$0</span>
                 </div>
             </div>
@@ -1481,7 +1533,20 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                     "Documenso": {"icon": "📄", "name": "Documenso", "value": 0.0},
                     "CapSoftware": {"icon": "🎥", "name": "CapSoftware", "value": 0.0},
                     "Activepieces": {"icon": "🧩", "name": "Activepieces", "value": 0.0},
-                    "KeepHQ": {"icon": "🚨", "name": "KeepHQ", "value": 0.0}
+                    "KeepHQ": {"icon": "🚨", "name": "KeepHQ", "value": 0.0},
+                    "Exo Explore": {"icon": "🌌", "name": "Exo Explore", "value": 0.0},
+                    "Capacitor-Updater": {"icon": "⚡", "name": "Capacitor-Updater", "value": 0.0},
+                    "Formbricks": {"icon": "🗄️", "name": "Formbricks", "value": 0.0},
+                    "Novu": {"icon": "🔔", "name": "Novu", "value": 0.0},
+                    "Chatwoot": {"icon": "💬", "name": "Chatwoot", "value": 0.0},
+                    "PostHog": {"icon": "📊", "name": "PostHog", "value": 0.0},
+                    "Directus": {"icon": "🌐", "name": "Directus", "value": 0.0},
+                    "Infisical": {"icon": "🔐", "name": "Infisical", "value": 0.0},
+                    "OpenSign": {"icon": "📈", "name": "OpenSign", "value": 0.0},
+                    "ToolJet": {"icon": "🛠️", "name": "ToolJet", "value": 0.0},
+                    "Dub.co": {"icon": "📬", "name": "Dub.co", "value": 0.0},
+                    "Strapi": {"icon": "🧱", "name": "Strapi", "value": 0.0},
+                    "Trigger.dev": {"icon": "⚡", "name": "Trigger.dev", "value": 0.0}
                 }
                 r_scan = 2
 
@@ -1534,14 +1599,38 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                             eco_name, eco_icon = "Cal.com", "📅"
                         elif "documenso" in d_low or "doc" in tx_low:
                             eco_name, eco_icon = "Documenso", "📄"
-                        elif "cap" in d_low or "cap-" in tx_low or "capsoftware" in d_low:
+                        elif "capsoftware" in d_low or "capsoftware" in tx_low or ("cap" in d_low and "capacitor" not in d_low):
                             eco_name, eco_icon = "CapSoftware", "🎥"
+                        elif "capacitor" in d_low or "cap-go" in d_low or "cap-go" in tx_low:
+                            eco_name, eco_icon = "Capacitor-Updater", "⚡"
                         elif "exo" in d_low or "exo-" in tx_low:
-                            eco_name, eco_icon = "Exo", "🌌"
+                            eco_name, eco_icon = "Exo Explore", "🌌"
                         elif "keep" in d_low or "keephq" in d_low:
                             eco_name, eco_icon = "KeepHQ", "🚨"
                         elif "activepieces" in d_low:
                             eco_name, eco_icon = "Activepieces", "🧩"
+                        elif "formbricks" in d_low:
+                            eco_name, eco_icon = "Formbricks", "🗄️"
+                        elif "novu" in d_low:
+                            eco_name, eco_icon = "Novu", "🔔"
+                        elif "chatwoot" in d_low:
+                            eco_name, eco_icon = "Chatwoot", "💬"
+                        elif "posthog" in d_low:
+                            eco_name, eco_icon = "PostHog", "📊"
+                        elif "directus" in d_low:
+                            eco_name, eco_icon = "Directus", "🌐"
+                        elif "infisical" in d_low:
+                            eco_name, eco_icon = "Infisical", "🔐"
+                        elif "opensign" in d_low:
+                            eco_name, eco_icon = "OpenSign", "📈"
+                        elif "tooljet" in d_low:
+                            eco_name, eco_icon = "ToolJet", "🛠️"
+                        elif "dub" in d_low:
+                            eco_name, eco_icon = "Dub.co", "📬"
+                        elif "strapi" in d_low:
+                            eco_name, eco_icon = "Strapi", "🧱"
+                        elif "trigger" in d_low:
+                            eco_name, eco_icon = "Trigger.dev", "⚡"
 
                         if eco_name in ecosystems:
                             ecosystems[eco_name]["value"] += net_val
@@ -1607,7 +1696,20 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                         {"icon": "📄", "name": "Documenso", "value": 100.0},
                         {"icon": "🎥", "name": "CapSoftware", "value": 0.0},
                         {"icon": "🧩", "name": "Activepieces", "value": 0.0},
-                        {"icon": "🚨", "name": "KeepHQ", "value": 0.0}
+                        {"icon": "🚨", "name": "KeepHQ", "value": 0.0},
+                        {"icon": "🌌", "name": "Exo Explore", "value": 0.0},
+                        {"icon": "⚡", "name": "Capacitor-Updater", "value": 0.0},
+                        {"icon": "🗄️", "name": "Formbricks", "value": 0.0},
+                        {"icon": "🔔", "name": "Novu", "value": 0.0},
+                        {"icon": "💬", "name": "Chatwoot", "value": 0.0},
+                        {"icon": "📊", "name": "PostHog", "value": 0.0},
+                        {"icon": "🌐", "name": "Directus", "value": 0.0},
+                        {"icon": "🔐", "name": "Infisical", "value": 0.0},
+                        {"icon": "📈", "name": "OpenSign", "value": 0.0},
+                        {"icon": "🛠️", "name": "ToolJet", "value": 0.0},
+                        {"icon": "📬", "name": "Dub.co", "value": 0.0},
+                        {"icon": "🧱", "name": "Strapi", "value": 0.0},
+                        {"icon": "⚡", "name": "Trigger.dev", "value": 0.0}
                     ],
                     'active_prs': []
                 }
