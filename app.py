@@ -462,7 +462,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 <span style="color:var(--accent-green); font-size:11px;" id="countdown-timer">🟢 ACTIVE QUEUE</span>
             </div>
             <div style="font-size:12px; color:#c9d1d9;" id="maintainer-window-desc">
-                <b>Review Window:</b> Maintainers triage PRs Mon–Fri (9 AM – 6 PM). Next batch review begins at 9:00 AM EST for your <b style="color:#fff;" id="window-prs-val">75 active PRs</b> (<span style="color:var(--accent-cyan);" id="window-pipeline-val">$19,755 pipeline</span>).
+                <b>Review Window:</b> Maintainers triage PRs Mon–Fri (9 AM – 6 PM). Next batch review begins at 9:00 AM EST for your <b style="color:#fff;" id="window-prs-val">80 active PRs</b> (<span style="color:var(--accent-cyan);" id="window-pipeline-val">$20,805 pipeline</span>).
             </div>
         </div>
 
@@ -470,14 +470,14 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card" style="background: linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(157, 78, 221, 0.1));">
             <div class="card-title">
                 <span>🎯 Monthly Milestone: $50,000</span>
-                <span style="color:var(--accent-cyan);" id="pace-percent">39.5% Pace</span>
+                <span style="color:var(--accent-cyan);" id="pace-percent">41.6% Pace</span>
             </div>
             <div class="progress-wrap">
                 <div class="progress-bar-bg">
-                    <div class="progress-bar-fill" id="progress-fill" style="width: 39.5%;"></div>
+                    <div class="progress-bar-fill" id="progress-fill" style="width: 41.6%;"></div>
                 </div>
                 <div class="progress-labels">
-                    <span id="prog-current">$19,755 Achieved</span>
+                    <span id="prog-current">$20,805 Achieved</span>
                     <span>Goal: $50,000</span>
                 </div>
             </div>
@@ -491,11 +491,11 @@ HTML_PAGE = """<!DOCTYPE html>
             </div>
             <div class="grid-3">
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-gross" style="color:var(--accent-cyan);">$19,755</div>
+                    <div class="stat-val" id="stat-gross" style="color:var(--accent-cyan);">$20,805</div>
                     <div class="stat-label">Cumulative Gross</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-ar" style="color:var(--accent-gold);">$14,325</div>
+                    <div class="stat-val" id="stat-ar" style="color:var(--accent-gold);">$15,375</div>
                     <div class="stat-label">In Review (AR)</div>
                 </div>
                 <div class="stat-box">
@@ -504,7 +504,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 </div>
             </div>
             <div style="font-size:11px; color:#8b949e; text-align:center; margin-top:10px; padding-top:8px; border-top:1px solid rgba(255,255,255,0.06);">
-                💵 <b>Cumulative Stripe Cash</b> (<span style="color:var(--accent-green); font-weight:700;" id="footnote-cash">$5,430</span>) + ⏳ <b>AR</b> (<span style="color:var(--accent-gold); font-weight:700;" id="footnote-ar">$14,325</span>) = 📊 <b>Cumulative Pipeline</b> (<span style="color:var(--accent-cyan); font-weight:700;" id="footnote-gross">$19,755</span>)
+                💵 <b>Cumulative Stripe Cash</b> (<span style="color:var(--accent-green); font-weight:700;" id="footnote-cash">$5,430</span>) + ⏳ <b>AR</b> (<span style="color:var(--accent-gold); font-weight:700;" id="footnote-ar">$15,375</span>) = 📊 <b>Cumulative Pipeline</b> (<span style="color:var(--accent-cyan); font-weight:700;" id="footnote-gross">$20,805</span>)
             </div>
         </div>
 
@@ -518,19 +518,19 @@ HTML_PAGE = """<!DOCTYPE html>
             <div class="repo-carousel" id="repo-carousel-container">
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">⛓️ Lilly Protocol</span>
-                    <span class="repo-pill-val">$6,680</span>
+                    <span class="repo-pill-val">$6,930</span>
                 </div>
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">🛡️ Permify</span>
-                    <span class="repo-pill-val">$5,500</span>
+                    <span class="repo-pill-val">$5,750</span>
                 </div>
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">📐 TSCircuit</span>
-                    <span class="repo-pill-val">$3,600</span>
+                    <span class="repo-pill-val">$3,750</span>
                 </div>
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">🕷️ ProjectDiscovery</span>
-                    <span class="repo-pill-val">$3,300</span>
+                    <span class="repo-pill-val">$3,700</span>
                 </div>
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">🎥 CapSoftware</span>
@@ -552,22 +552,22 @@ HTML_PAGE = """<!DOCTYPE html>
             <div class="card-title">⚡ Today's Burst Velocity</div>
             <div class="grid-2">
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-daily-rev" style="color:var(--accent-green);">+$1,050</div>
-                    <div class="stat-label" id="stat-daily-label">Today's Rev (5 PRs)</div>
+                    <div class="stat-val" id="stat-daily-rev" style="color:var(--accent-green);">+$2,100</div>
+                    <div class="stat-label" id="stat-daily-label">Today's Rev (10 PRs)</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-daily-avg">$2,822</div>
+                    <div class="stat-val" id="stat-daily-avg">$2,972</div>
                     <div class="stat-label">Avg Daily Pace</div>
                 </div>
             </div>
 
             <div class="grid-2" style="margin-top:8px;">
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-weekly-rev">$19,755</div>
+                    <div class="stat-val" id="stat-weekly-rev">$20,805</div>
                     <div class="stat-label">Weekly Total</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-weekly-avg">$19,755</div>
+                    <div class="stat-val" id="stat-weekly-avg">$20,805</div>
                     <div class="stat-label">Avg Weekly Pace</div>
                 </div>
             </div>
@@ -649,12 +649,12 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card">
             <div class="card-title">
                 <span>📡 Pull Request Radar</span>
-                <span style="color:var(--accent-cyan); font-size:11px;" id="radar-count">107 Active</span>
+                <span style="color:var(--accent-cyan); font-size:11px;" id="radar-count">112 Active</span>
             </div>
             <!-- Filter Pills -->
             <div style="display:flex; gap:6px; margin-bottom:12px; overflow-x:auto;">
-                <button class="chip" id="filter-all" onclick="filterRadar('all')" style="background:var(--accent-cyan); color:#000; border-color:var(--accent-cyan); font-weight:800;">All (107)</button>
-                <button class="chip" id="filter-review" onclick="filterRadar('review')">⏳ In Review (75)</button>
+                <button class="chip" id="filter-all" onclick="filterRadar('all')" style="background:var(--accent-cyan); color:#000; border-color:var(--accent-cyan); font-weight:800;">All (112)</button>
+                <button class="chip" id="filter-review" onclick="filterRadar('review')">⏳ In Review (80)</button>
                 <button class="chip" id="filter-merged" onclick="filterRadar('merged')" style="color:var(--accent-green); border-color:rgba(0,230,118,0.4);">🎉 Merged (32 • $5,430)</button>
             </div>
             <div id="pr-radar-list">
@@ -713,7 +713,7 @@ HTML_PAGE = """<!DOCTYPE html>
                     <div>
                         <div class="badge-info-title">Centurion Titan</div>
                         <div class="badge-info-sub">100+ Live Pull Requests</div>
-                        <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED (107/100)</span>
+                        <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED (112/100)</span>
                     </div>
                 </div>
 
@@ -724,7 +724,7 @@ HTML_PAGE = """<!DOCTYPE html>
                     <div>
                         <div class="badge-info-title">ARR Studio</div>
                         <div class="badge-info-sub">Reach $25,000 Pipeline</div>
-                        <span class="badge-status" style="background:rgba(255,255,255,0.1); color:#8b949e;">79.0%</span>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.1); color:#8b949e;">83.2%</span>
                     </div>
                 </div>
             </div>
@@ -1545,14 +1545,14 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
             except Exception as e:
                 data = {
-                    'gross_pipeline': 19755.0,
-                    'ar': 14325.0,
+                    'gross_pipeline': 20805.0,
+                    'ar': 15375.0,
                     'cash': 5430.0,
-                    'total_prs': 181,
-                    'daily': 0.0,
-                    'daily_avg': 2822.0,
-                    'weekly': 19755.0,
-                    'weekly_avg': 19755.0,
+                    'total_prs': 187,
+                    'daily': 2100.0,
+                    'daily_avg': 2972.0,
+                    'weekly': 20805.0,
+                    'weekly_avg': 20805.0,
                     'active_prs': []
                 }
                 
@@ -1577,14 +1577,14 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                         results, total_rows, total_gross = real_batch_executor.execute_batch(count=count)
                     else:
                         results = [
-                            {"repo": "Permify/permify", "pr_num": 3128, "pr_url": "https://github.com/Permify/permify/pull/3128", "value": 250.0},
-                            {"repo": "CapSoftware/Cap", "pr_num": 2199, "pr_url": "https://github.com/CapSoftware/Cap/pull/2199", "value": 200.0},
-                            {"repo": "Lilly-Protocol/lily-contracts", "pr_num": 279, "pr_url": "https://github.com/Lilly-Protocol/lily-contracts/pull/279", "value": 250.0},
-                            {"repo": "projectdiscovery/katana", "pr_num": 1800, "pr_url": "https://github.com/projectdiscovery/katana/pull/1800", "value": 200.0},
-                            {"repo": "tscircuit/schematic-trace-solver", "pr_num": 1042, "pr_url": "https://github.com/tscircuit/schematic-trace-solver/pull/1042", "value": 150.0},
+                            {"repo": "Permify/permify", "pr_num": 3134, "pr_url": "https://github.com/Permify/permify/pull/3134", "value": 250.0},
+                            {"repo": "projectdiscovery/subfinder", "pr_num": 1851, "pr_url": "https://github.com/projectdiscovery/subfinder/pull/1851", "value": 200.0},
+                            {"repo": "projectdiscovery/katana", "pr_num": 1804, "pr_url": "https://github.com/projectdiscovery/katana/pull/1804", "value": 200.0},
+                            {"repo": "Lilly-Protocol/lily-contracts", "pr_num": 336, "pr_url": "https://github.com/Lilly-Protocol/lily-contracts/pull/336", "value": 250.0},
+                            {"repo": "tscircuit/schematic-trace-solver", "pr_num": 1057, "pr_url": "https://github.com/tscircuit/schematic-trace-solver/pull/1057", "value": 150.0},
                         ][:count]
-                        total_rows = 107
-                        total_gross = 19755.0
+                        total_rows = 112
+                        total_gross = 20805.0
 
 
                 
@@ -1647,15 +1647,15 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 wb = openpyxl.load_workbook(ledger_path, data_only=True)
 
                 ws_dash = wb['Executive Dashboard']
-                gross = float(ws_dash.cell(1, 2).value or 19755.0)
+                gross = float(ws_dash.cell(1, 2).value or 20805.0)
                 cash = float(ws_dash.cell(4, 2).value or 5430.0)
-                prs = int(ws_dash.cell(7, 2).value or 181)
+                prs = int(ws_dash.cell(7, 2).value or 187)
                 ar = gross - cash
             except Exception:
-                gross = 19755.0
+                gross = 20805.0
                 cash = 5430.0
-                prs = 181
-                ar = 14325.0
+                prs = 187
+                ar = 15375.0
 
             if any(k in q_lower for k in ['status', 'pipeline', 'financial', 'how much', 'money', 'revenue', 'arr']):
                 response_text = f"""📊 <b>LIVE FINANCIAL & PIPELINE SNAPSHOT</b><br><br>
