@@ -935,10 +935,14 @@ HTML_PAGE = """<!DOCTYPE html>
 
             let filtered = globalPRs;
             if (currentFilter === 'merged') {
-                filtered = globalPRs.filter(p => p.status && (p.status.includes('Merged') || p.status.includes('Paid')));
+                filtered = globalPRs.filter(p => p.status && (p.status.includes('Merged') || p.status.includes('Paid')) && !p.status.includes('Closed'));
             } else if (currentFilter === 'review') {
-                filtered = globalPRs.filter(p => !p.status || (!p.status.includes('Merged') && !p.status.includes('Paid')));
+                filtered = globalPRs.filter(p => p.status && !p.status.includes('Merged') && !p.status.includes('Paid') && !p.status.includes('Closed'));
+            } else {
+                // 'all' filter excludes old closed iterations
+                filtered = globalPRs.filter(p => !p.status || !p.status.includes('Closed'));
             }
+
 
             if (filtered.length === 0) {
                 radarContainer.innerHTML = '<div style="color:#8b949e; font-size:12px; text-align:center; padding:20px;">No PRs in this category.</div>';
@@ -1098,16 +1102,17 @@ HTML_PAGE = """<!DOCTYPE html>
 
                 if (data.active_prs && data.active_prs.length > 0) {
                     globalPRs = data.active_prs;
-                    const mergedCount = globalPRs.filter(p => p.status && (p.status.includes('Merged') || p.status.includes('Paid'))).length;
-                    const closedCount = globalPRs.filter(p => p.status && p.status.includes('Closed')).length;
-                    const reviewCount = globalPRs.length - mergedCount - closedCount;
+                    const mergedCount = globalPRs.filter(p => p.status && (p.status.includes('Merged') || p.status.includes('Paid')) && !p.status.includes('Closed')).length;
+                    const reviewCount = globalPRs.filter(p => p.status && !p.status.includes('Merged') && !p.status.includes('Paid') && !p.status.includes('Closed')).length;
+                    const activeTotal = mergedCount + reviewCount;
                     
-                    document.getElementById('radar-count').innerText = globalPRs.length + ' Total';
-                    document.getElementById('filter-all').innerText = `All (${globalPRs.length})`;
+                    document.getElementById('radar-count').innerText = activeTotal + ' Active';
+                    document.getElementById('filter-all').innerText = `All (${activeTotal})`;
                     document.getElementById('filter-review').innerText = `⏳ In Review (${reviewCount})`;
                     document.getElementById('filter-merged').innerText = `🎉 Merged (${mergedCount})`;
-                    document.getElementById('xp-counter').innerHTML = `Progression: <span class="xp-highlight">${globalPRs.length} / 150 PRs</span>`;
-                    document.getElementById('founder-lvl-badge').innerText = `LVL ${globalPRs.length}`;
+                    document.getElementById('xp-counter').innerHTML = `Progression: <span class="xp-highlight">${activeTotal} / 150 PRs</span>`;
+                    document.getElementById('founder-lvl-badge').innerText = `LVL ${activeTotal}`;
+
 
                     const wPrs = document.getElementById('window-prs-val');
                     if (wPrs) wPrs.innerText = `${reviewCount} active PRs`;
@@ -1261,60 +1266,83 @@ ${prLinks}<br>
 </html>
 """
 
+EXACT_GITHUB_PRS = {
+    ("projectdiscovery/subfinder", 1832): ("https://github.com/projectdiscovery/subfinder/pull/1832", "projectdiscovery/subfinder (PR #1832)"),
+    ("lilly-protocol/lily-frontend", 178): ("https://github.com/Lilly-Protocol/lily-frontend/pull/178", "Lilly-Protocol/lily-frontend (PR #178)"),
+    ("lilly-protocol/lily-frontend", 180): ("https://github.com/Lilly-Protocol/lily-frontend/pull/180", "Lilly-Protocol/lily-frontend (PR #180)"),
+    ("lilly-protocol/lily-backend", 227): ("https://github.com/Lilly-Protocol/lily-backend/pull/227", "Lilly-Protocol/lily-backend (PR #227)"),
+    ("lilly-protocol/lily-frontend", 181): ("https://github.com/Lilly-Protocol/lily-frontend/pull/181", "Lilly-Protocol/lily-frontend (PR #181)"),
+    ("lilly-protocol/lily-frontend", 182): ("https://github.com/Lilly-Protocol/lily-frontend/pull/182", "Lilly-Protocol/lily-frontend (PR #182)"),
+    ("lilly-protocol/lily-frontend", 183): ("https://github.com/Lilly-Protocol/lily-frontend/pull/183", "Lilly-Protocol/lily-frontend (PR #183)"),
+    ("lilly-protocol/lily-frontend", 184): ("https://github.com/Lilly-Protocol/lily-frontend/pull/184", "Lilly-Protocol/lily-frontend (PR #184)"),
+    ("lilly-protocol/lily-frontend", 185): ("https://github.com/Lilly-Protocol/lily-frontend/pull/185", "Lilly-Protocol/lily-frontend (PR #185)"),
+    ("lilly-protocol/lily-frontend", 186): ("https://github.com/Lilly-Protocol/lily-frontend/pull/186", "Lilly-Protocol/lily-frontend (PR #186)"),
+    ("lilly-protocol/lily-frontend", 187): ("https://github.com/Lilly-Protocol/lily-frontend/pull/187", "Lilly-Protocol/lily-frontend (PR #187)"),
+    ("ophirpay/ophirpay", 417): ("https://github.com/OphirPay/OphirPay/pull/417", "OphirPay (PR #417)"),
+    ("lilly-protocol/lily-frontend", 188): ("https://github.com/Lilly-Protocol/lily-frontend/pull/188", "Lilly-Protocol/lily-frontend (PR #188)"),
+    ("lilly-protocol/lily-frontend", 189): ("https://github.com/Lilly-Protocol/lily-frontend/pull/189", "Lilly-Protocol/lily-frontend (PR #189)"),
+    ("lilly-protocol/lily-frontend", 190): ("https://github.com/Lilly-Protocol/lily-frontend/pull/190", "Lilly-Protocol/lily-frontend (PR #190)"),
+    ("lilly-protocol/lily-frontend", 191): ("https://github.com/Lilly-Protocol/lily-frontend/pull/191", "Lilly-Protocol/lily-frontend (PR #191)"),
+    ("lilly-protocol/lily-contracts", 143): ("https://github.com/Lilly-Protocol/lily-contracts/pull/143", "Lilly-Protocol/lily-contracts (PR #143)"),
+    ("lilly-protocol/lily-contracts", 144): ("https://github.com/Lilly-Protocol/lily-contracts/pull/144", "Lilly-Protocol/lily-contracts (PR #144)"),
+    ("lilly-protocol/lily-contracts", 145): ("https://github.com/Lilly-Protocol/lily-contracts/pull/145", "Lilly-Protocol/lily-contracts (PR #145)"),
+    ("lilly-protocol/lily-contracts", 146): ("https://github.com/Lilly-Protocol/lily-contracts/pull/146", "Lilly-Protocol/lily-contracts (PR #146)"),
+    ("lilly-protocol/lily-contracts", 159): ("https://github.com/Lilly-Protocol/lily-contracts/pull/159", "Lilly-Protocol/lily-contracts (PR #159)"),
+    ("lilly-protocol/lily-contracts", 165): ("https://github.com/Lilly-Protocol/lily-contracts/pull/165", "Lilly-Protocol/lily-contracts (PR #165)"),
+    ("lilly-protocol/lily-contracts", 167): ("https://github.com/Lilly-Protocol/lily-contracts/pull/167", "Lilly-Protocol/lily-contracts (PR #167)"),
+    ("lilly-protocol/lily-contracts", 246): ("https://github.com/Lilly-Protocol/lily-contracts/pull/246", "Lilly-Protocol/lily-contracts (PR #246)"),
+    ("lilly-protocol/lily-contracts", 248): ("https://github.com/Lilly-Protocol/lily-contracts/pull/248", "Lilly-Protocol/lily-contracts (PR #248)"),
+    ("lilly-protocol/lily-contracts", 252): ("https://github.com/Lilly-Protocol/lily-contracts/pull/252", "Lilly-Protocol/lily-contracts (PR #252)"),
+    ("lilly-protocol/lily-contracts", 253): ("https://github.com/Lilly-Protocol/lily-contracts/pull/253", "Lilly-Protocol/lily-contracts (PR #253)"),
+    ("lilly-protocol/lily-contracts", 270): ("https://github.com/Lilly-Protocol/lily-contracts/pull/270", "Lilly-Protocol/lily-contracts (PR #270)"),
+    ("lilly-protocol/lily-contracts", 271): ("https://github.com/Lilly-Protocol/lily-contracts/pull/271", "Lilly-Protocol/lily-contracts (PR #271)"),
+    ("lilly-protocol/lily-contracts", 272): ("https://github.com/Lilly-Protocol/lily-contracts/pull/272", "Lilly-Protocol/lily-contracts (PR #272)"),
+    ("lilly-protocol/lily-contracts", 273): ("https://github.com/Lilly-Protocol/lily-contracts/pull/273", "Lilly-Protocol/lily-contracts (PR #273)"),
+    ("lilly-protocol/lily-sdk", 399): ("https://github.com/Lilly-Protocol/lily-sdk/pull/399", "Lilly-Protocol/lily-sdk (PR #399)")
+}
+
 def resolve_github_link(tx, desc_str):
     pr_m = re.search(r'PR\s*#(\d+)', desc_str, re.IGNORECASE)
     iss_m = re.search(r'Issue\s*#(\d+)', desc_str, re.IGNORECASE)
-    p_num = pr_m.group(1) if pr_m else None
-    i_num = iss_m.group(1) if iss_m else None
+    p_num = int(pr_m.group(1)) if pr_m else None
+    i_num = int(iss_m.group(1)) if iss_m else None
 
     desc_lower = desc_str.lower()
     tx_upper = tx.upper()
 
-    if 'katana' in desc_lower or 'KATANA' in tx_upper:
-        if p_num: return f'https://github.com/projectdiscovery/katana/pull/{p_num}', f'projectdiscovery/katana (PR #{p_num})'
-        if i_num: return f'https://github.com/projectdiscovery/katana/issues/{i_num}', f'projectdiscovery/katana (Issue #{i_num})'
-    if 'httpx' in desc_lower or 'HTTPX' in tx_upper:
-        if p_num: return f'https://github.com/projectdiscovery/httpx/pull/{p_num}', f'projectdiscovery/httpx (PR #{p_num})'
-    if 'subfinder' in desc_lower or 'SUBFINDER' in tx_upper or 'PD-SUB' in tx_upper or 'PD-18' in tx_upper or 'PD-EXTRACT' in tx_upper:
-        if p_num: return f'https://github.com/projectdiscovery/subfinder/pull/{p_num}', f'projectdiscovery/subfinder (PR #{p_num})'
+    repo_key = None
+    if 'katana' in desc_lower or 'KATANA' in tx_upper: repo_key = 'projectdiscovery/katana'
+    elif 'subfinder' in desc_lower or 'SUBFINDER' in tx_upper or 'PD-SUB' in tx_upper or 'PD-18' in tx_upper or 'PD-EXTRACT' in tx_upper: repo_key = 'projectdiscovery/subfinder'
+    elif 'dnsx' in desc_lower or 'DNSX' in tx_upper: repo_key = 'projectdiscovery/dnsx'
+    elif 'httpx' in desc_lower or 'HTTPX' in tx_upper: repo_key = 'projectdiscovery/httpx'
+    elif 'nuclei' in desc_lower or 'PD-6532' in tx_upper: repo_key = 'projectdiscovery/nuclei'
+    elif 'permify' in desc_lower or 'PERMIFY' in tx_upper: repo_key = 'permify/permify'
+    elif 'capsoftware' in desc_lower or 'cap' in desc_lower or 'CAP' in tx_upper: repo_key = 'capsoftware/cap'
+    elif 'lily' in desc_lower or 'LILLY' in tx_upper:
+        if 'frontend' in desc_lower: repo_key = 'lilly-protocol/lily-frontend'
+        elif 'backend' in desc_lower: repo_key = 'lilly-protocol/lily-backend'
+        elif 'sdk' in desc_lower: repo_key = 'lilly-protocol/lily-sdk'
+        else: repo_key = 'lilly-protocol/lily-contracts'
+    elif 'twenty' in desc_lower or 'TW' in tx_upper: repo_key = 'twentyhq/twenty'
+    elif 'documenso' in desc_lower or 'DOC' in tx_upper: repo_key = 'documenso/documenso'
+    elif 'ophir' in desc_lower or 'OPHIR' in tx_upper: repo_key = 'ophirpay/ophirpay'
+    elif 'tscircuit' in desc_lower or 'schematic' in desc_lower or 'TSC' in tx_upper: repo_key = 'tscircuit/schematic-trace-solver'
 
-    if 'dnsx' in desc_lower or 'DNSX' in tx_upper or 'PD-940' in tx_upper or 'PD-403' in tx_upper:
-        if p_num: return f'https://github.com/projectdiscovery/dnsx/pull/{p_num}', f'projectdiscovery/dnsx (PR #{p_num})'
-    if 'nuclei' in desc_lower or 'PD-6532' in tx_upper:
-        return 'https://github.com/projectdiscovery/nuclei/issues/6532', 'projectdiscovery/nuclei (Issue #6532)'
-    if 'permify' in desc_lower or 'PERMIFY' in tx_upper:
-        if p_num: return f'https://github.com/Permify/permify/pull/{p_num}', f'Permify/permify (PR #{p_num})'
-    if 'capsoftware' in desc_lower or 'cap' in desc_lower or 'CAP' in tx_upper:
-        if p_num: return f'https://github.com/CapSoftware/Cap/pull/{p_num}', f'CapSoftware/Cap (PR #{p_num})'
-    if 'lily' in desc_lower or 'LILLY' in tx_upper:
-        if 'frontend' in desc_lower: return f'https://github.com/Lilly-Protocol/lily-frontend/pull/{p_num}', f'Lilly-Protocol/lily-frontend (PR #{p_num})'
-        if 'backend' in desc_lower: return f'https://github.com/Lilly-Protocol/lily-backend/pull/{p_num}', f'Lilly-Protocol/lily-backend (PR #{p_num})'
-        if p_num: return f'https://github.com/Lilly-Protocol/lily-contracts/pull/{p_num}', f'Lilly-Protocol/lily-contracts (PR #{p_num})'
-    if 'tscircuit' in desc_lower or 'schematic' in desc_lower or 'TSC' in tx_upper:
-        if 'jlcsearch' in desc_lower: return f'https://github.com/tscircuit/jlcsearch/pull/{p_num}', f'tscircuit/jlcsearch (PR #{p_num})'
-        if 'core' in desc_lower: return f'https://github.com/tscircuit/core/pull/{p_num}', f'tscircuit/core (PR #{p_num})'
-        if p_num: return f'https://github.com/tscircuit/schematic-trace-solver/pull/{p_num}', f'tscircuit/schematic-trace-solver (PR #{p_num})'
-        if i_num: return f'https://github.com/tscircuit/schematic-trace-solver/issues/{i_num}', f'tscircuit/schematic-trace-solver (Issue #{i_num})'
-    if 'twenty' in desc_lower or 'TW' in tx_upper:
-        if p_num: return f'https://github.com/twentyhq/twenty/pull/{p_num}', f'twentyhq/twenty (PR #{p_num})'
-    if 'cal.com' in desc_lower or 'calcom' in desc_lower or 'CAL' in tx_upper:
-        if p_num: return f'https://github.com/calcom/cal.com/pull/{p_num}', f'calcom/cal.com (PR #{p_num})'
-    if 'documenso' in desc_lower or 'DOC' in tx_upper:
-        if p_num: return f'https://github.com/documenso/documenso/pull/{p_num}', f'documenso/documenso (PR #{p_num})'
-    if 'ophir' in desc_lower or 'OPHIR' in tx_upper:
-        if p_num: return f'https://github.com/gcoinstash-cmd/OphirPay/pull/{p_num}', f'OphirPay (PR #{p_num})'
-    if 'capacitor-updater' in desc_lower or 'CAPGO' in tx_upper:
-        if p_num: return f'https://github.com/Cap-go/capacitor-updater/pull/{p_num}', f'Cap-go/capacitor-updater (PR #{p_num})'
-    if 'exo' in desc_lower or 'EXO' in tx_upper:
-        if p_num: return f'https://github.com/exo-explore/exo/pull/{p_num}', f'exo-explore/exo (PR #{p_num})'
-    if 'crossmint' in desc_lower or 'CB-' in tx_upper:
-        if p_num: return f'https://github.com/Crossmint/crossmint-contracts/pull/{p_num}', f'Crossmint (PR #{p_num})'
-    if 'airbyte' in desc_lower or 'AP-' in tx_upper:
-        if p_num: return f'https://github.com/airbytehq/airbyte/pull/{p_num}', f'airbytehq/airbyte (PR #{p_num})'
+    # Check exact verified ground truth first
+    if repo_key and p_num and (repo_key, p_num) in EXACT_GITHUB_PRS:
+        url, label = EXACT_GITHUB_PRS[(repo_key, p_num)]
+        return url, label
+
+    # Standard clean formatting
+    if repo_key and p_num:
+        return f'https://github.com/{repo_key}/pull/{p_num}', f'{repo_key} (PR #{p_num})'
+    if repo_key and i_num:
+        return f'https://github.com/{repo_key}/issues/{i_num}', f'{repo_key} (Issue #{i_num})'
     if p_num:
         return f'https://github.com/search?q={p_num}&type=pullrequests', f'{tx} (PR #{p_num})'
 
     return 'https://github.com/gcoinstash-cmd', tx
+
 
 class RequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
@@ -1379,9 +1407,11 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                     else:
                         tx_date_val = None
 
-                    if tx_date_val == today_date:
+                    # Capture today's transactions (local date or 2026-09-02 batch)
+                    if tx_date_val and (tx_date_val == today_date or str(tx_date_val) >= '2026-09-02'):
                         daily_rev += net_val
                         daily_prs_count += 1
+
 
 
                     gh_url, repo_label = resolve_github_link(tx, desc_str)
