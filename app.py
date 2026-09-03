@@ -649,13 +649,13 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card">
             <div class="card-title">
                 <span>📡 Pull Request Radar</span>
-                <span style="color:var(--accent-cyan); font-size:11px;" id="radar-count">115 Active</span>
+                <span style="color:var(--accent-cyan); font-size:11px;" id="radar-count">108 Active</span>
             </div>
             <!-- Filter Pills -->
             <div style="display:flex; gap:6px; margin-bottom:12px; overflow-x:auto;">
-                <button class="chip" id="filter-all" onclick="filterRadar('all')" style="background:var(--accent-cyan); color:#000; border-color:var(--accent-cyan); font-weight:800;">All (115)</button>
-                <button class="chip" id="filter-review" onclick="filterRadar('review')">⏳ In Review (83)</button>
-                <button class="chip" id="filter-merged" onclick="filterRadar('merged')" style="color:var(--accent-green); border-color:rgba(0,230,118,0.4);">🎉 Merged (32 • $5,430)</button>
+                <button class="chip" id="filter-all" onclick="filterRadar('all')" style="background:var(--accent-cyan); color:#000; border-color:var(--accent-cyan); font-weight:800;">All (108)</button>
+                <button class="chip" id="filter-review" onclick="filterRadar('review')">⏳ In Review (75)</button>
+                <button class="chip" id="filter-merged" onclick="filterRadar('merged')" style="color:var(--accent-green); border-color:rgba(0,230,118,0.4);">🎉 Merged (33 • $5,630)</button>
             </div>
             <div id="pr-radar-list">
                 <div style="color:#8b949e; font-size:12px; text-align:center; padding:20px;">Loading live PR feed...</div>
@@ -1378,8 +1378,13 @@ def resolve_github_link(tx, desc_str):
     elif 'twenty' in desc_lower or 'TW' in tx_upper: repo_key = 'twentyhq/twenty'
     elif 'documenso' in desc_lower or 'DOC' in tx_upper: repo_key = 'documenso/documenso'
     elif 'ophir' in desc_lower or 'OPHIR' in tx_upper: repo_key = 'ophirpay/ophirpay'
-    elif 'tscircuit' in desc_lower or 'schematic' in desc_lower or 'TSC' in tx_upper: repo_key = 'tscircuit/schematic-trace-solver'
+    elif 'tscircuit' in desc_lower or 'schematic' in desc_lower or 'TSC' in tx_upper:
+        if 'jlcsearch' in desc_lower: repo_key = 'tscircuit/jlcsearch'
+        elif 'core' in desc_lower: repo_key = 'tscircuit/core'
+        else: repo_key = 'tscircuit/schematic-trace-solver'
     elif 'claude-builders' in desc_lower or 'CB-' in tx_upper: repo_key = 'claude-builders-bounty/claude-builders-bounty'
+    elif 'calcom' in desc_lower or 'cal.diy' in desc_lower or 'CAL' in tx_upper: repo_key = 'calcom/cal.diy'
+    elif 'exo' in desc_lower or 'EXO' in tx_upper: repo_key = 'exo-explore/exo'
 
     # Check exact verified ground truth first
     if repo_key and p_num and (repo_key, p_num) in EXACT_GITHUB_PRS:
@@ -1541,8 +1546,8 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
             except Exception as e:
                 data = {
                     'gross_pipeline': 33880.0,
-                    'ar': 16625.0,
-                    'cash': 5430.0,
+                    'ar': 14325.0,
+                    'cash': 5630.0,
                     'total_prs': 181,
                     'daily': 0.0,
                     'daily_avg': 4840.0,
