@@ -1491,13 +1491,13 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                         tx_low = tx.lower()
                         eco_name = "Other"
                         eco_icon = "📦"
-                        if any(k in d_low or k in tx_low for k in ["katana", "subfinder", "dnsx", "httpx", "pd-", "projectdiscovery"]):
+                        if any(k in d_low or k in tx_low for k in ["katana", "subfinder", "dnsx", "httpx", "pd-", "projectdiscovery", "nuclei"]):
                             eco_name, eco_icon = "ProjectDiscovery", "🕷️"
                         elif "lilly" in d_low or "lilly" in tx_low:
                             eco_name, eco_icon = "Lilly Protocol", "⛓️"
                         elif "permify" in d_low or "permify" in tx_low:
                             eco_name, eco_icon = "Permify", "🛡️"
-                        elif any(k in d_low or k in tx_low for k in ["tscircuit", "schematic", "ts-", "core"]):
+                        elif any(k in d_low or k in tx_low for k in ["tscircuit", "schematic", "ts-", "core", "jlcsearch"]):
                             eco_name, eco_icon = "TSCircuit", "📐"
                         elif any(k in d_low or k in tx_low for k in ["claude-builders", "cb-"]):
                             eco_name, eco_icon = "Claude Builders", "🤖"
@@ -1509,10 +1509,14 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                             eco_name, eco_icon = "Cal.com", "📅"
                         elif "documenso" in d_low or "doc" in tx_low:
                             eco_name, eco_icon = "Documenso", "📄"
-                        elif "cap" in d_low or "cap" in tx_low:
+                        elif "cap" in d_low or "cap-" in tx_low or "capsoftware" in d_low:
                             eco_name, eco_icon = "CapSoftware", "🎥"
-                        elif "exo" in d_low or "exo" in tx_low:
+                        elif "exo" in d_low or "exo-" in tx_low:
                             eco_name, eco_icon = "Exo", "🌌"
+                        elif "keep" in d_low or "keephq" in d_low:
+                            eco_name, eco_icon = "KeepHQ", "🚨"
+                        elif "activepieces" in d_low:
+                            eco_name, eco_icon = "Activepieces", "🧩"
 
                         if eco_name not in ecosystems:
                             ecosystems[eco_name] = {"icon": eco_icon, "name": eco_name, "value": 0.0}
@@ -1567,6 +1571,17 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                     'daily_avg': 3886.0,
                     'weekly': 27205.0,
                     'weekly_avg': 27205.0,
+                    'ecosystems': [
+                        {"icon": "⛓️", "name": "Lilly Protocol", "value": 7830.0},
+                        {"icon": "🕷️", "name": "ProjectDiscovery", "value": 6850.0},
+                        {"icon": "🛡️", "name": "Permify", "value": 6500.0},
+                        {"icon": "📐", "name": "TSCircuit", "value": 4700.0},
+                        {"icon": "🤖", "name": "Claude Builders", "value": 575.0},
+                        {"icon": "💼", "name": "Twenty CRM", "value": 350.0},
+                        {"icon": "🪙", "name": "OphirPay", "value": 200.0},
+                        {"icon": "📅", "name": "Cal.com", "value": 100.0},
+                        {"icon": "📄", "name": "Documenso", "value": 100.0}
+                    ],
                     'active_prs': []
                 }
                 
