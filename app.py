@@ -556,18 +556,18 @@ HTML_PAGE = """<!DOCTYPE html>
                     <div class="stat-label" id="stat-daily-label">Today's Rev (5 PRs)</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-daily-avg">$4,840</div>
+                    <div class="stat-val" id="stat-daily-avg">$2,822</div>
                     <div class="stat-label">Avg Daily Pace</div>
                 </div>
             </div>
 
             <div class="grid-2" style="margin-top:8px;">
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-weekly-rev">$33,880</div>
+                    <div class="stat-val" id="stat-weekly-rev">$19,755</div>
                     <div class="stat-label">Weekly Total</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-weekly-avg">$33,880</div>
+                    <div class="stat-val" id="stat-weekly-avg">$19,755</div>
                     <div class="stat-label">Avg Weekly Pace</div>
                 </div>
             </div>
@@ -713,7 +713,7 @@ HTML_PAGE = """<!DOCTYPE html>
                     <div>
                         <div class="badge-info-title">Centurion Titan</div>
                         <div class="badge-info-sub">100+ Live Pull Requests</div>
-                        <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED (101/100)</span>
+                        <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED (107/100)</span>
                     </div>
                 </div>
 
@@ -724,7 +724,7 @@ HTML_PAGE = """<!DOCTYPE html>
                     <div>
                         <div class="badge-info-title">ARR Studio</div>
                         <div class="badge-info-sub">Reach $25,000 Pipeline</div>
-                        <span class="badge-status" style="background:rgba(255,255,255,0.1); color:#8b949e;">60.3%</span>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.1); color:#8b949e;">79.0%</span>
                     </div>
                 </div>
             </div>
@@ -1152,7 +1152,7 @@ HTML_PAGE = """<!DOCTYPE html>
 
                 document.getElementById('stat-daily-rev').innerText = '+$' + Math.round(Number(data.daily)).toLocaleString('en-US', {maximumFractionDigits: 0});
 
-                const prsCountToday = data.daily_prs !== undefined ? data.daily_prs : 16;
+                const prsCountToday = data.daily_prs !== undefined ? data.daily_prs : 5;
                 const labelEl = document.getElementById('stat-daily-label');
                 if (labelEl) labelEl.innerText = `Today's Rev (${prsCountToday} PRs)`;
                 document.getElementById('stat-daily-avg').innerText = '$' + Math.round(Number(data.daily_avg)).toLocaleString('en-US', {maximumFractionDigits: 0});
@@ -1583,8 +1583,8 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                             {"repo": "projectdiscovery/katana", "pr_num": 1800, "pr_url": "https://github.com/projectdiscovery/katana/pull/1800", "value": 200.0},
                             {"repo": "tscircuit/schematic-trace-solver", "pr_num": 1042, "pr_url": "https://github.com/tscircuit/schematic-trace-solver/pull/1042", "value": 150.0},
                         ][:count]
-                        total_rows = 101
-                        total_gross = 30730.0
+                        total_rows = 107
+                        total_gross = 19755.0
 
 
                 
@@ -1600,9 +1600,9 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                     wb_c = openpyxl.load_workbook(ledger_path, data_only=True)
 
                     ws_dash_c = wb_c['Executive Dashboard']
-                    cur_cash = float(ws_dash_c.cell(4, 2).value or 2830.0)
+                    cur_cash = float(ws_dash_c.cell(4, 2).value or 5430.0)
                 except Exception:
-                    cur_cash = 2830.0
+                    cur_cash = 5430.0
 
                 total_added = sum([r['value'] for r in results])
                 pr_links = "".join([f"• <a href='{r['pr_url']}' target='_blank' style='color:#00f2fe; font-weight:700;'><b>{r['repo']} (PR #{r['pr_num']})</b></a> (+${r['value']:.0f})<br>" for r in results])
@@ -1647,15 +1647,15 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 wb = openpyxl.load_workbook(ledger_path, data_only=True)
 
                 ws_dash = wb['Executive Dashboard']
-                gross = float(ws_dash.cell(1, 2).value or 18530.0)
-                cash = float(ws_dash.cell(4, 2).value or 100.0)
-                prs = int(ws_dash.cell(7, 2).value or 104)
+                gross = float(ws_dash.cell(1, 2).value or 19755.0)
+                cash = float(ws_dash.cell(4, 2).value or 5430.0)
+                prs = int(ws_dash.cell(7, 2).value or 181)
                 ar = gross - cash
             except Exception:
-                gross = 18530.0
-                cash = 100.0
-                prs = 104
-                ar = 18430.0
+                gross = 19755.0
+                cash = 5430.0
+                prs = 181
+                ar = 14325.0
 
             if any(k in q_lower for k in ['status', 'pipeline', 'financial', 'how much', 'money', 'revenue', 'arr']):
                 response_text = f"""📊 <b>LIVE FINANCIAL & PIPELINE SNAPSHOT</b><br><br>
