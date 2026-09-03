@@ -1396,21 +1396,22 @@ def resolve_github_link(tx, desc_str):
 
 class RequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
-        if self.path == '/' or self.path == '/index.html':
+        clean_path = self.path.split('?')[0]
+        if clean_path == '/' or clean_path == '/index.html':
             self.send_response(200)
             self.send_header('Content-type', 'text/html')
             self.send_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
             self.send_header('Pragma', 'no-cache')
             self.end_headers()
             self.wfile.write(HTML_PAGE.encode('utf-8'))
-        elif self.path == '/app-icon.jpg' or self.path == '/apple-touch-icon.png' or self.path == '/apple-touch-icon-precomposed.png':
+        elif clean_path in ['/app-icon.jpg', '/apple-touch-icon.png', '/apple-touch-icon-precomposed.png']:
             icon_path = '/Users/gmane/.gemini/antigravity/brain/05fb0951-3c61-49c8-81c2-c5318bfdc09f/scratch/app-icon.jpg'
             self.send_response(200)
             self.send_header('Content-type', 'image/jpeg')
             self.end_headers()
             with open(icon_path, 'rb') as f:
                 self.wfile.write(f.read())
-        elif self.path == '/api/metrics':
+        elif clean_path == '/api/metrics':
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.send_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
