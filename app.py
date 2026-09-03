@@ -770,14 +770,18 @@ HTML_PAGE = """<!DOCTYPE html>
 
     <!-- VIEW 6: CHAT -->
     <div class="content-view" id="view-chat" style="display:none;">
+        <div style="display:flex; justify-content:space-between; align-items:center; padding: 0 4px 10px 4px;">
+            <div style="font-size:12px; font-weight:800; color:#8b949e; letter-spacing:0.5px;">💬 COMMAND LOG</div>
+            <button onclick="clearChat()" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.15); color:#8b949e; font-size:10px; font-weight:700; padding:4px 10px; border-radius:6px; cursor:pointer;">🧹 Clear Chat</button>
+        </div>
         <div id="chat-container">
             <div class="message bot-msg">
                 👋 <b>BountyGrid OS Commander ready.</b><br>
                 Use the tabs above or command the AI agent directly.
             </div>
-
         </div>
     </div>
+
 
     <div class="chip-bar" id="chip-bar" style="display:none;">
         <div class="chip" onclick="quickNav('Status')">📊 Status</div>
@@ -906,6 +910,18 @@ HTML_PAGE = """<!DOCTYPE html>
             chatContainer.appendChild(div);
             views.chat.scrollTop = views.chat.scrollHeight;
         }
+
+        function clearChat() {
+            chatContainer.innerHTML = `
+                <div class="message bot-msg">
+                    👋 <b>Chat cleared. BountyGrid OS Commander ready.</b><br>
+                    Use the tabs above or command the AI agent directly.
+                </div>
+            `;
+            const oldReceipt = document.getElementById('live-sprint-receipt-bubble');
+            if (oldReceipt) oldReceipt.remove();
+        }
+
 
         let globalPRs = [];
         let currentFilter = 'all';
@@ -1119,40 +1135,9 @@ HTML_PAGE = """<!DOCTYPE html>
                     const wPip = document.getElementById('window-pipeline-val');
                     if (wPip) wPip.innerText = '$' + Math.round(Number(data.gross_pipeline)).toLocaleString('en-US') + ' pipeline';
                     renderRadarList();
-
-
-
-                    // Render dynamic real-time sprint receipt in chat container
-                    if (data.latest_sprint && data.latest_sprint.prs && data.latest_sprint.prs.length > 0) {
-                        const ls = data.latest_sprint;
-                        const prLinks = ls.prs.map(r => `• <a href="${r.url}" target="_blank" style="color:#00f2fe; font-weight:700;"><b>${r.repo_label}</b></a> (+${r.value.toFixed(0)})<br>`).join('');
-                        const totalAdded = ls.prs.reduce((acc, p) => acc + (Number(p.value) || 0), 0);
-                        
-                        const receiptHtml = `🧾 <b>LATEST TRANSACTION RECEIPT</b><br><br>
-<b>Execution Mode:</b> APEX POWER SPRINT (${ls.prs.length} Distinct Repos)<br>
-<b>Status:</b> 🟢 100% Submitted to GitHub & Verified Green<br><br>
-<b>Itemized PR Submissions:</b><br>
-${prLinks}<br>
-💰 <b>Added This Wave:</b> +$${totalAdded.toLocaleString()}<br>
-📊 <b>New Gross Pipeline:</b> $${Math.round(data.gross_pipeline).toLocaleString()} across ${data.total_prs} PRs<br>
-⏳ <b>Accounts Receivable:</b> $${Math.round(data.ar).toLocaleString()}<br>
-💵 <b>Stripe Cash:</b> $${Math.round(data.cash).toLocaleString()}.00<br>
-🔒 <b>Tri-Layer Storage:</b> Synced to Google Drive!`;
-
-                        
-                        const existingReceipt = document.getElementById('live-sprint-receipt-bubble');
-                        if (existingReceipt) {
-                            existingReceipt.innerHTML = receiptHtml;
-                        } else {
-                            const bubble = document.createElement('div');
-                            bubble.id = 'live-sprint-receipt-bubble';
-                            bubble.className = 'message bot-msg';
-                            bubble.innerHTML = receiptHtml;
-                            chatContainer.appendChild(bubble);
-                        }
-                    }
                 }
             } catch(e) {
+
 
                 updateConnectionStatus(false);
             }
