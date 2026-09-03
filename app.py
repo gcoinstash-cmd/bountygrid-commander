@@ -646,13 +646,13 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card">
             <div class="card-title">
                 <span>📡 Pull Request Radar</span>
-                <span style="color:var(--accent-cyan); font-size:11px;" id="radar-count">88 Total</span>
+                <span style="color:var(--accent-cyan); font-size:11px;" id="radar-count">122 Active</span>
             </div>
             <!-- Filter Pills -->
             <div style="display:flex; gap:6px; margin-bottom:12px; overflow-x:auto;">
-                <button class="chip" id="filter-all" onclick="filterRadar('all')" style="background:var(--accent-cyan); color:#000; border-color:var(--accent-cyan); font-weight:800;">All (88)</button>
-                <button class="chip" id="filter-review" onclick="filterRadar('review')">⏳ In Review (87)</button>
-                <button class="chip" id="filter-merged" onclick="filterRadar('merged')" style="color:var(--accent-green); border-color:var(--accent-green);">🎉 Merged ($100)</button>
+                <button class="chip" id="filter-all" onclick="filterRadar('all')" style="background:var(--accent-cyan); color:#000; border-color:var(--accent-cyan); font-weight:800;">All (122)</button>
+                <button class="chip" id="filter-review" onclick="filterRadar('review')">⏳ In Review (90)</button>
+                <button class="chip" id="filter-merged" onclick="filterRadar('merged')" style="color:var(--accent-green); border-color:rgba(0,230,118,0.4);">🎉 Merged (32 • $5,430)</button>
             </div>
             <div id="pr-radar-list">
                 <div style="color:#8b949e; font-size:12px; text-align:center; padding:20px;">Loading live PR feed...</div>
@@ -924,37 +924,70 @@ HTML_PAGE = """<!DOCTYPE html>
 
         function filterRadar(filter) {
             currentFilter = filter;
-            document.querySelectorAll('#view-radar .chip').forEach(c => {
-                c.style.background = 'rgba(255, 255, 255, 0.06)';
-                c.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                c.style.color = '#00f2fe';
-                c.style.fontWeight = '700';
-            });
+            const btnAll = document.getElementById('filter-all');
+            const btnReview = document.getElementById('filter-review');
+            const btnMerged = document.getElementById('filter-merged');
 
-            const activeBtn = document.getElementById('filter-' + filter);
-            if (activeBtn) {
-                activeBtn.style.background = '#00f2fe';
-                activeBtn.style.borderColor = '#00f2fe';
-                activeBtn.style.color = '#000';
-                activeBtn.style.fontWeight = '800';
+            // Reset base styles
+            if (btnAll) {
+                btnAll.style.background = 'rgba(255, 255, 255, 0.06)';
+                btnAll.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                btnAll.style.color = '#00f2fe';
+                btnAll.style.fontWeight = '700';
             }
+            if (btnReview) {
+                btnReview.style.background = 'rgba(255, 255, 255, 0.06)';
+                btnReview.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                btnReview.style.color = '#00f2fe';
+                btnReview.style.fontWeight = '700';
+            }
+            if (btnMerged) {
+                btnMerged.style.background = 'rgba(255, 255, 255, 0.06)';
+                btnMerged.style.borderColor = 'rgba(0, 230, 118, 0.4)';
+                btnMerged.style.color = 'var(--accent-green)';
+                btnMerged.style.fontWeight = '700';
+            }
+
+            // Highlight active button
+            if (filter === 'merged' && btnMerged) {
+                btnMerged.style.background = 'var(--accent-green)';
+                btnMerged.style.borderColor = 'var(--accent-green)';
+                btnMerged.style.color = '#000';
+                btnMerged.style.fontWeight = '900';
+            } else if (filter === 'review' && btnReview) {
+                btnReview.style.background = 'var(--accent-cyan)';
+                btnReview.style.borderColor = 'var(--accent-cyan)';
+                btnReview.style.color = '#000';
+                btnReview.style.fontWeight = '900';
+            } else if (btnAll) {
+                btnAll.style.background = 'var(--accent-cyan)';
+                btnAll.style.borderColor = 'var(--accent-cyan)';
+                btnAll.style.color = '#000';
+                btnAll.style.fontWeight = '900';
+            }
+
             renderRadarList();
         }
 
         function renderRadarList() {
             const radarContainer = document.getElementById('pr-radar-list');
+            if (!radarContainer) return;
             radarContainer.innerHTML = '';
+
+            if (!globalPRs || globalPRs.length === 0) {
+                radarContainer.innerHTML = '<div style="color:#8b949e; font-size:12px; text-align:center; padding:20px;">Loading live PR feed...</div>';
+                return;
+            }
 
             let filtered = globalPRs;
             if (currentFilter === 'merged') {
-                filtered = globalPRs.filter(p => p.status && (p.status.includes('Merged') || p.status.includes('Paid')) && !p.status.includes('Closed'));
+                filtered = globalPRs.filter(p => p && p.status && (p.status.includes('Merged') || p.status.includes('Paid')) && !p.status.includes('Closed'));
             } else if (currentFilter === 'review') {
-                filtered = globalPRs.filter(p => p.status && !p.status.includes('Merged') && !p.status.includes('Paid') && !p.status.includes('Closed'));
+                filtered = globalPRs.filter(p => p && p.status && !p.status.includes('Merged') && !p.status.includes('Paid') && !p.status.includes('Closed'));
             } else {
                 // 'all' filter excludes old closed iterations
-                filtered = globalPRs.filter(p => !p.status || !p.status.includes('Closed'));
+                filtered = globalPRs.filter(p => !p || !p.status || !p.status.includes('Closed'));
             }
-
 
             if (filtered.length === 0) {
                 radarContainer.innerHTML = '<div style="color:#8b949e; font-size:12px; text-align:center; padding:20px;">No PRs in this category.</div>';
@@ -962,18 +995,22 @@ HTML_PAGE = """<!DOCTYPE html>
             }
 
             filtered.forEach(pr => {
+                if (!pr) return;
                 const item = document.createElement('a');
-                item.href = pr.url;
+                item.href = pr.url || '#';
                 item.target = '_blank';
                 item.className = 'pr-item';
                 const isMerged = pr.status && (pr.status.includes('Merged') || pr.status.includes('Paid'));
+                const repoLabel = pr.repo_label || 'PR';
+                const prDesc = pr.desc || 'Pull Request';
+                const prVal = Number(pr.value || 0).toFixed(0);
                 
                 item.innerHTML = `
                     <div>
-                        <div class="pr-repo">${pr.repo_label} ${isMerged ? ' <span style="background:#00e676; color:#000; font-size:9px; font-weight:900; padding:2px 6px; border-radius:10px;">MERGED</span>' : ''}</div>
-                        <div class="pr-desc">${pr.desc}</div>
+                        <div class="pr-repo">${repoLabel} ${isMerged ? ' <span style="background:#00e676; color:#000; font-size:9px; font-weight:900; padding:2px 6px; border-radius:10px;">MERGED</span>' : ''}</div>
+                        <div class="pr-desc">${prDesc}</div>
                     </div>
-                    <div class="pr-badge" style="${isMerged ? 'background:rgba(0,230,118,0.25); color:#00e676; border-color:#00e676; box-shadow:0 0 10px rgba(0,230,118,0.4);' : ''}">+$${Number(pr.value).toFixed(0)}</div>
+                    <div class="pr-badge" style="${isMerged ? 'background:rgba(0,230,118,0.25); color:#00e676; border-color:#00e676; box-shadow:0 0 10px rgba(0,230,118,0.4);' : ''}">+$${prVal}</div>
                 `;
                 radarContainer.appendChild(item);
             });
@@ -1127,10 +1164,11 @@ HTML_PAGE = """<!DOCTYPE html>
                     const reviewCount = globalPRs.filter(p => p.status && !p.status.includes('Merged') && !p.status.includes('Paid') && !p.status.includes('Closed')).length;
                     const activeTotal = mergedCount + reviewCount;
                     
+                    const cashFormatted = '$' + Math.round(Number(data.cash || 0)).toLocaleString('en-US');
                     document.getElementById('radar-count').innerText = activeTotal + ' Active';
                     document.getElementById('filter-all').innerText = `All (${activeTotal})`;
                     document.getElementById('filter-review').innerText = `⏳ In Review (${reviewCount})`;
-                    document.getElementById('filter-merged').innerText = `🎉 Merged (${mergedCount})`;
+                    document.getElementById('filter-merged').innerText = `🎉 Merged (${mergedCount} • ${cashFormatted})`;
                     document.getElementById('xp-counter').innerHTML = `Progression: <span class="xp-highlight">${activeTotal} / 150 PRs</span>`;
                     document.getElementById('founder-lvl-badge').innerText = `LVL ${activeTotal}`;
 
@@ -1488,14 +1526,14 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
             except Exception as e:
                 data = {
-                    'gross_pipeline': 15080.0,
-                    'ar': 14980.0,
-                    'cash': 100.0,
-                    'total_prs': 88,
-                    'daily': 6350.0,
-                    'daily_avg': 2154.29,
-                    'weekly': 15080.0,
-                    'weekly_avg': 15080.0,
+                    'gross_pipeline': 33880.0,
+                    'ar': 28450.0,
+                    'cash': 5430.0,
+                    'total_prs': 181,
+                    'daily': 0.0,
+                    'daily_avg': 4840.0,
+                    'weekly': 33880.0,
+                    'weekly_avg': 33880.0,
                     'active_prs': []
                 }
                 
