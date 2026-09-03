@@ -649,12 +649,12 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card">
             <div class="card-title">
                 <span>📡 Pull Request Radar</span>
-                <span style="color:var(--accent-cyan); font-size:11px;" id="radar-count">122 Active</span>
+                <span style="color:var(--accent-cyan); font-size:11px;" id="radar-count">117 Active</span>
             </div>
             <!-- Filter Pills -->
             <div style="display:flex; gap:6px; margin-bottom:12px; overflow-x:auto;">
-                <button class="chip" id="filter-all" onclick="filterRadar('all')" style="background:var(--accent-cyan); color:#000; border-color:var(--accent-cyan); font-weight:800;">All (122)</button>
-                <button class="chip" id="filter-review" onclick="filterRadar('review')">⏳ In Review (90)</button>
+                <button class="chip" id="filter-all" onclick="filterRadar('all')" style="background:var(--accent-cyan); color:#000; border-color:var(--accent-cyan); font-weight:800;">All (117)</button>
+                <button class="chip" id="filter-review" onclick="filterRadar('review')">⏳ In Review (85)</button>
                 <button class="chip" id="filter-merged" onclick="filterRadar('merged')" style="color:var(--accent-green); border-color:rgba(0,230,118,0.4);">🎉 Merged (32 • $5,430)</button>
             </div>
             <div id="pr-radar-list">
@@ -1540,7 +1540,7 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
             except Exception as e:
                 data = {
                     'gross_pipeline': 33880.0,
-                    'ar': 28450.0,
+                    'ar': 16625.0,
                     'cash': 5430.0,
                     'total_prs': 181,
                     'daily': 0.0,
