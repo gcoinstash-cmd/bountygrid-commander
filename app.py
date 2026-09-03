@@ -649,12 +649,12 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card">
             <div class="card-title">
                 <span>📡 Pull Request Radar</span>
-                <span style="color:var(--accent-cyan); font-size:11px;" id="radar-count">117 Active</span>
+                <span style="color:var(--accent-cyan); font-size:11px;" id="radar-count">115 Active</span>
             </div>
             <!-- Filter Pills -->
             <div style="display:flex; gap:6px; margin-bottom:12px; overflow-x:auto;">
-                <button class="chip" id="filter-all" onclick="filterRadar('all')" style="background:var(--accent-cyan); color:#000; border-color:var(--accent-cyan); font-weight:800;">All (117)</button>
-                <button class="chip" id="filter-review" onclick="filterRadar('review')">⏳ In Review (85)</button>
+                <button class="chip" id="filter-all" onclick="filterRadar('all')" style="background:var(--accent-cyan); color:#000; border-color:var(--accent-cyan); font-weight:800;">All (115)</button>
+                <button class="chip" id="filter-review" onclick="filterRadar('review')">⏳ In Review (83)</button>
                 <button class="chip" id="filter-merged" onclick="filterRadar('merged')" style="color:var(--accent-green); border-color:rgba(0,230,118,0.4);">🎉 Merged (32 • $5,430)</button>
             </div>
             <div id="pr-radar-list">
@@ -1379,6 +1379,7 @@ def resolve_github_link(tx, desc_str):
     elif 'documenso' in desc_lower or 'DOC' in tx_upper: repo_key = 'documenso/documenso'
     elif 'ophir' in desc_lower or 'OPHIR' in tx_upper: repo_key = 'ophirpay/ophirpay'
     elif 'tscircuit' in desc_lower or 'schematic' in desc_lower or 'TSC' in tx_upper: repo_key = 'tscircuit/schematic-trace-solver'
+    elif 'claude-builders' in desc_lower or 'CB-' in tx_upper: repo_key = 'claude-builders-bounty/claude-builders-bounty'
 
     # Check exact verified ground truth first
     if repo_key and p_num and (repo_key, p_num) in EXACT_GITHUB_PRS:
