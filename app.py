@@ -18,6 +18,9 @@ HTML_PAGE = """<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>BountyGrid OS Commander</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -1124,7 +1127,10 @@ HTML_PAGE = """<!DOCTYPE html>
             try {
                 const controller = new AbortController();
                 const timeoutId = setTimeout(() => controller.abort(), 4000);
-                const res = await fetch('/api/metrics', { signal: controller.signal });
+                const res = await fetch('/api/metrics?t=' + Date.now(), { 
+                    signal: controller.signal,
+                    cache: 'no-store'
+                });
                 clearTimeout(timeoutId);
                 
                 if (!res.ok) throw new Error("HTTP error " + res.status);
@@ -1393,6 +1399,8 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
         if self.path == '/' or self.path == '/index.html':
             self.send_response(200)
             self.send_header('Content-type', 'text/html')
+            self.send_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
+            self.send_header('Pragma', 'no-cache')
             self.end_headers()
             self.wfile.write(HTML_PAGE.encode('utf-8'))
         elif self.path == '/app-icon.jpg' or self.path == '/apple-touch-icon.png' or self.path == '/apple-touch-icon-precomposed.png':
@@ -1405,6 +1413,8 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
         elif self.path == '/api/metrics':
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
+            self.send_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
+            self.send_header('Pragma', 'no-cache')
             self.end_headers()
             
             try:
