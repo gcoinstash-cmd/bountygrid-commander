@@ -513,7 +513,7 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card">
             <div class="card-title">
                 <span>🎛️ Pipeline by Ecosystem</span>
-                <span style="color:var(--accent-cyan); font-size:10px;" id="eco-count-label">9 Organizations</span>
+                <span style="color:var(--accent-cyan); font-size:10px;" id="eco-count-label">12 Organizations</span>
             </div>
             <div class="repo-carousel" id="repo-carousel-container">
                 <div class="repo-pill-card">
@@ -551,6 +551,18 @@ HTML_PAGE = """<!DOCTYPE html>
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">📄 Documenso</span>
                     <span class="repo-pill-val">$100</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">🎥 CapSoftware</span>
+                    <span class="repo-pill-val">$0</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">🧩 Activepieces</span>
+                    <span class="repo-pill-val">$0</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">🚨 KeepHQ</span>
+                    <span class="repo-pill-val">$0</span>
                 </div>
             </div>
         </div>
@@ -1457,7 +1469,20 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 daily_rev = 0.0
                 daily_prs_count = 0
                 active_prs = []
-                ecosystems = {}
+                ecosystems = {
+                    "Lilly Protocol": {"icon": "⛓️", "name": "Lilly Protocol", "value": 0.0},
+                    "ProjectDiscovery": {"icon": "🕷️", "name": "ProjectDiscovery", "value": 0.0},
+                    "Permify": {"icon": "🛡️", "name": "Permify", "value": 0.0},
+                    "TSCircuit": {"icon": "📐", "name": "TSCircuit", "value": 0.0},
+                    "Claude Builders": {"icon": "🤖", "name": "Claude Builders", "value": 0.0},
+                    "Twenty CRM": {"icon": "💼", "name": "Twenty CRM", "value": 0.0},
+                    "OphirPay": {"icon": "🪙", "name": "OphirPay", "value": 0.0},
+                    "Cal.com": {"icon": "📅", "name": "Cal.com", "value": 0.0},
+                    "Documenso": {"icon": "📄", "name": "Documenso", "value": 0.0},
+                    "CapSoftware": {"icon": "🎥", "name": "CapSoftware", "value": 0.0},
+                    "Activepieces": {"icon": "🧩", "name": "Activepieces", "value": 0.0},
+                    "KeepHQ": {"icon": "🚨", "name": "KeepHQ", "value": 0.0}
+                }
                 r_scan = 2
 
                 while ws_ledger.cell(r_scan, 2).value is not None:
@@ -1518,9 +1543,8 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                         elif "activepieces" in d_low:
                             eco_name, eco_icon = "Activepieces", "🧩"
 
-                        if eco_name not in ecosystems:
-                            ecosystems[eco_name] = {"icon": eco_icon, "name": eco_name, "value": 0.0}
-                        ecosystems[eco_name]["value"] += net_val
+                        if eco_name in ecosystems:
+                            ecosystems[eco_name]["value"] += net_val
 
                     gh_url, repo_label = resolve_github_link(tx, desc_str)
 
@@ -1580,7 +1604,10 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                         {"icon": "💼", "name": "Twenty CRM", "value": 350.0},
                         {"icon": "🪙", "name": "OphirPay", "value": 200.0},
                         {"icon": "📅", "name": "Cal.com", "value": 100.0},
-                        {"icon": "📄", "name": "Documenso", "value": 100.0}
+                        {"icon": "📄", "name": "Documenso", "value": 100.0},
+                        {"icon": "🎥", "name": "CapSoftware", "value": 0.0},
+                        {"icon": "🧩", "name": "Activepieces", "value": 0.0},
+                        {"icon": "🚨", "name": "KeepHQ", "value": 0.0}
                     ],
                     'active_prs': []
                 }
