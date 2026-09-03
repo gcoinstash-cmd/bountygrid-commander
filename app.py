@@ -518,7 +518,7 @@ HTML_PAGE = """<!DOCTYPE html>
             <div class="repo-carousel" id="repo-carousel-container">
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">⛓️ Lilly Protocol</span>
-                    <span class="repo-pill-val">$7,680</span>
+                    <span class="repo-pill-val">$7,380</span>
                 </div>
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">🛡️ Permify</span>
@@ -526,23 +526,31 @@ HTML_PAGE = """<!DOCTYPE html>
                 </div>
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">🕷️ ProjectDiscovery</span>
-                    <span class="repo-pill-val">$4,900</span>
+                    <span class="repo-pill-val">$4,700</span>
                 </div>
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">📐 TSCircuit</span>
-                    <span class="repo-pill-val">$4,250</span>
+                    <span class="repo-pill-val">$4,100</span>
                 </div>
                 <div class="repo-pill-card">
-                    <span class="repo-pill-name">🎥 CapSoftware</span>
-                    <span class="repo-pill-val">$900</span>
-                </div>
-                <div class="repo-pill-card">
-                    <span class="repo-pill-name">🪙 OphirPay</span>
-                    <span class="repo-pill-val">$800</span>
+                    <span class="repo-pill-name">🤖 Claude Builders</span>
+                    <span class="repo-pill-val">$575</span>
                 </div>
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">💼 Twenty CRM</span>
-                    <span class="repo-pill-val">$700</span>
+                    <span class="repo-pill-val">$350</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">🪙 OphirPay</span>
+                    <span class="repo-pill-val">$200</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">📅 Cal.com</span>
+                    <span class="repo-pill-val">$100</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">📄 Documenso</span>
+                    <span class="repo-pill-val">$100</span>
                 </div>
             </div>
         </div>
@@ -1483,22 +1491,28 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                         tx_low = tx.lower()
                         eco_name = "Other"
                         eco_icon = "📦"
-                        if any(k in d_low or k in tx_low for k in ["katana", "subfinder", "dnsx", "httpx", "pd-"]):
+                        if any(k in d_low or k in tx_low for k in ["katana", "subfinder", "dnsx", "httpx", "pd-", "projectdiscovery"]):
                             eco_name, eco_icon = "ProjectDiscovery", "🕷️"
                         elif "lilly" in d_low or "lilly" in tx_low:
                             eco_name, eco_icon = "Lilly Protocol", "⛓️"
                         elif "permify" in d_low or "permify" in tx_low:
                             eco_name, eco_icon = "Permify", "🛡️"
-                        elif "cap" in d_low or "cap" in tx_low:
-                            eco_name, eco_icon = "CapSoftware", "🎥"
-                        elif any(k in d_low or k in tx_low for k in ["tscircuit", "schematic", "ts-"]):
+                        elif any(k in d_low or k in tx_low for k in ["tscircuit", "schematic", "ts-", "core"]):
                             eco_name, eco_icon = "TSCircuit", "📐"
+                        elif any(k in d_low or k in tx_low for k in ["claude-builders", "cb-"]):
+                            eco_name, eco_icon = "Claude Builders", "🤖"
                         elif "twenty" in d_low or "tw-" in tx_low:
                             eco_name, eco_icon = "Twenty CRM", "💼"
                         elif "ophir" in d_low or "ophir" in tx_low:
                             eco_name, eco_icon = "OphirPay", "🪙"
+                        elif "cal" in d_low or "cal-" in tx_low or "calcom" in d_low:
+                            eco_name, eco_icon = "Cal.com", "📅"
                         elif "documenso" in d_low or "doc" in tx_low:
                             eco_name, eco_icon = "Documenso", "📄"
+                        elif "cap" in d_low or "cap" in tx_low:
+                            eco_name, eco_icon = "CapSoftware", "🎥"
+                        elif "exo" in d_low or "exo" in tx_low:
+                            eco_name, eco_icon = "Exo", "🌌"
 
                         if eco_name not in ecosystems:
                             ecosystems[eco_name] = {"icon": eco_icon, "name": eco_name, "value": 0.0}
