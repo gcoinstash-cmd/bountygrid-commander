@@ -452,51 +452,48 @@ HTML_PAGE = """<!DOCTYPE html>
 
     <!-- VIEW 1: FORECAST & LEVEL PROGRESS -->
     <div class="content-view" id="view-dash">
-        <!-- MAINTAINER REVIEW WINDOW BANNER -->
-        <div class="card" style="background: linear-gradient(135deg, rgba(0, 230, 118, 0.15), rgba(0, 242, 254, 0.08)); border-color: rgba(0, 230, 118, 0.35);">
+        <!-- REVIEW WINDOW -->
+        <div class="card">
             <div class="card-title">
-                <span>⏱️ MAINTAINER REVIEW WINDOW</span>
-                <span style="color:#00e676; font-weight:900;" id="countdown-timer">🟢 ACTIVE NOW</span>
+                <span>🕒 UPSTREAM REVIEW WINDOW</span>
+                <span style="color:var(--accent-green); font-size:11px;">● ACTIVE QUEUE</span>
             </div>
             <div style="font-size:12px; color:#c9d1d9;" id="maintainer-window-desc">
-                <b>Review Window:</b> Maintainers triage PRs Mon–Fri (9 AM – 6 PM). Next batch review begins at 9:00 AM EST for your <b style="color:#fff;" id="window-prs-val">128 active PRs</b> (<span style="color:var(--accent-cyan);" id="window-pipeline-val">$23,530.00</span> pipeline).
+                <b>Review Window:</b> Maintainers triage PRs Mon–Fri (9 AM – 6 PM). Next batch review begins at 9:00 AM EST for your <b style="color:#fff;" id="window-prs-val">87 active PRs</b> (<span style="color:var(--accent-cyan);" id="window-pipeline-val">$33,880 pipeline</span>).
             </div>
         </div>
-
-
 
         <!-- PROGRESS TOWARD $50K -->
         <div class="card" style="background: linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(157, 78, 221, 0.1));">
             <div class="card-title">
                 <span>🎯 Monthly Milestone: $50,000</span>
-                <span style="color:var(--accent-cyan);" id="pace-percent">55.5% Pace</span>
+                <span style="color:var(--accent-cyan);" id="pace-percent">67.8% Pace</span>
             </div>
             <div class="progress-wrap">
                 <div class="progress-bar-bg">
-                    <div class="progress-bar-fill" id="progress-fill"></div>
+                    <div class="progress-bar-fill" id="progress-fill" style="width: 67.8%;"></div>
                 </div>
                 <div class="progress-labels">
-                    <span id="prog-current">$27,730 Achieved</span>
+                    <span id="prog-current">$33,880 Achieved</span>
                     <span>Goal: $50,000</span>
                 </div>
             </div>
         </div>
-
 
         <!-- FINANCIAL STATEMENT -->
         <div class="card">
             <div class="card-title">💰 Master Financial Statements</div>
             <div class="grid-3">
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-gross" style="color:var(--accent-cyan);">$15,080</div>
+                    <div class="stat-val" id="stat-gross" style="color:var(--accent-cyan);">$33,880</div>
                     <div class="stat-label">Gross Pipeline</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-ar" style="color:var(--accent-gold);">$14,980</div>
+                    <div class="stat-val" id="stat-ar" style="color:var(--accent-gold);">$28,450</div>
                     <div class="stat-label">In Review</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-cash" style="color:var(--accent-green);">$100</div>
+                    <div class="stat-val" id="stat-cash" style="color:var(--accent-green);">$5,430</div>
                     <div class="stat-label">Stripe Cash</div>
                 </div>
             </div>
@@ -511,27 +508,27 @@ HTML_PAGE = """<!DOCTYPE html>
             <div class="repo-carousel" id="repo-carousel-container">
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">⛓️ Lilly Protocol</span>
-                    <span class="repo-pill-val">$6,430</span>
+                    <span class="repo-pill-val">$6,680</span>
                 </div>
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">🛡️ Permify</span>
-                    <span class="repo-pill-val">$5,250</span>
+                    <span class="repo-pill-val">$5,500</span>
                 </div>
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">📐 TSCircuit</span>
-                    <span class="repo-pill-val">$3,450</span>
+                    <span class="repo-pill-val">$3,600</span>
                 </div>
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">🕷️ ProjectDiscovery</span>
-                    <span class="repo-pill-val">$3,100</span>
+                    <span class="repo-pill-val">$3,300</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">🎥 CapSoftware</span>
+                    <span class="repo-pill-val">$900</span>
                 </div>
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">🪙 OphirPay</span>
                     <span class="repo-pill-val">$800</span>
-                </div>
-                <div class="repo-pill-card">
-                    <span class="repo-pill-name">🎥 CapSoftware</span>
-                    <span class="repo-pill-val">$700</span>
                 </div>
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">💼 Twenty CRM</span>
@@ -540,28 +537,27 @@ HTML_PAGE = """<!DOCTYPE html>
             </div>
         </div>
 
-
         <!-- BURST VELOCITY -->
         <div class="card">
             <div class="card-title">⚡ Today's Burst Velocity</div>
             <div class="grid-2">
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-daily-rev" style="color:var(--accent-green);">+$800</div>
-                    <div class="stat-label" id="stat-daily-label">Today's Rev (4 PRs)</div>
+                    <div class="stat-val" id="stat-daily-rev" style="color:var(--accent-green);">+$1,050</div>
+                    <div class="stat-label" id="stat-daily-label">Today's Rev (5 PRs)</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-daily-avg">$2,269</div>
+                    <div class="stat-val" id="stat-daily-avg">$4,840</div>
                     <div class="stat-label">Avg Daily Pace</div>
                 </div>
             </div>
 
             <div class="grid-2" style="margin-top:8px;">
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-weekly-rev">$15,080</div>
+                    <div class="stat-val" id="stat-weekly-rev">$33,880</div>
                     <div class="stat-label">Weekly Total</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-weekly-avg">$15,080</div>
+                    <div class="stat-val" id="stat-weekly-avg">$33,880</div>
                     <div class="stat-label">Avg Weekly Pace</div>
                 </div>
             </div>
@@ -1402,10 +1398,11 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                     else:
                         tx_date_val = None
 
-                    # Capture today's transactions (local date or 2026-09-02 batch)
-                    if tx_date_val and (tx_date_val == today_date or str(tx_date_val) >= '2026-09-02'):
+                    # Capture today's transactions strictly matching current calendar date
+                    if tx_date_val and tx_date_val == today_date:
                         daily_rev += net_val
                         daily_prs_count += 1
+
 
                     # Compute ecosystem totals (excluding closed)
                     if 'Closed' not in st_str:
