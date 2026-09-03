@@ -462,7 +462,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 <span style="color:var(--accent-green); font-size:11px;" id="countdown-timer">🟢 ACTIVE QUEUE</span>
             </div>
             <div style="font-size:12px; color:#c9d1d9;" id="maintainer-window-desc">
-                <b>Review Window:</b> Maintainers triage PRs Mon–Fri (9 AM – 6 PM). Next batch review begins at 9:00 AM EST for your <b style="color:#fff;" id="window-prs-val">75 active PRs</b> (<span style="color:var(--accent-cyan);" id="window-pipeline-val">$19,955 pipeline</span>).
+                <b>Review Window:</b> Maintainers triage PRs Mon–Fri (9 AM – 6 PM). Next batch review begins at 9:00 AM EST for your <b style="color:#fff;" id="window-prs-val">75 active PRs</b> (<span style="color:var(--accent-cyan);" id="window-pipeline-val">$19,755 pipeline</span>).
             </div>
         </div>
 
@@ -470,14 +470,14 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card" style="background: linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(157, 78, 221, 0.1));">
             <div class="card-title">
                 <span>🎯 Monthly Milestone: $50,000</span>
-                <span style="color:var(--accent-cyan);" id="pace-percent">39.9% Pace</span>
+                <span style="color:var(--accent-cyan);" id="pace-percent">39.5% Pace</span>
             </div>
             <div class="progress-wrap">
                 <div class="progress-bar-bg">
-                    <div class="progress-bar-fill" id="progress-fill" style="width: 39.9%;"></div>
+                    <div class="progress-bar-fill" id="progress-fill" style="width: 39.5%;"></div>
                 </div>
                 <div class="progress-labels">
-                    <span id="prog-current">$19,955 Achieved</span>
+                    <span id="prog-current">$19,755 Achieved</span>
                     <span>Goal: $50,000</span>
                 </div>
             </div>
@@ -491,7 +491,7 @@ HTML_PAGE = """<!DOCTYPE html>
             </div>
             <div class="grid-3">
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-gross" style="color:var(--accent-cyan);">$19,955</div>
+                    <div class="stat-val" id="stat-gross" style="color:var(--accent-cyan);">$19,755</div>
                     <div class="stat-label">Cumulative Gross</div>
                 </div>
                 <div class="stat-box">
@@ -499,12 +499,12 @@ HTML_PAGE = """<!DOCTYPE html>
                     <div class="stat-label">In Review (AR)</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-cash" style="color:var(--accent-green);">$5,630</div>
+                    <div class="stat-val" id="stat-cash" style="color:var(--accent-green);">$5,430</div>
                     <div class="stat-label">Cumulative Cash</div>
                 </div>
             </div>
             <div style="font-size:11px; color:#8b949e; text-align:center; margin-top:10px; padding-top:8px; border-top:1px solid rgba(255,255,255,0.06);">
-                💵 <b>Cumulative Stripe Cash</b> (<span style="color:var(--accent-green); font-weight:700;" id="footnote-cash">$5,630</span>) + ⏳ <b>AR</b> (<span style="color:var(--accent-gold); font-weight:700;" id="footnote-ar">$14,325</span>) = 📊 <b>Cumulative Pipeline</b> (<span style="color:var(--accent-cyan); font-weight:700;" id="footnote-gross">$19,955</span>)
+                💵 <b>Cumulative Stripe Cash</b> (<span style="color:var(--accent-green); font-weight:700;" id="footnote-cash">$5,430</span>) + ⏳ <b>AR</b> (<span style="color:var(--accent-gold); font-weight:700;" id="footnote-ar">$14,325</span>) = 📊 <b>Cumulative Pipeline</b> (<span style="color:var(--accent-cyan); font-weight:700;" id="footnote-gross">$19,755</span>)
             </div>
         </div>
 
@@ -649,13 +649,13 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card">
             <div class="card-title">
                 <span>📡 Pull Request Radar</span>
-                <span style="color:var(--accent-cyan); font-size:11px;" id="radar-count">108 Active</span>
+                <span style="color:var(--accent-cyan); font-size:11px;" id="radar-count">107 Active</span>
             </div>
             <!-- Filter Pills -->
             <div style="display:flex; gap:6px; margin-bottom:12px; overflow-x:auto;">
-                <button class="chip" id="filter-all" onclick="filterRadar('all')" style="background:var(--accent-cyan); color:#000; border-color:var(--accent-cyan); font-weight:800;">All (108)</button>
+                <button class="chip" id="filter-all" onclick="filterRadar('all')" style="background:var(--accent-cyan); color:#000; border-color:var(--accent-cyan); font-weight:800;">All (107)</button>
                 <button class="chip" id="filter-review" onclick="filterRadar('review')">⏳ In Review (75)</button>
-                <button class="chip" id="filter-merged" onclick="filterRadar('merged')" style="color:var(--accent-green); border-color:rgba(0,230,118,0.4);">🎉 Merged (33 • $5,630)</button>
+                <button class="chip" id="filter-merged" onclick="filterRadar('merged')" style="color:var(--accent-green); border-color:rgba(0,230,118,0.4);">🎉 Merged (32 • $5,430)</button>
             </div>
             <div id="pr-radar-list">
                 <div style="color:#8b949e; font-size:12px; text-align:center; padding:20px;">Loading live PR feed...</div>
@@ -1545,14 +1545,14 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
             except Exception as e:
                 data = {
-                    'gross_pipeline': 19955.0,
+                    'gross_pipeline': 19755.0,
                     'ar': 14325.0,
-                    'cash': 5630.0,
+                    'cash': 5430.0,
                     'total_prs': 181,
                     'daily': 0.0,
-                    'daily_avg': 2850.0,
-                    'weekly': 19955.0,
-                    'weekly_avg': 19955.0,
+                    'daily_avg': 2822.0,
+                    'weekly': 19755.0,
+                    'weekly_avg': 19755.0,
                     'active_prs': []
                 }
                 
