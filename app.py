@@ -459,7 +459,7 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card">
             <div class="card-title">
                 <span>🕒 UPSTREAM REVIEW WINDOW</span>
-                <span style="color:var(--accent-green); font-size:11px;">● ACTIVE QUEUE</span>
+                <span style="color:var(--accent-green); font-size:11px;" id="countdown-timer">🟢 ACTIVE QUEUE</span>
             </div>
             <div style="font-size:12px; color:#c9d1d9;" id="maintainer-window-desc">
                 <b>Review Window:</b> Maintainers triage PRs Mon–Fri (9 AM – 6 PM). Next batch review begins at 9:00 AM EST for your <b style="color:#fff;" id="window-prs-val">87 active PRs</b> (<span style="color:var(--accent-cyan);" id="window-pipeline-val">$33,880 pipeline</span>).
@@ -794,6 +794,7 @@ HTML_PAGE = """<!DOCTYPE html>
     </footer>
 
     <script>
+        let isOnline = true;
         const views = {
             dash: document.getElementById('view-dash'),
             batch: document.getElementById('view-batch'),
@@ -848,14 +849,16 @@ HTML_PAGE = """<!DOCTYPE html>
 
         // Live Maintainer Review Window Tracker & Dynamic Countdown
         function updateCountdown() {
+            const el = document.getElementById('countdown-timer');
+            if (!el) return;
             const now = new Date();
             const day = now.getDay(); // 0=Sun, 1=Mon, ..., 5=Fri, 6=Sat
             const hour = now.getHours();
 
             // Active Maintainer Business Hours: Mon-Fri between 9:00 AM and 6:00 PM
             if (day >= 1 && day <= 5 && hour >= 9 && hour < 18) {
-                document.getElementById('countdown-timer').innerText = '🟢 ACTIVE NOW';
-                document.getElementById('countdown-timer').style.color = '#00e676';
+                el.innerText = '🟢 ACTIVE NOW';
+                el.style.color = '#00e676';
             } else {
                 // Calculate next review window start (Next business day at 9:00 AM)
                 const target = new Date(now);
@@ -875,11 +878,11 @@ HTML_PAGE = """<!DOCTYPE html>
                     const hours = Math.floor(diff / (1000 * 60 * 60));
                     const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
                     const secs = Math.floor((diff % (1000 * 60)) / 1000);
-                    document.getElementById('countdown-timer').innerText = `${hours}h ${mins}m ${secs}s`;
-                    document.getElementById('countdown-timer').style.color = 'var(--accent-cyan)';
+                    el.innerText = `${hours}h ${mins}m ${secs}s`;
+                    el.style.color = 'var(--accent-cyan)';
                 } else {
-                    document.getElementById('countdown-timer').innerText = '🟢 ACTIVE NOW';
-                    document.getElementById('countdown-timer').style.color = '#00e676';
+                    el.innerText = '🟢 ACTIVE NOW';
+                    el.style.color = '#00e676';
                 }
             }
         }
@@ -1091,7 +1094,6 @@ HTML_PAGE = """<!DOCTYPE html>
         }, 15 * 60 * 1000);
 
         // Live Connection Heartbeat & Offline Mode Detector
-        let isOnline = true;
         function updateConnectionStatus(online) {
             const banner = document.getElementById('offline-banner');
             const pill = document.getElementById('conn-status-pill');
