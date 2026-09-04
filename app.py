@@ -624,11 +624,11 @@ HTML_PAGE = """<!DOCTYPE html>
             <div class="card-title">⚡ Today's Burst Velocity</div>
             <div class="grid-2">
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-daily-rev" style="color:var(--accent-green);">+$8,500</div>
-                    <div class="stat-label" id="stat-daily-label">Today's Rev (40 PRs)</div>
+                    <div class="stat-val" id="stat-daily-rev" style="color:var(--accent-green);">+$9,500</div>
+                    <div class="stat-label" id="stat-daily-label">Today's Rev (45 PRs)</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-daily-avg">$3,886</div>
+                    <div class="stat-val" id="stat-daily-avg">$4,029</div>
                     <div class="stat-label">Avg Daily Pace</div>
                 </div>
             </div>
