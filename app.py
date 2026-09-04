@@ -474,10 +474,10 @@ HTML_PAGE = """<!DOCTYPE html>
             </div>
             <div class="progress-wrap">
                 <div class="progress-bar-bg">
-                    <div class="progress-bar-fill" id="progress-fill" style="width: 56.4%;"></div>
+                    <div class="progress-bar-fill" id="progress-fill" style="width: 58.4%;"></div>
                 </div>
                 <div class="progress-labels">
-                    <span id="prog-current">$28,205 Achieved</span>
+                    <span id="prog-current">$29,205 Achieved</span>
                     <span>Goal: $50,000</span>
                 </div>
             </div>
@@ -491,11 +491,11 @@ HTML_PAGE = """<!DOCTYPE html>
             </div>
             <div class="grid-3">
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-gross" style="color:var(--accent-cyan);">$28,205</div>
+                    <div class="stat-val" id="stat-gross" style="color:var(--accent-cyan);">$29,205</div>
                     <div class="stat-label">Cumulative Gross</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-ar" style="color:var(--accent-gold);">$22,775</div>
+                    <div class="stat-val" id="stat-ar" style="color:var(--accent-gold);">$23,775</div>
                     <div class="stat-label">In Review (AR)</div>
                 </div>
                 <div class="stat-box">
@@ -504,7 +504,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 </div>
             </div>
             <div style="font-size:11px; color:#8b949e; text-align:center; margin-top:10px; padding-top:8px; border-top:1px solid rgba(255,255,255,0.06);">
-                💵 <b>Cumulative Stripe Cash</b> (<span style="color:var(--accent-green); font-weight:700;" id="footnote-cash">$5,430</span>) + ⏳ <b>AR</b> (<span style="color:var(--accent-gold); font-weight:700;" id="footnote-ar">$22,775</span>) = 📊 <b>Cumulative Pipeline</b> (<span style="color:var(--accent-cyan); font-weight:700;" id="footnote-gross">$28,205</span>)
+                💵 <b>Cumulative Stripe Cash</b> (<span style="color:var(--accent-green); font-weight:700;" id="footnote-cash">$5,430</span>) + ⏳ <b>AR</b> (<span style="color:var(--accent-gold); font-weight:700;" id="footnote-ar">$23,775</span>) = 📊 <b>Cumulative Pipeline</b> (<span style="color:var(--accent-cyan); font-weight:700;" id="footnote-gross">$29,205</span>)
             </div>
         </div>
 
@@ -549,6 +549,26 @@ HTML_PAGE = """<!DOCTYPE html>
                     <span class="repo-pill-val">$200</span>
                 </div>
                 <div class="repo-pill-card">
+                    <span class="repo-pill-name">🗄️ Formbricks</span>
+                    <span class="repo-pill-val">$200</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">🔔 Novu</span>
+                    <span class="repo-pill-val">$200</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">🔐 Infisical</span>
+                    <span class="repo-pill-val">$200</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">📊 PostHog</span>
+                    <span class="repo-pill-val">$200</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">💬 Chatwoot</span>
+                    <span class="repo-pill-val">$200</span>
+                </div>
+                <div class="repo-pill-card">
                     <span class="repo-pill-name">🪙 OphirPay</span>
                     <span class="repo-pill-val">$200</span>
                 </div>
@@ -573,27 +593,7 @@ HTML_PAGE = """<!DOCTYPE html>
                     <span class="repo-pill-val">$0</span>
                 </div>
                 <div class="repo-pill-card">
-                    <span class="repo-pill-name">🗄️ Formbricks</span>
-                    <span class="repo-pill-val">$0</span>
-                </div>
-                <div class="repo-pill-card">
-                    <span class="repo-pill-name">🔔 Novu</span>
-                    <span class="repo-pill-val">$0</span>
-                </div>
-                <div class="repo-pill-card">
-                    <span class="repo-pill-name">💬 Chatwoot</span>
-                    <span class="repo-pill-val">$0</span>
-                </div>
-                <div class="repo-pill-card">
-                    <span class="repo-pill-name">📊 PostHog</span>
-                    <span class="repo-pill-val">$0</span>
-                </div>
-                <div class="repo-pill-card">
                     <span class="repo-pill-name">🌐 Directus</span>
-                    <span class="repo-pill-val">$0</span>
-                </div>
-                <div class="repo-pill-card">
-                    <span class="repo-pill-name">🔐 Infisical</span>
                     <span class="repo-pill-val">$0</span>
                 </div>
                 <div class="repo-pill-card">
@@ -624,22 +624,22 @@ HTML_PAGE = """<!DOCTYPE html>
             <div class="card-title">⚡ Today's Burst Velocity</div>
             <div class="grid-2">
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-daily-rev" style="color:var(--accent-green);">+$9,500</div>
-                    <div class="stat-label" id="stat-daily-label">Today's Rev (45 PRs)</div>
+                    <div class="stat-val" id="stat-daily-rev" style="color:var(--accent-green);">+$10,500</div>
+                    <div class="stat-label" id="stat-daily-label">Today's Rev (50 PRs)</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-daily-avg">$4,029</div>
+                    <div class="stat-val" id="stat-daily-avg">$4,172</div>
                     <div class="stat-label">Avg Daily Pace</div>
                 </div>
             </div>
 
             <div class="grid-2" style="margin-top:8px;">
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-weekly-rev">$28,205</div>
+                    <div class="stat-val" id="stat-weekly-rev">$29,205</div>
                     <div class="stat-label">Weekly Total</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-weekly-avg">$28,205</div>
+                    <div class="stat-val" id="stat-weekly-avg">$29,205</div>
                     <div class="stat-label">Avg Weekly Pace</div>
                 </div>
             </div>
@@ -1700,15 +1700,15 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
             except Exception as e:
                 data = {
-                    'gross_pipeline': 28205.0,
-                    'ar': 22775.0,
+                    'gross_pipeline': 29205.0,
+                    'ar': 23775.0,
                     'cash': 5430.0,
-                    'total_prs': 222,
-                    'daily': 9500.0,
-                    'daily_prs': 45,
-                    'daily_avg': 4029.0,
-                    'weekly': 28205.0,
-                    'weekly_avg': 28205.0,
+                    'total_prs': 227,
+                    'daily': 10500.0,
+                    'daily_prs': 50,
+                    'daily_avg': 4172.0,
+                    'weekly': 29205.0,
+                    'weekly_avg': 29205.0,
                     'ecosystems': [
                         {"icon": "⛓️", "name": "Lilly Protocol", "value": 7830.0},
                         {"icon": "🕷️", "name": "ProjectDiscovery", "value": 7050.0},
@@ -1718,18 +1718,18 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                         {"icon": "💼", "name": "Twenty CRM", "value": 550.0},
                         {"icon": "📅", "name": "Cal.com", "value": 300.0},
                         {"icon": "🧩", "name": "Activepieces", "value": 200.0},
+                        {"icon": "🗄️", "name": "Formbricks", "value": 200.0},
+                        {"icon": "🔔", "name": "Novu", "value": 200.0},
+                        {"icon": "🔐", "name": "Infisical", "value": 200.0},
+                        {"icon": "📊", "name": "PostHog", "value": 200.0},
+                        {"icon": "💬", "name": "Chatwoot", "value": 200.0},
                         {"icon": "🪙", "name": "OphirPay", "value": 200.0},
                         {"icon": "📄", "name": "Documenso", "value": 100.0},
                         {"icon": "🎥", "name": "CapSoftware", "value": 0.0},
                         {"icon": "🚨", "name": "KeepHQ", "value": 0.0},
                         {"icon": "🌌", "name": "Exo Explore", "value": 0.0},
                         {"icon": "⚡", "name": "Capacitor-Updater", "value": 0.0},
-                        {"icon": "🗄️", "name": "Formbricks", "value": 0.0},
-                        {"icon": "🔔", "name": "Novu", "value": 0.0},
-                        {"icon": "💬", "name": "Chatwoot", "value": 0.0},
-                        {"icon": "📊", "name": "PostHog", "value": 0.0},
                         {"icon": "🌐", "name": "Directus", "value": 0.0},
-                        {"icon": "🔐", "name": "Infisical", "value": 0.0},
                         {"icon": "📈", "name": "OpenSign", "value": 0.0},
                         {"icon": "🛠️", "name": "ToolJet", "value": 0.0},
                         {"icon": "📬", "name": "Dub.co", "value": 0.0},
@@ -1766,8 +1766,8 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                             {"repo": "tscircuit/core", "pr_num": 3633, "pr_url": "https://github.com/tscircuit/core/pull/3633", "value": 200.0},
                             {"repo": "Lilly-Protocol/lily-contracts", "pr_num": 348, "pr_url": "https://github.com/Lilly-Protocol/lily-contracts/pull/348", "value": 250.0},
                         ][:count]
-                        total_rows = 222
-                        total_gross = 28205.0
+                        total_rows = 227
+                        total_gross = 29205.0
 
 
                 
@@ -1830,15 +1830,15 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 wb = openpyxl.load_workbook(ledger_path, data_only=True)
 
                 ws_dash = wb['Executive Dashboard']
-                gross = float(ws_dash.cell(1, 2).value or 28205.0)
+                gross = float(ws_dash.cell(1, 2).value or 29205.0)
                 cash = float(ws_dash.cell(4, 2).value or 5430.0)
-                prs = int(ws_dash.cell(7, 2).value or 222)
+                prs = int(ws_dash.cell(7, 2).value or 227)
                 ar = float(ws_dash.cell(5, 2).value or (gross - cash))
             except Exception:
-                gross = 28205.0
+                gross = 29205.0
                 cash = 5430.0
-                prs = 222
-                ar = 22775.0
+                prs = 227
+                ar = 23775.0
 
             if any(k in q_lower for k in ['status', 'pipeline', 'financial', 'how much', 'money', 'revenue', 'arr']):
                 response_text = f"""📊 <b>LIVE FINANCIAL & PIPELINE SNAPSHOT</b><br><br>
