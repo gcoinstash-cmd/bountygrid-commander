@@ -462,7 +462,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 <span style="color:var(--accent-green); font-size:11px;" id="countdown-timer">🟢 ACTIVE QUEUE</span>
             </div>
             <div style="font-size:12px; color:#c9d1d9;" id="maintainer-window-desc">
-                <b>Review Window:</b> Maintainers triage PRs Mon–Fri (9 AM – 6 PM). Next batch review begins at 9:00 AM EST for your <b style="color:#fff;" id="window-prs-val">110 active PRs</b> (<span style="color:var(--accent-cyan);" id="window-pipeline-val">$27,205 pipeline</span>).
+                <b>Review Window:</b> Maintainers triage PRs Mon–Fri (9 AM – 6 PM). Next batch review begins at 9:00 AM EST for your <b style="color:#fff;" id="window-prs-val">115 active PRs</b> (<span style="color:var(--accent-cyan);" id="window-pipeline-val">$28,205 pipeline</span>).
             </div>
         </div>
 
@@ -470,14 +470,14 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card" style="background: linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(157, 78, 221, 0.1));">
             <div class="card-title">
                 <span>🎯 Monthly Milestone: $50,000</span>
-                <span style="color:var(--accent-cyan);" id="pace-percent">54.4% Pace</span>
+                <span style="color:var(--accent-cyan);" id="pace-percent">56.4% Pace</span>
             </div>
             <div class="progress-wrap">
                 <div class="progress-bar-bg">
-                    <div class="progress-bar-fill" id="progress-fill" style="width: 54.4%;"></div>
+                    <div class="progress-bar-fill" id="progress-fill" style="width: 56.4%;"></div>
                 </div>
                 <div class="progress-labels">
-                    <span id="prog-current">$27,205 Achieved</span>
+                    <span id="prog-current">$28,205 Achieved</span>
                     <span>Goal: $50,000</span>
                 </div>
             </div>
@@ -491,11 +491,11 @@ HTML_PAGE = """<!DOCTYPE html>
             </div>
             <div class="grid-3">
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-gross" style="color:var(--accent-cyan);">$27,205</div>
+                    <div class="stat-val" id="stat-gross" style="color:var(--accent-cyan);">$28,205</div>
                     <div class="stat-label">Cumulative Gross</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-ar" style="color:var(--accent-gold);">$21,775</div>
+                    <div class="stat-val" id="stat-ar" style="color:var(--accent-gold);">$22,775</div>
                     <div class="stat-label">In Review (AR)</div>
                 </div>
                 <div class="stat-box">
@@ -504,7 +504,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 </div>
             </div>
             <div style="font-size:11px; color:#8b949e; text-align:center; margin-top:10px; padding-top:8px; border-top:1px solid rgba(255,255,255,0.06);">
-                💵 <b>Cumulative Stripe Cash</b> (<span style="color:var(--accent-green); font-weight:700;" id="footnote-cash">$5,430</span>) + ⏳ <b>AR</b> (<span style="color:var(--accent-gold); font-weight:700;" id="footnote-ar">$21,775</span>) = 📊 <b>Cumulative Pipeline</b> (<span style="color:var(--accent-cyan); font-weight:700;" id="footnote-gross">$27,205</span>)
+                💵 <b>Cumulative Stripe Cash</b> (<span style="color:var(--accent-green); font-weight:700;" id="footnote-cash">$5,430</span>) + ⏳ <b>AR</b> (<span style="color:var(--accent-gold); font-weight:700;" id="footnote-ar">$22,775</span>) = 📊 <b>Cumulative Pipeline</b> (<span style="color:var(--accent-cyan); font-weight:700;" id="footnote-gross">$28,205</span>)
             </div>
         </div>
 
@@ -522,7 +522,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 </div>
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">🕷️ ProjectDiscovery</span>
-                    <span class="repo-pill-val">$6,850</span>
+                    <span class="repo-pill-val">$7,050</span>
                 </div>
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">🛡️ Permify</span>
@@ -530,7 +530,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 </div>
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">📐 TSCircuit</span>
-                    <span class="repo-pill-val">$4,700</span>
+                    <span class="repo-pill-val">$4,900</span>
                 </div>
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">🤖 Claude Builders</span>
@@ -538,15 +538,19 @@ HTML_PAGE = """<!DOCTYPE html>
                 </div>
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">💼 Twenty CRM</span>
-                    <span class="repo-pill-val">$350</span>
+                    <span class="repo-pill-val">$550</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">📅 Cal.com</span>
+                    <span class="repo-pill-val">$300</span>
+                </div>
+                <div class="repo-pill-card">
+                    <span class="repo-pill-name">🧩 Activepieces</span>
+                    <span class="repo-pill-val">$200</span>
                 </div>
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">🪙 OphirPay</span>
                     <span class="repo-pill-val">$200</span>
-                </div>
-                <div class="repo-pill-card">
-                    <span class="repo-pill-name">📅 Cal.com</span>
-                    <span class="repo-pill-val">$100</span>
                 </div>
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">📄 Documenso</span>
@@ -554,10 +558,6 @@ HTML_PAGE = """<!DOCTYPE html>
                 </div>
                 <div class="repo-pill-card">
                     <span class="repo-pill-name">🎥 CapSoftware</span>
-                    <span class="repo-pill-val">$0</span>
-                </div>
-                <div class="repo-pill-card">
-                    <span class="repo-pill-name">🧩 Activepieces</span>
                     <span class="repo-pill-val">$0</span>
                 </div>
                 <div class="repo-pill-card">
@@ -635,11 +635,11 @@ HTML_PAGE = """<!DOCTYPE html>
 
             <div class="grid-2" style="margin-top:8px;">
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-weekly-rev">$27,205</div>
+                    <div class="stat-val" id="stat-weekly-rev">$28,205</div>
                     <div class="stat-label">Weekly Total</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-weekly-avg">$27,205</div>
+                    <div class="stat-val" id="stat-weekly-avg">$28,205</div>
                     <div class="stat-label">Avg Weekly Pace</div>
                 </div>
             </div>
@@ -1676,26 +1676,26 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
             except Exception as e:
                 data = {
-                    'gross_pipeline': 27205.0,
-                    'ar': 21775.0,
+                    'gross_pipeline': 28205.0,
+                    'ar': 22775.0,
                     'cash': 5430.0,
-                    'total_prs': 217,
-                    'daily': 8500.0,
-                    'daily_avg': 3886.0,
-                    'weekly': 27205.0,
-                    'weekly_avg': 27205.0,
+                    'total_prs': 222,
+                    'daily': 9500.0,
+                    'daily_avg': 4029.0,
+                    'weekly': 28205.0,
+                    'weekly_avg': 28205.0,
                     'ecosystems': [
                         {"icon": "⛓️", "name": "Lilly Protocol", "value": 7830.0},
-                        {"icon": "🕷️", "name": "ProjectDiscovery", "value": 6850.0},
+                        {"icon": "🕷️", "name": "ProjectDiscovery", "value": 7050.0},
                         {"icon": "🛡️", "name": "Permify", "value": 6500.0},
-                        {"icon": "📐", "name": "TSCircuit", "value": 4700.0},
+                        {"icon": "📐", "name": "TSCircuit", "value": 4900.0},
                         {"icon": "🤖", "name": "Claude Builders", "value": 575.0},
-                        {"icon": "💼", "name": "Twenty CRM", "value": 350.0},
+                        {"icon": "💼", "name": "Twenty CRM", "value": 550.0},
+                        {"icon": "📅", "name": "Cal.com", "value": 300.0},
+                        {"icon": "🧩", "name": "Activepieces", "value": 200.0},
                         {"icon": "🪙", "name": "OphirPay", "value": 200.0},
-                        {"icon": "📅", "name": "Cal.com", "value": 100.0},
                         {"icon": "📄", "name": "Documenso", "value": 100.0},
                         {"icon": "🎥", "name": "CapSoftware", "value": 0.0},
-                        {"icon": "🧩", "name": "Activepieces", "value": 0.0},
                         {"icon": "🚨", "name": "KeepHQ", "value": 0.0},
                         {"icon": "🌌", "name": "Exo Explore", "value": 0.0},
                         {"icon": "⚡", "name": "Capacitor-Updater", "value": 0.0},
