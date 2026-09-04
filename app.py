@@ -624,8 +624,8 @@ HTML_PAGE = """<!DOCTYPE html>
             <div class="card-title">⚡ Today's Burst Velocity</div>
             <div class="grid-2">
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-daily-rev" style="color:var(--accent-green);">+$10,500</div>
-                    <div class="stat-label" id="stat-daily-label">Today's Rev (50 PRs)</div>
+                    <div class="stat-val" id="stat-daily-rev" style="color:var(--accent-green);">+$0</div>
+                    <div class="stat-label" id="stat-daily-label">Today's Rev (0 PRs)</div>
                 </div>
                 <div class="stat-box">
                     <div class="stat-val" id="stat-daily-avg">$4,172</div>
@@ -1657,20 +1657,15 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
                 # Timezone-resilient burst calculation
                 all_dates = [t['date'] for t in all_txs if t['date'] is not None]
-                latest_date = max(all_dates) if all_dates else None
                 today_dates = {datetime.now().date(), datetime.utcnow().date()}
 
                 today_txs = [t for t in all_txs if t['date'] in today_dates]
                 if len(today_txs) > 0:
                     daily_rev = sum(t['val'] for t in today_txs)
                     daily_prs_count = len(today_txs)
-                elif latest_date:
-                    latest_txs = [t for t in all_txs if t['date'] == latest_date]
-                    daily_rev = sum(t['val'] for t in latest_txs)
-                    daily_prs_count = len(latest_txs)
                 else:
-                    daily_rev = 9500.0
-                    daily_prs_count = 45
+                    daily_rev = 0.0
+                    daily_prs_count = 0
 
                 daily_avg = gross / 7.0
                 weekly_rev = gross
@@ -1704,8 +1699,8 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                     'ar': 23775.0,
                     'cash': 5430.0,
                     'total_prs': 227,
-                    'daily': 10500.0,
-                    'daily_prs': 50,
+                    'daily': 0.0,
+                    'daily_prs': 0,
                     'daily_avg': 4172.0,
                     'weekly': 29205.0,
                     'weekly_avg': 29205.0,
