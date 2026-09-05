@@ -872,37 +872,37 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card" style="background: linear-gradient(135deg, rgba(0, 242, 254, 0.12), rgba(157, 78, 221, 0.15)); border-color: rgba(0, 242, 254, 0.35);">
             <div class="card-title">
                 <span>📦 Amazon-Style PR Logistics Command Center</span>
-                <span style="color:var(--accent-green); font-size:11px; font-weight:900;">142 IN FLIGHT</span>
+                <span style="color:var(--accent-green); font-size:11px; font-weight:900;">125 IN REVIEW QUEUE</span>
             </div>
             <div style="font-size:14px; color:#c9d1d9; line-height:1.5;">
-                Track software bounties exactly like Amazon packages. Every submitted PR is monitored step-by-step from initial submission to final bank deposit clearance into your Stripe-connected account.
+                Track software bounties exactly like Amazon packages in <b>strict reverse-chronological order (newest on top)</b>. Every submitted PR is monitored step-by-step from initial submission to final bank deposit clearance into your Stripe-connected account.
             </div>
             <div class="grid-3" style="margin-top:14px;">
                 <div class="stat-box">
-                    <div class="stat-val" style="color:var(--accent-cyan);">142</div>
-                    <div class="stat-label">Total PRs</div>
+                    <div class="stat-val" style="color:var(--accent-cyan);" id="deliv-stat-total">157</div>
+                    <div class="stat-label">Total In Flight</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" style="color:var(--accent-gold);">$23,775</div>
-                    <div class="stat-label">In Transit (AR)</div>
+                    <div class="stat-val" style="color:var(--accent-gold);" id="deliv-stat-ar">$24,875</div>
+                    <div class="stat-label">In Review Queue (125)</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" style="color:var(--accent-green);">$5,430</div>
-                    <div class="stat-label">Delivered (Cash)</div>
+                    <div class="stat-val" style="color:var(--accent-green);" id="deliv-stat-cash">$5,430</div>
+                    <div class="stat-label">Delivered Cash (32)</div>
                 </div>
             </div>
         </div>
 
         <div class="card">
             <div class="card-title">
-                <span>🚚 Real-Time PR Package Fleet</span>
-                <span style="color:var(--accent-cyan); font-size:12px; font-weight:800;">Filter by Stage</span>
+                <span>🚚 Real-Time PR Package Fleet (Chronological Queue)</span>
+                <span style="color:var(--accent-cyan); font-size:12px; font-weight:800;">Newest on Top</span>
             </div>
             <!-- Stage Filter Pills -->
             <div style="display:flex; gap:8px; margin-bottom:14px; overflow-x:auto;">
-                <button class="chip" id="deliv-filter-all" onclick="filterRadar('all')" style="background:var(--accent-cyan); color:#000; font-weight:900;">All Fleet (142)</button>
-                <button class="chip" id="deliv-filter-transit" onclick="filterRadar('review')">🔍 In Review (110)</button>
-                <button class="chip" id="deliv-filter-delivered" onclick="filterRadar('merged')" style="color:var(--accent-green);">💰 Delivered / Paid (32)</button>
+                <button class="chip" id="deliv-filter-all" onclick="filterRadar('all')" style="background:var(--accent-cyan); color:#000; font-weight:900;">All Fleet (157)</button>
+                <button class="chip" id="deliv-filter-transit" onclick="filterRadar('review')">⏳ In Review Queue (125)</button>
+                <button class="chip" id="deliv-filter-delivered" onclick="filterRadar('merged')" style="color:var(--accent-green);">💰 Delivered & Settled (32)</button>
             </div>
             <div id="delivery-radar-list">
                 <!-- Shared with PR Radar list -->
@@ -1003,14 +1003,14 @@ HTML_PAGE = """<!DOCTYPE html>
     <div class="content-view" id="view-radar" style="display:none;">
         <div class="card">
             <div class="card-title">
-                <span>📡 Pull Request Radar</span>
-                <span style="color:var(--accent-cyan); font-size:12px; font-weight:800;" id="radar-count">142 Active</span>
+                <span>📡 Pull Request Radar (Chronological Queue)</span>
+                <span style="color:var(--accent-cyan); font-size:12px; font-weight:800;" id="radar-count">157 Active (125 In Review)</span>
             </div>
             <!-- Filter Pills -->
             <div style="display:flex; gap:8px; margin-bottom:14px; overflow-x:auto;">
-                <button class="chip" id="filter-all" onclick="filterRadar('all')" style="background:var(--accent-cyan); color:#000; border-color:var(--accent-cyan); font-weight:900;">All (142)</button>
-                <button class="chip" id="filter-review" onclick="filterRadar('review')">⏳ In Review (110)</button>
-                <button class="chip" id="filter-merged" onclick="filterRadar('merged')" style="color:var(--accent-green); border-color:rgba(0,230,118,0.4);">🎉 Merged (32 • $5,430)</button>
+                <button class="chip" id="filter-all" onclick="filterRadar('all')" style="background:var(--accent-cyan); color:#000; border-color:var(--accent-cyan); font-weight:900;">All (157)</button>
+                <button class="chip" id="filter-review" onclick="filterRadar('review')">⏳ In Review Queue (125)</button>
+                <button class="chip" id="filter-merged" onclick="filterRadar('merged')" style="color:var(--accent-green); border-color:rgba(0,230,118,0.4);">🎉 Merged & Settled (32 • $5,430)</button>
             </div>
             <div id="pr-radar-list">
                 <div style="color:#8b949e; font-size:14px; text-align:center; padding:24px;">Loading live PR feed...</div>
@@ -1530,7 +1530,9 @@ HTML_PAGE = """<!DOCTYPE html>
             const prVal = Number(pr.value || 0).toFixed(0);
             const prUrl = pr.url || 'https://github.com/gcoinstash-cmd';
             const depositDate = getEstimatedDepositDate(isMerged);
-            const trackingNum = `BG-LOG-#${3600 + idx}`;
+            const trackingNum = `BG-LOG-#${pr.tx || (3600 + idx)}`;
+            const submitDate = pr.date || 'Sep 4, 2026';
+            const queueNum = idx + 1;
 
             // Stepper state
             const node1Class = "stepper-node done";
@@ -1544,19 +1546,20 @@ HTML_PAGE = """<!DOCTYPE html>
                 <div class="pr-tracker-card ${isMerged ? 'merged-card' : ''}">
                     <div class="pr-card-header">
                         <div>
-                            <div class="pr-repo">
-                                <span>${repoLabel}</span>
-                                <span style="font-size:11px; color:#8b949e; background:rgba(255,255,255,0.08); padding:3px 7px; border-radius:6px; font-family:monospace; font-weight:800;">${trackingNum}</span>
-                                ${isMerged ? '<span style="background:var(--accent-green); color:#000; font-size:11px; font-weight:900; padding:3px 8px; border-radius:10px;">MERGED</span>' : '<span style="background:rgba(0,242,254,0.15); color:var(--accent-cyan); border:1px solid rgba(0,242,254,0.3); font-size:11px; font-weight:900; padding:3px 8px; border-radius:10px;">IN REVIEW</span>'}
+                            <div class="pr-repo" style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                                <span style="font-size:16px; font-weight:900;">${repoLabel}</span>
+                                <span style="font-size:11px; color:#8b949e; background:rgba(255,255,255,0.08); padding:3px 8px; border-radius:6px; font-family:monospace; font-weight:800;">${trackingNum}</span>
+                                <span style="font-size:11px; color:var(--accent-cyan); background:rgba(0,242,254,0.12); padding:3px 8px; border-radius:6px; font-weight:800; border:1px solid rgba(0,242,254,0.25);">📦 Queue #${queueNum}</span>
+                                ${isMerged ? '<span style="background:var(--accent-green); color:#000; font-size:11px; font-weight:900; padding:3px 8px; border-radius:10px;">MERGED & PAID</span>' : '<span style="background:rgba(0,242,254,0.15); color:var(--accent-cyan); border:1px solid rgba(0,242,254,0.3); font-size:11px; font-weight:900; padding:3px 8px; border-radius:10px;">IN REVIEW QUEUE</span>'}
                             </div>
-                            <div class="pr-desc">${prDesc}</div>
+                            <div class="pr-desc" style="font-size:14px; margin-top:4px;">${prDesc}</div>
                         </div>
                         <div class="pr-badge" style="${isMerged ? 'background:rgba(0,230,118,0.25); color:#00e676; border-color:#00e676; box-shadow:0 0 10px rgba(0,230,118,0.4);' : ''}">+$${prVal}</div>
                     </div>
 
-                    <!-- Deposit Arrival Indicator -->
-                    <div class="deposit-forecast-badge">
-                        <span class="deposit-forecast-title">Logistics Payout Timeline</span>
+                    <!-- Deposit & Submission Timeline Bar -->
+                    <div class="deposit-forecast-badge" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px;">
+                        <span class="deposit-forecast-title">📅 Submitted: <b style="color:#fff;">${submitDate}</b></span>
                         <span class="deposit-forecast-time">${depositDate}</span>
                     </div>
 
@@ -1592,7 +1595,7 @@ HTML_PAGE = """<!DOCTYPE html>
                     <div class="intel-strip">
                         <span class="intel-pill pill-velocity">⚡ Merge Velocity: 94% (~24h)</span>
                         <span class="intel-pill pill-healer">🛡️ Auto-Healer: 100% Green</span>
-                        <span class="intel-pill pill-maintainer">${isMerged ? '🎉 Payout Released' : '💬 Courteous Reply Sent'}</span>
+                        <span class="intel-pill pill-maintainer">${isMerged ? '🎉 Payout Cleared' : '💬 CLA Signed • Review Active'}</span>
                     </div>
 
                     <!-- Action Buttons -->
@@ -1633,9 +1636,24 @@ HTML_PAGE = """<!DOCTYPE html>
                 return;
             }
 
-            const htmlContent = filtered.map((pr, idx) => createPRCardHTML(pr, idx)).join('');
-            if (radarContainer) radarContainer.innerHTML = htmlContent;
-            if (delivContainer) delivContainer.innerHTML = htmlContent;
+            const headerBanner = `
+                <div style="display:flex; justify-content:space-between; align-items:center; background:linear-gradient(90deg, rgba(0,242,254,0.08), rgba(0,230,118,0.06)); border:1px solid rgba(0,242,254,0.25); border-radius:10px; padding:10px 14px; margin-bottom:14px; flex-wrap:wrap; gap:8px;">
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <span style="font-size:16px;">⏱️</span>
+                        <div>
+                            <div style="font-size:13px; font-weight:900; color:#fff; letter-spacing:0.5px;">CHRONOLOGICAL LOGISTICS QUEUE</div>
+                            <div style="font-size:11px; color:#8b949e;">Newest pull requests on top • Older submissions below</div>
+                        </div>
+                    </div>
+                    <span style="background:rgba(0,242,254,0.15); color:var(--accent-cyan); font-size:12px; font-weight:900; padding:4px 10px; border-radius:12px; border:1px solid rgba(0,242,254,0.3);">${filtered.length} Packages Active</span>
+                </div>
+            `;
+
+            const cardsHTML = filtered.map((pr, idx) => createPRCardHTML(pr, idx)).join('');
+            const fullHTML = headerBanner + cardsHTML;
+
+            if (radarContainer) radarContainer.innerHTML = fullHTML;
+            if (delivContainer) delivContainer.innerHTML = fullHTML;
         }
 
         // Render Dynamic 25-Organization Risk Heatmap
@@ -1908,8 +1926,15 @@ Authorize by replying to this proposal or connecting via ZoMae Media LLC Stripe 
                     const dTransit = document.getElementById('deliv-filter-transit');
                     const dDeliv = document.getElementById('deliv-filter-delivered');
                     if (dAll) dAll.innerText = `All Fleet (${activeTotal})`;
-                    if (dTransit) dTransit.innerText = `🔍 In Review (${reviewCount})`;
-                    if (dDeliv) dDeliv.innerText = `💰 Delivered / Paid (${mergedCount})`;
+                    if (dTransit) dTransit.innerText = `⏳ In Review Queue (${reviewCount})`;
+                    if (dDeliv) dDeliv.innerText = `💰 Delivered & Settled (${mergedCount})`;
+
+                    const dStatTot = document.getElementById('deliv-stat-total');
+                    if (dStatTot) dStatTot.innerText = activeTotal;
+                    const dStatAr = document.getElementById('deliv-stat-ar');
+                    if (dStatAr) dStatAr.innerText = '$' + Math.round(Number(data.ar)).toLocaleString('en-US');
+                    const dStatCash = document.getElementById('deliv-stat-cash');
+                    if (dStatCash) dStatCash.innerText = '$' + Math.round(Number(data.cash)).toLocaleString('en-US');
 
                     document.getElementById('xp-counter').innerHTML = `Progression: <span class="xp-highlight">${activeTotal} / 150 PRs</span>`;
                     document.getElementById('founder-lvl-badge').innerText = `LVL ${activeTotal}`;
@@ -2292,8 +2317,12 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                             ecosystems[eco_name]["value"] += net_val
 
                     gh_url, repo_label = resolve_github_link(tx, desc_str)
+                    date_display = tx_date_val.strftime('%b %d, %Y') if tx_date_val else 'Sep 4, 2026'
 
                     active_prs.append({
+                        'tx': tx,
+                        'date': date_display,
+                        'raw_date': str(tx_date_val) if tx_date_val else '2026-09-04',
                         'repo_label': repo_label,
                         'desc': desc_str,
                         'url': gh_url,
@@ -2331,21 +2360,27 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
                 sorted_ecosystems = sorted(ecosystems.values(), key=lambda x: x["value"], reverse=True)
 
+                # Active-only list in reverse chronological order (newest on top)
+                active_only_prs = [p for p in active_prs if 'Closed' not in p.get('status', '')]
+
                 data = {
                     'gross_pipeline': gross,
                     'ar': ar,
                     'cash': cash,
                     'total_prs': prs,
+                    'active_prs_count': len(active_only_prs),
+                    'review_prs_count': len(review_txs),
+                    'merged_prs_count': len(merged_txs),
                     'daily': daily_rev,
                     'daily_prs': daily_prs_count,
                     'daily_avg': daily_avg,
                     'weekly': weekly_rev,
                     'weekly_avg': weekly_avg,
                     'ecosystems': sorted_ecosystems,
-                    'active_prs': active_prs[::-1],
+                    'active_prs': active_only_prs[::-1],
                     'latest_sprint': {
-                        'count': min(5, len(active_prs)),
-                        'prs': active_prs[-5:][::-1],
+                        'count': min(5, len(active_only_prs)),
+                        'prs': active_only_prs[-5:][::-1],
                         'total_gross': gross,
                         'total_rows': prs
                     }
