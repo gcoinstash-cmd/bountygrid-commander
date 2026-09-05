@@ -354,8 +354,44 @@ HTML_PAGE = """<!DOCTYPE html>
             gap: 12px;
         }
         .badge-card.unlocked {
-            border-color: rgba(255, 183, 3, 0.35);
-            background: linear-gradient(135deg, rgba(255, 183, 3, 0.1), rgba(0, 0, 0, 0.35));
+            border-color: rgba(0, 230, 118, 0.4);
+            background: linear-gradient(135deg, rgba(0, 230, 118, 0.12), rgba(0, 0, 0, 0.4));
+            box-shadow: 0 4px 16px rgba(0, 230, 118, 0.08);
+        }
+        .badge-card.in-progress {
+            border-color: rgba(0, 242, 254, 0.35);
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.09), rgba(0, 0, 0, 0.4));
+        }
+        .badge-card.locked {
+            border-color: rgba(255, 255, 255, 0.06);
+            background: rgba(0, 0, 0, 0.22);
+            opacity: 0.68;
+        }
+        .badge-tier-banner {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 8px 12px;
+            margin-top: 10px;
+            margin-bottom: 2px;
+        }
+        .badge-tier-title {
+            font-size: 13px;
+            font-weight: 900;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .badge-tier-count {
+            font-size: 11px;
+            font-weight: 900;
+            padding: 2px 8px;
+            border-radius: 6px;
         }
         .badge-icon { font-size: 26px; }
         .badge-info-title { font-size: 14px; font-weight: 900; color: #fff; }
@@ -1218,62 +1254,288 @@ HTML_PAGE = """<!DOCTYPE html>
 
         <div class="card">
             <div class="card-title">
-                <span>🏆 Founder Achievements Locker</span>
-                <span style="color:var(--accent-gold); font-size:12px; font-weight:900;">6 / 6 UNLOCKED</span>
+                <span>🏆 Founder Achievements Locker (25 Milestones)</span>
+                <span style="color:var(--accent-green); font-size:12px; font-weight:900; background:rgba(0,230,118,0.15); padding:4px 10px; border-radius:8px; border:1px solid rgba(0,230,118,0.3);">10 / 25 UNLOCKED (40% Complete)</span>
             </div>
+            
             <div class="badge-grid">
+                <!-- TIER 1 -->
+                <div class="badge-tier-banner">
+                    <div class="badge-tier-title">🟢 Tier 1: Sovereign Foundation</div>
+                    <span class="badge-tier-count" style="background:rgba(0,230,118,0.2); color:#00e676;">5 / 5 UNLOCKED</span>
+                </div>
+                
                 <!-- Badge 1 -->
                 <div class="badge-card unlocked">
                     <div class="badge-icon">💎</div>
                     <div>
                         <div class="badge-info-title">Five-Figure Club</div>
-                        <div class="badge-info-sub">$10k+ Pipeline Surpassed</div>
-                        <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED</span>
+                        <div class="badge-info-sub">$10k+ Gross Pipeline</div>
+                        <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED ($37.2k)</span>
                     </div>
                 </div>
+                
                 <!-- Badge 2 -->
                 <div class="badge-card unlocked">
                     <div class="badge-icon">🛡️</div>
                     <div>
                         <div class="badge-info-title">Repo Diplomat</div>
                         <div class="badge-info-sub">25 Distinct Ecosystems</div>
-                        <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED</span>
+                        <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED (25 Orgs)</span>
                     </div>
                 </div>
+                
                 <!-- Badge 3 -->
                 <div class="badge-card unlocked">
                     <div class="badge-icon">💵</div>
                     <div>
-                        <div class="badge-info-title">Cash Clearance</div>
-                        <div class="badge-info-sub">$5,430 Settled to Stripe</div>
-                        <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED</span>
+                        <div class="badge-info-title">Cash Clearance Alpha</div>
+                        <div class="badge-info-sub">$5,000+ Stripe Cash Realized</div>
+                        <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED ($5,430)</span>
                     </div>
                 </div>
+                
                 <!-- Badge 4 -->
                 <div class="badge-card unlocked">
                     <div class="badge-icon">⚡</div>
                     <div>
                         <div class="badge-info-title">Burst Master</div>
-                        <div class="badge-info-sub">31 PRs in a Single Day</div>
-                        <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED</span>
+                        <div class="badge-info-sub">30+ PRs in Single Day</div>
+                        <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED (35 PRs)</span>
                     </div>
                 </div>
+                
                 <!-- Badge 5 -->
-                <div class="badge-card unlocked">
+                <div class="badge-card unlocked" style="grid-column: span 2;">
                     <div class="badge-icon">👑</div>
                     <div>
-                        <div class="badge-info-title">Centurion Titan</div>
-                        <div class="badge-info-sub">100+ Live Pull Requests</div>
-                        <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED (142/100)</span>
+                        <div class="badge-info-title">Centurion Fleet Titan</div>
+                        <div class="badge-info-sub">Maintain 100+ Live Dispatched Pull Requests</div>
+                        <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED (187 Active Fleet)</span>
                     </div>
                 </div>
+
+                <!-- TIER 2 -->
+                <div class="badge-tier-banner">
+                    <div class="badge-tier-title">🚀 Tier 2: Production Scale & Velocity</div>
+                    <span class="badge-tier-count" style="background:rgba(0,230,118,0.2); color:#00e676;">5 / 5 UNLOCKED</span>
+                </div>
+                
                 <!-- Badge 6 -->
                 <div class="badge-card unlocked">
                     <div class="badge-icon">🚀</div>
                     <div>
-                        <div class="badge-info-title">ARR Studio</div>
-                        <div class="badge-info-sub">Reach $25,000 Pipeline</div>
-                        <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED ($29.2K)</span>
+                        <div class="badge-info-title">$25K Horizon</div>
+                        <div class="badge-info-sub">Cross $25k Gross Pipeline</div>
+                        <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED ($37.2k)</span>
+                    </div>
+                </div>
+                
+                <!-- Badge 7 -->
+                <div class="badge-card unlocked">
+                    <div class="badge-icon">🎯</div>
+                    <div>
+                        <div class="badge-info-title">$35K Apex Frontier</div>
+                        <div class="badge-info-sub">Surpass $35k Gross Pipeline</div>
+                        <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED ($37,205)</span>
+                    </div>
+                </div>
+                
+                <!-- Badge 8 -->
+                <div class="badge-card unlocked">
+                    <div class="badge-icon">🏛️</div>
+                    <div>
+                        <div class="badge-info-title">Tri-Layer Harmony</div>
+                        <div class="badge-info-sub">100% Balanced Ledger & Sync</div>
+                        <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED (4-Way Sync)</span>
+                    </div>
+                </div>
+                
+                <!-- Badge 9 -->
+                <div class="badge-card unlocked">
+                    <div class="badge-icon">🤖</div>
+                    <div>
+                        <div class="badge-info-title">Security Audit Clearance</div>
+                        <div class="badge-info-sub">100% Green CI & Neo Audits</div>
+                        <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED (0 Flaws)</span>
+                    </div>
+                </div>
+                
+                <!-- Badge 10 -->
+                <div class="badge-card unlocked" style="grid-column: span 2;">
+                    <div class="badge-icon">📦</div>
+                    <div>
+                        <div class="badge-info-title">Fleet Logistics Command</div>
+                        <div class="badge-info-sub">150+ PR packages tracked in reverse-chronological queue</div>
+                        <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED (155 In-Review)</span>
+                    </div>
+                </div>
+
+                <!-- TIER 3 -->
+                <div class="badge-tier-banner">
+                    <div class="badge-tier-title">⏳ Tier 3: Cash Realization & Quarter Milestones</div>
+                    <span class="badge-tier-count" style="background:rgba(0,242,254,0.2); color:#00f2fe;">5 NEXT UNLOCKS</span>
+                </div>
+                
+                <!-- Badge 11 -->
+                <div class="badge-card in-progress">
+                    <div class="badge-icon">💰</div>
+                    <div>
+                        <div class="badge-info-title">$10K Stripe Cash</div>
+                        <div class="badge-info-sub">$10k Settled Cash Receipts</div>
+                        <span class="badge-status" style="background:rgba(0,242,254,0.2); color:#00f2fe; border:1px solid rgba(0,242,254,0.4);">IN PROGRESS ($5,430 / $10k)</span>
+                    </div>
+                </div>
+                
+                <!-- Badge 12 -->
+                <div class="badge-card in-progress">
+                    <div class="badge-icon">🏆</div>
+                    <div>
+                        <div class="badge-info-title">Fifty-Grand Titan</div>
+                        <div class="badge-info-sub">Scale to $50,000 Pipeline</div>
+                        <span class="badge-status" style="background:rgba(0,242,254,0.2); color:#00f2fe; border:1px solid rgba(0,242,254,0.4);">IN PROGRESS ($37.2k / $50k)</span>
+                    </div>
+                </div>
+                
+                <!-- Badge 13 -->
+                <div class="badge-card in-progress">
+                    <div class="badge-icon">🌐</div>
+                    <div>
+                        <div class="badge-info-title">Double-Century Fleet</div>
+                        <div class="badge-info-sub">Deploy 200+ Active Fleet</div>
+                        <span class="badge-status" style="background:rgba(0,242,254,0.2); color:#00f2fe; border:1px solid rgba(0,242,254,0.4);">IN PROGRESS (187 / 200 PRs)</span>
+                    </div>
+                </div>
+                
+                <!-- Badge 14 -->
+                <div class="badge-card in-progress">
+                    <div class="badge-icon">⛓️</div>
+                    <div>
+                        <div class="badge-info-title">Escrow Sovereign</div>
+                        <div class="badge-info-sub">$10k+ in Lilly Escrows</div>
+                        <span class="badge-status" style="background:rgba(0,242,254,0.2); color:#00f2fe; border:1px solid rgba(0,242,254,0.4);">IN PROGRESS ($9.3k / $10k)</span>
+                    </div>
+                </div>
+                
+                <!-- Badge 15 -->
+                <div class="badge-card in-progress" style="grid-column: span 2;">
+                    <div class="badge-icon">🤝</div>
+                    <div>
+                        <div class="badge-info-title">Retainer Deal Room</div>
+                        <div class="badge-info-sub">First Enterprise Monthly Recurring Maintenance Retainer</div>
+                        <span class="badge-status" style="background:rgba(255,183,3,0.2); color:#ffb703; border:1px solid rgba(255,183,3,0.4);">READY TO CLOSE</span>
+                    </div>
+                </div>
+
+                <!-- TIER 4 -->
+                <div class="badge-tier-banner">
+                    <div class="badge-tier-title">🔒 Tier 4: Enterprise Run-Rate</div>
+                    <span class="badge-tier-count" style="background:rgba(255,255,255,0.08); color:#8b949e;">5 ROADMAP TARGETS</span>
+                </div>
+                
+                <!-- Badge 16 -->
+                <div class="badge-card locked">
+                    <div class="badge-icon">🌟</div>
+                    <div>
+                        <div class="badge-info-title">$75K Pipeline Sentinel</div>
+                        <div class="badge-info-sub">Reach $75,000 Gross Pipeline</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 ROADMAP PHASE 2</span>
+                    </div>
+                </div>
+                
+                <!-- Badge 17 -->
+                <div class="badge-card locked">
+                    <div class="badge-icon">🏰</div>
+                    <div>
+                        <div class="badge-info-title">Six-Figure Sovereign</div>
+                        <div class="badge-info-sub">$100,000 Portfolio Milestone</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 ROADMAP PHASE 3</span>
+                    </div>
+                </div>
+                
+                <!-- Badge 18 -->
+                <div class="badge-card locked">
+                    <div class="badge-icon">📈</div>
+                    <div>
+                        <div class="badge-info-title">$25K / Mo Run Rate</div>
+                        <div class="badge-info-sub">Consistent Monthly Revenue Velocity</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 JUNE 2027 TARGET</span>
+                    </div>
+                </div>
+                
+                <!-- Badge 19 -->
+                <div class="badge-card locked">
+                    <div class="badge-icon">🔮</div>
+                    <div>
+                        <div class="badge-info-title">Zero-Debt Solopreneur</div>
+                        <div class="badge-info-sub">$100k Equity at 100% Net Profit Margin</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 SOVEREIGN EQUITY</span>
+                    </div>
+                </div>
+                
+                <!-- Badge 20 -->
+                <div class="badge-card locked" style="grid-column: span 2;">
+                    <div class="badge-icon">🛰️</div>
+                    <div>
+                        <div class="badge-info-title">Autonomous Swarm Commander</div>
+                        <div class="badge-info-sub">Maintain 300+ Continuous PR Fleet in Constant Rotation</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 SWARM PROTOCOL</span>
+                    </div>
+                </div>
+
+                <!-- TIER 5 -->
+                <div class="badge-tier-banner">
+                    <div class="badge-tier-title">👑 Tier 5: Hall of Fame & Sovereign Mastery</div>
+                    <span class="badge-tier-count" style="background:rgba(255,183,3,0.15); color:#ffb703;">5 LONG-TERM MASTERY</span>
+                </div>
+                
+                <!-- Badge 21 -->
+                <div class="badge-card locked">
+                    <div class="badge-icon">💸</div>
+                    <div>
+                        <div class="badge-info-title">Quarter-Million ARR</div>
+                        <div class="badge-info-sub">$250,000 Annualized Run Rate</div>
+                        <span class="badge-status" style="background:rgba(255,183,3,0.15); color:#ffb703;">🔒 YEAR 2 MASTERY</span>
+                    </div>
+                </div>
+                
+                <!-- Badge 22 -->
+                <div class="badge-card locked">
+                    <div class="badge-icon">💎</div>
+                    <div>
+                        <div class="badge-info-title">Half-Million ARR Studio</div>
+                        <div class="badge-info-sub">$500,000 Annual Run Rate Scale</div>
+                        <span class="badge-status" style="background:rgba(255,183,3,0.15); color:#ffb703;">🔒 YEAR 3 MASTERY</span>
+                    </div>
+                </div>
+                
+                <!-- Badge 23 -->
+                <div class="badge-card locked">
+                    <div class="badge-icon">🎖️</div>
+                    <div>
+                        <div class="badge-info-title">Seven-Figure Vanguard</div>
+                        <div class="badge-info-sub">$1,000,000 ARR Sovereign Enterprise</div>
+                        <span class="badge-status" style="background:rgba(255,183,3,0.15); color:#ffb703;">🔒 YEAR 5 ROADMAP</span>
+                    </div>
+                </div>
+                
+                <!-- Badge 24 -->
+                <div class="badge-card locked">
+                    <div class="badge-icon">🗺️</div>
+                    <div>
+                        <div class="badge-info-title">NotebookLM Master Archive</div>
+                        <div class="badge-info-sub">10-Document Sovereign Knowledge Base</div>
+                        <span class="badge-status" style="background:rgba(255,183,3,0.15); color:#ffb703;">🔒 PERMANENT SYNC</span>
+                    </div>
+                </div>
+                
+                <!-- Badge 25 -->
+                <div class="badge-card locked" style="grid-column: span 2;">
+                    <div class="badge-icon">👑</div>
+                    <div>
+                        <div class="badge-info-title">Sovereign Freedom & Financial Independence</div>
+                        <div class="badge-info-sub">Complete 10-Year Roadmap Execution with 100% Founder Ownership</div>
+                        <span class="badge-status" style="background:linear-gradient(90deg, #ffb703, #00e676); color:#000; font-weight:900;">🔒 ULTIMATE SOVEREIGNTY</span>
                     </div>
                 </div>
             </div>
