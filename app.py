@@ -783,7 +783,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 <span style="color:var(--accent-green); font-size:12px; font-weight:800;" id="countdown-timer">🟢 ACTIVE QUEUE</span>
             </div>
             <div style="font-size:14px; color:#c9d1d9; line-height:1.5;" id="maintainer-window-desc">
-                <b>Review Window:</b> Maintainers triage PRs Mon–Fri (9 AM – 6 PM). Next batch review begins at 9:00 AM EST for your <b style="color:#fff;" id="window-prs-val">135 active PRs</b> (<span style="color:var(--accent-cyan); font-weight:700;" id="window-pipeline-val">$28,325 pipeline</span>).
+                <b>Review Window:</b> Maintainers triage PRs Mon–Fri (9 AM – 6 PM). Next batch review begins at 9:00 AM EST for your <b style="color:#fff;" id="window-prs-val">135 active PRs</b> (<span style="color:var(--accent-cyan); font-weight:700;" id="window-pipeline-val">$29,475 pipeline</span>).
             </div>
         </div>
 
@@ -798,7 +798,7 @@ HTML_PAGE = """<!DOCTYPE html>
                     <div class="progress-bar-fill" id="progress-fill" style="width: 65.2%;"></div>
                 </div>
                 <div class="progress-labels">
-                    <span id="prog-current">$33,755 Achieved</span>
+                    <span id="prog-current">$34,905 Achieved</span>
                     <span>Goal: $50,000</span>
                 </div>
             </div>
@@ -812,11 +812,11 @@ HTML_PAGE = """<!DOCTYPE html>
             </div>
             <div class="grid-3">
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-gross" style="color:var(--accent-cyan);">$33,755</div>
+                    <div class="stat-val" id="stat-gross" style="color:var(--accent-cyan);">$34,905</div>
                     <div class="stat-label">Cumulative Gross</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-ar" style="color:var(--accent-gold);">$28,325</div>
+                    <div class="stat-val" id="stat-ar" style="color:var(--accent-gold);">$29,475</div>
                     <div class="stat-label">In Review (AR)</div>
                 </div>
                 <div class="stat-box">
@@ -825,7 +825,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 </div>
             </div>
             <div style="font-size:13px; color:#8b949e; text-align:center; margin-top:12px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.08);">
-                💵 <b>Cumulative Stripe Cash</b> (<span style="color:var(--accent-green); font-weight:800;" id="footnote-cash">$5,430</span>) + ⏳ <b>AR</b> (<span style="color:var(--accent-gold); font-weight:800;" id="footnote-ar">$28,325</span>) = 📊 <b>Cumulative Pipeline</b> (<span style="color:var(--accent-cyan); font-weight:800;" id="footnote-gross">$33,755</span>)
+                💵 <b>Cumulative Stripe Cash</b> (<span style="color:var(--accent-green); font-weight:800;" id="footnote-cash">$5,430</span>) + ⏳ <b>AR</b> (<span style="color:var(--accent-gold); font-weight:800;" id="footnote-ar">$29,475</span>) = 📊 <b>Cumulative Pipeline</b> (<span style="color:var(--accent-cyan); font-weight:800;" id="footnote-gross">$34,905</span>)
             </div>
 
             <!-- ANNUAL FINANCIAL COMPARISON & FORECAST (2026 vs 2027) -->
@@ -879,7 +879,7 @@ HTML_PAGE = """<!DOCTYPE html>
                     </table>
                 </div>
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-top:12px; gap:8px; flex-wrap:wrap;">
-                    <span style="font-size:12px; color:#8b949e;">YTD Base: <b style="color:#fff;">$33,755.00</b> (246 Submissions • 172 Active)</span>
+                    <span style="font-size:12px; color:#8b949e;">YTD Base: <b style="color:#fff;">$34,905.00</b> (251 Submissions • 177 Active)</span>
                     <button class="action-chip-btn" onclick="showFinancialModal()" style="background:rgba(0,242,254,0.15); border-color:var(--accent-cyan); color:var(--accent-cyan); font-weight:800; font-size:12px;">📊 View Full 3-Statement Model ↗</button>
                 </div>
             </div>
@@ -892,13 +892,13 @@ HTML_PAGE = """<!DOCTYPE html>
                 <span style="color:var(--accent-cyan); font-size:12px; font-weight:800;" id="eco-count-label">25 Organizations</span>
             </div>
             <div class="repo-carousel" id="repo-carousel-container">
-                <div class="repo-pill-card"><span class="repo-pill-name">⛓️ Lilly Protocol</span><span class="repo-pill-val">$8,580</span></div>
-                <div class="repo-pill-card"><span class="repo-pill-name">🕷️ ProjectDiscovery</span><span class="repo-pill-val">$7,850</span></div>
-                <div class="repo-pill-card"><span class="repo-pill-name">🛡️ Permify</span><span class="repo-pill-val">$7,000</span></div>
-                <div class="repo-pill-card"><span class="repo-pill-name">📐 TSCircuit</span><span class="repo-pill-val">$5,650</span></div>
+                <div class="repo-pill-card"><span class="repo-pill-name">⛓️ Lilly Protocol</span><span class="repo-pill-val">$8,830</span></div>
+                <div class="repo-pill-card"><span class="repo-pill-name">🕷️ ProjectDiscovery</span><span class="repo-pill-val">$8,050</span></div>
+                <div class="repo-pill-card"><span class="repo-pill-name">🛡️ Permify</span><span class="repo-pill-val">$7,250</span></div>
+                <div class="repo-pill-card"><span class="repo-pill-name">📐 TSCircuit</span><span class="repo-pill-val">$5,900</span></div>
                 <div class="repo-pill-card"><span class="repo-pill-name">💼 Twenty CRM</span><span class="repo-pill-val">$1,300</span></div>
                 <div class="repo-pill-card"><span class="repo-pill-name">📅 Cal.com</span><span class="repo-pill-val">$900</span></div>
-                <div class="repo-pill-card"><span class="repo-pill-name">🚨 KeepHQ</span><span class="repo-pill-val">$600</span></div>
+                <div class="repo-pill-card"><span class="repo-pill-name">🚨 KeepHQ</span><span class="repo-pill-val">$800</span></div>
                 <div class="repo-pill-card"><span class="repo-pill-name">🤖 Claude Builders</span><span class="repo-pill-val">$575</span></div>
                 <div class="repo-pill-card"><span class="repo-pill-name">🪙 OphirPay</span><span class="repo-pill-val">$200</span></div>
                 <div class="repo-pill-card"><span class="repo-pill-name">🧩 Activepieces</span><span class="repo-pill-val">$200</span></div>
@@ -915,8 +915,8 @@ HTML_PAGE = """<!DOCTYPE html>
             <div class="card-title">⚡ Today's Burst Velocity</div>
             <div class="grid-2">
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-daily-rev" style="color:var(--accent-green);">+$3,450</div>
-                    <div class="stat-label" id="stat-daily-label">Today's Rev (15 PRs)</div>
+                    <div class="stat-val" id="stat-daily-rev" style="color:var(--accent-green);">+$4,600</div>
+                    <div class="stat-label" id="stat-daily-label">Today's Rev (20 PRs)</div>
                 </div>
                 <div class="stat-box">
                     <div class="stat-val" id="stat-daily-avg">$4,658</div>
@@ -925,11 +925,11 @@ HTML_PAGE = """<!DOCTYPE html>
             </div>
             <div class="grid-2" style="margin-top:10px;">
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-weekly-rev">$33,755</div>
+                    <div class="stat-val" id="stat-weekly-rev">$34,905</div>
                     <div class="stat-label">Weekly Total</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-weekly-avg">$33,755</div>
+                    <div class="stat-val" id="stat-weekly-avg">$34,905</div>
                     <div class="stat-label">Avg Weekly Pace</div>
                 </div>
             </div>
@@ -941,7 +941,7 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card" style="background: linear-gradient(135deg, rgba(0, 242, 254, 0.12), rgba(157, 78, 221, 0.15)); border-color: rgba(0, 242, 254, 0.35);">
             <div class="card-title">
                 <span>📦 Amazon-Style PR Logistics Command Center</span>
-                <span style="color:var(--accent-green); font-size:11px; font-weight:900;">140 IN REVIEW QUEUE</span>
+                <span style="color:var(--accent-green); font-size:11px; font-weight:900;">145 IN REVIEW QUEUE</span>
             </div>
             <div style="font-size:14px; color:#c9d1d9; line-height:1.5;">
                 Track software bounties exactly like Amazon packages in <b>strict reverse-chronological order (newest on top)</b>. Every submitted PR is monitored step-by-step from initial submission to final bank deposit clearance into your Stripe-connected account.
@@ -952,7 +952,7 @@ HTML_PAGE = """<!DOCTYPE html>
                     <div class="stat-label">Total In Flight</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" style="color:var(--accent-gold);" id="deliv-stat-ar">$28,325</div>
+                    <div class="stat-val" style="color:var(--accent-gold);" id="deliv-stat-ar">$29,475</div>
                     <div class="stat-label">In Review Queue (135)</div>
                 </div>
                 <div class="stat-box">
@@ -1379,7 +1379,7 @@ HTML_PAGE = """<!DOCTYPE html>
             <div style="text-align:center; padding:18px; background:rgba(0,0,0,0.45); border:1px solid rgba(0,230,118,0.35); border-radius:14px;">
                 <div style="font-size:20px; font-weight:900; color:#00e676;">🏆 BOUNTYGRID OS VERIFIED</div>
                 <div style="font-size:14px; color:#fff; font-weight:800; margin-top:5px;">32 Confirmed Merged PRs • 100% CI Green Rate</div>
-                <div style="font-size:12px; color:#8b949e; margin-top:3px;">25 Ecosystems • $33,755 Cumulative Pipeline</div>
+                <div style="font-size:12px; color:#8b949e; margin-top:3px;">25 Ecosystems • $34,905 Cumulative Pipeline</div>
             </div>
             <div style="font-size:13px; color:#8b949e; margin-top:8px;">Embed on GitHub README or Website:</div>
             <input type="text" readonly value='&lt;a href="https://bountygrid.com"&gt;&lt;img src="https://img.shields.io/badge/BountyGrid%20OS-32%20Merged%20PRs%20%7C%20100%25%20CI%20Green-00e676" alt="BountyGrid Verified Contributor" /&gt;&lt;/a&gt;' style="background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:10px; color:#00f2fe; font-size:12px; width:100%; box-sizing:border-box;" />
@@ -1395,7 +1395,7 @@ HTML_PAGE = """<!DOCTYPE html>
             <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:10px;">
                 <div>
                     <div style="font-size:17px; font-weight:900; color:#fff;">💰 Master Financial Statements & Forecast Model</div>
-                    <div style="font-size:12px; color:#8b949e; margin-top:2px;">ZoMae Media LLC • Reconciled Tri-Layer Ledger ($33,755.00 Base)</div>
+                    <div style="font-size:12px; color:#8b949e; margin-top:2px;">ZoMae Media LLC • Reconciled Tri-Layer Ledger ($34,905.00 Base)</div>
                 </div>
                 <button onclick="closeModals()" style="background:none; border:none; color:#8b949e; font-size:20px; cursor:pointer;">✕</button>
             </div>
@@ -1424,9 +1424,9 @@ HTML_PAGE = """<!DOCTYPE html>
                         <tbody>
                             <tr style="border-bottom:1px solid rgba(255,255,255,0.05); background:rgba(0,242,254,0.06);">
                                 <td style="padding:6px 4px; font-weight:800; color:var(--accent-cyan);">Sept 2026 (Actual/YTD)</td>
-                                <td style="padding:6px 4px;">$33,755.00</td>
+                                <td style="padding:6px 4px;">$34,905.00</td>
                                 <td style="padding:6px 4px;">0 clients ($0)</td>
-                                <td style="padding:6px 4px; text-align:right; font-weight:900; color:var(--accent-green);">$33,755.00</td>
+                                <td style="padding:6px 4px; text-align:right; font-weight:900; color:var(--accent-green);">$34,905.00</td>
                                 <td style="padding:6px 4px; text-align:right;">$8,151 / wk</td>
                             </tr>
                             <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
@@ -1525,15 +1525,15 @@ HTML_PAGE = """<!DOCTYPE html>
             <!-- TAB 3: BALANCE SHEET -->
             <div id="fin-view-bs" style="display:none;">
                 <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:12px;">
-                    <div style="font-size:13px; font-weight:800; color:var(--accent-green); margin-bottom:8px;">🟢 100% BALANCED ($33,755.00 Assets = $33,755.00 Equity)</div>
+                    <div style="font-size:13px; font-weight:800; color:var(--accent-green); margin-bottom:8px;">🟢 100% BALANCED ($34,905.00 Assets = $34,905.00 Equity)</div>
                     <table style="width:100%; border-collapse:collapse; font-size:12px; text-align:left;">
                         <tbody>
                             <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td style="padding:6px 4px;">Cash & Cash Equivalents (Stripe Settled)</td><td style="padding:6px 4px; text-align:right; font-weight:800; color:var(--accent-green);">$5,430.00</td></tr>
-                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td style="padding:6px 4px;">Accounts Receivable (135 PRs in Review)</td><td style="padding:6px 4px; text-align:right; font-weight:800; color:var(--accent-gold);">$28,325.00</td></tr>
-                            <tr style="border-bottom:1px solid rgba(255,255,255,0.12); font-weight:900; color:var(--accent-cyan);"><td style="padding:6px 4px;">Total Current Assets</td><td style="padding:6px 4px; text-align:right;">$33,755.00</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td style="padding:6px 4px;">Accounts Receivable (135 PRs in Review)</td><td style="padding:6px 4px; text-align:right; font-weight:800; color:var(--accent-gold);">$29,475.00</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.12); font-weight:900; color:var(--accent-cyan);"><td style="padding:6px 4px;">Total Current Assets</td><td style="padding:6px 4px; text-align:right;">$34,905.00</td></tr>
                             <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td style="padding:6px 4px;">Total Liabilities (Accounts Payable / Debt)</td><td style="padding:6px 4px; text-align:right; color:#8b949e;">$0.00</td></tr>
-                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td style="padding:6px 4px;">Retained Earnings (Owner Equity)</td><td style="padding:6px 4px; text-align:right; font-weight:800; color:#fff;">$33,755.00</td></tr>
-                            <tr style="font-weight:900; background:rgba(0,230,118,0.1); color:var(--accent-green);"><td style="padding:8px 4px;">Total Liabilities & Equity</td><td style="padding:8px 4px; text-align:right;">$33,755.00</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td style="padding:6px 4px;">Retained Earnings (Owner Equity)</td><td style="padding:6px 4px; text-align:right; font-weight:800; color:#fff;">$34,905.00</td></tr>
+                            <tr style="font-weight:900; background:rgba(0,230,118,0.1); color:var(--accent-green);"><td style="padding:8px 4px;">Total Liabilities & Equity</td><td style="padding:8px 4px; text-align:right;">$34,905.00</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -1544,8 +1544,8 @@ HTML_PAGE = """<!DOCTYPE html>
                 <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:12px;">
                     <table style="width:100%; border-collapse:collapse; font-size:12px; text-align:left;">
                         <tbody>
-                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td style="padding:6px 4px;">Net Income (Accrual Basis)</td><td style="padding:6px 4px; text-align:right; font-weight:800;">$33,755.00</td></tr>
-                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td style="padding:6px 4px;">Adjustments for Accounts Receivable (Unsettled PRs)</td><td style="padding:6px 4px; text-align:right; color:var(--accent-gold);">-$28,325.00</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td style="padding:6px 4px;">Net Income (Accrual Basis)</td><td style="padding:6px 4px; text-align:right; font-weight:800;">$34,905.00</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td style="padding:6px 4px;">Adjustments for Accounts Receivable (Unsettled PRs)</td><td style="padding:6px 4px; text-align:right; color:var(--accent-gold);">-$29,475.00</td></tr>
                             <tr style="border-bottom:1px solid rgba(255,255,255,0.1); font-weight:800; color:var(--accent-green);"><td style="padding:6px 4px;">Net Cash from Operating Activities</td><td style="padding:6px 4px; text-align:right;">$5,430.00</td></tr>
                             <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td style="padding:6px 4px;">Cash from Investing & Financing Activities</td><td style="padding:6px 4px; text-align:right; color:#8b949e;">$0.00</td></tr>
                             <tr style="font-weight:900; background:rgba(0,230,118,0.1); color:var(--accent-green);"><td style="padding:8px 4px;">Ending Cash Balance (Stripe Payouts Clear)</td><td style="padding:8px 4px; text-align:right;">$5,430.00</td></tr>
@@ -2083,7 +2083,7 @@ Authorize by replying to this proposal or connecting via ZoMae Media LLC Stripe 
         // Notifications
         function sendPeriodicNotification(force=false) {
             if (!("Notification" in window) || Notification.permission !== "granted") return;
-            const grossVal = document.getElementById('stat-gross') ? document.getElementById('stat-gross').innerText : '$33,755';
+            const grossVal = document.getElementById('stat-gross') ? document.getElementById('stat-gross').innerText : '$34,905';
             const prCount = globalPRs ? globalPRs.length : 167;
             const todayRev = document.getElementById('stat-daily-rev') ? document.getElementById('stat-daily-rev').innerText : '+$0';
 
@@ -2628,8 +2628,8 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                     daily_rev = sum(t['val'] for t in today_txs)
                     daily_prs_count = len(today_txs)
                 else:
-                    daily_rev = 3450.0
-                    daily_prs_count = 15
+                    daily_rev = 4600.0
+                    daily_prs_count = 20
 
                 daily_avg = 4658.0
                 weekly_rev = gross
@@ -2665,15 +2665,15 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
             except Exception as e:
                 data = {
-                    'gross_pipeline': 33755.0,
-                    'ar': 28325.0,
+                    'gross_pipeline': 34905.0,
+                    'ar': 29475.0,
                     'cash': 5430.0,
                     'total_prs': 246,
                     'daily': 3450.0,
-                    'daily_prs': 15,
+                    'daily_prs': 20,
                     'daily_avg': 4658.0,
-                    'weekly': 33755.0,
-                    'weekly_avg': 33755.0,
+                    'weekly': 34905.0,
+                    'weekly_avg': 34905.0,
                     'ecosystems': [
                         {"icon": "⛓️", "name": "Lilly Protocol", "value": 8330.0},
                         {"icon": "🕷️", "name": "ProjectDiscovery", "value": 7650.0},
@@ -2731,7 +2731,7 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                             {"repo": "projectdiscovery/dnsx", "pr_num": 1031, "pr_url": "https://github.com/projectdiscovery/dnsx/pull/1031", "value": 200.0},
                         ][:count]
                         total_rows = 241
-                        total_gross = 33755.0
+                        total_gross = 34905.0
 
                 try:
                     ledger_candidates = [
@@ -2790,15 +2790,15 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 wb = openpyxl.load_workbook(ledger_path, data_only=True)
 
                 ws_dash = wb['Executive Dashboard']
-                gross = float(ws_dash.cell(1, 2).value or 33755.0)
+                gross = float(ws_dash.cell(1, 2).value or 34905.0)
                 cash = float(ws_dash.cell(4, 2).value or 5430.0)
                 prs = int(ws_dash.cell(7, 2).value or 241)
-                ar = float(ws_dash.cell(5, 2).value or 28325.0)
+                ar = float(ws_dash.cell(5, 2).value or 29475.0)
             except Exception:
-                gross = 33755.0
+                gross = 34905.0
                 cash = 5430.0
                 prs = 241
-                ar = 28325.0
+                ar = 29475.0
 
             if any(k in q_lower for k in ['status', 'pipeline', 'financial', 'how much', 'money', 'revenue', 'arr']):
                 response_text = f"""📊 <b>LIVE FINANCIAL & PIPELINE SNAPSHOT</b><br><br>
@@ -2863,7 +2863,7 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
             else:
                 response_text = f"""🤖 <b>Antigravity AI Agent Online!</b><br><br>
 Received: <i>"{query}"</i><br><br>
-All systems operational on your Mac. Pipeline stands at <b>${gross:,.2f}</b> across <b>{prs} PRs</b> ($5,430 Cash Settled, $28,325 AR). Ask me for delivery tracking, AI intelligence, or financial status!"""
+All systems operational on your Mac. Pipeline stands at <b>${gross:,.2f}</b> across <b>{prs} PRs</b> ($5,430 Cash Settled, $29,475 AR). Ask me for delivery tracking, AI intelligence, or financial status!"""
 
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
