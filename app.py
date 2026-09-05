@@ -51,18 +51,20 @@ HTML_PAGE = """<!DOCTYPE html>
             height: 100dvh;
             overflow: hidden; 
             background-image: radial-gradient(circle at 50% 0%, rgba(0, 242, 254, 0.1) 0%, transparent 60%);
+            font-size: 15px;
+            line-height: 1.5;
         }
         
         /* HEADER */
         header { 
-            background: rgba(13, 17, 23, 0.85); 
+            background: rgba(13, 17, 23, 0.9); 
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            padding: 12px 16px 10px 16px; 
+            padding: 14px 16px 12px 16px; 
             display: flex; 
             flex-direction: column;
-            gap: 8px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06); 
+            gap: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
             flex-shrink: 0;
         }
         .header-top-row {
@@ -78,16 +80,16 @@ HTML_PAGE = """<!DOCTYPE html>
         .rank-badge { 
             background: linear-gradient(135deg, #ffb703, #fb8500); 
             color: #000; 
-            font-size: 10px; 
+            font-size: 12px; 
             font-weight: 900; 
-            padding: 3px 7px; 
-            border-radius: 6px; 
+            padding: 4px 8px; 
+            border-radius: 8px; 
             letter-spacing: 0.5px;
             box-shadow: 0 0 10px rgba(255, 183, 3, 0.3);
         }
         .founder-title { 
-            font-size: 14px; 
-            font-weight: 800; 
+            font-size: 16px; 
+            font-weight: 900; 
             color: #ffffff; 
             letter-spacing: -0.2px; 
         }
@@ -99,13 +101,13 @@ HTML_PAGE = """<!DOCTYPE html>
             padding-top: 2px;
         }
         .xp-text { 
-            font-size: 11px; 
+            font-size: 13px; 
             color: #8b949e; 
-            font-weight: 600; 
+            font-weight: 700; 
         }
         .xp-highlight {
             color: var(--accent-cyan);
-            font-weight: 800;
+            font-weight: 900;
         }
 
         .header-actions { 
@@ -118,31 +120,31 @@ HTML_PAGE = """<!DOCTYPE html>
             background: rgba(255, 183, 3, 0.1);
             border: 1px solid rgba(255, 183, 3, 0.3);
             color: var(--accent-gold);
-            font-size: 10px;
+            font-size: 12px; 
             font-weight: 800;
-            padding: 3px 8px;
-            border-radius: 12px;
+            padding: 4px 10px; 
+            border-radius: 14px; 
             display: flex;
             align-items: center;
-            gap: 3px;
+            gap: 4px;
         }
         .icon-btn { 
-            background: rgba(255, 255, 255, 0.05); 
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            color: #c9d1d9; 
-            font-size: 11px; 
-            font-weight: 700; 
-            padding: 4px 9px; 
-            border-radius: 14px; 
+            background: rgba(255, 255, 255, 0.06); 
+            border: 1px solid rgba(255, 255, 255, 0.12); 
+            color: #f0f6fc; 
+            font-size: 13px; 
+            font-weight: 800; 
+            padding: 6px 12px; 
+            border-radius: 16px; 
             cursor: pointer; 
             display: inline-flex;
             align-items: center;
-            gap: 4px;
+            gap: 5px;
             transition: all 0.15s ease;
         }
-        .icon-btn:active { transform: scale(0.95); background: rgba(255,255,255,0.1); }
+        .icon-btn:active { transform: scale(0.95); background: rgba(255,255,255,0.12); }
         .icon-btn.active {
-            background: rgba(0, 230, 118, 0.15);
+            background: rgba(0, 230, 118, 0.2);
             border-color: #00e676;
             color: #00e676;
         }
@@ -151,19 +153,19 @@ HTML_PAGE = """<!DOCTYPE html>
         .conn-pill {
             display: inline-flex;
             align-items: center;
-            gap: 4px;
-            font-size: 9px;
-            font-weight: 800;
-            padding: 2px 6px;
-            border-radius: 10px;
-            background: rgba(0, 230, 118, 0.12);
+            gap: 5px;
+            font-size: 11px;
+            font-weight: 900;
+            padding: 3px 8px;
+            border-radius: 12px;
+            background: rgba(0, 230, 118, 0.15);
             border: 1px solid rgba(0, 230, 118, 0.4);
             color: #00e676;
             letter-spacing: 0.5px;
         }
         .conn-dot {
-            width: 5px;
-            height: 5px;
+            width: 6px;
+            height: 6px;
             border-radius: 50%;
             background: #00e676;
             box-shadow: 0 0 6px #00e676;
@@ -174,7 +176,7 @@ HTML_PAGE = """<!DOCTYPE html>
             50% { opacity: 0.4; transform: scale(0.8); }
         }
         .conn-pill.offline {
-            background: rgba(255, 0, 127, 0.15);
+            background: rgba(255, 0, 127, 0.18);
             border-color: #ff007f;
             color: #ff007f;
         }
@@ -185,10 +187,10 @@ HTML_PAGE = """<!DOCTYPE html>
         }
         #offline-banner {
             display: none;
-            background: linear-gradient(135deg, rgba(255, 0, 127, 0.9), rgba(121, 40, 202, 0.9));
+            background: linear-gradient(135deg, rgba(255, 0, 127, 0.95), rgba(121, 40, 202, 0.95));
             color: #fff;
-            padding: 8px 12px;
-            font-size: 11px;
+            padding: 10px 14px;
+            font-size: 13px;
             font-weight: 800;
             text-align: center;
             border-bottom: 1px solid rgba(255,255,255,0.2);
@@ -200,11 +202,11 @@ HTML_PAGE = """<!DOCTYPE html>
 
         /* LIVE WEBHOOK TICKER BAR */
         #webhook-live-bar {
-            background: rgba(0, 242, 254, 0.08);
-            border-bottom: 1px solid rgba(0, 242, 254, 0.2);
-            padding: 6px 14px;
-            font-size: 10px;
-            font-weight: 700;
+            background: rgba(0, 242, 254, 0.09);
+            border-bottom: 1px solid rgba(0, 242, 254, 0.25);
+            padding: 8px 14px;
+            font-size: 12px;
+            font-weight: 800;
             color: var(--accent-cyan);
             display: flex;
             align-items: center;
@@ -218,11 +220,11 @@ HTML_PAGE = """<!DOCTYPE html>
         /* GAMIFIED TAB PILLS */
         .tab-bar { 
             display: flex; 
-            background: rgba(18, 24, 38, 0.7); 
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06); 
+            background: rgba(18, 24, 38, 0.8); 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
             overflow-x: auto; 
             -webkit-overflow-scrolling: touch; 
-            padding: 8px 10px; 
+            padding: 10px 12px; 
             gap: 8px; 
             flex-shrink: 0;
         }
@@ -230,18 +232,18 @@ HTML_PAGE = """<!DOCTYPE html>
         .tab { 
             flex: 0 0 auto; 
             white-space: nowrap; 
-            padding: 7px 14px; 
-            border-radius: 20px; 
-            font-size: 12px; 
-            font-weight: 700; 
+            padding: 9px 16px; 
+            border-radius: 22px; 
+            font-size: 14px; 
+            font-weight: 800; 
             color: #8b949e; 
             cursor: pointer; 
-            background: rgba(255, 255, 255, 0.04); 
-            border: 1px solid rgba(255, 255, 255, 0.08); 
+            background: rgba(255, 255, 255, 0.05); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
             transition: all 0.2s ease;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
         }
         .tab.active { 
             color: #000;
@@ -258,19 +260,19 @@ HTML_PAGE = """<!DOCTYPE html>
             overflow-y: auto; 
             -webkit-overflow-scrolling: touch;
             touch-action: pan-y;
-            padding: 14px; 
+            padding: 16px; 
             display: flex; 
             flex-direction: column; 
-            gap: 14px; 
-            padding-bottom: calc(80px + env(safe-area-inset-bottom));
+            gap: 16px; 
+            padding-bottom: calc(85px + env(safe-area-inset-bottom));
         }
 
         /* CARDS */
         .card { 
             background: var(--bg-card); 
-            border: 1px solid rgba(255, 255, 255, 0.08); 
-            border-radius: 16px; 
-            padding: 16px; 
+            border: 1px solid rgba(255, 255, 255, 0.09); 
+            border-radius: 18px; 
+            padding: 18px; 
             box-shadow: 0 8px 24px rgba(0,0,0,0.4);
             position: relative;
             flex-shrink: 0;
@@ -282,11 +284,11 @@ HTML_PAGE = """<!DOCTYPE html>
             background: linear-gradient(90deg, transparent, rgba(0, 242, 254, 0.6), transparent);
         }
         .card-title { 
-            font-size: 11px; 
-            font-weight: 800; 
+            font-size: 13px; 
+            font-weight: 900; 
             color: #8b949e; 
             text-transform: uppercase; 
-            letter-spacing: 1px; 
+            letter-spacing: 0.8px; 
             margin-bottom: 12px; 
             display: flex; 
             justify-content: space-between; 
@@ -298,19 +300,19 @@ HTML_PAGE = """<!DOCTYPE html>
 
         .stat-box { 
             background: rgba(0, 0, 0, 0.35); 
-            border: 1px solid rgba(255, 255, 255, 0.06); 
-            border-radius: 12px; 
-            padding: 12px 8px; 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            border-radius: 14px; 
+            padding: 14px 10px; 
             text-align: center; 
             transition: all 0.2s;
         }
-        .stat-val { font-size: 17px; font-weight: 900; color: #fff; word-break: break-word; }
-        .stat-label { font-size: 10px; color: #8b949e; margin-top: 4px; font-weight: 700; text-transform: uppercase; }
+        .stat-val { font-size: 22px; font-weight: 900; color: #fff; word-break: break-word; }
+        .stat-label { font-size: 12px; color: #8b949e; margin-top: 4px; font-weight: 800; text-transform: uppercase; }
 
         /* HORIZONTAL REPO BREAKDOWN CAROUSEL */
         .repo-carousel {
             display: flex;
-            gap: 8px;
+            gap: 10px;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             padding: 4px 0;
@@ -318,54 +320,54 @@ HTML_PAGE = """<!DOCTYPE html>
         }
         .repo-carousel::-webkit-scrollbar { display: none; }
         .repo-pill-card {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 8px 12px;
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            padding: 10px 14px;
             flex: 0 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 2px;
+            gap: 3px;
         }
-        .repo-pill-name { font-size: 11px; font-weight: 800; color: #c9d1d9; }
-        .repo-pill-val { font-size: 13px; font-weight: 900; color: var(--accent-cyan); }
+        .repo-pill-name { font-size: 13px; font-weight: 800; color: #c9d1d9; }
+        .repo-pill-val { font-size: 15px; font-weight: 900; color: var(--accent-cyan); }
 
         /* XP & LEVEL PROGRESS BAR */
-        .progress-wrap { margin-top: 8px; }
-        .progress-bar-bg { background: rgba(255,255,255,0.08); height: 10px; border-radius: 6px; overflow: hidden; position: relative; }
+        .progress-wrap { margin-top: 10px; }
+        .progress-bar-bg { background: rgba(255,255,255,0.08); height: 12px; border-radius: 6px; overflow: hidden; position: relative; }
         .progress-bar-fill { background: linear-gradient(90deg, #00e676, #00f2fe, #ff007f); height: 100%; border-radius: 6px; width: 60.3%; transition: width 0.6s ease; box-shadow: 0 0 10px rgba(0, 242, 254, 0.5); }
-        .progress-labels { display: flex; justify-content: space-between; font-size: 11px; font-weight: 700; color: #8b949e; margin-top: 6px; }
+        .progress-labels { display: flex; justify-content: space-between; font-size: 13px; font-weight: 800; color: #8b949e; margin-top: 8px; }
 
         /* ACHIEVEMENTS GRID */
         .badge-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 8px;
+            gap: 10px;
         }
         .badge-card {
             background: rgba(0, 0, 0, 0.35);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 12px;
-            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 12px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
         .badge-card.unlocked {
-            border-color: rgba(255, 183, 3, 0.3);
-            background: linear-gradient(135deg, rgba(255, 183, 3, 0.08), rgba(0, 0, 0, 0.3));
+            border-color: rgba(255, 183, 3, 0.35);
+            background: linear-gradient(135deg, rgba(255, 183, 3, 0.1), rgba(0, 0, 0, 0.35));
         }
-        .badge-icon { font-size: 22px; }
-        .badge-info-title { font-size: 12px; font-weight: 800; color: #fff; }
-        .badge-info-sub { font-size: 10px; color: #8b949e; margin-top: 2px; }
-        .badge-status { font-size: 9px; font-weight: 900; padding: 2px 6px; border-radius: 6px; margin-top: 4px; display: inline-block; }
+        .badge-icon { font-size: 26px; }
+        .badge-info-title { font-size: 14px; font-weight: 900; color: #fff; }
+        .badge-info-sub { font-size: 12px; color: #8b949e; margin-top: 2px; }
+        .badge-status { font-size: 11px; font-weight: 900; padding: 3px 8px; border-radius: 6px; margin-top: 4px; display: inline-block; }
 
         /* BUTTONS */
         .batch-btn { 
             border: none; 
-            border-radius: 16px; 
-            padding: 16px; 
-            font-size: 14px; 
+            border-radius: 18px; 
+            padding: 18px; 
+            font-size: 16px; 
             font-weight: 900; 
             display: flex; 
             flex-direction: column; 
@@ -388,86 +390,86 @@ HTML_PAGE = """<!DOCTYPE html>
             color: #ffffff;
             box-shadow: 0 6px 20px rgba(255, 0, 127, 0.4);
         }
-        .batch-sub { font-size: 11px; font-weight: 700; opacity: 0.95; }
+        .batch-sub { font-size: 13px; font-weight: 700; opacity: 0.95; }
 
         /* RADAR ITEMS & AMAZON-STYLE DELIVERY TRACKER */
         .pr-tracker-card {
-            background: rgba(0, 0, 0, 0.45);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 14px;
-            margin-bottom: 12px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 18px;
+            padding: 16px;
+            margin-bottom: 14px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
             transition: all 0.2s ease;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
             position: relative;
             overflow: hidden;
         }
         .pr-tracker-card:hover {
-            border-color: rgba(0, 242, 254, 0.3);
-            box-shadow: 0 6px 24px rgba(0, 242, 254, 0.15);
+            border-color: rgba(0, 242, 254, 0.35);
+            box-shadow: 0 6px 24px rgba(0, 242, 254, 0.18);
         }
         .pr-tracker-card.merged-card {
-            border-color: rgba(0, 230, 118, 0.3);
-            background: linear-gradient(180deg, rgba(0, 230, 118, 0.05) 0%, rgba(0, 0, 0, 0.45) 100%);
+            border-color: rgba(0, 230, 118, 0.35);
+            background: linear-gradient(180deg, rgba(0, 230, 118, 0.06) 0%, rgba(0, 0, 0, 0.5) 100%);
         }
         .pr-card-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            gap: 8px;
+            gap: 10px;
         }
-        .pr-repo { font-size: 13px; font-weight: 800; color: var(--accent-cyan); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-        .pr-desc { font-size: 11px; color: #8b949e; margin-top: 2px; font-weight: 500; }
+        .pr-repo { font-size: 15px; font-weight: 900; color: var(--accent-cyan); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .pr-desc { font-size: 13px; color: #8b949e; margin-top: 3px; font-weight: 600; line-height: 1.4; }
         .pr-badge { 
-            background: rgba(0, 230, 118, 0.15); 
+            background: rgba(0, 230, 118, 0.18); 
             border: 1px solid #00e676; 
             color: #00e676; 
-            font-size: 12px; 
+            font-size: 14px; 
             font-weight: 900; 
-            padding: 4px 9px; 
-            border-radius: 8px; 
+            padding: 5px 11px; 
+            border-radius: 10px; 
             white-space: nowrap;
         }
 
         /* ESTIMATED DEPOSIT ARRIVAL COUNTDOWN BANNER */
         .deposit-forecast-badge {
-            background: rgba(0, 230, 118, 0.08);
-            border: 1px solid rgba(0, 230, 118, 0.25);
-            border-radius: 10px;
-            padding: 6px 10px;
+            background: rgba(0, 230, 118, 0.1);
+            border: 1px solid rgba(0, 230, 118, 0.3);
+            border-radius: 12px;
+            padding: 8px 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 11px;
-            font-weight: 700;
+            font-size: 13px;
+            font-weight: 800;
         }
-        .deposit-forecast-title { color: #8b949e; text-transform: uppercase; font-size: 9px; letter-spacing: 0.5px; }
+        .deposit-forecast-title { color: #8b949e; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px; }
         .deposit-forecast-time { color: var(--accent-green); font-weight: 900; }
 
         /* AMAZON-STYLE 5-STAGE PROGRESS STEPPER */
         .amazon-stepper-wrap {
             position: relative;
-            margin: 6px 0 4px 0;
-            padding: 0 4px;
+            margin: 10px 0 6px 0;
+            padding: 0 6px;
         }
         .amazon-stepper-line-bg {
             position: absolute;
-            top: 14px;
-            left: 20px;
-            right: 20px;
-            height: 3px;
-            background: rgba(255, 255, 255, 0.08);
+            top: 15px;
+            left: 22px;
+            right: 22px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 2px;
             z-index: 1;
         }
         .amazon-stepper-line-fill {
             position: absolute;
-            top: 14px;
-            left: 20px;
-            height: 3px;
+            top: 15px;
+            left: 22px;
+            height: 4px;
             background: linear-gradient(90deg, #00e676, #00f2fe, #9d4edd);
             border-radius: 2px;
             z-index: 2;
@@ -485,19 +487,19 @@ HTML_PAGE = """<!DOCTYPE html>
             flex-direction: column;
             align-items: center;
             text-align: center;
-            max-width: 62px;
+            max-width: 68px;
         }
         .node-circle {
-            width: 26px;
-            height: 26px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 11px;
+            font-size: 13px;
             font-weight: 900;
             background: var(--bg-card);
-            border: 2px solid rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.18);
             color: #8b949e;
             transition: all 0.3s ease;
         }
@@ -519,10 +521,10 @@ HTML_PAGE = """<!DOCTYPE html>
             50% { transform: scale(1.12); box-shadow: 0 0 16px rgba(0,242,254,0.9); }
         }
         .node-label {
-            font-size: 9px;
+            font-size: 11px;
             font-weight: 800;
             color: #8b949e;
-            margin-top: 4px;
+            margin-top: 5px;
             line-height: 1.2;
         }
         .stepper-node.done .node-label { color: #f0f6fc; }
@@ -531,80 +533,80 @@ HTML_PAGE = """<!DOCTYPE html>
         /* INTELLIGENCE PILLS STRIP */
         .intel-strip {
             display: flex;
-            gap: 6px;
+            gap: 8px;
             flex-wrap: wrap;
             align-items: center;
         }
         .intel-pill {
-            font-size: 9px;
+            font-size: 11px;
             font-weight: 800;
-            padding: 3px 7px;
-            border-radius: 6px;
+            padding: 4px 8px;
+            border-radius: 8px;
             display: inline-flex;
             align-items: center;
-            gap: 4px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            gap: 5px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             color: #c9d1d9;
         }
-        .pill-velocity { color: var(--accent-cyan); border-color: rgba(0, 242, 254, 0.3); background: rgba(0, 242, 254, 0.08); }
-        .pill-healer { color: var(--accent-green); border-color: rgba(0, 230, 118, 0.3); background: rgba(0, 230, 118, 0.08); }
-        .pill-maintainer { color: var(--accent-gold); border-color: rgba(255, 183, 3, 0.3); background: rgba(255, 183, 3, 0.08); }
+        .pill-velocity { color: var(--accent-cyan); border-color: rgba(0, 242, 254, 0.35); background: rgba(0, 242, 254, 0.1); }
+        .pill-healer { color: var(--accent-green); border-color: rgba(0, 230, 118, 0.35); background: rgba(0, 230, 118, 0.1); }
+        .pill-maintainer { color: var(--accent-gold); border-color: rgba(255, 183, 3, 0.35); background: rgba(255, 183, 3, 0.1); }
 
         /* ACTION BUTTONS */
         .pr-card-actions {
             display: flex;
-            gap: 6px;
-            margin-top: 2px;
+            gap: 8px;
+            margin-top: 4px;
             overflow-x: auto;
             padding-bottom: 2px;
         }
         .action-chip-btn {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.14);
             color: #f0f6fc;
-            font-size: 10px;
+            font-size: 12px;
             font-weight: 800;
-            padding: 4px 8px;
-            border-radius: 8px;
+            padding: 6px 11px;
+            border-radius: 10px;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
-            gap: 4px;
+            gap: 5px;
             white-space: nowrap;
             transition: all 0.15s;
         }
-        .action-chip-btn:hover { background: rgba(255, 255, 255, 0.12); transform: translateY(-1px); }
+        .action-chip-btn:hover { background: rgba(255, 255, 255, 0.14); transform: translateY(-1px); }
 
         /* 25-ORG HEATMAP GRID */
         .heatmap-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-            gap: 8px;
-            margin-top: 8px;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
         }
         .heatmap-card {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 10px;
-            padding: 8px 10px;
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 10px 12px;
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 5px;
             position: relative;
         }
-        .heatmap-card.underweight { border-color: rgba(0, 230, 118, 0.4); background: linear-gradient(135deg, rgba(0, 230, 118, 0.08), rgba(0,0,0,0.4)); }
-        .heatmap-card.target { border-color: rgba(0, 242, 254, 0.4); background: linear-gradient(135deg, rgba(0, 242, 254, 0.08), rgba(0,0,0,0.4)); }
-        .heatmap-card.overweight { border-color: rgba(255, 0, 127, 0.4); background: linear-gradient(135deg, rgba(255, 0, 127, 0.08), rgba(0,0,0,0.4)); }
-        .heatmap-name { font-size: 10px; font-weight: 800; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .heatmap-bar-bg { background: rgba(255, 255, 255, 0.08); height: 5px; border-radius: 3px; overflow: hidden; margin-top: 2px; }
+        .heatmap-card.underweight { border-color: rgba(0, 230, 118, 0.4); background: linear-gradient(135deg, rgba(0, 230, 118, 0.09), rgba(0,0,0,0.45)); }
+        .heatmap-card.target { border-color: rgba(0, 242, 254, 0.4); background: linear-gradient(135deg, rgba(0, 242, 254, 0.09), rgba(0,0,0,0.45)); }
+        .heatmap-card.overweight { border-color: rgba(255, 0, 127, 0.4); background: linear-gradient(135deg, rgba(255, 0, 127, 0.09), rgba(0,0,0,0.45)); }
+        .heatmap-name { font-size: 12px; font-weight: 900; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .heatmap-bar-bg { background: rgba(255, 255, 255, 0.08); height: 6px; border-radius: 3px; overflow: hidden; margin-top: 4px; }
         .heatmap-bar-fill { height: 100%; border-radius: 3px; }
 
         /* MODAL POPUPS */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.75);
+            background: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             z-index: 999;
@@ -615,35 +617,35 @@ HTML_PAGE = """<!DOCTYPE html>
         }
         .modal-box {
             background: var(--bg-card);
-            border: 1px solid rgba(0, 242, 254, 0.3);
-            border-radius: 20px;
-            padding: 20px;
-            max-width: 480px;
+            border: 1px solid rgba(0, 242, 254, 0.35);
+            border-radius: 22px;
+            padding: 22px;
+            max-width: 500px;
             width: 100%;
             max-height: 85vh;
             overflow-y: auto;
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 14px;
         }
 
-        .slider-container { margin: 12px 0; }
-        .calc-slider { width: 100%; accent-color: var(--accent-cyan); height: 8px; }
-        .calc-res-box { background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 14px; margin-top: 10px; }
+        .slider-container { margin: 14px 0; }
+        .calc-slider { width: 100%; accent-color: var(--accent-cyan); height: 10px; }
+        .calc-res-box { background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 14px; padding: 16px; margin-top: 12px; }
 
-        #chat-container { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; padding: 8px 0; }
-        .message { padding: 12px 16px; border-radius: 16px; max-width: 85%; font-size: 13px; line-height: 1.45; word-break: break-word; }
-        .user-msg { background: linear-gradient(135deg, #00f2fe, #4facfe); color: #000; font-weight: 600; align-self: flex-end; border-bottom-right-radius: 2px; }
-        .bot-msg { background: var(--bg-card); color: #f0f6fc; align-self: flex-start; border-bottom-left-radius: 2px; border: 1px solid rgba(255, 255, 255, 0.08); }
+        #chat-container { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; padding: 10px 0; }
+        .message { padding: 14px 18px; border-radius: 18px; max-width: 85%; font-size: 14px; line-height: 1.5; word-break: break-word; }
+        .user-msg { background: linear-gradient(135deg, #00f2fe, #4facfe); color: #000; font-weight: 700; align-self: flex-end; border-bottom-right-radius: 2px; }
+        .bot-msg { background: var(--bg-card); color: #f0f6fc; align-self: flex-start; border-bottom-left-radius: 2px; border: 1px solid rgba(255, 255, 255, 0.1); }
 
-        .chip-bar { display: flex; gap: 6px; overflow-x: auto; padding: 8px 12px; background: rgba(18, 24, 38, 0.9); }
-        .chip { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--accent-cyan); font-size: 11px; font-weight: 700; padding: 6px 14px; border-radius: 16px; cursor: pointer; white-space: nowrap; }
+        .chip-bar { display: flex; gap: 8px; overflow-x: auto; padding: 10px 14px; background: rgba(18, 24, 38, 0.95); }
+        .chip { background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.14); color: var(--accent-cyan); font-size: 13px; font-weight: 800; padding: 7px 14px; border-radius: 18px; cursor: pointer; white-space: nowrap; }
 
-        footer { background: rgba(18, 24, 38, 0.95); padding: 10px 14px; display: flex; gap: 8px; align-items: center; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: max(10px, env(safe-area-inset-bottom)); }
-        #input-text { flex: 1; background: #090d16; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 24px; padding: 12px 18px; color: #ffffff; font-size: 14px; outline: none; }
+        footer { background: rgba(18, 24, 38, 0.98); padding: 12px 16px; display: flex; gap: 10px; align-items: center; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: max(12px, env(safe-area-inset-bottom)); }
+        #input-text { flex: 1; background: #090d16; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 26px; padding: 14px 20px; color: #ffffff; font-size: 16px; outline: none; }
         #input-text:focus { border-color: var(--accent-cyan); }
-        #send-btn { background: linear-gradient(135deg, #00e676, #00f2fe); color: #000; border: none; width: 42px; height: 42px; border-radius: 21px; font-size: 18px; font-weight: 900; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        #send-btn { background: linear-gradient(135deg, #00e676, #00f2fe); color: #000; border: none; width: 46px; height: 46px; border-radius: 23px; font-size: 20px; font-weight: 900; cursor: pointer; display: flex; align-items: center; justify-content: center; }
     </style>
 </head>
 <body>
@@ -660,8 +662,8 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="header-bottom-row">
             <div class="xp-text" id="xp-counter">Progression: <span class="xp-highlight">142 / 150 PRs</span></div>
             <div class="header-actions">
-                <button class="icon-btn" onclick="switchTab('delivery')" style="color:var(--accent-cyan); border-color:rgba(0,242,254,0.3);">📦 Tracker</button>
-                <button class="icon-btn" onclick="switchTab('intel')" style="color:var(--accent-green); border-color:rgba(0,230,118,0.3);">🧠 AI Intel</button>
+                <button class="icon-btn" onclick="switchTab('delivery')" style="color:var(--accent-cyan); border-color:rgba(0,242,254,0.35);">📦 Tracker</button>
+                <button class="icon-btn" onclick="switchTab('intel')" style="color:var(--accent-green); border-color:rgba(0,230,118,0.35);">🧠 AI Intel</button>
                 <button class="icon-btn" onclick="showBadgeModal()">🛡️ Badge</button>
                 <button class="icon-btn" id="notif-btn" onclick="toggleNotifications()">🔔 Push</button>
                 <button class="icon-btn" onclick="playAudioBriefing()">🔊 Briefing</button>
@@ -671,11 +673,11 @@ HTML_PAGE = """<!DOCTYPE html>
 
     <!-- LIVE REAL-TIME WEBHOOK STREAM TICKER -->
     <div id="webhook-live-bar">
-        <div style="display:flex; align-items:center; gap:6px;">
-            <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--accent-cyan); box-shadow:0 0 6px var(--accent-cyan);" class="conn-dot"></span>
+        <div style="display:flex; align-items:center; gap:8px;">
+            <span style="display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--accent-cyan); box-shadow:0 0 8px var(--accent-cyan);" class="conn-dot"></span>
             <span id="webhook-ticker-text">⚡ [Live Webhook Feed] PR #3633 (TSCircuit) rebased cleanly • 100% CI Green • Algora pool synchronized</span>
         </div>
-        <span style="font-size:9px; color:#8b949e;" id="webhook-time">Just now</span>
+        <span style="font-size:11px; color:#8b949e;" id="webhook-time">Just now</span>
     </div>
 
     <!-- MAIN GAMIFIED NAVIGATION TAB BAR -->
@@ -698,20 +700,20 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card" style="background: linear-gradient(135deg, rgba(0, 242, 254, 0.12), rgba(18, 24, 38, 0.95)); border: 1px solid rgba(0, 242, 254, 0.35);">
             <div class="card-title">
                 <span>📦 Amazon-Style PR & Bank Deposit Logistics Hub</span>
-                <span style="color:var(--accent-cyan); font-size:10px; font-weight:900; letter-spacing:0.5px;">LIVE TRACKING</span>
+                <span style="color:var(--accent-cyan); font-size:11px; font-weight:900; letter-spacing:0.5px;">LIVE TRACKING</span>
             </div>
-            <div style="font-size:12px; color:#c9d1d9; line-height:1.4;">
+            <div style="font-size:14px; color:#c9d1d9; line-height:1.5;">
                 Real-time tracking for all <b>142 software issues</b> from submission to direct bank deposit clearance.
             </div>
 
             <!-- Deposit ETA Banner -->
-            <div class="deposit-forecast-badge" style="margin-top:10px;">
+            <div class="deposit-forecast-badge" style="margin-top:12px;">
                 <span class="deposit-forecast-title">Est. Next Bank Deposit</span>
                 <span class="deposit-forecast-time" id="dash-deposit-eta">📅 Mon, Sept 8 • ~2:00 PM PDT ($250.00 Direct Deposit)</span>
             </div>
 
             <!-- 5-Stage Animated Stepper -->
-            <div class="amazon-stepper-wrap" style="margin:14px 0 8px 0;">
+            <div class="amazon-stepper-wrap" style="margin:16px 0 10px 0;">
                 <div class="amazon-stepper-line-bg"></div>
                 <div class="amazon-stepper-line-fill" style="width: 55%;"></div>
                 <div class="amazon-stepper-nodes">
@@ -738,8 +740,8 @@ HTML_PAGE = """<!DOCTYPE html>
                 </div>
             </div>
 
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px; border-top:1px solid rgba(255,255,255,0.06); padding-top:8px;">
-                <span style="font-size:11px; color:#8b949e;">Active Package: <b style="color:#fff;">TSCircuit PR #3633</b> (Tracking: <code style="color:var(--accent-cyan);">BG-LOG-#3633</code>)</span>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px; border-top:1px solid rgba(255,255,255,0.08); padding-top:10px;">
+                <span style="font-size:13px; color:#8b949e;">Active Package: <b style="color:#fff;">TSCircuit PR #3633</b> (Tracking: <code style="color:var(--accent-cyan); font-weight:700;">BG-LOG-#3633</code>)</span>
                 <button class="action-chip-btn" onclick="switchTab('delivery')" style="background:linear-gradient(135deg, #00f2fe, #4facfe); color:#000; font-weight:900;">View All 142 Packages ➔</button>
             </div>
         </div>
@@ -748,27 +750,27 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card" style="background: linear-gradient(135deg, rgba(0, 230, 118, 0.08), rgba(18, 24, 38, 0.95)); border: 1px solid rgba(0, 230, 118, 0.25);">
             <div class="card-title">
                 <span>🧠 Autonomous Pipeline & Maintainer Intelligence Suite</span>
-                <span style="color:var(--accent-green); font-size:10px; font-weight:900;">100% OPERATIONAL</span>
+                <span style="color:var(--accent-green); font-size:11px; font-weight:900;">100% OPERATIONAL</span>
             </div>
             
             <div class="grid-2">
                 <div class="stat-box">
-                    <div style="font-size:12px; font-weight:800; color:var(--accent-cyan); display:flex; align-items:center; justify-content:center; gap:4px;">
+                    <div style="font-size:13px; font-weight:800; color:var(--accent-cyan); display:flex; align-items:center; justify-content:center; gap:5px;">
                         <span>⚡ Merge Velocity Predictor</span>
                     </div>
-                    <div class="stat-val" style="color:var(--accent-cyan); font-size:20px; margin-top:4px;">94% Score</div>
+                    <div class="stat-val" style="color:var(--accent-cyan); font-size:24px; margin-top:4px;">94% Score</div>
                     <div class="stat-label">~24h Avg Turnaround</div>
                 </div>
                 <div class="stat-box">
-                    <div style="font-size:12px; font-weight:800; color:var(--accent-green); display:flex; align-items:center; justify-content:center; gap:4px;">
+                    <div style="font-size:13px; font-weight:800; color:var(--accent-green); display:flex; align-items:center; justify-content:center; gap:5px;">
                         <span>🛡️ CI Auto-Healer</span>
                     </div>
-                    <div class="stat-val" style="color:var(--accent-green); font-size:20px; margin-top:4px;">100% Green</div>
+                    <div class="stat-val" style="color:var(--accent-green); font-size:24px; margin-top:4px;">100% Green</div>
                     <div class="stat-label">0 Flaky Test Failures</div>
                 </div>
             </div>
 
-            <div style="display:flex; gap:6px; margin-top:10px; flex-wrap:wrap;">
+            <div style="display:flex; gap:8px; margin-top:12px; flex-wrap:wrap;">
                 <button class="action-chip-btn" onclick="showProofModal('tscircuit/core', 'Autorouting Trace Constraint Solver', '200', 'https://github.com/tscircuit/core/pull/3633')">🔍 Visual PR Proof Studio</button>
                 <button class="action-chip-btn" onclick="triggerFollowUp('ProjectDiscovery')">💬 1-Click Maintainer Follow-Up</button>
                 <button class="action-chip-btn" onclick="switchTab('intel')" style="color:var(--accent-green);">Explore Intelligence Hub ➔</button>
@@ -779,10 +781,10 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card">
             <div class="card-title">
                 <span>🕒 UPSTREAM REVIEW WINDOW</span>
-                <span style="color:var(--accent-green); font-size:11px;" id="countdown-timer">🟢 ACTIVE QUEUE</span>
+                <span style="color:var(--accent-green); font-size:12px; font-weight:800;" id="countdown-timer">🟢 ACTIVE QUEUE</span>
             </div>
-            <div style="font-size:12px; color:#c9d1d9;" id="maintainer-window-desc">
-                <b>Review Window:</b> Maintainers triage PRs Mon–Fri (9 AM – 6 PM). Next batch review begins at 9:00 AM EST for your <b style="color:#fff;" id="window-prs-val">110 active PRs</b> (<span style="color:var(--accent-cyan);" id="window-pipeline-val">$23,775 pipeline</span>).
+            <div style="font-size:14px; color:#c9d1d9; line-height:1.5;" id="maintainer-window-desc">
+                <b>Review Window:</b> Maintainers triage PRs Mon–Fri (9 AM – 6 PM). Next batch review begins at 9:00 AM EST for your <b style="color:#fff;" id="window-prs-val">110 active PRs</b> (<span style="color:var(--accent-cyan); font-weight:700;" id="window-pipeline-val">$23,775 pipeline</span>).
             </div>
         </div>
 
@@ -790,7 +792,7 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card" style="background: linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(157, 78, 221, 0.1));">
             <div class="card-title">
                 <span>🎯 Monthly Milestone: $50,000</span>
-                <span style="color:var(--accent-cyan);" id="pace-percent">58.4% Pace</span>
+                <span style="color:var(--accent-cyan); font-size:13px; font-weight:800;" id="pace-percent">58.4% Pace</span>
             </div>
             <div class="progress-wrap">
                 <div class="progress-bar-bg">
@@ -807,7 +809,7 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card">
             <div class="card-title">
                 <span>💰 Master Financial Statements</span>
-                <span style="color:var(--accent-green); font-size:10px; font-weight:700;">100% BALANCED</span>
+                <span style="color:var(--accent-green); font-size:11px; font-weight:800;">100% BALANCED</span>
             </div>
             <div class="grid-3">
                 <div class="stat-box">
@@ -823,8 +825,8 @@ HTML_PAGE = """<!DOCTYPE html>
                     <div class="stat-label">Cumulative Cash</div>
                 </div>
             </div>
-            <div style="font-size:11px; color:#8b949e; text-align:center; margin-top:10px; padding-top:8px; border-top:1px solid rgba(255,255,255,0.06);">
-                💵 <b>Cumulative Stripe Cash</b> (<span style="color:var(--accent-green); font-weight:700;" id="footnote-cash">$5,430</span>) + ⏳ <b>AR</b> (<span style="color:var(--accent-gold); font-weight:700;" id="footnote-ar">$23,775</span>) = 📊 <b>Cumulative Pipeline</b> (<span style="color:var(--accent-cyan); font-weight:700;" id="footnote-gross">$29,205</span>)
+            <div style="font-size:13px; color:#8b949e; text-align:center; margin-top:12px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.08);">
+                💵 <b>Cumulative Stripe Cash</b> (<span style="color:var(--accent-green); font-weight:800;" id="footnote-cash">$5,430</span>) + ⏳ <b>AR</b> (<span style="color:var(--accent-gold); font-weight:800;" id="footnote-ar">$23,775</span>) = 📊 <b>Cumulative Pipeline</b> (<span style="color:var(--accent-cyan); font-weight:800;" id="footnote-gross">$29,205</span>)
             </div>
         </div>
 
@@ -832,7 +834,7 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card">
             <div class="card-title">
                 <span>🎛️ Pipeline by Ecosystem</span>
-                <span style="color:var(--accent-cyan); font-size:10px;" id="eco-count-label">25 Organizations</span>
+                <span style="color:var(--accent-cyan); font-size:12px; font-weight:800;" id="eco-count-label">25 Organizations</span>
             </div>
             <div class="repo-carousel" id="repo-carousel-container">
                 <!-- Populated Dynamically -->
@@ -852,7 +854,7 @@ HTML_PAGE = """<!DOCTYPE html>
                     <div class="stat-label">Avg Daily Pace</div>
                 </div>
             </div>
-            <div class="grid-2" style="margin-top:8px;">
+            <div class="grid-2" style="margin-top:10px;">
                 <div class="stat-box">
                     <div class="stat-val" id="stat-weekly-rev">$29,205</div>
                     <div class="stat-label">Weekly Total</div>
@@ -867,15 +869,15 @@ HTML_PAGE = """<!DOCTYPE html>
 
     <!-- VIEW 2: DEDICATED AMAZON PACKAGE DELIVERY LOGISTICS COMMAND CENTER -->
     <div class="content-view" id="view-delivery" style="display:none;">
-        <div class="card" style="background: linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(157, 78, 221, 0.15)); border-color: rgba(0, 242, 254, 0.3);">
+        <div class="card" style="background: linear-gradient(135deg, rgba(0, 242, 254, 0.12), rgba(157, 78, 221, 0.15)); border-color: rgba(0, 242, 254, 0.35);">
             <div class="card-title">
                 <span>📦 Amazon-Style PR Logistics Command Center</span>
-                <span style="color:var(--accent-green); font-size:10px; font-weight:900;">142 IN FLIGHT</span>
+                <span style="color:var(--accent-green); font-size:11px; font-weight:900;">142 IN FLIGHT</span>
             </div>
-            <div style="font-size:12px; color:#c9d1d9; line-height:1.4;">
+            <div style="font-size:14px; color:#c9d1d9; line-height:1.5;">
                 Track software bounties exactly like Amazon packages. Every submitted PR is monitored step-by-step from initial submission to final bank deposit clearance into your Stripe-connected account.
             </div>
-            <div class="grid-3" style="margin-top:12px;">
+            <div class="grid-3" style="margin-top:14px;">
                 <div class="stat-box">
                     <div class="stat-val" style="color:var(--accent-cyan);">142</div>
                     <div class="stat-label">Total PRs</div>
@@ -894,10 +896,10 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card">
             <div class="card-title">
                 <span>🚚 Real-Time PR Package Fleet</span>
-                <span style="color:var(--accent-cyan); font-size:10px;">Filter by Stage</span>
+                <span style="color:var(--accent-cyan); font-size:12px; font-weight:800;">Filter by Stage</span>
             </div>
             <!-- Stage Filter Pills -->
-            <div style="display:flex; gap:6px; margin-bottom:12px; overflow-x:auto;">
+            <div style="display:flex; gap:8px; margin-bottom:14px; overflow-x:auto;">
                 <button class="chip" id="deliv-filter-all" onclick="filterRadar('all')" style="background:var(--accent-cyan); color:#000; font-weight:900;">All Fleet (142)</button>
                 <button class="chip" id="deliv-filter-transit" onclick="filterRadar('review')">🔍 In Review (110)</button>
                 <button class="chip" id="deliv-filter-delivered" onclick="filterRadar('merged')" style="color:var(--accent-green);">💰 Delivered / Paid (32)</button>
@@ -913,9 +915,9 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card" style="background: linear-gradient(135deg, rgba(0, 230, 118, 0.1), rgba(0, 242, 254, 0.08)); border-color: rgba(0, 230, 118, 0.3);">
             <div class="card-title">
                 <span>🧠 Autonomous Pipeline & Maintainer Intelligence Suite</span>
-                <span style="color:var(--accent-green); font-size:10px; font-weight:900;">LIVE ENGINE</span>
+                <span style="color:var(--accent-green); font-size:11px; font-weight:900;">LIVE ENGINE</span>
             </div>
-            <div style="font-size:12px; color:#c9d1d9; line-height:1.4;">
+            <div style="font-size:14px; color:#c9d1d9; line-height:1.5;">
                 Antigravity AI engine continuously optimizes PR acceptance, diagnoses flaky CI tests, generates visual maintainer proof, and automates polite comment replies.
             </div>
         </div>
@@ -924,28 +926,28 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card">
             <div class="card-title">
                 <span>⚡ Maintainer Sentiment & Merge Velocity Predictor</span>
-                <span style="color:var(--accent-cyan); font-size:10px; font-weight:800;">94% GLOBAL SCORE</span>
+                <span style="color:var(--accent-cyan); font-size:11px; font-weight:800;">94% GLOBAL SCORE</span>
             </div>
-            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:8px;">
-                <div class="stat-box" style="text-align:left; padding:10px;">
-                    <div style="font-size:11px; font-weight:800; color:var(--accent-cyan);">🕷️ ProjectDiscovery</div>
-                    <div style="font-size:16px; font-weight:900; color:#fff; margin-top:2px;">~24h Turnaround</div>
-                    <div style="font-size:10px; color:#00e676; font-weight:700; margin-top:2px;">🟢 96% Fast Merge Rate</div>
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:10px;">
+                <div class="stat-box" style="text-align:left; padding:12px;">
+                    <div style="font-size:13px; font-weight:800; color:var(--accent-cyan);">🕷️ ProjectDiscovery</div>
+                    <div style="font-size:18px; font-weight:900; color:#fff; margin-top:3px;">~24h Turnaround</div>
+                    <div style="font-size:12px; color:#00e676; font-weight:800; margin-top:3px;">🟢 96% Fast Merge Rate</div>
                 </div>
-                <div class="stat-box" style="text-align:left; padding:10px;">
-                    <div style="font-size:11px; font-weight:800; color:var(--accent-cyan);">📐 TSCircuit</div>
-                    <div style="font-size:16px; font-weight:900; color:#fff; margin-top:2px;">~12h Turnaround</div>
-                    <div style="font-size:10px; color:#00e676; font-weight:700; margin-top:2px;">🟢 99% Velocity Score</div>
+                <div class="stat-box" style="text-align:left; padding:12px;">
+                    <div style="font-size:13px; font-weight:800; color:var(--accent-cyan);">📐 TSCircuit</div>
+                    <div style="font-size:18px; font-weight:900; color:#fff; margin-top:3px;">~12h Turnaround</div>
+                    <div style="font-size:12px; color:#00e676; font-weight:800; margin-top:3px;">🟢 99% Velocity Score</div>
                 </div>
-                <div class="stat-box" style="text-align:left; padding:10px;">
-                    <div style="font-size:11px; font-weight:800; color:var(--accent-cyan);">🛡️ Permify</div>
-                    <div style="font-size:16px; font-weight:900; color:#fff; margin-top:2px;">~48h Turnaround</div>
-                    <div style="font-size:10px; color:var(--accent-gold); font-weight:700; margin-top:2px;">🟡 92% Reliable Review</div>
+                <div class="stat-box" style="text-align:left; padding:12px;">
+                    <div style="font-size:13px; font-weight:800; color:var(--accent-cyan);">🛡️ Permify</div>
+                    <div style="font-size:18px; font-weight:900; color:#fff; margin-top:3px;">~48h Turnaround</div>
+                    <div style="font-size:12px; color:var(--accent-gold); font-weight:800; margin-top:3px;">🟡 92% Reliable Review</div>
                 </div>
-                <div class="stat-box" style="text-align:left; padding:10px;">
-                    <div style="font-size:11px; font-weight:800; color:var(--accent-cyan);">⛓️ Lilly Protocol</div>
-                    <div style="font-size:16px; font-weight:900; color:#fff; margin-top:2px;">~24h Turnaround</div>
-                    <div style="font-size:10px; color:#00e676; font-weight:700; margin-top:2px;">🟢 97% Fast Acceptance</div>
+                <div class="stat-box" style="text-align:left; padding:12px;">
+                    <div style="font-size:13px; font-weight:800; color:var(--accent-cyan);">⛓️ Lilly Protocol</div>
+                    <div style="font-size:18px; font-weight:900; color:#fff; margin-top:3px;">~24h Turnaround</div>
+                    <div style="font-size:12px; color:#00e676; font-weight:800; margin-top:3px;">🟢 97% Fast Acceptance</div>
                 </div>
             </div>
         </div>
@@ -954,41 +956,41 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card">
             <div class="card-title">
                 <span>🛡️ Auto-Healer & Flaky Test Discriminator</span>
-                <span style="color:var(--accent-green); font-size:10px; font-weight:800;">100% GREEN CI</span>
+                <span style="color:var(--accent-green); font-size:11px; font-weight:800;">100% GREEN CI</span>
             </div>
-            <div style="font-size:11px; color:#8b949e; line-height:1.4;">
+            <div style="font-size:13px; color:#8b949e; line-height:1.5;">
                 Automatically isolates network timeouts and flaky unit tests across repos, auto-retrying with clean state seeds and guaranteeing 100% green checkmarks before maintainer review.
             </div>
-            <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.06); border-radius:10px; padding:12px; font-family:monospace; font-size:11px; color:#00e676; margin-top:8px;">
+            <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:14px; font-family:monospace; font-size:13px; color:#00e676; margin-top:10px; line-height:1.6;">
                 ✓ Auto-Healer Telemetry: 142/142 PR test suites passed<br>
                 ✓ Flaky test discriminator: 0 false-positive build failures<br>
                 ✓ Upstream clean rebase status: In-Sync with main branches
             </div>
-            <button class="action-chip-btn" onclick="alert('🧪 Auto-Healer Diagnostic Scan Complete: All 142 PR test pipelines verified 100% green with zero flakes.')" style="margin-top:8px; background:rgba(0,230,118,0.15); border-color:var(--accent-green); color:var(--accent-green);">🧪 Run Auto-Healer Diagnostic Scan</button>
+            <button class="action-chip-btn" onclick="alert('🧪 Auto-Healer Diagnostic Scan Complete: All 142 PR test pipelines verified 100% green with zero flakes.')" style="margin-top:10px; background:rgba(0,230,118,0.2); border-color:var(--accent-green); color:var(--accent-green); font-size:13px;">🧪 Run Auto-Healer Diagnostic Scan</button>
         </div>
 
         <!-- 3. VISUAL PR PROOF STUDIO -->
         <div class="card">
             <div class="card-title">
                 <span>🔍 Visual PR Proof Studio</span>
-                <span style="color:var(--accent-cyan); font-size:10px; font-weight:800;">3X FASTER REVIEW</span>
+                <span style="color:var(--accent-cyan); font-size:11px; font-weight:800;">3X FASTER REVIEW</span>
             </div>
-            <div style="font-size:11px; color:#8b949e; line-height:1.4;">
+            <div style="font-size:13px; color:#8b949e; line-height:1.5;">
                 Generates visual screenshot diffs, zero-regression execution logs, and CLA signatures so maintainers can approve PRs with zero ambiguity in seconds.
             </div>
-            <button class="action-chip-btn" onclick="showProofModal('tscircuit/core', 'Autorouting Trace Constraint Solver', '200', 'https://github.com/tscircuit/core/pull/3633')" style="margin-top:8px; background:rgba(0,242,254,0.15); border-color:var(--accent-cyan); color:var(--accent-cyan);">📸 Generate Live PR Visual Snapshot</button>
+            <button class="action-chip-btn" onclick="showProofModal('tscircuit/core', 'Autorouting Trace Constraint Solver', '200', 'https://github.com/tscircuit/core/pull/3633')" style="margin-top:10px; background:rgba(0,242,254,0.2); border-color:var(--accent-cyan); color:var(--accent-cyan); font-size:13px;">📸 Generate Live PR Visual Snapshot</button>
         </div>
 
         <!-- 4. ONE-CLICK AUTOMATED MAINTAINER FOLLOW-UP SCHEDULER -->
         <div class="card">
             <div class="card-title">
                 <span>💬 1-Click Maintainer Follow-Up Scheduler</span>
-                <span style="color:var(--accent-gold); font-size:10px; font-weight:800;">POLITE REPLIES</span>
+                <span style="color:var(--accent-gold); font-size:11px; font-weight:800;">POLITE REPLIES</span>
             </div>
-            <div style="font-size:11px; color:#8b949e; line-height:1.4;">
+            <div style="font-size:13px; color:#8b949e; line-height:1.5;">
                 Automatically follows up after 72h of inactivity with polite, professional comments to keep reviews moving forward.
             </div>
-            <div style="display:flex; gap:6px; margin-top:8px; flex-wrap:wrap;">
+            <div style="display:flex; gap:8px; margin-top:10px; flex-wrap:wrap;">
                 <button class="action-chip-btn" onclick="triggerFollowUp('Permify')">💬 Permify Follow-Up</button>
                 <button class="action-chip-btn" onclick="triggerFollowUp('TSCircuit')">💬 TSCircuit Follow-Up</button>
                 <button class="action-chip-btn" onclick="triggerFollowUp('Lilly Protocol')">💬 Lilly Follow-Up</button>
@@ -1002,16 +1004,16 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card">
             <div class="card-title">
                 <span>📡 Pull Request Radar</span>
-                <span style="color:var(--accent-cyan); font-size:11px;" id="radar-count">142 Active</span>
+                <span style="color:var(--accent-cyan); font-size:12px; font-weight:800;" id="radar-count">142 Active</span>
             </div>
             <!-- Filter Pills -->
-            <div style="display:flex; gap:6px; margin-bottom:12px; overflow-x:auto;">
-                <button class="chip" id="filter-all" onclick="filterRadar('all')" style="background:var(--accent-cyan); color:#000; border-color:var(--accent-cyan); font-weight:800;">All (142)</button>
+            <div style="display:flex; gap:8px; margin-bottom:14px; overflow-x:auto;">
+                <button class="chip" id="filter-all" onclick="filterRadar('all')" style="background:var(--accent-cyan); color:#000; border-color:var(--accent-cyan); font-weight:900;">All (142)</button>
                 <button class="chip" id="filter-review" onclick="filterRadar('review')">⏳ In Review (110)</button>
                 <button class="chip" id="filter-merged" onclick="filterRadar('merged')" style="color:var(--accent-green); border-color:rgba(0,230,118,0.4);">🎉 Merged (32 • $5,430)</button>
             </div>
             <div id="pr-radar-list">
-                <div style="color:#8b949e; font-size:12px; text-align:center; padding:20px;">Loading live PR feed...</div>
+                <div style="color:#8b949e; font-size:14px; text-align:center; padding:24px;">Loading live PR feed...</div>
             </div>
         </div>
     </div>
@@ -1021,9 +1023,9 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card">
             <div class="card-title">
                 <span>🛡️ Protocol 11 Concentration Heatmap</span>
-                <span style="color:var(--accent-green); font-size:10px; font-weight:800;">25 INDEPENDENT REVENUE STREAMS</span>
+                <span style="color:var(--accent-green); font-size:11px; font-weight:900;">25 INDEPENDENT REVENUE STREAMS</span>
             </div>
-            <div style="font-size:11px; color:#8b949e; line-height:1.4;">
+            <div style="font-size:13px; color:#8b949e; line-height:1.5;">
                 <b>Portfolio Allocation Rules:</b> 🟢 Underweight (&lt;4% — Wave Priority) • 🟡 Target Balance (4%–5%) • 🔴 Concentration Limit (&gt;8% — Auto-Paused to eliminate maintainer fatigue).
             </div>
             <div class="heatmap-grid" id="heatmap-grid-container">
@@ -1034,34 +1036,34 @@ HTML_PAGE = """<!DOCTYPE html>
 
     <!-- VIEW 6: RETAINER DEAL ROOM -->
     <div class="content-view" id="view-retainer" style="display:none;">
-        <div class="card" style="background: linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(157, 78, 221, 0.15)); border-color: rgba(0, 242, 254, 0.3);">
+        <div class="card" style="background: linear-gradient(135deg, rgba(0, 242, 254, 0.12), rgba(157, 78, 221, 0.15)); border-color: rgba(0, 242, 254, 0.35);">
             <div class="card-title">
                 <span>💼 Retainer Deal Room ($40k–$64k/mo MRR)</span>
-                <span style="color:var(--accent-gold); font-size:10px; font-weight:900;">HIGH-LEVERAGE CONVERSION</span>
+                <span style="color:var(--accent-gold); font-size:11px; font-weight:900;">HIGH-LEVERAGE CONVERSION</span>
             </div>
-            <div style="font-size:12px; color:#c9d1d9; line-height:1.4;">
+            <div style="font-size:14px; color:#c9d1d9; line-height:1.5;">
                 Every 3+ merged PRs in a repository serves as proof-of-work to pitch founders & engineering leadership on a dedicated <b>$6,000–$8,000/month core maintainer retainer</b>.
             </div>
-            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:10px; margin-top:12px;">
-                <div class="card" style="margin:0; background:rgba(0,0,0,0.4);">
-                    <div style="font-size:12px; font-weight:800; color:var(--accent-cyan);">⛓️ Lilly Protocol (14 Merged PRs)</div>
-                    <div style="font-size:10px; color:#8b949e; margin-top:2px;">Core Contracts & Frontend Maintenance</div>
-                    <button class="action-chip-btn" style="margin-top:8px; width:100%; justify-content:center; background:rgba(0,242,254,0.15); border-color:var(--accent-cyan); color:var(--accent-cyan);" onclick="showRetainerModal('Lilly Protocol')">📄 Generate $8,000/mo Proposal</button>
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:12px; margin-top:14px;">
+                <div class="card" style="margin:0; background:rgba(0,0,0,0.45);">
+                    <div style="font-size:14px; font-weight:900; color:var(--accent-cyan);">⛓️ Lilly Protocol (14 Merged PRs)</div>
+                    <div style="font-size:12px; color:#8b949e; margin-top:3px;">Core Contracts & Frontend Maintenance</div>
+                    <button class="action-chip-btn" style="margin-top:10px; width:100%; justify-content:center; background:rgba(0,242,254,0.2); border-color:var(--accent-cyan); color:var(--accent-cyan); font-size:13px;" onclick="showRetainerModal('Lilly Protocol')">📄 Generate $8,000/mo Proposal</button>
                 </div>
-                <div class="card" style="margin:0; background:rgba(0,0,0,0.4);">
-                    <div style="font-size:12px; font-weight:800; color:var(--accent-cyan);">📐 TSCircuit (8 Merged PRs)</div>
-                    <div style="font-size:10px; color:#8b949e; margin-top:2px;">Autorouting & Circuit Simulator Core</div>
-                    <button class="action-chip-btn" style="margin-top:8px; width:100%; justify-content:center; background:rgba(0,242,254,0.15); border-color:var(--accent-cyan); color:var(--accent-cyan);" onclick="showRetainerModal('TSCircuit')">📄 Generate $6,500/mo Proposal</button>
+                <div class="card" style="margin:0; background:rgba(0,0,0,0.45);">
+                    <div style="font-size:14px; font-weight:900; color:var(--accent-cyan);">📐 TSCircuit (8 Merged PRs)</div>
+                    <div style="font-size:12px; color:#8b949e; margin-top:3px;">Autorouting & Circuit Simulator Core</div>
+                    <button class="action-chip-btn" style="margin-top:10px; width:100%; justify-content:center; background:rgba(0,242,254,0.2); border-color:var(--accent-cyan); color:var(--accent-cyan); font-size:13px;" onclick="showRetainerModal('TSCircuit')">📄 Generate $6,500/mo Proposal</button>
                 </div>
-                <div class="card" style="margin:0; background:rgba(0,0,0,0.4);">
-                    <div style="font-size:12px; font-weight:800; color:var(--accent-cyan);">🛡️ Permify (6 Merged PRs)</div>
-                    <div style="font-size:10px; color:#8b949e; margin-top:2px;">Authorization Engine & Go CI/CD</div>
-                    <button class="action-chip-btn" style="margin-top:8px; width:100%; justify-content:center; background:rgba(0,242,254,0.15); border-color:var(--accent-cyan); color:var(--accent-cyan);" onclick="showRetainerModal('Permify')">📄 Generate $7,500/mo Proposal</button>
+                <div class="card" style="margin:0; background:rgba(0,0,0,0.45);">
+                    <div style="font-size:14px; font-weight:900; color:var(--accent-cyan);">🛡️ Permify (6 Merged PRs)</div>
+                    <div style="font-size:12px; color:#8b949e; margin-top:3px;">Authorization Engine & Go CI/CD</div>
+                    <button class="action-chip-btn" style="margin-top:10px; width:100%; justify-content:center; background:rgba(0,242,254,0.2); border-color:var(--accent-cyan); color:var(--accent-cyan); font-size:13px;" onclick="showRetainerModal('Permify')">📄 Generate $7,500/mo Proposal</button>
                 </div>
-                <div class="card" style="margin:0; background:rgba(0,0,0,0.4);">
-                    <div style="font-size:12px; font-weight:800; color:var(--accent-cyan);">🕷️ ProjectDiscovery (4 Merged PRs)</div>
-                    <div style="font-size:10px; color:#8b949e; margin-top:2px;">Security Tooling (Katana, DNSX, Subfinder)</div>
-                    <button class="action-chip-btn" style="margin-top:8px; width:100%; justify-content:center; background:rgba(0,242,254,0.15); border-color:var(--accent-cyan); color:var(--accent-cyan);" onclick="showRetainerModal('ProjectDiscovery')">📄 Generate $8,000/mo Proposal</button>
+                <div class="card" style="margin:0; background:rgba(0,0,0,0.45);">
+                    <div style="font-size:14px; font-weight:900; color:var(--accent-cyan);">🕷️ ProjectDiscovery (4 Merged PRs)</div>
+                    <div style="font-size:12px; color:#8b949e; margin-top:3px;">Security Tooling (Katana, DNSX, Subfinder)</div>
+                    <button class="action-chip-btn" style="margin-top:10px; width:100%; justify-content:center; background:rgba(0,242,254,0.2); border-color:var(--accent-cyan); color:var(--accent-cyan); font-size:13px;" onclick="showRetainerModal('ProjectDiscovery')">📄 Generate $8,000/mo Proposal</button>
                 </div>
             </div>
         </div>
@@ -1072,13 +1074,13 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card" style="background: linear-gradient(135deg, rgba(255, 183, 3, 0.12), rgba(0, 242, 254, 0.08)); border-color: rgba(255, 183, 3, 0.3);">
             <div class="card-title">
                 <span>⚡ SPRINT ENGINE STATUS</span>
-                <span style="color:var(--accent-gold); font-size:11px; font-weight:900;">🔥 100% OVERDRIVE READY</span>
+                <span style="color:var(--accent-gold); font-size:12px; font-weight:900;">🔥 100% OVERDRIVE READY</span>
             </div>
             <div style="display:flex; justify-content:space-between; align-items:center;">
-                <div style="font-size:12px; color:#c9d1d9; font-weight:600;">
+                <div style="font-size:13px; color:#c9d1d9; font-weight:700;">
                     Autonomous V-Gate Verification: <span style="color:#00e676;">ARMED</span>
                 </div>
-                <div style="background:#00e676; color:#000; font-size:10px; font-weight:900; padding:3px 8px; border-radius:6px;">CI GREEN</div>
+                <div style="background:#00e676; color:#000; font-size:11px; font-weight:900; padding:4px 9px; border-radius:8px;">CI GREEN</div>
             </div>
         </div>
 
@@ -1086,24 +1088,24 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card" style="border: 1px solid rgba(0, 230, 118, 0.3); background: linear-gradient(180deg, rgba(0, 230, 118, 0.08) 0%, rgba(18, 24, 38, 0.95) 100%);">
             <div style="display:flex; justify-content:space-between; align-items:flex-start;">
                 <div>
-                    <span style="background:rgba(0,230,118,0.2); color:#00e676; font-size:10px; font-weight:900; padding:3px 8px; border-radius:6px; letter-spacing:0.5px;">TIER 1 QUEST</span>
-                    <div style="font-size:17px; font-weight:900; color:#fff; margin-top:6px;">⚡ TACTICAL MINI SPRINT</div>
-                    <div style="font-size:11px; color:#8b949e; margin-top:2px;">3 High-Confidence Ecosystem Targets</div>
+                    <span style="background:rgba(0,230,118,0.2); color:#00e676; font-size:11px; font-weight:900; padding:4px 9px; border-radius:8px; letter-spacing:0.5px;">TIER 1 QUEST</span>
+                    <div style="font-size:19px; font-weight:900; color:#fff; margin-top:6px;">⚡ TACTICAL MINI SPRINT</div>
+                    <div style="font-size:13px; color:#8b949e; margin-top:3px;">3 High-Confidence Ecosystem Targets</div>
                 </div>
                 <div style="text-align:right;">
-                    <div style="font-size:18px; font-weight:900; color:#00e676;">+$700</div>
-                    <div style="font-size:9px; color:#8b949e; font-weight:700; text-transform:uppercase;">Reward Yield</div>
+                    <div style="font-size:20px; font-weight:900; color:#00e676;">+$700</div>
+                    <div style="font-size:11px; color:#8b949e; font-weight:800; text-transform:uppercase;">Reward Yield</div>
                 </div>
             </div>
 
-            <div style="display:flex; gap:6px; margin:12px 0 14px 0; flex-wrap:wrap;">
-                <span style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); font-size:10px; font-weight:700; color:#58a6ff; padding:3px 8px; border-radius:6px;">🛡️ Permify (+$250)</span>
-                <span style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); font-size:10px; font-weight:700; color:#ff7b72; padding:3px 8px; border-radius:6px;">🎥 Cap (+$200)</span>
-                <span style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); font-size:10px; font-weight:700; color:#d2a8ff; padding:3px 8px; border-radius:6px;">⛓️ Lilly (+$250)</span>
+            <div style="display:flex; gap:8px; margin:14px 0 16px 0; flex-wrap:wrap;">
+                <span style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); font-size:12px; font-weight:800; color:#58a6ff; padding:4px 10px; border-radius:8px;">🛡️ Permify (+$250)</span>
+                <span style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); font-size:12px; font-weight:800; color:#ff7b72; padding:4px 10px; border-radius:8px;">🎥 Cap (+$200)</span>
+                <span style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); font-size:12px; font-weight:800; color:#d2a8ff; padding:4px 10px; border-radius:8px;">⛓️ Lilly (+$250)</span>
             </div>
 
             <button class="batch-btn btn-mini" onclick="executeRealBatch('mini')" style="width:100%;">
-                <span style="font-size:15px; font-weight:900; letter-spacing:0.5px;">⚡ LAUNCH MINI SPRINT (+$700)</span>
+                <span style="font-size:17px; font-weight:900; letter-spacing:0.5px;">⚡ LAUNCH MINI SPRINT (+$700)</span>
                 <span class="batch-sub">1-Tap Autonomous Dispatch • 3 PRs</span>
             </button>
         </div>
@@ -1112,26 +1114,26 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card" style="border: 1px solid rgba(255, 0, 127, 0.4); background: linear-gradient(180deg, rgba(255, 0, 127, 0.1) 0%, rgba(18, 24, 38, 0.95) 100%);">
             <div style="display:flex; justify-content:space-between; align-items:flex-start;">
                 <div>
-                    <span style="background:linear-gradient(135deg, #ff007f, #7928ca); color:#fff; font-size:10px; font-weight:900; padding:3px 8px; border-radius:6px; letter-spacing:0.5px;">⭐ APEX OVERDRIVE</span>
-                    <div style="font-size:17px; font-weight:900; color:#fff; margin-top:6px;">🚀 OMNI-POWER SPRINT</div>
-                    <div style="font-size:11px; color:#8b949e; margin-top:2px;">5 Distinct Multi-Repo Workspaces</div>
+                    <span style="background:linear-gradient(135deg, #ff007f, #7928ca); color:#fff; font-size:11px; font-weight:900; padding:4px 9px; border-radius:8px; letter-spacing:0.5px;">⭐ APEX OVERDRIVE</span>
+                    <div style="font-size:19px; font-weight:900; color:#fff; margin-top:6px;">🚀 OMNI-POWER SPRINT</div>
+                    <div style="font-size:13px; color:#8b949e; margin-top:3px;">5 Distinct Multi-Repo Workspaces</div>
                 </div>
                 <div style="text-align:right;">
-                    <div style="font-size:20px; font-weight:900; color:var(--accent-pink);">+$1,050</div>
-                    <div style="font-size:9px; color:#8b949e; font-weight:700; text-transform:uppercase;">Reward Yield</div>
+                    <div style="font-size:22px; font-weight:900; color:var(--accent-pink);">+$1,050</div>
+                    <div style="font-size:11px; color:#8b949e; font-weight:800; text-transform:uppercase;">Reward Yield</div>
                 </div>
             </div>
 
-            <div style="display:flex; gap:6px; margin:12px 0 14px 0; flex-wrap:wrap;">
-                <span style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); font-size:10px; font-weight:700; color:#58a6ff; padding:3px 8px; border-radius:6px;">🛡️ Permify (+$250)</span>
-                <span style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); font-size:10px; font-weight:700; color:#ff7b72; padding:3px 8px; border-radius:6px;">🎥 Cap (+$200)</span>
-                <span style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); font-size:10px; font-weight:700; color:#d2a8ff; padding:3px 8px; border-radius:6px;">⛓️ Lilly (+$250)</span>
-                <span style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); font-size:10px; font-weight:700; color:#7ee787; padding:3px 8px; border-radius:6px;">🕷️ Katana (+$200)</span>
-                <span style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); font-size:10px; font-weight:700; color:#ffa657; padding:3px 8px; border-radius:6px;">📐 TSCircuit (+$150)</span>
+            <div style="display:flex; gap:8px; margin:14px 0 16px 0; flex-wrap:wrap;">
+                <span style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); font-size:12px; font-weight:800; color:#58a6ff; padding:4px 10px; border-radius:8px;">🛡️ Permify (+$250)</span>
+                <span style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); font-size:12px; font-weight:800; color:#ff7b72; padding:4px 10px; border-radius:8px;">🎥 Cap (+$200)</span>
+                <span style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); font-size:12px; font-weight:800; color:#d2a8ff; padding:4px 10px; border-radius:8px;">⛓️ Lilly (+$250)</span>
+                <span style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); font-size:12px; font-weight:800; color:#7ee787; padding:4px 10px; border-radius:8px;">🕷️ Katana (+$200)</span>
+                <span style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); font-size:12px; font-weight:800; color:#ffa657; padding:4px 10px; border-radius:8px;">📐 TSCircuit (+$150)</span>
             </div>
 
             <button class="batch-btn btn-power" onclick="executeRealBatch('power')" style="width:100%;">
-                <span style="font-size:15px; font-weight:900; letter-spacing:0.5px;">🚀 LAUNCH POWER SPRINT (+$1,050)</span>
+                <span style="font-size:17px; font-weight:900; letter-spacing:0.5px;">🚀 LAUNCH POWER SPRINT (+$1,050)</span>
                 <span class="batch-sub">Max Velocity Execution • 5 Distinct Repos</span>
             </button>
         </div>
@@ -1143,22 +1145,22 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card" style="background: linear-gradient(135deg, rgba(0, 230, 118, 0.12), rgba(0, 242, 254, 0.08)); border: 1px solid rgba(0, 230, 118, 0.3);">
             <div class="card-title">
                 <span>🛡️ Public Proof-of-Work Verification Badge</span>
-                <span style="color:var(--accent-green); font-size:10px; font-weight:900;">VERIFIED MERGED</span>
+                <span style="color:var(--accent-green); font-size:11px; font-weight:900;">VERIFIED MERGED</span>
             </div>
-            <div style="text-align:center; padding:16px; background:rgba(0,0,0,0.4); border:1px solid rgba(0,230,118,0.3); border-radius:12px;">
-                <div style="font-size:18px; font-weight:900; color:#00e676;">🏆 BOUNTYGRID OS VERIFIED CONTRIBUTOR</div>
-                <div style="font-size:12px; color:#fff; font-weight:700; margin-top:4px;">32 Confirmed Merged PRs • 100% CI Green Rate</div>
-                <div style="font-size:10px; color:#8b949e; margin-top:2px;">25 Ecosystems • $30,730 Cumulative Pipeline</div>
+            <div style="text-align:center; padding:18px; background:rgba(0,0,0,0.45); border:1px solid rgba(0,230,118,0.35); border-radius:14px;">
+                <div style="font-size:20px; font-weight:900; color:#00e676;">🏆 BOUNTYGRID OS VERIFIED CONTRIBUTOR</div>
+                <div style="font-size:14px; color:#fff; font-weight:800; margin-top:5px;">32 Confirmed Merged PRs • 100% CI Green Rate</div>
+                <div style="font-size:12px; color:#8b949e; margin-top:3px;">25 Ecosystems • $30,730 Cumulative Pipeline</div>
             </div>
-            <div style="font-size:11px; color:#8b949e; margin-top:10px;">Embed Badge on GitHub README or Client Proposals:</div>
-            <input type="text" readonly value='&lt;a href="https://bountygrid.com"&gt;&lt;img src="https://img.shields.io/badge/BountyGrid%20OS-32%20Merged%20PRs%20%7C%20100%25%20CI%20Green-00e676" alt="BountyGrid Verified Contributor" /&gt;&lt;/a&gt;' style="background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:8px; color:#00f2fe; font-size:10px; width:100%; box-sizing:border-box; margin-top:4px;" />
-            <button class="action-chip-btn" onclick="showBadgeModal()" style="margin-top:8px; width:100%; justify-content:center; background:rgba(0,230,118,0.2); color:#00e676; font-weight:900;">📋 Open Badge Embed Modal</button>
+            <div style="font-size:13px; color:#8b949e; margin-top:12px;">Embed Badge on GitHub README or Client Proposals:</div>
+            <input type="text" readonly value='&lt;a href="https://bountygrid.com"&gt;&lt;img src="https://img.shields.io/badge/BountyGrid%20OS-32%20Merged%20PRs%20%7C%20100%25%20CI%20Green-00e676" alt="BountyGrid Verified Contributor" /&gt;&lt;/a&gt;' style="background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:10px; color:#00f2fe; font-size:12px; width:100%; box-sizing:border-box; margin-top:6px;" />
+            <button class="action-chip-btn" onclick="showBadgeModal()" style="margin-top:10px; width:100%; justify-content:center; background:rgba(0,230,118,0.25); color:#00e676; font-weight:900; font-size:13px; padding:8px 12px;">📋 Open Badge Embed Modal</button>
         </div>
 
         <div class="card">
             <div class="card-title">
                 <span>🏆 Founder Achievements Locker</span>
-                <span style="color:var(--accent-gold); font-size:11px; font-weight:900;">6 / 6 UNLOCKED</span>
+                <span style="color:var(--accent-gold); font-size:12px; font-weight:900;">6 / 6 UNLOCKED</span>
             </div>
             <div class="badge-grid">
                 <!-- Badge 1 -->
@@ -1224,7 +1226,7 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card">
             <div class="card-title">📈 ARR Multiplier Slider</div>
             <div class="slider-container">
-                <div style="display:flex; justify-content:space-between; font-size:13px; font-weight:700;">
+                <div style="display:flex; justify-content:space-between; font-size:15px; font-weight:800;">
                     <span>Daily PR Production:</span>
                     <span style="color:var(--accent-cyan);" id="calc-prs-val">5 PRs / Day</span>
                 </div>
@@ -1234,21 +1236,21 @@ HTML_PAGE = """<!DOCTYPE html>
             <div class="calc-res-box">
                 <div class="grid-2">
                     <div class="stat-box">
-                        <div class="stat-val" id="calc-daily" style="font-size:16px;">$1,000</div>
+                        <div class="stat-val" id="calc-daily" style="font-size:18px;">$1,000</div>
                         <div class="stat-label">Daily Rev</div>
                     </div>
                     <div class="stat-box">
-                        <div class="stat-val" id="calc-monthly" style="color:var(--accent-cyan); font-size:16px;">$22,000</div>
+                        <div class="stat-val" id="calc-monthly" style="color:var(--accent-cyan); font-size:18px;">$22,000</div>
                         <div class="stat-label">Monthly Rev</div>
                     </div>
                 </div>
                 
-                <div class="stat-box" style="margin-top:10px; background: linear-gradient(135deg, rgba(0,230,118,0.12), rgba(0,242,254,0.08)); border-color: rgba(0,230,118,0.3); padding:16px 10px;">
-                    <div class="stat-val" id="calc-annual" style="color:var(--accent-green); font-size:24px; font-weight:900; letter-spacing:0.5px;">$264,000</div>
-                    <div class="stat-label" style="color:var(--accent-green); font-size:11px;">Annual Run Rate (ARR)</div>
+                <div class="stat-box" style="margin-top:12px; background: linear-gradient(135deg, rgba(0,230,118,0.14), rgba(0,242,254,0.1)); border-color: rgba(0,230,118,0.35); padding:18px 12px;">
+                    <div class="stat-val" id="calc-annual" style="color:var(--accent-green); font-size:28px; font-weight:900; letter-spacing:0.5px;">$264,000</div>
+                    <div class="stat-label" style="color:var(--accent-green); font-size:13px; font-weight:800;">Annual Run Rate (ARR)</div>
                 </div>
 
-                <div style="font-size:11px; color:#8b949e; margin-top:12px; text-align:center;" id="calc-timeline">
+                <div style="font-size:13px; color:#8b949e; margin-top:14px; text-align:center;" id="calc-timeline">
                     Estimated Time to $500k ARR Studio: <b style="color:#fff;">23 Months</b>
                 </div>
             </div>
@@ -1257,9 +1259,9 @@ HTML_PAGE = """<!DOCTYPE html>
 
     <!-- VIEW 10: CHAT -->
     <div class="content-view" id="view-chat" style="display:none;">
-        <div style="display:flex; justify-content:space-between; align-items:center; padding: 0 4px 10px 4px;">
-            <div style="font-size:12px; font-weight:800; color:#8b949e; letter-spacing:0.5px;">💬 COMMAND LOG</div>
-            <button onclick="clearChat()" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.15); color:#8b949e; font-size:10px; font-weight:700; padding:4px 10px; border-radius:6px; cursor:pointer;">🧹 Clear Chat</button>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding: 0 4px 12px 4px;">
+            <div style="font-size:14px; font-weight:900; color:#8b949e; letter-spacing:0.5px;">💬 COMMAND LOG</div>
+            <button onclick="clearChat()" style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); color:#8b949e; font-size:12px; font-weight:800; padding:6px 12px; border-radius:8px; cursor:pointer;">🧹 Clear Chat</button>
         </div>
         <div id="chat-container">
             <div class="message bot-msg">
@@ -1272,20 +1274,20 @@ HTML_PAGE = """<!DOCTYPE html>
     <!-- MODAL 1: VISUAL PR PROOF MODAL -->
     <div class="modal-overlay" id="modal-proof">
         <div class="modal-box">
-            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:8px;">
-                <div style="font-size:14px; font-weight:800; color:#fff;" id="proof-modal-title">🔍 Visual PR Proof of Fix</div>
-                <button onclick="closeModals()" style="background:none; border:none; color:#8b949e; font-size:18px; cursor:pointer;">✕</button>
+            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:10px;">
+                <div style="font-size:16px; font-weight:900; color:#fff;" id="proof-modal-title">🔍 Visual PR Proof of Fix</div>
+                <button onclick="closeModals()" style="background:none; border:none; color:#8b949e; font-size:20px; cursor:pointer;">✕</button>
             </div>
-            <div style="font-size:11px; color:#8b949e;" id="proof-modal-sub">Target Issue Verification & Zero-Regression Test Logs</div>
-            <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.06); border-radius:10px; padding:12px; font-family:monospace; font-size:10px; color:#00e676; max-height:180px; overflow-y:auto;" id="proof-modal-code">
+            <div style="font-size:13px; color:#8b949e;" id="proof-modal-sub">Target Issue Verification & Zero-Regression Test Logs</div>
+            <div style="background:rgba(0,0,0,0.55); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:14px; font-family:monospace; font-size:12px; color:#00e676; max-height:200px; overflow-y:auto; line-height:1.6;" id="proof-modal-code">
                 PASS: unit & integration test suites<br>
                 ✓ minimal patch verified against upstream default branch<br>
                 ✓ 0 lint warnings • 100% test suites green (conclusion: success)<br>
                 ✓ automated CLA check passed
             </div>
-            <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:8px;">
+            <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:10px;">
                 <button class="action-chip-btn" onclick="closeModals()">Close</button>
-                <a id="proof-modal-gh-link" href="#" target="_blank" class="action-chip-btn" style="background:var(--accent-cyan); color:#000; font-weight:900;">View Live on GitHub ↗</a>
+                <a id="proof-modal-gh-link" href="#" target="_blank" class="action-chip-btn" style="background:var(--accent-cyan); color:#000; font-weight:900; font-size:13px;">View Live on GitHub ↗</a>
             </div>
         </div>
     </div>
@@ -1293,16 +1295,16 @@ HTML_PAGE = """<!DOCTYPE html>
     <!-- MODAL 2: RETAINER PROPOSAL MODAL -->
     <div class="modal-overlay" id="modal-retainer">
         <div class="modal-box">
-            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:8px;">
-                <div style="font-size:14px; font-weight:800; color:#fff;" id="retainer-modal-title">💼 Retainer Proposal Contract</div>
-                <button onclick="closeModals()" style="background:none; border:none; color:#8b949e; font-size:18px; cursor:pointer;">✕</button>
+            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:10px;">
+                <div style="font-size:16px; font-weight:900; color:#fff;" id="retainer-modal-title">💼 Retainer Proposal Contract</div>
+                <button onclick="closeModals()" style="background:none; border:none; color:#8b949e; font-size:20px; cursor:pointer;">✕</button>
             </div>
-            <textarea id="retainer-proposal-text" readonly style="background:rgba(0,0,0,0.6); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:12px; color:#c9d1d9; font-size:11px; height:180px; resize:none; font-family:sans-serif;"></textarea>
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
-                <span style="font-size:10px; color:var(--accent-green); font-weight:700;" id="copy-status"></span>
-                <div style="display:flex; gap:8px;">
+            <textarea id="retainer-proposal-text" readonly style="background:rgba(0,0,0,0.65); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px; color:#c9d1d9; font-size:13px; height:200px; resize:none; font-family:sans-serif; line-height:1.5;"></textarea>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+                <span style="font-size:12px; color:var(--accent-green); font-weight:800;" id="copy-status"></span>
+                <div style="display:flex; gap:10px;">
                     <button class="action-chip-btn" onclick="closeModals()">Close</button>
-                    <button class="action-chip-btn" onclick="copyRetainerProposal()" style="background:linear-gradient(135deg, #00e676, #00f2fe); color:#000; font-weight:900;">📋 Copy Proposal</button>
+                    <button class="action-chip-btn" onclick="copyRetainerProposal()" style="background:linear-gradient(135deg, #00e676, #00f2fe); color:#000; font-weight:900; font-size:13px;">📋 Copy Proposal</button>
                 </div>
             </div>
         </div>
@@ -1311,18 +1313,18 @@ HTML_PAGE = """<!DOCTYPE html>
     <!-- MODAL 3: PUBLIC PROOF-OF-WORK BADGE -->
     <div class="modal-overlay" id="modal-badge">
         <div class="modal-box">
-            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:8px;">
-                <div style="font-size:14px; font-weight:800; color:#fff;">🛡️ Public Proof-of-Work Badge</div>
-                <button onclick="closeModals()" style="background:none; border:none; color:#8b949e; font-size:18px; cursor:pointer;">✕</button>
+            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:10px;">
+                <div style="font-size:16px; font-weight:900; color:#fff;">🛡️ Public Proof-of-Work Badge</div>
+                <button onclick="closeModals()" style="background:none; border:none; color:#8b949e; font-size:20px; cursor:pointer;">✕</button>
             </div>
-            <div style="text-align:center; padding:16px; background:rgba(0,0,0,0.4); border:1px solid rgba(0,230,118,0.3); border-radius:12px;">
-                <div style="font-size:18px; font-weight:900; color:#00e676;">🏆 BOUNTYGRID OS VERIFIED</div>
-                <div style="font-size:12px; color:#fff; font-weight:700; margin-top:4px;">32 Confirmed Merged PRs • 100% CI Green Rate</div>
-                <div style="font-size:10px; color:#8b949e; margin-top:2px;">25 Ecosystems • $30,730 Cumulative Pipeline</div>
+            <div style="text-align:center; padding:18px; background:rgba(0,0,0,0.45); border:1px solid rgba(0,230,118,0.35); border-radius:14px;">
+                <div style="font-size:20px; font-weight:900; color:#00e676;">🏆 BOUNTYGRID OS VERIFIED</div>
+                <div style="font-size:14px; color:#fff; font-weight:800; margin-top:5px;">32 Confirmed Merged PRs • 100% CI Green Rate</div>
+                <div style="font-size:12px; color:#8b949e; margin-top:3px;">25 Ecosystems • $30,730 Cumulative Pipeline</div>
             </div>
-            <div style="font-size:11px; color:#8b949e; margin-top:6px;">Embed on GitHub README or Website:</div>
-            <input type="text" readonly value='&lt;a href="https://bountygrid.com"&gt;&lt;img src="https://img.shields.io/badge/BountyGrid%20OS-32%20Merged%20PRs%20%7C%20100%25%20CI%20Green-00e676" alt="BountyGrid Verified Contributor" /&gt;&lt;/a&gt;' style="background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:8px; color:#00f2fe; font-size:10px; width:100%; box-sizing:border-box;" />
-            <div style="display:flex; justify-content:flex-end; margin-top:8px;">
+            <div style="font-size:13px; color:#8b949e; margin-top:8px;">Embed on GitHub README or Website:</div>
+            <input type="text" readonly value='&lt;a href="https://bountygrid.com"&gt;&lt;img src="https://img.shields.io/badge/BountyGrid%20OS-32%20Merged%20PRs%20%7C%20100%25%20CI%20Green-00e676" alt="BountyGrid Verified Contributor" /&gt;&lt;/a&gt;' style="background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:10px; color:#00f2fe; font-size:12px; width:100%; box-sizing:border-box;" />
+            <div style="display:flex; justify-content:flex-end; margin-top:10px;">
                 <button class="action-chip-btn" onclick="closeModals()">Done</button>
             </div>
         </div>
@@ -1491,9 +1493,9 @@ HTML_PAGE = """<!DOCTYPE html>
             [btnAll, btnReview, btnMerged, dBtnAll, dBtnReview, dBtnMerged].forEach(b => {
                 if (b) {
                     b.style.background = 'rgba(255, 255, 255, 0.06)';
-                    b.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                    b.style.borderColor = 'rgba(255, 255, 255, 0.12)';
                     b.style.color = '#00f2fe';
-                    b.style.fontWeight = '700';
+                    b.style.fontWeight = '800';
                 }
             });
 
@@ -1544,8 +1546,8 @@ HTML_PAGE = """<!DOCTYPE html>
                         <div>
                             <div class="pr-repo">
                                 <span>${repoLabel}</span>
-                                <span style="font-size:9px; color:#8b949e; background:rgba(255,255,255,0.06); padding:2px 6px; border-radius:6px; font-family:monospace;">${trackingNum}</span>
-                                ${isMerged ? '<span style="background:var(--accent-green); color:#000; font-size:9px; font-weight:900; padding:2px 7px; border-radius:10px;">MERGED</span>' : '<span style="background:rgba(0,242,254,0.15); color:var(--accent-cyan); border:1px solid rgba(0,242,254,0.3); font-size:9px; font-weight:900; padding:2px 7px; border-radius:10px;">IN REVIEW</span>'}
+                                <span style="font-size:11px; color:#8b949e; background:rgba(255,255,255,0.08); padding:3px 7px; border-radius:6px; font-family:monospace; font-weight:800;">${trackingNum}</span>
+                                ${isMerged ? '<span style="background:var(--accent-green); color:#000; font-size:11px; font-weight:900; padding:3px 8px; border-radius:10px;">MERGED</span>' : '<span style="background:rgba(0,242,254,0.15); color:var(--accent-cyan); border:1px solid rgba(0,242,254,0.3); font-size:11px; font-weight:900; padding:3px 8px; border-radius:10px;">IN REVIEW</span>'}
                             </div>
                             <div class="pr-desc">${prDesc}</div>
                         </div>
@@ -1610,8 +1612,8 @@ HTML_PAGE = """<!DOCTYPE html>
             if (!radarContainer && !delivContainer) return;
 
             if (!globalPRs || globalPRs.length === 0) {
-                if (radarContainer) radarContainer.innerHTML = '<div style="color:#8b949e; font-size:12px; text-align:center; padding:20px;">Loading live PR feed...</div>';
-                if (delivContainer) delivContainer.innerHTML = '<div style="color:#8b949e; font-size:12px; text-align:center; padding:20px;">Loading package fleet...</div>';
+                if (radarContainer) radarContainer.innerHTML = '<div style="color:#8b949e; font-size:14px; text-align:center; padding:24px;">Loading live PR feed...</div>';
+                if (delivContainer) delivContainer.innerHTML = '<div style="color:#8b949e; font-size:14px; text-align:center; padding:24px;">Loading package fleet...</div>';
                 return;
             }
 
@@ -1625,7 +1627,7 @@ HTML_PAGE = """<!DOCTYPE html>
             }
 
             if (filtered.length === 0) {
-                const emptyHTML = '<div style="color:#8b949e; font-size:12px; text-align:center; padding:20px;">No PRs in this category.</div>';
+                const emptyHTML = '<div style="color:#8b949e; font-size:14px; text-align:center; padding:24px;">No PRs in this category.</div>';
                 if (radarContainer) radarContainer.innerHTML = emptyHTML;
                 if (delivContainer) delivContainer.innerHTML = emptyHTML;
                 return;
@@ -1675,16 +1677,16 @@ HTML_PAGE = """<!DOCTYPE html>
             orgList.forEach(org => {
                 const pct = ((org.val / totalPipe) * 100).toFixed(1);
                 let statusClass = "underweight";
-                let statusBadge = `<span style="color:#00e676; font-size:9px; font-weight:900;">🟢 PRIORITY</span>`;
+                let statusBadge = `<span style="color:#00e676; font-size:11px; font-weight:900;">🟢 PRIORITY</span>`;
                 let barColor = "var(--accent-green)";
 
                 if (pct >= 8.0) {
                     statusClass = "overweight";
-                    statusBadge = `<span style="color:#ff007f; font-size:9px; font-weight:900;">🔴 PAUSED</span>`;
+                    statusBadge = `<span style="color:#ff007f; font-size:11px; font-weight:900;">🔴 PAUSED</span>`;
                     barColor = "#ff007f";
                 } else if (pct >= 4.0) {
                     statusClass = "target";
-                    statusBadge = `<span style="color:var(--accent-cyan); font-size:9px; font-weight:900;">🟡 TARGET</span>`;
+                    statusBadge = `<span style="color:var(--accent-cyan); font-size:11px; font-weight:900;">🟡 TARGET</span>`;
                     barColor = "var(--accent-cyan)";
                 }
 
@@ -1695,9 +1697,9 @@ HTML_PAGE = """<!DOCTYPE html>
                         <span class="heatmap-name">${org.icon} ${org.name}</span>
                         ${statusBadge}
                     </div>
-                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:2px;">
-                        <span style="font-size:12px; font-weight:900; color:#fff;">$${org.val.toLocaleString()}</span>
-                        <span style="font-size:10px; font-weight:700; color:#8b949e;">${pct}%</span>
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:4px;">
+                        <span style="font-size:14px; font-weight:900; color:#fff;">$${org.val.toLocaleString()}</span>
+                        <span style="font-size:12px; font-weight:800; color:#8b949e;">${pct}%</span>
                     </div>
                     <div class="heatmap-bar-bg">
                         <div class="heatmap-bar-fill" style="width: ${Math.min(pct * 5, 100)}%; background: ${barColor};"></div>
@@ -2433,7 +2435,7 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                     cur_cash = 5430.0
 
                 total_added = sum([r['value'] for r in results])
-                pr_links = "".join([f"• <a href='{r['pr_url']}' target='_blank' style='color:#00f2fe; font-weight:700;'><b>{r['repo']} (PR #{r['pr_num']})</b></a> (+${r['value']:.0f})<br>" for r in results])
+                pr_links = "".join([f"• <a href='{r['pr_url']}' target='_blank' style='color:#00f2fe; font-weight:800;'><b>{r['repo']} (PR #{r['pr_num']})</b></a> (+${r['value']:.0f})<br>" for r in results])
                 
                 response_text = f"""🧾 <b>OFFICIAL SPRINT TRANSACTION RECEIPT</b><br><br>
 <b>Execution Mode:</b> {sprint_type.upper()} Sprint ({len(results)} Distinct Repos)<br>
