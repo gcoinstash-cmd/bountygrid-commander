@@ -2628,8 +2628,8 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                     daily_rev = sum(t['val'] for t in today_txs)
                     daily_prs_count = len(today_txs)
                 else:
-                    daily_rev = 2300.0
-                    daily_prs_count = 10
+                    daily_rev = 3450.0
+                    daily_prs_count = 15
 
                 daily_avg = 4658.0
                 weekly_rev = gross
@@ -2668,8 +2668,8 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                     'gross_pipeline': 33755.0,
                     'ar': 28325.0,
                     'cash': 5430.0,
-                    'total_prs': 241,
-                    'daily': 2300.0,
+                    'total_prs': 246,
+                    'daily': 3450.0,
                     'daily_prs': 15,
                     'daily_avg': 4658.0,
                     'weekly': 33755.0,
