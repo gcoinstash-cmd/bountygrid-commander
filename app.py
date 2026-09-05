@@ -784,7 +784,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 <span style="color:var(--accent-green); font-size:12px; font-weight:800;" id="countdown-timer">🟢 ACTIVE QUEUE</span>
             </div>
             <div style="font-size:14px; color:#c9d1d9; line-height:1.5;" id="maintainer-window-desc">
-                <b>Review Window:</b> Maintainers triage PRs Mon–Fri (9 AM – 6 PM). Next batch review begins at 9:00 AM EST for your <b style="color:#fff;" id="window-prs-val">130 active PRs</b> (<span style="color:var(--accent-cyan); font-weight:700;" id="window-pipeline-val">$26,025 pipeline</span>).
+                <b>Review Window:</b> Maintainers triage PRs Mon–Fri (9 AM – 6 PM). Next batch review begins at 9:00 AM EST for your <b style="color:#fff;" id="window-prs-val">135 active PRs</b> (<span style="color:var(--accent-cyan); font-weight:700;" id="window-pipeline-val">$27,175 pipeline</span>).
             </div>
         </div>
 
@@ -792,14 +792,14 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card" style="background: linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(157, 78, 221, 0.1));">
             <div class="card-title">
                 <span>🎯 Monthly Milestone: $50,000</span>
-                <span style="color:var(--accent-cyan); font-size:13px; font-weight:800;" id="pace-percent">62.9% Pace</span>
+                <span style="color:var(--accent-cyan); font-size:13px; font-weight:800;" id="pace-percent">65.2% Pace</span>
             </div>
             <div class="progress-wrap">
                 <div class="progress-bar-bg">
-                    <div class="progress-bar-fill" id="progress-fill" style="width: 62.9%;"></div>
+                    <div class="progress-bar-fill" id="progress-fill" style="width: 65.2%;"></div>
                 </div>
                 <div class="progress-labels">
-                    <span id="prog-current">$31,455 Achieved</span>
+                    <span id="prog-current">$32,605 Achieved</span>
                     <span>Goal: $50,000</span>
                 </div>
             </div>
@@ -813,11 +813,11 @@ HTML_PAGE = """<!DOCTYPE html>
             </div>
             <div class="grid-3">
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-gross" style="color:var(--accent-cyan);">$31,455</div>
+                    <div class="stat-val" id="stat-gross" style="color:var(--accent-cyan);">$32,605</div>
                     <div class="stat-label">Cumulative Gross</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-ar" style="color:var(--accent-gold);">$26,025</div>
+                    <div class="stat-val" id="stat-ar" style="color:var(--accent-gold);">$27,175</div>
                     <div class="stat-label">In Review (AR)</div>
                 </div>
                 <div class="stat-box">
@@ -826,7 +826,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 </div>
             </div>
             <div style="font-size:13px; color:#8b949e; text-align:center; margin-top:12px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.08);">
-                💵 <b>Cumulative Stripe Cash</b> (<span style="color:var(--accent-green); font-weight:800;" id="footnote-cash">$5,430</span>) + ⏳ <b>AR</b> (<span style="color:var(--accent-gold); font-weight:800;" id="footnote-ar">$26,025</span>) = 📊 <b>Cumulative Pipeline</b> (<span style="color:var(--accent-cyan); font-weight:800;" id="footnote-gross">$31,455</span>)
+                💵 <b>Cumulative Stripe Cash</b> (<span style="color:var(--accent-green); font-weight:800;" id="footnote-cash">$5,430</span>) + ⏳ <b>AR</b> (<span style="color:var(--accent-gold); font-weight:800;" id="footnote-ar">$27,175</span>) = 📊 <b>Cumulative Pipeline</b> (<span style="color:var(--accent-cyan); font-weight:800;" id="footnote-gross">$32,605</span>)
             </div>
         </div>
 
@@ -856,11 +856,11 @@ HTML_PAGE = """<!DOCTYPE html>
             </div>
             <div class="grid-2" style="margin-top:10px;">
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-weekly-rev">$31,455</div>
+                    <div class="stat-val" id="stat-weekly-rev">$32,605</div>
                     <div class="stat-label">Weekly Total</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-weekly-avg">$31,455</div>
+                    <div class="stat-val" id="stat-weekly-avg">$32,605</div>
                     <div class="stat-label">Avg Weekly Pace</div>
                 </div>
             </div>
@@ -872,19 +872,19 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card" style="background: linear-gradient(135deg, rgba(0, 242, 254, 0.12), rgba(157, 78, 221, 0.15)); border-color: rgba(0, 242, 254, 0.35);">
             <div class="card-title">
                 <span>📦 Amazon-Style PR Logistics Command Center</span>
-                <span style="color:var(--accent-green); font-size:11px; font-weight:900;">130 IN REVIEW QUEUE</span>
+                <span style="color:var(--accent-green); font-size:11px; font-weight:900;">135 IN REVIEW QUEUE</span>
             </div>
             <div style="font-size:14px; color:#c9d1d9; line-height:1.5;">
                 Track software bounties exactly like Amazon packages in <b>strict reverse-chronological order (newest on top)</b>. Every submitted PR is monitored step-by-step from initial submission to final bank deposit clearance into your Stripe-connected account.
             </div>
             <div class="grid-3" style="margin-top:14px;">
                 <div class="stat-box">
-                    <div class="stat-val" style="color:var(--accent-cyan);" id="deliv-stat-total">162</div>
+                    <div class="stat-val" style="color:var(--accent-cyan);" id="deliv-stat-total">167</div>
                     <div class="stat-label">Total In Flight</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" style="color:var(--accent-gold);" id="deliv-stat-ar">$26,025</div>
-                    <div class="stat-label">In Review Queue (130)</div>
+                    <div class="stat-val" style="color:var(--accent-gold);" id="deliv-stat-ar">$27,175</div>
+                    <div class="stat-label">In Review Queue (135)</div>
                 </div>
                 <div class="stat-box">
                     <div class="stat-val" style="color:var(--accent-green);" id="deliv-stat-cash">$5,430</div>
@@ -900,8 +900,8 @@ HTML_PAGE = """<!DOCTYPE html>
             </div>
             <!-- Stage Filter Pills -->
             <div style="display:flex; gap:8px; margin-bottom:14px; overflow-x:auto;">
-                <button class="chip" id="deliv-filter-all" onclick="filterRadar('all')" style="background:var(--accent-cyan); color:#000; font-weight:900;">All Fleet (162)</button>
-                <button class="chip" id="deliv-filter-transit" onclick="filterRadar('review')">⏳ In Review Queue (130)</button>
+                <button class="chip" id="deliv-filter-all" onclick="filterRadar('all')" style="background:var(--accent-cyan); color:#000; font-weight:900;">All Fleet (167)</button>
+                <button class="chip" id="deliv-filter-transit" onclick="filterRadar('review')">⏳ In Review Queue (135)</button>
                 <button class="chip" id="deliv-filter-delivered" onclick="filterRadar('merged')" style="color:var(--accent-green);">💰 Delivered & Settled (32)</button>
             </div>
             <div id="delivery-radar-list">
@@ -1810,8 +1810,8 @@ Authorize by replying to this proposal or connecting via ZoMae Media LLC Stripe 
         // Notifications
         function sendPeriodicNotification(force=false) {
             if (!("Notification" in window) || Notification.permission !== "granted") return;
-            const grossVal = document.getElementById('stat-gross') ? document.getElementById('stat-gross').innerText : '$31,455';
-            const prCount = globalPRs ? globalPRs.length : 162;
+            const grossVal = document.getElementById('stat-gross') ? document.getElementById('stat-gross').innerText : '$32,605';
+            const prCount = globalPRs ? globalPRs.length : 167;
             const todayRev = document.getElementById('stat-daily-rev') ? document.getElementById('stat-daily-rev').innerText : '+$0';
 
             new Notification("⚡ BountyGrid OS • Pulse", {
@@ -2402,24 +2402,24 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
             except Exception as e:
                 data = {
-                    'gross_pipeline': 31455.0,
-                    'ar': 26025.0,
+                    'gross_pipeline': 32605.0,
+                    'ar': 27175.0,
                     'cash': 5430.0,
-                    'total_prs': 236,
+                    'total_prs': 241,
                     'daily': 0.0,
                     'daily_prs': 0,
-                    'daily_avg': 4493.5,
-                    'weekly': 31455.0,
-                    'weekly_avg': 31455.0,
+                    'daily_avg': 4657.8,
+                    'weekly': 32605.0,
+                    'weekly_avg': 32605.0,
                     'ecosystems': [
-                        {"icon": "⛓️", "name": "Lilly Protocol", "value": 8080.0},
-                        {"icon": "🕷️", "name": "ProjectDiscovery", "value": 7250.0},
+                        {"icon": "⛓️", "name": "Lilly Protocol", "value": 8330.0},
+                        {"icon": "🕷️", "name": "ProjectDiscovery", "value": 7450.0},
                         {"icon": "🛡️", "name": "Permify", "value": 6500.0},
-                        {"icon": "📐", "name": "TSCircuit", "value": 5150.0},
-                        {"icon": "💼", "name": "Twenty CRM", "value": 800.0},
+                        {"icon": "📐", "name": "TSCircuit", "value": 5400.0},
+                        {"icon": "💼", "name": "Twenty CRM", "value": 1050.0},
                         {"icon": "🤖", "name": "Claude Builders", "value": 575.0},
+                        {"icon": "🚨", "name": "KeepHQ", "value": 400.0},
                         {"icon": "📅", "name": "Cal.com", "value": 300.0},
-                        {"icon": "🚨", "name": "KeepHQ", "value": 200.0},
                         {"icon": "🧩", "name": "Activepieces", "value": 200.0},
                         {"icon": "🗄️", "name": "Formbricks", "value": 200.0},
                         {"icon": "🔔", "name": "Novu", "value": 200.0},
@@ -2468,8 +2468,8 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                             {"repo": "tscircuit/schematic-trace-solver", "pr_num": 1065, "pr_url": "https://github.com/tscircuit/schematic-trace-solver/pull/1065", "value": 250.0},
                             {"repo": "projectdiscovery/dnsx", "pr_num": 1031, "pr_url": "https://github.com/projectdiscovery/dnsx/pull/1031", "value": 200.0},
                         ][:count]
-                        total_rows = 236
-                        total_gross = 31455.0
+                        total_rows = 241
+                        total_gross = 32605.0
 
                 try:
                     ledger_candidates = [
@@ -2528,20 +2528,20 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 wb = openpyxl.load_workbook(ledger_path, data_only=True)
 
                 ws_dash = wb['Executive Dashboard']
-                gross = float(ws_dash.cell(1, 2).value or 31455.0)
+                gross = float(ws_dash.cell(1, 2).value or 32605.0)
                 cash = float(ws_dash.cell(4, 2).value or 5430.0)
-                prs = int(ws_dash.cell(7, 2).value or 236)
-                ar = float(ws_dash.cell(5, 2).value or 26025.0)
+                prs = int(ws_dash.cell(7, 2).value or 241)
+                ar = float(ws_dash.cell(5, 2).value or 27175.0)
             except Exception:
-                gross = 31455.0
+                gross = 32605.0
                 cash = 5430.0
-                prs = 236
-                ar = 26025.0
+                prs = 241
+                ar = 27175.0
 
             if any(k in q_lower for k in ['status', 'pipeline', 'financial', 'how much', 'money', 'revenue', 'arr']):
                 response_text = f"""📊 <b>LIVE FINANCIAL & PIPELINE SNAPSHOT</b><br><br>
 • <b>Gross Pipeline:</b> ${gross:,.2f} across <b>{prs} PRs</b><br>
-• <b>Accounts Receivable:</b> ${ar:,.2f} (130 PRs Under Review)<br>
+• <b>Accounts Receivable:</b> ${ar:,.2f} (135 PRs Under Review)<br>
 • <b>Realized Cash (Stripe):</b> ${cash:,.2f} (32 Merged PRs)<br>
 • <b>Pace to $50,000 Milestone:</b> {(gross / 50000.0 * 100):.1f}% Complete<br>
 • <b>Next Milestone:</b> $100,000 / Month by June 2027 ($1.20M ARR)"""
