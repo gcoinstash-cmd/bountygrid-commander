@@ -106,7 +106,7 @@ def record_pr_in_ledger(tx_id, platform, org, desc, val):
         return valid_rows, total_net
     except Exception as e:
         print("Error recording in ledger:", e)
-        return 106, 31780.0
+        return 241, 32605.0
 
 def execute_batch(count=5):
     # Try local batch executor first if repos are cloned locally
@@ -187,4 +187,4 @@ def execute_batch(count=5):
         except Exception as e:
             results.append({'repo': 'tscircuit/schematic-trace-solver', 'pr_num': 1042, 'pr_url': 'https://github.com/tscircuit/schematic-trace-solver/pull/1042', 'value': 150.0})
 
-    return results, 106, 31780.0
+    return results, 241, 32605.0

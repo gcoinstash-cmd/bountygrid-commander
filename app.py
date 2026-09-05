@@ -703,7 +703,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 <span style="color:var(--accent-cyan); font-size:11px; font-weight:900; letter-spacing:0.5px;">LIVE TRACKING</span>
             </div>
             <div style="font-size:14px; color:#c9d1d9; line-height:1.5;">
-                Real-time tracking for all <b>142 software issues</b> from submission to direct bank deposit clearance.
+                Real-time tracking for all <b>167 in-flight PR packages</b> from submission to direct bank deposit clearance.
             </div>
 
             <!-- Deposit ETA Banner -->
@@ -742,7 +742,7 @@ HTML_PAGE = """<!DOCTYPE html>
 
             <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px; border-top:1px solid rgba(255,255,255,0.08); padding-top:10px;">
                 <span style="font-size:13px; color:#8b949e;">Active Package: <b style="color:#fff;">TSCircuit PR #3633</b> (Tracking: <code style="color:var(--accent-cyan); font-weight:700;">BG-LOG-#3633</code>)</span>
-                <button class="action-chip-btn" onclick="switchTab('delivery')" style="background:linear-gradient(135deg, #00f2fe, #4facfe); color:#000; font-weight:900;">View All 142 Packages ➔</button>
+                <button class="action-chip-btn" onclick="switchTab('delivery')" style="background:linear-gradient(135deg, #00f2fe, #4facfe); color:#000; font-weight:900;">View All 167 Packages ➔</button>
             </div>
         </div>
 
@@ -805,10 +805,10 @@ HTML_PAGE = """<!DOCTYPE html>
             </div>
         </div>
 
-        <!-- FINANCIAL STATEMENT -->
+        <!-- FINANCIAL STATEMENT & 2026-2027 FORECAST -->
         <div class="card">
             <div class="card-title">
-                <span>💰 Master Financial Statements</span>
+                <span>💰 Master Financial Statements & Forecast</span>
                 <span style="color:var(--accent-green); font-size:11px; font-weight:800;">100% BALANCED</span>
             </div>
             <div class="grid-3">
@@ -827,6 +827,62 @@ HTML_PAGE = """<!DOCTYPE html>
             </div>
             <div style="font-size:13px; color:#8b949e; text-align:center; margin-top:12px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.08);">
                 💵 <b>Cumulative Stripe Cash</b> (<span style="color:var(--accent-green); font-weight:800;" id="footnote-cash">$5,430</span>) + ⏳ <b>AR</b> (<span style="color:var(--accent-gold); font-weight:800;" id="footnote-ar">$27,175</span>) = 📊 <b>Cumulative Pipeline</b> (<span style="color:var(--accent-cyan); font-weight:800;" id="footnote-gross">$32,605</span>)
+            </div>
+
+            <!-- ANNUAL FINANCIAL COMPARISON & FORECAST (2026 vs 2027) -->
+            <div style="margin-top:18px; padding-top:14px; border-top:1px solid rgba(255,255,255,0.1);">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                    <span style="font-size:13px; font-weight:900; color:var(--accent-cyan); letter-spacing:0.5px;">📈 ANNUAL FINANCIAL COMPARISON & FORECAST</span>
+                    <span style="font-size:11px; background:rgba(0,230,118,0.15); color:var(--accent-green); padding:3px 8px; border-radius:6px; font-weight:800;">$1.20M ARR TARGET</span>
+                </div>
+                <div style="overflow-x:auto;">
+                    <table style="width:100%; border-collapse:collapse; font-size:13px; text-align:left;">
+                        <thead>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.15); color:#8b949e;">
+                                <th style="padding:8px 6px;">Metric</th>
+                                <th style="padding:8px 6px; text-align:right;">2026 (Actual/Forecast)</th>
+                                <th style="padding:8px 6px; text-align:right; color:var(--accent-cyan);">2027 (Forecast)</th>
+                                <th style="padding:8px 6px; text-align:right; color:var(--accent-green);">YoY Growth</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+                                <td style="padding:8px 6px; font-weight:700;">Total Gross Revenue</td>
+                                <td style="padding:8px 6px; text-align:right;">$151,605.00</td>
+                                <td style="padding:8px 6px; text-align:right; font-weight:800; color:var(--accent-cyan);">$1,080,000.00</td>
+                                <td style="padding:8px 6px; text-align:right; font-weight:800; color:var(--accent-green);">+612.4%</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+                                <td style="padding:8px 6px; font-weight:700;">Gross Profit (100% Margin)</td>
+                                <td style="padding:8px 6px; text-align:right;">$151,605.00</td>
+                                <td style="padding:8px 6px; text-align:right; font-weight:800; color:var(--accent-cyan);">$1,080,000.00</td>
+                                <td style="padding:8px 6px; text-align:right; font-weight:800; color:var(--accent-green);">+612.4%</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+                                <td style="padding:8px 6px; font-weight:700;">Operating Expenses (OpEx)</td>
+                                <td style="padding:8px 6px; text-align:right; color:#8b949e;">$10,000.00</td>
+                                <td style="padding:8px 6px; text-align:right; color:#8b949e;">$60,000.00</td>
+                                <td style="padding:8px 6px; text-align:right; color:#8b949e;">+500.0%</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+                                <td style="padding:8px 6px; font-weight:700;">EBITDA</td>
+                                <td style="padding:8px 6px; text-align:right;">$141,605.00</td>
+                                <td style="padding:8px 6px; text-align:right; font-weight:800; color:var(--accent-cyan);">$1,020,000.00</td>
+                                <td style="padding:8px 6px; text-align:right; font-weight:800; color:var(--accent-green);">+620.3%</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:8px 6px; font-weight:800; color:#fff;">Net Income</td>
+                                <td style="padding:8px 6px; text-align:right; font-weight:800; color:#fff;">$141,605.00</td>
+                                <td style="padding:8px 6px; text-align:right; font-weight:900; color:var(--accent-green);">$1,020,000.00</td>
+                                <td style="padding:8px 6px; text-align:right; font-weight:900; color:var(--accent-green);">+620.3%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-top:12px; gap:8px; flex-wrap:wrap;">
+                    <span style="font-size:12px; color:#8b949e;">YTD Base: <b style="color:#fff;">$32,605.00</b> (241 Submissions • 167 Active)</span>
+                    <button class="action-chip-btn" onclick="showFinancialModal()" style="background:rgba(0,242,254,0.15); border-color:var(--accent-cyan); color:var(--accent-cyan); font-weight:800; font-size:12px;">📊 View Full 3-Statement Model ↗</button>
+                </div>
             </div>
         </div>
 
@@ -1310,12 +1366,184 @@ HTML_PAGE = """<!DOCTYPE html>
             <div style="text-align:center; padding:18px; background:rgba(0,0,0,0.45); border:1px solid rgba(0,230,118,0.35); border-radius:14px;">
                 <div style="font-size:20px; font-weight:900; color:#00e676;">🏆 BOUNTYGRID OS VERIFIED</div>
                 <div style="font-size:14px; color:#fff; font-weight:800; margin-top:5px;">32 Confirmed Merged PRs • 100% CI Green Rate</div>
-                <div style="font-size:12px; color:#8b949e; margin-top:3px;">25 Ecosystems • $30,730 Cumulative Pipeline</div>
+                <div style="font-size:12px; color:#8b949e; margin-top:3px;">25 Ecosystems • $32,605 Cumulative Pipeline</div>
             </div>
             <div style="font-size:13px; color:#8b949e; margin-top:8px;">Embed on GitHub README or Website:</div>
             <input type="text" readonly value='&lt;a href="https://bountygrid.com"&gt;&lt;img src="https://img.shields.io/badge/BountyGrid%20OS-32%20Merged%20PRs%20%7C%20100%25%20CI%20Green-00e676" alt="BountyGrid Verified Contributor" /&gt;&lt;/a&gt;' style="background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:10px; color:#00f2fe; font-size:12px; width:100%; box-sizing:border-box;" />
             <div style="display:flex; justify-content:flex-end; margin-top:10px;">
                 <button class="action-chip-btn" onclick="closeModals()">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 4: MASTER FINANCIAL STATEMENTS & 3-STATEMENT MODEL -->
+    <div class="modal-overlay" id="modal-financial">
+        <div class="modal-box" id="financial-modal" style="max-width:720px; max-height:85vh; overflow-y:auto;">
+            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:10px;">
+                <div>
+                    <div style="font-size:17px; font-weight:900; color:#fff;">💰 Master Financial Statements & Forecast Model</div>
+                    <div style="font-size:12px; color:#8b949e; margin-top:2px;">ZoMae Media LLC • Reconciled Tri-Layer Ledger ($32,605.00 Base)</div>
+                </div>
+                <button onclick="closeModals()" style="background:none; border:none; color:#8b949e; font-size:20px; cursor:pointer;">✕</button>
+            </div>
+
+            <!-- Financial Modal Tabs -->
+            <div style="display:flex; gap:6px; margin:14px 0 10px 0; overflow-x:auto;">
+                <button class="chip" id="fin-tab-sched" onclick="switchFinTab('sched')" style="background:var(--accent-cyan); color:#000; font-weight:900;">📅 10-Mo Schedule</button>
+                <button class="chip" id="fin-tab-is" onclick="switchFinTab('is')">📑 Income Statement</button>
+                <button class="chip" id="fin-tab-bs" onclick="switchFinTab('bs')">🏛️ Balance Sheet</button>
+                <button class="chip" id="fin-tab-cf" onclick="switchFinTab('cf')">💵 Cash Flow</button>
+            </div>
+
+            <!-- TAB 1: 10-MONTH MILESTONE SCHEDULE -->
+            <div id="fin-view-sched">
+                <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:12px; overflow-x:auto;">
+                    <table style="width:100%; border-collapse:collapse; font-size:12px; text-align:left;">
+                        <thead>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.15); color:#8b949e;">
+                                <th style="padding:6px 4px;">Month</th>
+                                <th style="padding:6px 4px;">Bounty Rev</th>
+                                <th style="padding:6px 4px;">Retainers</th>
+                                <th style="padding:6px 4px; text-align:right; color:var(--accent-green);">Net Revenue</th>
+                                <th style="padding:6px 4px; text-align:right;">Run Rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05); background:rgba(0,242,254,0.06);">
+                                <td style="padding:6px 4px; font-weight:800; color:var(--accent-cyan);">Sept 2026 (Actual/YTD)</td>
+                                <td style="padding:6px 4px;">$32,605.00</td>
+                                <td style="padding:6px 4px;">0 clients ($0)</td>
+                                <td style="padding:6px 4px; text-align:right; font-weight:900; color:var(--accent-green);">$32,605.00</td>
+                                <td style="padding:6px 4px; text-align:right;">$8,151 / wk</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                                <td style="padding:6px 4px; font-weight:700;">Oct 2026 (Forecast)</td>
+                                <td style="padding:6px 4px;">$26,000.00</td>
+                                <td style="padding:6px 4px;">1 client ($5,000)</td>
+                                <td style="padding:6px 4px; text-align:right; font-weight:800; color:var(--accent-green);">$31,000.00</td>
+                                <td style="padding:6px 4px; text-align:right;">$7,750 / wk</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                                <td style="padding:6px 4px; font-weight:700;">Nov 2026 (Forecast)</td>
+                                <td style="padding:6px 4px;">$28,000.00</td>
+                                <td style="padding:6px 4px;">2 clients ($12,000)</td>
+                                <td style="padding:6px 4px; text-align:right; font-weight:800; color:var(--accent-green);">$40,000.00</td>
+                                <td style="padding:6px 4px; text-align:right;">$10,000 / wk</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                                <td style="padding:6px 4px; font-weight:700;">Dec 2026 (Forecast)</td>
+                                <td style="padding:6px 4px;">$30,000.00</td>
+                                <td style="padding:6px 4px;">3 clients ($18,000)</td>
+                                <td style="padding:6px 4px; text-align:right; font-weight:800; color:var(--accent-green);">$48,000.00</td>
+                                <td style="padding:6px 4px; text-align:right;">$12,000 / wk</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                                <td style="padding:6px 4px; font-weight:700;">Jan 2027 (Forecast)</td>
+                                <td style="padding:6px 4px;">$32,000.00</td>
+                                <td style="padding:6px 4px;">4 clients ($25,000)</td>
+                                <td style="padding:6px 4px; text-align:right; font-weight:800; color:var(--accent-green);">$57,000.00</td>
+                                <td style="padding:6px 4px; text-align:right;">$14,250 / wk</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                                <td style="padding:6px 4px; font-weight:700;">Feb 2027 (Forecast)</td>
+                                <td style="padding:6px 4px;">$34,000.00</td>
+                                <td style="padding:6px 4px;">5 clients ($33,000)</td>
+                                <td style="padding:6px 4px; text-align:right; font-weight:800; color:var(--accent-green);">$67,000.00</td>
+                                <td style="padding:6px 4px; text-align:right;">$16,750 / wk</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                                <td style="padding:6px 4px; font-weight:700;">Mar 2027 (Forecast)</td>
+                                <td style="padding:6px 4px;">$35,000.00</td>
+                                <td style="padding:6px 4px;">6 clients ($42,000)</td>
+                                <td style="padding:6px 4px; text-align:right; font-weight:800; color:var(--accent-green);">$77,000.00</td>
+                                <td style="padding:6px 4px; text-align:right;">$19,250 / wk</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                                <td style="padding:6px 4px; font-weight:700;">Apr 2027 (Forecast)</td>
+                                <td style="padding:6px 4px;">$36,000.00</td>
+                                <td style="padding:6px 4px;">7 clients ($50,000)</td>
+                                <td style="padding:6px 4px; text-align:right; font-weight:800; color:var(--accent-green);">$86,000.00</td>
+                                <td style="padding:6px 4px; text-align:right;">$21,500 / wk</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                                <td style="padding:6px 4px; font-weight:700;">May 2027 (Forecast)</td>
+                                <td style="padding:6px 4px;">$37,000.00</td>
+                                <td style="padding:6px 4px;">8 clients ($56,000)</td>
+                                <td style="padding:6px 4px; text-align:right; font-weight:800; color:var(--accent-green);">$93,000.00</td>
+                                <td style="padding:6px 4px; text-align:right;">$23,250 / wk</td>
+                            </tr>
+                            <tr style="background:rgba(0,230,118,0.12); font-weight:900;">
+                                <td style="padding:8px 4px; color:var(--accent-green);">🎯 June 2027 Milestone</td>
+                                <td style="padding:8px 4px;">$38,000.00</td>
+                                <td style="padding:8px 4px;">10 clients ($62,000)</td>
+                                <td style="padding:8px 4px; text-align:right; color:var(--accent-green); font-size:13px;">$100,000.00</td>
+                                <td style="padding:8px 4px; text-align:right; color:var(--accent-green);">$1.20M ARR</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- TAB 2: INCOME STATEMENT -->
+            <div id="fin-view-is" style="display:none;">
+                <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:12px; overflow-x:auto;">
+                    <table style="width:100%; border-collapse:collapse; font-size:12px; text-align:left;">
+                        <thead>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.15); color:#8b949e;">
+                                <th style="padding:6px 4px;">Line Item</th>
+                                <th style="padding:6px 4px; text-align:right;">2026 Total</th>
+                                <th style="padding:6px 4px; text-align:right; color:var(--accent-cyan);">2027 Forecast</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td style="padding:6px 4px;">Public Bounty Revenue</td><td style="padding:6px 4px; text-align:right;">$116,605.00</td><td style="padding:6px 4px; text-align:right; color:var(--accent-cyan);">$440,000.00</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td style="padding:6px 4px;">Codebase Maintenance Retainers</td><td style="padding:6px 4px; text-align:right;">$35,000.00</td><td style="padding:6px 4px; text-align:right; color:var(--accent-cyan);">$640,000.00</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.1); font-weight:800; color:#fff;"><td style="padding:6px 4px;">Total Revenue</td><td style="padding:6px 4px; text-align:right;">$151,605.00</td><td style="padding:6px 4px; text-align:right; color:var(--accent-cyan);">$1,080,000.00</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td style="padding:6px 4px;">Cost of Goods Sold (COGS)</td><td style="padding:6px 4px; text-align:right; color:#8b949e;">$0.00</td><td style="padding:6px 4px; text-align:right; color:#8b949e;">$0.00</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.1); font-weight:800; color:var(--accent-green);"><td style="padding:6px 4px;">Gross Profit (100% Margin)</td><td style="padding:6px 4px; text-align:right;">$151,605.00</td><td style="padding:6px 4px; text-align:right;">$1,080,000.00</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td style="padding:6px 4px;">Total Operating Expenses (OpEx)</td><td style="padding:6px 4px; text-align:right; color:#8b949e;">$10,000.00</td><td style="padding:6px 4px; text-align:right; color:#8b949e;">$60,000.00</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td style="padding:6px 4px;">EBITDA</td><td style="padding:6px 4px; text-align:right;">$141,605.00</td><td style="padding:6px 4px; text-align:right; color:var(--accent-cyan);">$1,020,000.00</td></tr>
+                            <tr style="font-weight:900; background:rgba(0,230,118,0.1); color:var(--accent-green);"><td style="padding:8px 4px;">Net Income</td><td style="padding:8px 4px; text-align:right;">$141,605.00</td><td style="padding:8px 4px; text-align:right;">$1,020,000.00</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- TAB 3: BALANCE SHEET -->
+            <div id="fin-view-bs" style="display:none;">
+                <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:12px;">
+                    <div style="font-size:13px; font-weight:800; color:var(--accent-green); margin-bottom:8px;">🟢 100% BALANCED ($32,605.00 Assets = $32,605.00 Equity)</div>
+                    <table style="width:100%; border-collapse:collapse; font-size:12px; text-align:left;">
+                        <tbody>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td style="padding:6px 4px;">Cash & Cash Equivalents (Stripe Settled)</td><td style="padding:6px 4px; text-align:right; font-weight:800; color:var(--accent-green);">$5,430.00</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td style="padding:6px 4px;">Accounts Receivable (135 PRs in Review)</td><td style="padding:6px 4px; text-align:right; font-weight:800; color:var(--accent-gold);">$27,175.00</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.12); font-weight:900; color:var(--accent-cyan);"><td style="padding:6px 4px;">Total Current Assets</td><td style="padding:6px 4px; text-align:right;">$32,605.00</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td style="padding:6px 4px;">Total Liabilities (Accounts Payable / Debt)</td><td style="padding:6px 4px; text-align:right; color:#8b949e;">$0.00</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td style="padding:6px 4px;">Retained Earnings (Owner Equity)</td><td style="padding:6px 4px; text-align:right; font-weight:800; color:#fff;">$32,605.00</td></tr>
+                            <tr style="font-weight:900; background:rgba(0,230,118,0.1); color:var(--accent-green);"><td style="padding:8px 4px;">Total Liabilities & Equity</td><td style="padding:8px 4px; text-align:right;">$32,605.00</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- TAB 4: CASH FLOW STATEMENT -->
+            <div id="fin-view-cf" style="display:none;">
+                <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:12px;">
+                    <table style="width:100%; border-collapse:collapse; font-size:12px; text-align:left;">
+                        <tbody>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td style="padding:6px 4px;">Net Income (Accrual Basis)</td><td style="padding:6px 4px; text-align:right; font-weight:800;">$32,605.00</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td style="padding:6px 4px;">Adjustments for Accounts Receivable (Unsettled PRs)</td><td style="padding:6px 4px; text-align:right; color:var(--accent-gold);">-$27,175.00</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.1); font-weight:800; color:var(--accent-green);"><td style="padding:6px 4px;">Net Cash from Operating Activities</td><td style="padding:6px 4px; text-align:right;">$5,430.00</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td style="padding:6px 4px;">Cash from Investing & Financing Activities</td><td style="padding:6px 4px; text-align:right; color:#8b949e;">$0.00</td></tr>
+                            <tr style="font-weight:900; background:rgba(0,230,118,0.1); color:var(--accent-green);"><td style="padding:8px 4px;">Ending Cash Balance (Stripe Payouts Clear)</td><td style="padding:8px 4px; text-align:right;">$5,430.00</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:14px;">
+                <span style="font-size:11px; color:#8b949e;">Permanent Sync: Excel • Master Docs • Google Drive</span>
+                <button class="action-chip-btn" onclick="closeModals()" style="background:var(--accent-cyan); color:#000; font-weight:900;">Close</button>
             </div>
         </div>
     </div>
@@ -1724,6 +1952,42 @@ HTML_PAGE = """<!DOCTYPE html>
         function hideProofModal() { closeModals(); }
         function hideRetainerModal() { closeModals(); }
         function hideBadgeModal() { closeModals(); }
+        function hideFinancialModal() { closeModals(); }
+
+        function showFinancialModal() {
+            closeModals();
+            const modal = document.getElementById('modal-financial');
+            if (modal) modal.style.display = 'flex';
+        }
+
+        function switchFinTab(tab) {
+            const views = {
+                sched: document.getElementById('fin-view-sched'),
+                is: document.getElementById('fin-view-is'),
+                bs: document.getElementById('fin-view-bs'),
+                cf: document.getElementById('fin-view-cf')
+            };
+            const tabs = {
+                sched: document.getElementById('fin-tab-sched'),
+                is: document.getElementById('fin-tab-is'),
+                bs: document.getElementById('fin-tab-bs'),
+                cf: document.getElementById('fin-tab-cf')
+            };
+            Object.keys(views).forEach(k => {
+                if (views[k]) views[k].style.display = (k === tab) ? 'block' : 'none';
+                if (tabs[k]) {
+                    if (k === tab) {
+                        tabs[k].style.background = 'var(--accent-cyan)';
+                        tabs[k].style.color = '#000';
+                        tabs[k].style.fontWeight = '900';
+                    } else {
+                        tabs[k].style.background = 'rgba(255,255,255,0.06)';
+                        tabs[k].style.color = '#c9d1d9';
+                        tabs[k].style.fontWeight = '700';
+                    }
+                }
+            });
+        }
 
         function runBatchSprint(type) {
             executeRealBatch(type || 'mini');
