@@ -660,13 +660,12 @@ HTML_PAGE = """<!DOCTYPE html>
             <div class="streak-pill" id="streak-badge">🔥 3-DAY STREAK</div>
         </div>
         <div class="header-bottom-row">
-            <div class="xp-text" id="xp-counter">Progression: <span class="xp-highlight">142 / 150 PRs</span></div>
+            <div class="xp-text" id="xp-counter">Progression: <span class="xp-highlight">167 / 200 PRs</span></div>
             <div class="header-actions">
                 <button class="icon-btn" onclick="switchTab('delivery')" style="color:var(--accent-cyan); border-color:rgba(0,242,254,0.35);">📦 Tracker</button>
                 <button class="icon-btn" onclick="switchTab('intel')" style="color:var(--accent-green); border-color:rgba(0,230,118,0.35);">🧠 AI Intel</button>
                 <button class="icon-btn" onclick="showBadgeModal()">🛡️ Badge</button>
                 <button class="icon-btn" id="notif-btn" onclick="toggleNotifications()">🔔 Push</button>
-                <button class="icon-btn" onclick="playAudioBriefing()">🔊 Briefing</button>
             </div>
         </div>
     </header>
@@ -2020,10 +2019,6 @@ HTML_PAGE = """<!DOCTYPE html>
             }
         }
 
-        function toggleVoiceMode() {
-            toggleVoiceBriefing();
-        }
-
         function showProofModal(repo, desc, val, ghUrl) {
             document.getElementById('proof-modal-title').innerText = `🔍 Proof of Fix • ${repo}`;
             document.getElementById('proof-modal-sub').innerText = `${desc} (+$${val} Bounty Claimed)`;
@@ -2271,17 +2266,6 @@ Authorize by replying to this proposal or connecting via ZoMae Media LLC Stripe 
 
             const monthsTo500k = Math.max(1, Math.round(500000 / monthly));
             document.getElementById('calc-timeline').innerHTML = 'Estimated Time to $500k ARR Studio: <b style="color:#fff;">' + monthsTo500k + ' Months</b>';
-        }
-
-        function playAudioBriefing() {
-            playChime('success');
-            if ('speechSynthesis' in window) {
-                const grossVal = document.getElementById('stat-gross').innerText.replace('$', '').replace(',', '');
-                const text = `BountyGrid OS Commander briefing: Gross pipeline stands at twenty-nine thousand two hundred and five dollars across one hundred and forty-two pull requests. Amazon delivery tracker and auto-healer are fully operational.`;
-                const utterance = new SpeechSynthesisUtterance(text);
-                utterance.rate = 1.0;
-                window.speechSynthesis.speak(utterance);
-            }
         }
 
         async function executeRealBatch(type) {
