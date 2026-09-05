@@ -1672,7 +1672,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 { name: "Trigger.dev", icon: "⚡", val: 0, cap: 5.0 }
             ];
 
-            const totalPipe = orgList.reduce((acc, o) => acc + o.val, 0) || 29205;
+            const totalPipe = orgList.reduce((acc, o) => acc + o.val, 0) || 30255;
 
             orgList.forEach(org => {
                 const pct = ((org.val / totalPipe) * 100).toFixed(1);
@@ -2307,7 +2307,7 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 calc_cash = sum(t['val'] for t in merged_txs)
                 calc_ar = sum(t['val'] for t in review_txs)
 
-                gross = float(ws_dash.cell(1, 2).value or calc_gross or 29205.0)
+                gross = float(ws_dash.cell(1, 2).value or calc_gross or 30255.0)
                 cash = float(ws_dash.cell(4, 2).value or calc_cash or 5430.0)
                 ar = float(ws_dash.cell(5, 2).value or calc_ar or (gross - cash))
                 prs = int(ws_dash.cell(7, 2).value or (len(all_txs) + 1))
@@ -2351,15 +2351,15 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
             except Exception as e:
                 data = {
-                    'gross_pipeline': 29205.0,
-                    'ar': 23775.0,
+                    'gross_pipeline': 30255.0,
+                    'ar': 24825.0,
                     'cash': 5430.0,
-                    'total_prs': 227,
+                    'total_prs': 231,
                     'daily': 0.0,
                     'daily_prs': 0,
-                    'daily_avg': 4172.0,
-                    'weekly': 29205.0,
-                    'weekly_avg': 29205.0,
+                    'daily_avg': 4322.0,
+                    'weekly': 30255.0,
+                    'weekly_avg': 30255.0,
                     'ecosystems': [
                         {"icon": "⛓️", "name": "Lilly Protocol", "value": 7830.0},
                         {"icon": "🕷️", "name": "ProjectDiscovery", "value": 7050.0},
@@ -2417,8 +2417,8 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                             {"repo": "tscircuit/core", "pr_num": 3633, "pr_url": "https://github.com/tscircuit/core/pull/3633", "value": 200.0},
                             {"repo": "Lilly-Protocol/lily-contracts", "pr_num": 348, "pr_url": "https://github.com/Lilly-Protocol/lily-contracts/pull/348", "value": 250.0},
                         ][:count]
-                        total_rows = 227
-                        total_gross = 29205.0
+                        total_rows = 231
+                        total_gross = 30255.0
 
                 try:
                     ledger_candidates = [
@@ -2477,15 +2477,15 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 wb = openpyxl.load_workbook(ledger_path, data_only=True)
 
                 ws_dash = wb['Executive Dashboard']
-                gross = float(ws_dash.cell(1, 2).value or 29205.0)
+                gross = float(ws_dash.cell(1, 2).value or 30255.0)
                 cash = float(ws_dash.cell(4, 2).value or 5430.0)
-                prs = int(ws_dash.cell(7, 2).value or 227)
+                prs = int(ws_dash.cell(7, 2).value or 231)
                 ar = float(ws_dash.cell(5, 2).value or (gross - cash))
             except Exception:
-                gross = 29205.0
+                gross = 30255.0
                 cash = 5430.0
-                prs = 227
-                ar = 23775.0
+                prs = 231
+                ar = 24825.0
 
             if any(k in q_lower for k in ['status', 'pipeline', 'financial', 'how much', 'money', 'revenue', 'arr']):
                 response_text = f"""📊 <b>LIVE FINANCIAL & PIPELINE SNAPSHOT</b><br><br>
