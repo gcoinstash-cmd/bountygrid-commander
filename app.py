@@ -784,7 +784,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 <span style="color:var(--accent-green); font-size:12px; font-weight:800;" id="countdown-timer">🟢 ACTIVE QUEUE</span>
             </div>
             <div style="font-size:14px; color:#c9d1d9; line-height:1.5;" id="maintainer-window-desc">
-                <b>Review Window:</b> Maintainers triage PRs Mon–Fri (9 AM – 6 PM). Next batch review begins at 9:00 AM EST for your <b style="color:#fff;" id="window-prs-val">110 active PRs</b> (<span style="color:var(--accent-cyan); font-weight:700;" id="window-pipeline-val">$23,775 pipeline</span>).
+                <b>Review Window:</b> Maintainers triage PRs Mon–Fri (9 AM – 6 PM). Next batch review begins at 9:00 AM EST for your <b style="color:#fff;" id="window-prs-val">130 active PRs</b> (<span style="color:var(--accent-cyan); font-weight:700;" id="window-pipeline-val">$26,025 pipeline</span>).
             </div>
         </div>
 
@@ -1810,8 +1810,8 @@ Authorize by replying to this proposal or connecting via ZoMae Media LLC Stripe 
         // Notifications
         function sendPeriodicNotification(force=false) {
             if (!("Notification" in window) || Notification.permission !== "granted") return;
-            const grossVal = document.getElementById('stat-gross') ? document.getElementById('stat-gross').innerText : '$29,205';
-            const prCount = globalPRs ? globalPRs.length : 142;
+            const grossVal = document.getElementById('stat-gross') ? document.getElementById('stat-gross').innerText : '$31,455';
+            const prCount = globalPRs ? globalPRs.length : 162;
             const todayRev = document.getElementById('stat-daily-rev') ? document.getElementById('stat-daily-rev').innerText : '+$0';
 
             new Notification("⚡ BountyGrid OS • Pulse", {
