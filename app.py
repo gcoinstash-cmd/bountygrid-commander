@@ -2857,7 +2857,7 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
 • <b>Current Baseline:</b> ${gross:,.2f} across {prs} PRs<br>
 • <b>Monthly Target:</b> $25,000 / month by Sept 2026<br>
 • <b>Apex Goal:</b> <b>$100,000 / month</b> by June 2027<br>
-• <b>Maintainer Review Window:</b> Opens Monday 9:00 AM EST for 125 pending PRs."""
+• <b>Maintainer Review Window:</b> Opens Monday 9:00 AM EST for 135 pending PRs."""
 
             elif any(k in q_lower for k in ['radar', 'prs', 'pull requests', 'bounties']):
                 response_text = f"""📡 <b>RADAR OVERVIEW ({prs} TRACKED PRS)</b><br><br>
@@ -2879,7 +2879,7 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
             else:
                 response_text = f"""🤖 <b>Antigravity AI Agent Online!</b><br><br>
 Received: <i>"{query}"</i><br><br>
-All systems operational on your Mac. Pipeline stands at <b>${gross:,.2f}</b> across <b>{prs} PRs</b> ($5,430 Cash Settled, $24,875 AR). Ask me for delivery tracking, AI intelligence, or financial status!"""
+All systems operational on your Mac. Pipeline stands at <b>${gross:,.2f}</b> across <b>{prs} PRs</b> ($5,430 Cash Settled, $27,175 AR). Ask me for delivery tracking, AI intelligence, or financial status!"""
 
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
