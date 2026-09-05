@@ -2412,23 +2412,24 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
             except Exception as e:
                 data = {
-                    'gross_pipeline': 30305.0,
-                    'ar': 24875.0,
+                    'gross_pipeline': 31455.0,
+                    'ar': 26025.0,
                     'cash': 5430.0,
-                    'total_prs': 231,
+                    'total_prs': 236,
                     'daily': 0.0,
                     'daily_prs': 0,
-                    'daily_avg': 4329.0,
-                    'weekly': 30305.0,
-                    'weekly_avg': 30305.0,
+                    'daily_avg': 4493.5,
+                    'weekly': 31455.0,
+                    'weekly_avg': 31455.0,
                     'ecosystems': [
-                        {"icon": "⛓️", "name": "Lilly Protocol", "value": 7830.0},
-                        {"icon": "🕷️", "name": "ProjectDiscovery", "value": 7050.0},
+                        {"icon": "⛓️", "name": "Lilly Protocol", "value": 8080.0},
+                        {"icon": "🕷️", "name": "ProjectDiscovery", "value": 7250.0},
                         {"icon": "🛡️", "name": "Permify", "value": 6500.0},
-                        {"icon": "📐", "name": "TSCircuit", "value": 4900.0},
+                        {"icon": "📐", "name": "TSCircuit", "value": 5150.0},
+                        {"icon": "💼", "name": "Twenty CRM", "value": 800.0},
                         {"icon": "🤖", "name": "Claude Builders", "value": 575.0},
-                        {"icon": "💼", "name": "Twenty CRM", "value": 550.0},
                         {"icon": "📅", "name": "Cal.com", "value": 300.0},
+                        {"icon": "🚨", "name": "KeepHQ", "value": 200.0},
                         {"icon": "🧩", "name": "Activepieces", "value": 200.0},
                         {"icon": "🗄️", "name": "Formbricks", "value": 200.0},
                         {"icon": "🔔", "name": "Novu", "value": 200.0},
@@ -2438,7 +2439,6 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                         {"icon": "🪙", "name": "OphirPay", "value": 200.0},
                         {"icon": "📄", "name": "Documenso", "value": 100.0},
                         {"icon": "🎥", "name": "CapSoftware", "value": 0.0},
-                        {"icon": "🚨", "name": "KeepHQ", "value": 0.0},
                         {"icon": "🌌", "name": "Exo Explore", "value": 0.0},
                         {"icon": "⚡", "name": "Capacitor-Updater", "value": 0.0},
                         {"icon": "🌐", "name": "Directus", "value": 0.0},
@@ -2472,14 +2472,14 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                         results, total_rows, total_gross = real_batch_executor.execute_batch(count=count)
                     else:
                         results = [
-                            {"repo": "Permify/permify", "pr_num": 3138, "pr_url": "https://github.com/Permify/permify/pull/3138", "value": 250.0},
-                            {"repo": "twentyhq/twenty", "pr_num": 25449, "pr_url": "https://github.com/twentyhq/twenty/pull/25449", "value": 250.0},
-                            {"repo": "projectdiscovery/katana", "pr_num": 1808, "pr_url": "https://github.com/projectdiscovery/katana/pull/1808", "value": 200.0},
-                            {"repo": "keephq/keep", "pr_num": 6761, "pr_url": "https://github.com/keephq/keep/pull/6761", "value": 200.0},
-                            {"repo": "calcom/cal.diy", "pr_num": 30097, "pr_url": "https://github.com/calcom/cal.diy/pull/30097", "value": 200.0},
+                            {"repo": "Lilly-Protocol/lily-contracts", "pr_num": 387, "pr_url": "https://github.com/Lilly-Protocol/lily-contracts/pull/387", "value": 250.0},
+                            {"repo": "twentyhq/twenty", "pr_num": 25450, "pr_url": "https://github.com/twentyhq/twenty/pull/25450", "value": 250.0},
+                            {"repo": "keephq/keep", "pr_num": 6762, "pr_url": "https://github.com/keephq/keep/pull/6762", "value": 200.0},
+                            {"repo": "tscircuit/schematic-trace-solver", "pr_num": 1065, "pr_url": "https://github.com/tscircuit/schematic-trace-solver/pull/1065", "value": 250.0},
+                            {"repo": "projectdiscovery/dnsx", "pr_num": 1031, "pr_url": "https://github.com/projectdiscovery/dnsx/pull/1031", "value": 200.0},
                         ][:count]
-                        total_rows = 231
-                        total_gross = 30305.0
+                        total_rows = 236
+                        total_gross = 31455.0
 
                 try:
                     ledger_candidates = [
@@ -2538,29 +2538,29 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 wb = openpyxl.load_workbook(ledger_path, data_only=True)
 
                 ws_dash = wb['Executive Dashboard']
-                gross = float(ws_dash.cell(1, 2).value or 30305.0)
+                gross = float(ws_dash.cell(1, 2).value or 31455.0)
                 cash = float(ws_dash.cell(4, 2).value or 5430.0)
-                prs = int(ws_dash.cell(7, 2).value or 231)
-                ar = float(ws_dash.cell(5, 2).value or 24875.0)
+                prs = int(ws_dash.cell(7, 2).value or 236)
+                ar = float(ws_dash.cell(5, 2).value or 26025.0)
             except Exception:
-                gross = 30305.0
+                gross = 31455.0
                 cash = 5430.0
-                prs = 231
-                ar = 24875.0
+                prs = 236
+                ar = 26025.0
 
             if any(k in q_lower for k in ['status', 'pipeline', 'financial', 'how much', 'money', 'revenue', 'arr']):
                 response_text = f"""📊 <b>LIVE FINANCIAL & PIPELINE SNAPSHOT</b><br><br>
 • <b>Gross Pipeline:</b> ${gross:,.2f} across <b>{prs} PRs</b><br>
-• <b>Accounts Receivable:</b> ${ar:,.2f} (125 PRs Under Review)<br>
+• <b>Accounts Receivable:</b> ${ar:,.2f} (130 PRs Under Review)<br>
 • <b>Realized Cash (Stripe):</b> ${cash:,.2f} (32 Merged PRs)<br>
 • <b>Pace to $50,000 Milestone:</b> {(gross / 50000.0 * 100):.1f}% Complete<br>
 • <b>Next Milestone:</b> $100,000 / Month by June 2027 ($1.20M ARR)"""
 
             elif any(k in q_lower for k in ['delivery', 'tracker', 'amazon', 'timeline', 'shipping', 'logistics']):
                 response_text = f"""📦 <b>AMAZON-STYLE LOGISTICS TRACKER</b><br><br>
-• <b>Packages In Flight:</b> 157 Active Pull Requests in flight (125 in review + 32 merged)<br>
+• <b>Packages In Flight:</b> 162 Active Pull Requests in flight (130 in review + 32 merged)<br>
 • <b>Step-by-Step Logistics:</b> 1. Submitted ➔ 2. AR Logged ➔ 3. In Review ➔ 4. Merged ➔ 5. Bank Deposit<br>
-• <b>Chronological Delivery Queue:</b> All 125 in-review PRs sorted in strict reverse-chronological order (newest first).<br>
+• <b>Chronological Delivery Queue:</b> All 130 in-review PRs sorted in strict reverse-chronological order (newest first).<br>
 • <b>Next Estimated Deposit:</b> Monday, Sept 8 • ~2:00 PM PDT ($250.00)"""
 
             elif any(k in q_lower for k in ['heatmap', 'concentration', 'underweight', 'portfolio', 'ecosystem', '25-org', 'roster']):
