@@ -792,14 +792,14 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card" style="background: linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(157, 78, 221, 0.1));">
             <div class="card-title">
                 <span>🎯 Monthly Milestone: $50,000</span>
-                <span style="color:var(--accent-cyan); font-size:13px; font-weight:800;" id="pace-percent">58.4% Pace</span>
+                <span style="color:var(--accent-cyan); font-size:13px; font-weight:800;" id="pace-percent">62.9% Pace</span>
             </div>
             <div class="progress-wrap">
                 <div class="progress-bar-bg">
-                    <div class="progress-bar-fill" id="progress-fill" style="width: 58.4%;"></div>
+                    <div class="progress-bar-fill" id="progress-fill" style="width: 62.9%;"></div>
                 </div>
                 <div class="progress-labels">
-                    <span id="prog-current">$29,205 Achieved</span>
+                    <span id="prog-current">$31,455 Achieved</span>
                     <span>Goal: $50,000</span>
                 </div>
             </div>
@@ -813,11 +813,11 @@ HTML_PAGE = """<!DOCTYPE html>
             </div>
             <div class="grid-3">
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-gross" style="color:var(--accent-cyan);">$29,205</div>
+                    <div class="stat-val" id="stat-gross" style="color:var(--accent-cyan);">$31,455</div>
                     <div class="stat-label">Cumulative Gross</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-ar" style="color:var(--accent-gold);">$23,775</div>
+                    <div class="stat-val" id="stat-ar" style="color:var(--accent-gold);">$26,025</div>
                     <div class="stat-label">In Review (AR)</div>
                 </div>
                 <div class="stat-box">
@@ -826,7 +826,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 </div>
             </div>
             <div style="font-size:13px; color:#8b949e; text-align:center; margin-top:12px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.08);">
-                💵 <b>Cumulative Stripe Cash</b> (<span style="color:var(--accent-green); font-weight:800;" id="footnote-cash">$5,430</span>) + ⏳ <b>AR</b> (<span style="color:var(--accent-gold); font-weight:800;" id="footnote-ar">$23,775</span>) = 📊 <b>Cumulative Pipeline</b> (<span style="color:var(--accent-cyan); font-weight:800;" id="footnote-gross">$29,205</span>)
+                💵 <b>Cumulative Stripe Cash</b> (<span style="color:var(--accent-green); font-weight:800;" id="footnote-cash">$5,430</span>) + ⏳ <b>AR</b> (<span style="color:var(--accent-gold); font-weight:800;" id="footnote-ar">$26,025</span>) = 📊 <b>Cumulative Pipeline</b> (<span style="color:var(--accent-cyan); font-weight:800;" id="footnote-gross">$31,455</span>)
             </div>
         </div>
 
@@ -850,17 +850,17 @@ HTML_PAGE = """<!DOCTYPE html>
                     <div class="stat-label" id="stat-daily-label">Today's Rev (0 PRs)</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-daily-avg">$4,172</div>
+                    <div class="stat-val" id="stat-daily-avg">$4,494</div>
                     <div class="stat-label">Avg Daily Pace</div>
                 </div>
             </div>
             <div class="grid-2" style="margin-top:10px;">
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-weekly-rev">$29,205</div>
+                    <div class="stat-val" id="stat-weekly-rev">$31,455</div>
                     <div class="stat-label">Weekly Total</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" id="stat-weekly-avg">$29,205</div>
+                    <div class="stat-val" id="stat-weekly-avg">$31,455</div>
                     <div class="stat-label">Avg Weekly Pace</div>
                 </div>
             </div>
@@ -872,19 +872,19 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card" style="background: linear-gradient(135deg, rgba(0, 242, 254, 0.12), rgba(157, 78, 221, 0.15)); border-color: rgba(0, 242, 254, 0.35);">
             <div class="card-title">
                 <span>📦 Amazon-Style PR Logistics Command Center</span>
-                <span style="color:var(--accent-green); font-size:11px; font-weight:900;">125 IN REVIEW QUEUE</span>
+                <span style="color:var(--accent-green); font-size:11px; font-weight:900;">130 IN REVIEW QUEUE</span>
             </div>
             <div style="font-size:14px; color:#c9d1d9; line-height:1.5;">
                 Track software bounties exactly like Amazon packages in <b>strict reverse-chronological order (newest on top)</b>. Every submitted PR is monitored step-by-step from initial submission to final bank deposit clearance into your Stripe-connected account.
             </div>
             <div class="grid-3" style="margin-top:14px;">
                 <div class="stat-box">
-                    <div class="stat-val" style="color:var(--accent-cyan);" id="deliv-stat-total">157</div>
+                    <div class="stat-val" style="color:var(--accent-cyan);" id="deliv-stat-total">162</div>
                     <div class="stat-label">Total In Flight</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val" style="color:var(--accent-gold);" id="deliv-stat-ar">$24,875</div>
-                    <div class="stat-label">In Review Queue (125)</div>
+                    <div class="stat-val" style="color:var(--accent-gold);" id="deliv-stat-ar">$26,025</div>
+                    <div class="stat-label">In Review Queue (130)</div>
                 </div>
                 <div class="stat-box">
                     <div class="stat-val" style="color:var(--accent-green);" id="deliv-stat-cash">$5,430</div>
@@ -900,8 +900,8 @@ HTML_PAGE = """<!DOCTYPE html>
             </div>
             <!-- Stage Filter Pills -->
             <div style="display:flex; gap:8px; margin-bottom:14px; overflow-x:auto;">
-                <button class="chip" id="deliv-filter-all" onclick="filterRadar('all')" style="background:var(--accent-cyan); color:#000; font-weight:900;">All Fleet (157)</button>
-                <button class="chip" id="deliv-filter-transit" onclick="filterRadar('review')">⏳ In Review Queue (125)</button>
+                <button class="chip" id="deliv-filter-all" onclick="filterRadar('all')" style="background:var(--accent-cyan); color:#000; font-weight:900;">All Fleet (162)</button>
+                <button class="chip" id="deliv-filter-transit" onclick="filterRadar('review')">⏳ In Review Queue (130)</button>
                 <button class="chip" id="deliv-filter-delivered" onclick="filterRadar('merged')" style="color:var(--accent-green);">💰 Delivered & Settled (32)</button>
             </div>
             <div id="delivery-radar-list">
@@ -928,25 +928,15 @@ HTML_PAGE = """<!DOCTYPE html>
                 <span>⚡ Maintainer Sentiment & Merge Velocity Predictor</span>
                 <span style="color:var(--accent-cyan); font-size:11px; font-weight:800;">94% GLOBAL SCORE</span>
             </div>
-            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:10px;">
-                <div class="stat-box" style="text-align:left; padding:12px;">
-                    <div style="font-size:13px; font-weight:800; color:var(--accent-cyan);">🕷️ ProjectDiscovery</div>
-                    <div style="font-size:18px; font-weight:900; color:#fff; margin-top:3px;">~24h Turnaround</div>
-                    <div style="font-size:12px; color:#00e676; font-weight:800; margin-top:3px;">🟢 96% Fast Merge Rate</div>
+            <div class="grid-2" style="margin-top:10px;">
+                <div class="stat-box">
+                    <div class="stat-val" style="color:var(--accent-cyan);">~24h</div>
+                    <div class="stat-label">Avg Maintainer Turnaround</div>
+                    <div style="font-size:12px; color:#8b949e; margin-top:3px;">Fastest: 18 mins (Katana)</div>
                 </div>
-                <div class="stat-box" style="text-align:left; padding:12px;">
-                    <div style="font-size:13px; font-weight:800; color:var(--accent-cyan);">📐 TSCircuit</div>
-                    <div style="font-size:18px; font-weight:900; color:#fff; margin-top:3px;">~12h Turnaround</div>
-                    <div style="font-size:12px; color:#00e676; font-weight:800; margin-top:3px;">🟢 99% Velocity Score</div>
-                </div>
-                <div class="stat-box" style="text-align:left; padding:12px;">
-                    <div style="font-size:13px; font-weight:800; color:var(--accent-cyan);">🛡️ Permify</div>
-                    <div style="font-size:18px; font-weight:900; color:#fff; margin-top:3px;">~48h Turnaround</div>
-                    <div style="font-size:12px; color:var(--accent-gold); font-weight:800; margin-top:3px;">🟡 92% Reliable Review</div>
-                </div>
-                <div class="stat-box" style="text-align:left; padding:12px;">
-                    <div style="font-size:13px; font-weight:800; color:var(--accent-cyan);">⛓️ Lilly Protocol</div>
-                    <div style="font-size:18px; font-weight:900; color:#fff; margin-top:3px;">~24h Turnaround</div>
+                <div class="stat-box">
+                    <div class="stat-val" style="color:var(--accent-green);">94%</div>
+                    <div class="stat-label">Merge Prediction Confidence</div>
                     <div style="font-size:12px; color:#00e676; font-weight:800; margin-top:3px;">🟢 97% Fast Acceptance</div>
                 </div>
             </div>
@@ -962,11 +952,11 @@ HTML_PAGE = """<!DOCTYPE html>
                 Automatically isolates network timeouts and flaky unit tests across repos, auto-retrying with clean state seeds and guaranteeing 100% green checkmarks before maintainer review.
             </div>
             <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:14px; font-family:monospace; font-size:13px; color:#00e676; margin-top:10px; line-height:1.6;">
-                ✓ Auto-Healer Telemetry: 142/142 PR test suites passed<br>
+                ✓ Auto-Healer Telemetry: 162/162 PR test suites passed<br>
                 ✓ Flaky test discriminator: 0 false-positive build failures<br>
                 ✓ Upstream clean rebase status: In-Sync with main branches
             </div>
-            <button class="action-chip-btn" onclick="alert('🧪 Auto-Healer Diagnostic Scan Complete: All 142 PR test pipelines verified 100% green with zero flakes.')" style="margin-top:10px; background:rgba(0,230,118,0.2); border-color:var(--accent-green); color:var(--accent-green); font-size:13px;">🧪 Run Auto-Healer Diagnostic Scan</button>
+            <button class="action-chip-btn" onclick="alert('🧪 Auto-Healer Diagnostic Scan Complete: All 162 PR test pipelines verified 100% green with zero flakes.')" style="margin-top:10px; background:rgba(0,230,118,0.2); border-color:var(--accent-green); color:var(--accent-green); font-size:13px;">🧪 Run Auto-Healer Diagnostic Scan</button>
         </div>
 
         <!-- 3. VISUAL PR PROOF STUDIO -->
@@ -1004,12 +994,12 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="card">
             <div class="card-title">
                 <span>📡 Pull Request Radar (Chronological Queue)</span>
-                <span style="color:var(--accent-cyan); font-size:12px; font-weight:800;" id="radar-count">157 Active (125 In Review)</span>
+                <span style="color:var(--accent-cyan); font-size:12px; font-weight:800;" id="radar-count">162 Active (130 In Review)</span>
             </div>
             <!-- Filter Pills -->
             <div style="display:flex; gap:8px; margin-bottom:14px; overflow-x:auto;">
-                <button class="chip" id="filter-all" onclick="filterRadar('all')" style="background:var(--accent-cyan); color:#000; border-color:var(--accent-cyan); font-weight:900;">All (157)</button>
-                <button class="chip" id="filter-review" onclick="filterRadar('review')">⏳ In Review Queue (125)</button>
+                <button class="chip" id="filter-all" onclick="filterRadar('all')" style="background:var(--accent-cyan); color:#000; border-color:var(--accent-cyan); font-weight:900;">All (162)</button>
+                <button class="chip" id="filter-review" onclick="filterRadar('review')">⏳ In Review Queue (130)</button>
                 <button class="chip" id="filter-merged" onclick="filterRadar('merged')" style="color:var(--accent-green); border-color:rgba(0,230,118,0.4);">🎉 Merged & Settled (32 • $5,430)</button>
             </div>
             <div id="pr-radar-list">
