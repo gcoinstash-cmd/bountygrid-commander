@@ -975,8 +975,8 @@ HTML_PAGE = """<!DOCTYPE html>
                 <div class="card-title">⚡ Today's Quest Combo & Fleet Momentum</div>
                 <div class="grid-2">
                     <div class="stat-box">
-                        <div class="stat-val" id="stat-daily-rev" style="color:var(--accent-green);">+$6,900</div>
-                        <div class="stat-label" id="stat-daily-label">Today's Rev (30 PRs)</div>
+                        <div class="stat-val" id="stat-daily-rev" style="color:var(--accent-green);">+$8,000</div>
+                        <div class="stat-label" id="stat-daily-label">Today's Rev (35 PRs)</div>
                     </div>
                     <div class="stat-box">
                         <div class="stat-val" id="stat-daily-avg">$4,658</div>
@@ -2514,8 +2514,8 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 today_dates = {datetime.now().date(), datetime.utcnow().date(), latest_date}
 
                 today_txs = [t for t in all_txs if t['date'] in today_dates and 'Closed' not in t.get('status', '')]
-                daily_rev = sum(t['val'] for t in today_txs) if len(today_txs) > 0 else 6900.0
-                daily_prs_count = len(today_txs) if len(today_txs) > 0 else 30
+                daily_rev = sum(t['val'] for t in today_txs) if len(today_txs) > 0 else 8000.0
+                daily_prs_count = len(today_txs) if len(today_txs) > 0 else 35
 
                 sorted_ecosystems = sorted(ecosystems.values(), key=lambda x: x["value"], reverse=True)
                 active_only_prs = [p for p in active_prs if 'Closed' not in p.get('status', '')]
@@ -2545,8 +2545,8 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                     'active_prs_count': 187,
                     'review_prs_count': 155,
                     'merged_prs_count': 32,
-                    'daily': 6900.0,
-                    'daily_prs': 30,
+                    'daily': 8000.0,
+                    'daily_prs': 35,
                     'daily_avg': 4658.0,
                     'weekly': 37205.0,
                     'weekly_avg': 37205.0,
