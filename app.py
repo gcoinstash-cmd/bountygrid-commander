@@ -895,7 +895,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 </div>
                 
                 <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:4px;">
-                    <div style="font-size:36px; font-weight:900; color:var(--accent-cyan); letter-spacing:-1px;" id="stat-gross">$38,505.00</div>
+                    <div style="font-size:36px; font-weight:900; color:var(--accent-cyan); letter-spacing:-1px;" id="stat-gross">$39,655.00</div>
                     <span style="font-size:13px; font-weight:800; color:var(--accent-green); background:rgba(0,230,118,0.15); padding:4px 10px; border-radius:10px;">100% BALANCED</span>
                 </div>
                 
@@ -905,13 +905,13 @@ HTML_PAGE = """<!DOCTYPE html>
                         <div class="stat-label">🪙 Real Banked Gold (Stripe)</div>
                     </div>
                     <div class="stat-box" style="background:rgba(255,183,3,0.1); border-color:rgba(255,183,3,0.3);">
-                        <div class="stat-val" style="color:var(--accent-gold);" id="stat-ar">$33,075.00</div>
-                        <div class="stat-label">⏳ Loot Chests Opening (161 Quests)</div>
+                        <div class="stat-val" style="color:var(--accent-gold);" id="stat-ar">$34,225.00</div>
+                        <div class="stat-label">⏳ Loot Chests Opening (166 Quests)</div>
                     </div>
                 </div>
 
                 <div style="font-size:13px; color:var(--text-sub); line-height:1.4;">
-                    🪙 <b>Banked Gold</b> ($5,430) + ⏳ <b>Loot Chests</b> ($30,075) = 💎 <b>Total Loot Stash</b> ($36,505.00) across <b>193 Active Hero Units</b>!
+                    🪙 <b>Banked Gold</b> ($5,430) + ⏳ <b>Loot Chests</b> ($34,225) = 💎 <b>Total Loot Stash</b> ($39,655.00) across <b>198 Active Hero Units</b>!
                 </div>
             </div>
 
@@ -919,7 +919,7 @@ HTML_PAGE = """<!DOCTYPE html>
             <div class="card" style="border-color: rgba(0, 242, 254, 0.4); background: linear-gradient(135deg, rgba(13, 21, 39, 0.95), rgba(6, 9, 19, 0.95));">
                 <div class="card-title">
                     <span style="font-size: 17px; font-weight: 900; color: #fff;">⚡ Guild Power-Ups & Level-Up Gauges</span>
-                    <span style="color:var(--accent-cyan); font-size:13px; font-weight:900; background:rgba(0,242,254,0.15); padding:4px 10px; border-radius:8px; border: 1px solid rgba(0,242,254,0.3);">WORLD 4 UNLOCK: 74%</span>
+                    <span style="color:var(--accent-cyan); font-size:13px; font-weight:900; background:rgba(0,242,254,0.15); padding:4px 10px; border-radius:8px; border: 1px solid rgba(0,242,254,0.3);">WORLD 4 UNLOCK: 79%</span>
                 </div>
                 
                 <div class="powerup-container">
@@ -927,13 +927,13 @@ HTML_PAGE = """<!DOCTYPE html>
                     <div class="powerup-box">
                         <div class="powerup-header">
                             <span>⭐ Level 10 XP</span>
-                            <span class="powerup-pct-badge" style="color:var(--accent-cyan); background:rgba(0,242,254,0.15);" id="gauge-xp-pct">74.4%</span>
+                            <span class="powerup-pct-badge" style="color:var(--accent-cyan); background:rgba(0,242,254,0.15);" id="gauge-xp-pct">79.3%</span>
                         </div>
                         <div class="gauge-bar-bg">
-                            <div class="gauge-bar-fill" id="gauge-xp-bar" style="width: 74.4%; background: linear-gradient(90deg, #00f2fe, #00e676);"></div>
+                            <div class="gauge-bar-fill" id="gauge-xp-bar" style="width: 79.3%; background: linear-gradient(90deg, #00f2fe, #00e676);"></div>
                         </div>
                         <div class="powerup-footer">
-                            <span id="gauge-xp-cur" style="color:#fff; font-weight:900;">$38,505</span>
+                            <span id="gauge-xp-cur" style="color:#fff; font-weight:900;">$39,655</span>
                             <span>$50,000 Next Lvl</span>
                         </div>
                     </div>
@@ -942,13 +942,13 @@ HTML_PAGE = """<!DOCTYPE html>
                     <div class="powerup-box">
                         <div class="powerup-header">
                             <span>🔥 Swarm Fleet</span>
-                            <span class="powerup-pct-badge" style="color:var(--accent-orange); background:rgba(255,84,0,0.15);" id="gauge-mana-pct">93.5%</span>
+                            <span class="powerup-pct-badge" style="color:var(--accent-orange); background:rgba(255,84,0,0.15);" id="gauge-mana-pct">99.0%</span>
                         </div>
                         <div class="gauge-bar-bg">
-                            <div class="gauge-bar-fill" id="gauge-mana-bar" style="width: 93.5%; background: linear-gradient(90deg, #ff5400, #ffb703);"></div>
+                            <div class="gauge-bar-fill" id="gauge-mana-bar" style="width: 99.0%; background: linear-gradient(90deg, #ff5400, #ffb703);"></div>
                         </div>
                         <div class="powerup-footer">
-                            <span style="color:#fff; font-weight:900;">193 / 200 Ships</span>
+                            <span style="color:#fff; font-weight:900;">198 / 200 Ships</span>
                             <span style="color:var(--accent-orange); font-weight:900;">2X BOOST</span>
                         </div>
                     </div>
@@ -975,8 +975,8 @@ HTML_PAGE = """<!DOCTYPE html>
                 <div class="card-title">⚡ Today's Quest Combo & Fleet Momentum</div>
                 <div class="grid-2">
                     <div class="stat-box">
-                        <div class="stat-val" id="stat-daily-rev" style="color:var(--accent-green);">+$1,100</div>
-                        <div class="stat-label" id="stat-daily-label">Today's Rev (5 PRs)</div>
+                        <div class="stat-val" id="stat-daily-rev" style="color:var(--accent-green);">+$2,250</div>
+                        <div class="stat-label" id="stat-daily-label">Today's Rev (10 PRs)</div>
                     </div>
                     <div class="stat-box">
                         <div class="stat-val" id="stat-daily-avg">$4,658</div>
@@ -985,11 +985,11 @@ HTML_PAGE = """<!DOCTYPE html>
                 </div>
                 <div class="grid-2">
                     <div class="stat-box">
-                        <div class="stat-val" id="stat-weekly-rev">$38,505</div>
+                        <div class="stat-val" id="stat-weekly-rev">$39,655</div>
                         <div class="stat-label">Weekly Loot Total</div>
                     </div>
                     <div class="stat-box">
-                        <div class="stat-val" style="color:var(--accent-cyan);" id="stat-fleet">193 Units</div>
+                        <div class="stat-val" style="color:var(--accent-cyan);" id="stat-fleet">198 Units</div>
                         <div class="stat-label">Active Hero Fleet</div>
                     </div>
                 </div>
