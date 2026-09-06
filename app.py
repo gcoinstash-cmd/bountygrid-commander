@@ -1254,62 +1254,61 @@ HTML_PAGE = """<!DOCTYPE html>
 
         <div class="card">
             <div class="card-title">
-                <span>🏆 Founder Achievements Locker (25 Milestones)</span>
-                <span style="color:var(--accent-green); font-size:12px; font-weight:900; background:rgba(0,230,118,0.15); padding:4px 10px; border-radius:8px; border:1px solid rgba(0,230,118,0.3);">10 / 25 UNLOCKED (40% Complete)</span>
+                <span>🏆 Founder Achievements Locker (50 Milestones • 10-Year $200M–$1.5B Roadmap)</span>
+                <span style="color:var(--accent-green); font-size:12px; font-weight:900; background:rgba(0,230,118,0.15); padding:4px 10px; border-radius:8px; border:1px solid rgba(0,230,118,0.3);">10 / 50 UNLOCKED (20% Complete)</span>
+            </div>
+            
+            <div style="background:rgba(0,242,254,0.06); border:1px solid rgba(0,242,254,0.25); border-radius:12px; padding:12px 14px; margin-bottom:14px; font-size:13px; color:#c9d1d9; line-height:1.5;">
+                🗺️ <b>10-Year Master Strategy Architecture</b>: Mapped across 10 progressive tiers from today's $37.2k Phase 1 foundation to a <b>$200M – $1.5B Enterprise Valuation</b> and <b>$30M – $80M Annual Take-Home Free Cash Flow</b> operated 100% by Solo Founder Garrett + Autonomous AI Swarm.
             </div>
             
             <div class="badge-grid">
                 <!-- TIER 1 -->
                 <div class="badge-tier-banner">
-                    <div class="badge-tier-title">🟢 Tier 1: Sovereign Foundation</div>
+                    <div class="badge-tier-title">🟢 Tier 1: Sovereign Foundation (Years 1–2: Proof & Momentum)</div>
                     <span class="badge-tier-count" style="background:rgba(0,230,118,0.2); color:#00e676;">5 / 5 UNLOCKED</span>
                 </div>
                 
-                <!-- Badge 1 -->
                 <div class="badge-card unlocked">
                     <div class="badge-icon">💎</div>
                     <div>
-                        <div class="badge-info-title">Five-Figure Club</div>
+                        <div class="badge-info-title">1. Five-Figure Club</div>
                         <div class="badge-info-sub">$10k+ Gross Pipeline</div>
                         <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED ($37.2k)</span>
                     </div>
                 </div>
                 
-                <!-- Badge 2 -->
                 <div class="badge-card unlocked">
                     <div class="badge-icon">🛡️</div>
                     <div>
-                        <div class="badge-info-title">Repo Diplomat</div>
+                        <div class="badge-info-title">2. Repo Diplomat</div>
                         <div class="badge-info-sub">25 Distinct Ecosystems</div>
                         <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED (25 Orgs)</span>
                     </div>
                 </div>
                 
-                <!-- Badge 3 -->
                 <div class="badge-card unlocked">
                     <div class="badge-icon">💵</div>
                     <div>
-                        <div class="badge-info-title">Cash Clearance Alpha</div>
+                        <div class="badge-info-title">3. Cash Clearance Alpha</div>
                         <div class="badge-info-sub">$5,000+ Stripe Cash Realized</div>
                         <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED ($5,430)</span>
                     </div>
                 </div>
                 
-                <!-- Badge 4 -->
                 <div class="badge-card unlocked">
                     <div class="badge-icon">⚡</div>
                     <div>
-                        <div class="badge-info-title">Burst Master</div>
+                        <div class="badge-info-title">4. Burst Master</div>
                         <div class="badge-info-sub">30+ PRs in Single Day</div>
                         <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED (35 PRs)</span>
                     </div>
                 </div>
                 
-                <!-- Badge 5 -->
                 <div class="badge-card unlocked" style="grid-column: span 2;">
                     <div class="badge-icon">👑</div>
                     <div>
-                        <div class="badge-info-title">Centurion Fleet Titan</div>
+                        <div class="badge-info-title">5. Centurion Fleet Titan</div>
                         <div class="badge-info-sub">Maintain 100+ Live Dispatched Pull Requests</div>
                         <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED (187 Active Fleet)</span>
                     </div>
@@ -1317,55 +1316,50 @@ HTML_PAGE = """<!DOCTYPE html>
 
                 <!-- TIER 2 -->
                 <div class="badge-tier-banner">
-                    <div class="badge-tier-title">🚀 Tier 2: Production Scale & Velocity</div>
+                    <div class="badge-tier-title">🚀 Tier 2: Production Scale & Velocity (Years 1–2: Tri-Layer Sync)</div>
                     <span class="badge-tier-count" style="background:rgba(0,230,118,0.2); color:#00e676;">5 / 5 UNLOCKED</span>
                 </div>
                 
-                <!-- Badge 6 -->
                 <div class="badge-card unlocked">
                     <div class="badge-icon">🚀</div>
                     <div>
-                        <div class="badge-info-title">$25K Horizon</div>
+                        <div class="badge-info-title">6. $25K Horizon</div>
                         <div class="badge-info-sub">Cross $25k Gross Pipeline</div>
                         <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED ($37.2k)</span>
                     </div>
                 </div>
                 
-                <!-- Badge 7 -->
                 <div class="badge-card unlocked">
                     <div class="badge-icon">🎯</div>
                     <div>
-                        <div class="badge-info-title">$35K Apex Frontier</div>
+                        <div class="badge-info-title">7. $35K Apex Frontier</div>
                         <div class="badge-info-sub">Surpass $35k Gross Pipeline</div>
                         <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED ($37,205)</span>
                     </div>
                 </div>
                 
-                <!-- Badge 8 -->
                 <div class="badge-card unlocked">
                     <div class="badge-icon">🏛️</div>
                     <div>
-                        <div class="badge-info-title">Tri-Layer Harmony</div>
+                        <div class="badge-info-title">8. Tri-Layer Harmony</div>
                         <div class="badge-info-sub">100% Balanced Ledger & Sync</div>
                         <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED (4-Way Sync)</span>
                     </div>
                 </div>
                 
-                <!-- Badge 9 -->
                 <div class="badge-card unlocked">
                     <div class="badge-icon">🤖</div>
                     <div>
-                        <div class="badge-info-title">Security Audit Clearance</div>
+                        <div class="badge-info-title">9. Security Audit Clearance</div>
                         <div class="badge-info-sub">100% Green CI & Neo Audits</div>
                         <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED (0 Flaws)</span>
                     </div>
                 </div>
                 
-                <!-- Badge 10 -->
                 <div class="badge-card unlocked" style="grid-column: span 2;">
                     <div class="badge-icon">📦</div>
                     <div>
-                        <div class="badge-info-title">Fleet Logistics Command</div>
+                        <div class="badge-info-title">10. Fleet Logistics Command</div>
                         <div class="badge-info-sub">150+ PR packages tracked in reverse-chronological queue</div>
                         <span class="badge-status" style="background:#00e676; color:#000;">UNLOCKED (155 In-Review)</span>
                     </div>
@@ -1373,168 +1367,408 @@ HTML_PAGE = """<!DOCTYPE html>
 
                 <!-- TIER 3 -->
                 <div class="badge-tier-banner">
-                    <div class="badge-tier-title">⏳ Tier 3: Cash Realization & Quarter Milestones</div>
+                    <div class="badge-tier-title">⏳ Tier 3: Cash Realization & Quarter Milestones (Months 6–12: Retainer Conversion)</div>
                     <span class="badge-tier-count" style="background:rgba(0,242,254,0.2); color:#00f2fe;">5 NEXT UNLOCKS</span>
                 </div>
                 
-                <!-- Badge 11 -->
                 <div class="badge-card in-progress">
                     <div class="badge-icon">💰</div>
                     <div>
-                        <div class="badge-info-title">$10K Stripe Cash</div>
+                        <div class="badge-info-title">11. $10K Stripe Cash</div>
                         <div class="badge-info-sub">$10k Settled Cash Receipts</div>
                         <span class="badge-status" style="background:rgba(0,242,254,0.2); color:#00f2fe; border:1px solid rgba(0,242,254,0.4);">IN PROGRESS ($5,430 / $10k)</span>
                     </div>
                 </div>
                 
-                <!-- Badge 12 -->
                 <div class="badge-card in-progress">
                     <div class="badge-icon">🏆</div>
                     <div>
-                        <div class="badge-info-title">Fifty-Grand Titan</div>
+                        <div class="badge-info-title">12. Fifty-Grand Titan</div>
                         <div class="badge-info-sub">Scale to $50,000 Pipeline</div>
                         <span class="badge-status" style="background:rgba(0,242,254,0.2); color:#00f2fe; border:1px solid rgba(0,242,254,0.4);">IN PROGRESS ($37.2k / $50k)</span>
                     </div>
                 </div>
                 
-                <!-- Badge 13 -->
                 <div class="badge-card in-progress">
                     <div class="badge-icon">🌐</div>
                     <div>
-                        <div class="badge-info-title">Double-Century Fleet</div>
+                        <div class="badge-info-title">13. Double-Century Fleet</div>
                         <div class="badge-info-sub">Deploy 200+ Active Fleet</div>
                         <span class="badge-status" style="background:rgba(0,242,254,0.2); color:#00f2fe; border:1px solid rgba(0,242,254,0.4);">IN PROGRESS (187 / 200 PRs)</span>
                     </div>
                 </div>
                 
-                <!-- Badge 14 -->
                 <div class="badge-card in-progress">
                     <div class="badge-icon">⛓️</div>
                     <div>
-                        <div class="badge-info-title">Escrow Sovereign</div>
+                        <div class="badge-info-title">14. Escrow Sovereign</div>
                         <div class="badge-info-sub">$10k+ in Lilly Escrows</div>
                         <span class="badge-status" style="background:rgba(0,242,254,0.2); color:#00f2fe; border:1px solid rgba(0,242,254,0.4);">IN PROGRESS ($9.3k / $10k)</span>
                     </div>
                 </div>
                 
-                <!-- Badge 15 -->
                 <div class="badge-card in-progress" style="grid-column: span 2;">
                     <div class="badge-icon">🤝</div>
                     <div>
-                        <div class="badge-info-title">Retainer Deal Room</div>
-                        <div class="badge-info-sub">First Enterprise Monthly Recurring Maintenance Retainer</div>
+                        <div class="badge-info-title">15. Retainer Deal Room Alpha</div>
+                        <div class="badge-info-sub">First Enterprise Monthly Recurring Retainer ($3,500/mo)</div>
                         <span class="badge-status" style="background:rgba(255,183,3,0.2); color:#ffb703; border:1px solid rgba(255,183,3,0.4);">READY TO CLOSE</span>
                     </div>
                 </div>
 
                 <!-- TIER 4 -->
                 <div class="badge-tier-banner">
-                    <div class="badge-tier-title">🔒 Tier 4: Enterprise Run-Rate</div>
+                    <div class="badge-tier-title">🔒 Tier 4: Six-Figure Studio Horizon (Year 1 Milestone: $10k–$25k/Mo Run Rate)</div>
                     <span class="badge-tier-count" style="background:rgba(255,255,255,0.08); color:#8b949e;">5 ROADMAP TARGETS</span>
                 </div>
                 
-                <!-- Badge 16 -->
                 <div class="badge-card locked">
                     <div class="badge-icon">🌟</div>
                     <div>
-                        <div class="badge-info-title">$75K Pipeline Sentinel</div>
+                        <div class="badge-info-title">16. $75K Pipeline Sentinel</div>
                         <div class="badge-info-sub">Reach $75,000 Gross Pipeline</div>
-                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 ROADMAP PHASE 2</span>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 ROADMAP PHASE 1.5</span>
                     </div>
                 </div>
                 
-                <!-- Badge 17 -->
                 <div class="badge-card locked">
                     <div class="badge-icon">🏰</div>
                     <div>
-                        <div class="badge-info-title">Six-Figure Sovereign</div>
+                        <div class="badge-info-title">17. Six-Figure Sovereign</div>
                         <div class="badge-info-sub">$100,000 Portfolio Milestone</div>
-                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 ROADMAP PHASE 3</span>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 ROADMAP PHASE 1.8</span>
                     </div>
                 </div>
                 
-                <!-- Badge 18 -->
                 <div class="badge-card locked">
+                    <div class="badge-icon">💳</div>
+                    <div>
+                        <div class="badge-info-title">18. $25,000 Settled Cash</div>
+                        <div class="badge-info-sub">$25,000 Direct Stripe Deposits</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 CASH CLEARANCE</span>
+                    </div>
+                </div>
+                
+                <div class="badge-card locked">
+                    <div class="badge-icon">🔄</div>
+                    <div>
+                        <div class="badge-info-title">19. Tri-Retainer Core</div>
+                        <div class="badge-info-sub">3 Monthly Retainers ($10,500/mo)</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 RETAINER ENGINE</span>
+                    </div>
+                </div>
+                
+                <div class="badge-card locked" style="grid-column: span 2;">
                     <div class="badge-icon">📈</div>
                     <div>
-                        <div class="badge-info-title">$25K / Mo Run Rate</div>
-                        <div class="badge-info-sub">Consistent Monthly Revenue Velocity</div>
-                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 JUNE 2027 TARGET</span>
-                    </div>
-                </div>
-                
-                <!-- Badge 19 -->
-                <div class="badge-card locked">
-                    <div class="badge-icon">🔮</div>
-                    <div>
-                        <div class="badge-info-title">Zero-Debt Solopreneur</div>
-                        <div class="badge-info-sub">$100k Equity at 100% Net Profit Margin</div>
-                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 SOVEREIGN EQUITY</span>
-                    </div>
-                </div>
-                
-                <!-- Badge 20 -->
-                <div class="badge-card locked" style="grid-column: span 2;">
-                    <div class="badge-icon">🛰️</div>
-                    <div>
-                        <div class="badge-info-title">Autonomous Swarm Commander</div>
-                        <div class="badge-info-sub">Maintain 300+ Continuous PR Fleet in Constant Rotation</div>
-                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 SWARM PROTOCOL</span>
+                        <div class="badge-info-title">20. $150K ARR Benchmark</div>
+                        <div class="badge-info-sub">Achieve $12,500/month steady-state recurring run rate</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 YEAR 1 TARGET</span>
                     </div>
                 </div>
 
                 <!-- TIER 5 -->
                 <div class="badge-tier-banner">
-                    <div class="badge-tier-title">👑 Tier 5: Hall of Fame & Sovereign Mastery</div>
-                    <span class="badge-tier-count" style="background:rgba(255,183,3,0.15); color:#ffb703;">5 LONG-TERM MASTERY</span>
+                    <div class="badge-tier-title">🔒 Tier 5: Boutique Agency Scale (Year 2 Milestone: $300k–$500k ARR)</div>
+                    <span class="badge-tier-count" style="background:rgba(255,255,255,0.08); color:#8b949e;">5 ROADMAP TARGETS</span>
                 </div>
                 
-                <!-- Badge 21 -->
                 <div class="badge-card locked">
-                    <div class="badge-icon">💸</div>
+                    <div class="badge-icon">🏢</div>
                     <div>
-                        <div class="badge-info-title">Quarter-Million ARR</div>
-                        <div class="badge-info-sub">$250,000 Annualized Run Rate</div>
-                        <span class="badge-status" style="background:rgba(255,183,3,0.15); color:#ffb703;">🔒 YEAR 2 MASTERY</span>
+                        <div class="badge-info-title">21. Deca-Retainer Agency</div>
+                        <div class="badge-info-sub">10 Enterprise Retainers ($35k/mo)</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 YEAR 2 PHASE</span>
                     </div>
                 </div>
                 
-                <!-- Badge 22 -->
                 <div class="badge-card locked">
                     <div class="badge-icon">💎</div>
                     <div>
-                        <div class="badge-info-title">Half-Million ARR Studio</div>
-                        <div class="badge-info-sub">$500,000 Annual Run Rate Scale</div>
-                        <span class="badge-status" style="background:rgba(255,183,3,0.15); color:#ffb703;">🔒 YEAR 3 MASTERY</span>
+                        <div class="badge-info-title">22. $250K Pipeline Master</div>
+                        <div class="badge-info-sub">$250,000 Cumulative Bounty Gross</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 VOLUME TITAN</span>
                     </div>
                 </div>
                 
-                <!-- Badge 23 -->
                 <div class="badge-card locked">
-                    <div class="badge-icon">🎖️</div>
+                    <div class="badge-icon">💵</div>
                     <div>
-                        <div class="badge-info-title">Seven-Figure Vanguard</div>
-                        <div class="badge-info-sub">$1,000,000 ARR Sovereign Enterprise</div>
-                        <span class="badge-status" style="background:rgba(255,183,3,0.15); color:#ffb703;">🔒 YEAR 5 ROADMAP</span>
+                        <div class="badge-info-title">23. $100K Cash in Bank</div>
+                        <div class="badge-info-sub">$100,000 Net Cash Reserves (90% Margin)</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 CASH RESERVES</span>
                     </div>
                 </div>
                 
-                <!-- Badge 24 -->
                 <div class="badge-card locked">
-                    <div class="badge-icon">🗺️</div>
+                    <div class="badge-icon">🛰️</div>
                     <div>
-                        <div class="badge-info-title">NotebookLM Master Archive</div>
-                        <div class="badge-info-sub">10-Document Sovereign Knowledge Base</div>
-                        <span class="badge-status" style="background:rgba(255,183,3,0.15); color:#ffb703;">🔒 PERMANENT SYNC</span>
+                        <div class="badge-info-title">24. 300-Ship Swarm</div>
+                        <div class="badge-info-sub">300 Active Swarm PRs in Rotation</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 SWARM PROTOCOL</span>
                     </div>
                 </div>
                 
-                <!-- Badge 25 -->
                 <div class="badge-card locked" style="grid-column: span 2;">
                     <div class="badge-icon">👑</div>
                     <div>
-                        <div class="badge-info-title">Sovereign Freedom & Financial Independence</div>
-                        <div class="badge-info-sub">Complete 10-Year Roadmap Execution with 100% Founder Ownership</div>
+                        <div class="badge-info-title">25. Half-Million ARR Pioneer</div>
+                        <div class="badge-info-sub">Reach $41,666/month ($500,000 ARR studio) with $430k take-home cash</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 $500K ARR BENCHMARK</span>
+                    </div>
+                </div>
+
+                <!-- TIER 6 -->
+                <div class="badge-tier-banner">
+                    <div class="badge-tier-title">🔒 Tier 6: Multi-Tenant Platform & B2B SaaS (Years 3–4: $1.5M–$3.5M ARR)</div>
+                    <span class="badge-tier-count" style="background:rgba(255,255,255,0.08); color:#8b949e;">5 ROADMAP TARGETS</span>
+                </div>
+                
+                <div class="badge-card locked">
+                    <div class="badge-icon">🌐</div>
+                    <div>
+                        <div class="badge-info-title">26. B2B SaaS Launch</div>
+                        <div class="badge-info-sub">Self-Serve GitHub App Platform</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 PRODUCT SCALE</span>
+                    </div>
+                </div>
+                
+                <div class="badge-card locked">
+                    <div class="badge-icon">🎯</div>
+                    <div>
+                        <div class="badge-info-title">27. First 50 B2B Customers</div>
+                        <div class="badge-info-sub">50 Paid Engineering Team Subscriptions</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 PRODUCT MARKET FIT</span>
+                    </div>
+                </div>
+                
+                <div class="badge-card locked">
+                    <div class="badge-icon">💰</div>
+                    <div>
+                        <div class="badge-info-title">28. $1,000,000 ARR Titan</div>
+                        <div class="badge-info-sub">Cross $83,333/month Recurring Revenue</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 $1M ARR MILESTONE</span>
+                    </div>
+                </div>
+                
+                <div class="badge-card locked">
+                    <div class="badge-icon">⚡</div>
+                    <div>
+                        <div class="badge-info-title">29. 1,000 Merged PRs/Mo</div>
+                        <div class="badge-info-sub">Autonomous AI Swarm Velocity</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 INDUSTRIAL SCALE</span>
+                    </div>
+                </div>
+                
+                <div class="badge-card locked" style="grid-column: span 2;">
+                    <div class="badge-icon">🏛️</div>
+                    <div>
+                        <div class="badge-info-title">30. $15M–$30M Valuation Gateway</div>
+                        <div class="badge-info-sub">Series A / Growth valuation multiple unlocked ($3.5M ARR @ 10x multiple)</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 EIGHT-FIGURE VALUATION</span>
+                    </div>
+                </div>
+
+                <!-- TIER 7 -->
+                <div class="badge-tier-banner">
+                    <div class="badge-tier-title">🔒 Tier 7: Enterprise Backlog Clearinghouse (Years 5–6: $8M–$15M ARR)</div>
+                    <span class="badge-tier-count" style="background:rgba(255,255,255,0.08); color:#8b949e;">5 ROADMAP TARGETS</span>
+                </div>
+                
+                <div class="badge-card locked">
+                    <div class="badge-icon">📜</div>
+                    <div>
+                        <div class="badge-info-title">31. SOC2 & ISO 27001</div>
+                        <div class="badge-info-sub">Enterprise Security Compliance</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 ENTERPRISE TRUST</span>
+                    </div>
+                </div>
+                
+                <div class="badge-card locked">
+                    <div class="badge-icon">🏢</div>
+                    <div>
+                        <div class="badge-info-title">32. Fortune 500 Contracts</div>
+                        <div class="badge-info-sub">First 10 Fortune 500 Clients ($100k ACV)</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 ENTERPRISE ACV</span>
+                    </div>
+                </div>
+                
+                <div class="badge-card locked">
+                    <div class="badge-icon">🚀</div>
+                    <div>
+                        <div class="badge-info-title">33. $5M ARR Scale</div>
+                        <div class="badge-info-sub">$416,666/month with 80% Net FCF</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 $5M ARR BENCHMARK</span>
+                    </div>
+                </div>
+                
+                <div class="badge-card locked">
+                    <div class="badge-icon">🛡️</div>
+                    <div>
+                        <div class="badge-info-title">34. Air-Gapped VPC Cloud</div>
+                        <div class="badge-info-sub">Private Banking & Defense Deployments</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 SOVEREIGN INFRA</span>
+                    </div>
+                </div>
+                
+                <div class="badge-card locked" style="grid-column: span 2;">
+                    <div class="badge-icon">💎</div>
+                    <div>
+                        <div class="badge-info-title">35. $100M+ Valuation Threshold</div>
+                        <div class="badge-info-sub">Institutional nine-figure enterprise market valuation ($10M ARR @ 10x-15x)</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 NINE-FIGURE EMPIRE</span>
+                    </div>
+                </div>
+
+                <!-- TIER 8 -->
+                <div class="badge-tier-banner">
+                    <div class="badge-tier-title">🔒 Tier 8: Autonomous Infrastructure Standard (Years 7–8: $25M–$50M ARR)</div>
+                    <span class="badge-tier-count" style="background:rgba(255,255,255,0.08); color:#8b949e;">5 ROADMAP TARGETS</span>
+                </div>
+                
+                <div class="badge-card locked">
+                    <div class="badge-icon">🌌</div>
+                    <div>
+                        <div class="badge-info-title">36. GitHub/GitLab Native</div>
+                        <div class="badge-info-sub">Default Platform Resolution Standard</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 GLOBAL INTEGRATION</span>
+                    </div>
+                </div>
+                
+                <div class="badge-card locked">
+                    <div class="badge-icon">📈</div>
+                    <div>
+                        <div class="badge-info-title">37. $25M ARR Benchmark</div>
+                        <div class="badge-info-sub">$2,083,000/month Recurring Velocity</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 $25M ARR GIANT</span>
+                    </div>
+                </div>
+                
+                <div class="badge-card locked">
+                    <div class="badge-icon">💵</div>
+                    <div>
+                        <div class="badge-info-title">38. $20M Annual Free Cash</div>
+                        <div class="badge-info-sub">$20M Annual Personal Take-Home FCF</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 $20M CASH FLOW</span>
+                    </div>
+                </div>
+                
+                <div class="badge-card locked">
+                    <div class="badge-icon">🤖</div>
+                    <div>
+                        <div class="badge-info-title">39. 5,000 AI Agent Swarm</div>
+                        <div class="badge-info-sub">Massive Parallel AI Cluster Operations</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 5,000 AGENT SWARM</span>
+                    </div>
+                </div>
+                
+                <div class="badge-card locked" style="grid-column: span 2;">
+                    <div class="badge-icon">🏰</div>
+                    <div>
+                        <div class="badge-info-title">40. $350M–$500M Private Equity Benchmark</div>
+                        <div class="badge-info-sub">Thoma Bravo & Vista Equity LBO valuation multiple threshold ($25M ARR @ 15x-20x FCF)</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 $500M PE TARGET</span>
+                    </div>
+                </div>
+
+                <!-- TIER 9 -->
+                <div class="badge-tier-banner">
+                    <div class="badge-tier-title">🔒 Tier 9: Sovereign Market Dominance (Years 9–10: $75M–$100M+ ARR)</div>
+                    <span class="badge-tier-count" style="background:rgba(255,255,255,0.08); color:#8b949e;">5 ROADMAP TARGETS</span>
+                </div>
+                
+                <div class="badge-card locked">
+                    <div class="badge-icon">🌍</div>
+                    <div>
+                        <div class="badge-info-title">41. 5,000+ Enterprise Clients</div>
+                        <div class="badge-info-sub">Universal Code Maintenance Standard</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 GLOBAL FOOTPRINT</span>
+                    </div>
+                </div>
+                
+                <div class="badge-card locked">
+                    <div class="badge-icon">🚀</div>
+                    <div>
+                        <div class="badge-info-title">42. $75M ARR Milestone</div>
+                        <div class="badge-info-sub">$6,250,000/month Recurring Velocity</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 $75M ARR DOMINANCE</span>
+                    </div>
+                </div>
+                
+                <div class="badge-card locked">
+                    <div class="badge-icon">💰</div>
+                    <div>
+                        <div class="badge-info-title">43. $50M Annual Take-Home</div>
+                        <div class="badge-info-sub">$50,000,000 Net Free Cash Flow Per Year</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 $50M CASH FLOW</span>
+                    </div>
+                </div>
+                
+                <div class="badge-card locked">
+                    <div class="badge-icon">🔮</div>
+                    <div>
+                        <div class="badge-info-title">44. Zero-Debt Pure Equity</div>
+                        <div class="badge-info-sub">$100M+ Cash Reserves with 100% Founder Equity</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 DEBT-FREE SOVEREIGNTY</span>
+                    </div>
+                </div>
+                
+                <div class="badge-card locked" style="grid-column: span 2;">
+                    <div class="badge-icon">🎖️</div>
+                    <div>
+                        <div class="badge-info-title">45. Nine-Figure Sovereign Studio</div>
+                        <div class="badge-info-sub">1 Solo Founder + 10,000 AI Agents generating $75M+ ARR at 80% net margin</div>
+                        <span class="badge-status" style="background:rgba(255,255,255,0.08); color:#8b949e;">🔒 10,000 AGENT DYNASTY</span>
+                    </div>
+                </div>
+
+                <!-- TIER 10 -->
+                <div class="badge-tier-banner">
+                    <div class="badge-tier-title">👑 Tier 10: The Sovereign Dynasty & Exit (Years 8–10: $200M – $1.5B Valuation)</div>
+                    <span class="badge-tier-count" style="background:rgba(255,183,3,0.15); color:#ffb703;">5 SUPREME ROADMAP TARGETS</span>
+                </div>
+                
+                <div class="badge-card locked">
+                    <div class="badge-icon">💸</div>
+                    <div>
+                        <div class="badge-info-title">46. $100M ARR Century</div>
+                        <div class="badge-info-sub">$8,333,000/month Annual Run Rate</div>
+                        <span class="badge-status" style="background:rgba(255,183,3,0.15); color:#ffb703;">🔒 $100M ARR PINNACLE</span>
+                    </div>
+                </div>
+                
+                <div class="badge-card locked">
+                    <div class="badge-icon">💰</div>
+                    <div>
+                        <div class="badge-info-title">47. $80M Annual Free Cash Flow</div>
+                        <div class="badge-info-sub">Peak Annual Take-Home Distribution ($80M/yr)</div>
+                        <span class="badge-status" style="background:rgba(255,183,3,0.15); color:#ffb703;">🔒 $80M ANNUAL FCF</span>
+                    </div>
+                </div>
+                
+                <div class="badge-card locked">
+                    <div class="badge-icon">🏛️</div>
+                    <div>
+                        <div class="badge-info-title">48. $500M+ M&A Acquisition</div>
+                        <div class="badge-info-sub">Strategic Buyout from Microsoft / Google / AWS</div>
+                        <span class="badge-status" style="background:rgba(255,183,3,0.15); color:#ffb703;">🔒 BIG TECH M&A</span>
+                    </div>
+                </div>
+                
+                <div class="badge-card locked">
+                    <div class="badge-icon">💎</div>
+                    <div>
+                        <div class="badge-info-title">49. $1.5B Unicorn Valuation</div>
+                        <div class="badge-info-sub">Peak 15x ARR Frontier AI Exit Benchmark</div>
+                        <span class="badge-status" style="background:rgba(255,183,3,0.15); color:#ffb703;">🔒 $1.5 BILLION VALUATION</span>
+                    </div>
+                </div>
+                
+                <div class="badge-card locked" style="grid-column: span 2;">
+                    <div class="badge-icon">👑</div>
+                    <div>
+                        <div class="badge-info-title">50. Sovereign Freedom & Financial Independence</div>
+                        <div class="badge-info-sub">Complete 10-Year Roadmap Execution with 100% Founder Equity ($200M – $1.5B Net Liquidity)</div>
                         <span class="badge-status" style="background:linear-gradient(90deg, #ffb703, #00e676); color:#000; font-weight:900;">🔒 ULTIMATE SOVEREIGNTY</span>
                     </div>
                 </div>
