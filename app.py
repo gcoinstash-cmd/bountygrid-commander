@@ -2190,7 +2190,7 @@ HTML_PAGE = """<!DOCTYPE html>
                         const dailyEl = document.getElementById('stat-daily-rev');
                         if (dailyEl) dailyEl.innerText = '+$' + Number(data.daily).toLocaleString();
                         const dailyLbl = document.getElementById('stat-daily-label');
-                        if (dailyLbl) dailyLbl.innerText = "Today's Rev (" + (data.daily_prs || 30) + " PRs)";
+                        if (dailyLbl) dailyLbl.innerText = "Today's Rev (" + (data.daily_prs || 35) + " PRs)";
                     }
                     if (data.weekly) {
                         const weeklyEl = document.getElementById('stat-weekly-rev');
