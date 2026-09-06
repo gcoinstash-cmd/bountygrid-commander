@@ -581,39 +581,48 @@ HTML_PAGE = """<!DOCTYPE html>
             .founder-title { font-size: 15px; }
         }
     
-        /* GAMIFIED VISUAL POWER-UP & PROGRESSION BARS */
+        /* GAMIFIED VISUAL POWER-UP & PROGRESSION GAUGES (LARGE FONT & HIGH VISIBILITY) */
         .powerup-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-top: 4px;
+            gap: 12px;
+            margin-top: 6px;
         }
         .powerup-box {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid var(--border-subtle);
-            border-radius: 12px;
-            padding: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 242, 254, 0.25);
+            border-radius: 14px;
+            padding: 14px 12px;
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
         .powerup-header {
             display: flex;
             justify-content: space-between;
-            font-size: 11px;
+            align-items: center;
+            font-size: 14px;
             font-weight: 900;
-            color: var(--text-sub);
+            color: #ffffff;
+        }
+        .powerup-pct-badge {
+            font-size: 15px;
+            font-weight: 900;
+            padding: 2px 8px;
+            border-radius: 6px;
         }
         .gauge-bar-bg {
-            height: 8px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 10px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
             overflow: hidden;
             position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .gauge-bar-fill {
             height: 100%;
-            border-radius: 10px;
+            border-radius: 12px;
             transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
         }
@@ -621,12 +630,57 @@ HTML_PAGE = """<!DOCTYPE html>
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
             animation: gauge-shine 2s infinite;
         }
-        @keyframes gauge-shine {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+        .powerup-footer {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--text-sub);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* QUICK NAVIGATION DROP-DOWN SELECTOR */
+        .nav-dropdown-bar {
+            background: rgba(13, 21, 39, 0.95);
+            border-bottom: 2px solid rgba(0, 242, 254, 0.3);
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+            z-index: 45;
+        }
+        .nav-select-wrap {
+            flex: 1;
+            position: relative;
+        }
+        .nav-select {
+            width: 100%;
+            background: linear-gradient(135deg, rgba(18, 28, 50, 0.95), rgba(6, 9, 19, 0.95));
+            border: 2px solid var(--accent-cyan);
+            border-radius: 12px;
+            padding: 10px 16px;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 900;
+            cursor: pointer;
+            outline: none;
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        .nav-select-arrow {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: var(--accent-cyan);
+            font-size: 14px;
+            font-weight: 900;
         }
 
         /* VISUAL DELIVERY STEPPER (PRECISE & REALISTIC) */
@@ -792,6 +846,28 @@ HTML_PAGE = """<!DOCTYPE html>
         <span style="font-size:11px; color:var(--text-sub);" id="webhook-time">JUST NOW</span>
     </div>
 
+        <!-- QUICK DROP-DOWN NAVIGATION MENU -->
+    <div class="nav-dropdown-bar">
+        <span style="font-size:14px; font-weight:900; color:var(--accent-cyan); display:flex; align-items:center; gap:6px;">
+            <span>⚡ JUMP TO:</span>
+        </span>
+        <div class="nav-select-wrap">
+            <select class="nav-select" id="view-dropdown-select" onchange="switchTab(this.value)">
+                <option value="dash">💎 1. Loot Stash HUD (Overview)</option>
+                <option value="delivery">📦 2. Amazon PR Delivery Tracker (155)</option>
+                <option value="intel">🧠 3. AI Hero Swarm & Maintainer Intel</option>
+                <option value="radar">📡 4. Live PR Radar & Feed</option>
+                <option value="heatmap">🗺️ 5. 25 Conquered Realms Heatmap</option>
+                <option value="retainer">💼 6. Engineering Retainer Deal Room</option>
+                <option value="batch">⚡ 7. 1-Tap Autonomous Sprints</option>
+                <option value="badges">🏆 8. Badges & 10 Worlds ($1.5B Exit)</option>
+                <option value="calc">📈 9. Gold Multiplier & ARR Calculator</option>
+                <option value="chat">💬 10. Guild Master AI Agent Copilot</option>
+            </select>
+            <span class="nav-select-arrow">▼</span>
+        </div>
+    </div>
+
     <!-- 10 GAMIFIED NAVIGATION TABS -->
     <div class="tab-bar">
         <div class="tab active" id="tab-dash" onclick="switchTab('dash')">💎 Loot Stash HUD</div>
@@ -840,10 +916,10 @@ HTML_PAGE = """<!DOCTYPE html>
             </div>
 
             <!-- RPG POWER-UP & LEVEL-UP PROGRESSION GAUGES -->
-            <div class="card" style="border-color: rgba(0, 242, 254, 0.35); background: linear-gradient(135deg, rgba(13, 21, 39, 0.9), rgba(6, 9, 19, 0.9));">
+            <div class="card" style="border-color: rgba(0, 242, 254, 0.4); background: linear-gradient(135deg, rgba(13, 21, 39, 0.95), rgba(6, 9, 19, 0.95));">
                 <div class="card-title">
-                    <span>⚡ Guild Power-Ups & Level-Up Gauges</span>
-                    <span style="color:var(--accent-cyan); font-size:11px; font-weight:900; background:rgba(0,242,254,0.15); padding:3px 8px; border-radius:6px;">WORLD 4 UNLOCK: 74%</span>
+                    <span style="font-size: 17px; font-weight: 900; color: #fff;">⚡ Guild Power-Ups & Level-Up Gauges</span>
+                    <span style="color:var(--accent-cyan); font-size:13px; font-weight:900; background:rgba(0,242,254,0.15); padding:4px 10px; border-radius:8px; border: 1px solid rgba(0,242,254,0.3);">WORLD 4 UNLOCK: 74%</span>
                 </div>
                 
                 <div class="powerup-container">
@@ -851,29 +927,29 @@ HTML_PAGE = """<!DOCTYPE html>
                     <div class="powerup-box">
                         <div class="powerup-header">
                             <span>⭐ Level 10 XP</span>
-                            <span style="color:var(--accent-cyan);" id="gauge-xp-pct">74.4%</span>
+                            <span class="powerup-pct-badge" style="color:var(--accent-cyan); background:rgba(0,242,254,0.15);" id="gauge-xp-pct">74.4%</span>
                         </div>
                         <div class="gauge-bar-bg">
                             <div class="gauge-bar-fill" id="gauge-xp-bar" style="width: 74.4%; background: linear-gradient(90deg, #00f2fe, #00e676);"></div>
                         </div>
-                        <div style="font-size:10px; color:var(--text-sub); display:flex; justify-content:space-between;">
-                            <span id="gauge-xp-cur">$37.2k</span>
-                            <span>$50.0k Target</span>
+                        <div class="powerup-footer">
+                            <span id="gauge-xp-cur" style="color:#fff; font-weight:900;">$37,205</span>
+                            <span>$50,000 Next Lvl</span>
                         </div>
                     </div>
 
                     <!-- Gauge 2: Swarm Mana / Velocity Boost -->
                     <div class="powerup-box">
                         <div class="powerup-header">
-                            <span>🔥 Swarm Mana</span>
-                            <span style="color:var(--accent-orange);" id="gauge-mana-pct">93.5%</span>
+                            <span>🔥 Swarm Fleet</span>
+                            <span class="powerup-pct-badge" style="color:var(--accent-orange); background:rgba(255,84,0,0.15);" id="gauge-mana-pct">93.5%</span>
                         </div>
                         <div class="gauge-bar-bg">
                             <div class="gauge-bar-fill" id="gauge-mana-bar" style="width: 93.5%; background: linear-gradient(90deg, #ff5400, #ffb703);"></div>
                         </div>
-                        <div style="font-size:10px; color:var(--text-sub); display:flex; justify-content:space-between;">
-                            <span>187 / 200 Ships</span>
-                            <span style="color:var(--accent-orange);">2X OVERDRIVE</span>
+                        <div class="powerup-footer">
+                            <span style="color:#fff; font-weight:900;">187 / 200 Ships</span>
+                            <span style="color:var(--accent-orange); font-weight:900;">2X BOOST</span>
                         </div>
                     </div>
 
@@ -881,20 +957,19 @@ HTML_PAGE = """<!DOCTYPE html>
                     <div class="powerup-box">
                         <div class="powerup-header">
                             <span>🪙 Gold Vault</span>
-                            <span style="color:var(--accent-green);" id="gauge-gold-pct">54.3%</span>
+                            <span class="powerup-pct-badge" style="color:var(--accent-green); background:rgba(0,230,118,0.15);" id="gauge-gold-pct">54.3%</span>
                         </div>
                         <div class="gauge-bar-bg">
                             <div class="gauge-bar-fill" id="gauge-gold-bar" style="width: 54.3%; background: linear-gradient(90deg, #00e676, #ffb703);"></div>
                         </div>
-                        <div style="font-size:10px; color:var(--text-sub); display:flex; justify-content:space-between;">
-                            <span id="gauge-gold-cur">$5,430</span>
-                            <span>$10k Level 11</span>
+                        <div class="powerup-footer">
+                            <span id="gauge-gold-cur" style="color:#fff; font-weight:900;">$5,430 Cash</span>
+                            <span>$10,000 Target</span>
                         </div>
                     </div>
                 </div>
             </div>
-
-
+            
             <!-- TODAY'S QUEST COMBO & FLEET STATUS -->
             <div class="card">
                 <div class="card-title">⚡ Today's Quest Combo & Fleet Momentum</div>
@@ -1520,52 +1595,185 @@ HTML_PAGE = """<!DOCTYPE html>
 
     </div>
 
-    <!-- MODAL 1: 📊 3-STATEMENT SOVEREIGN FINANCIAL VAULT -->
+        <!-- MODAL 1: 📊 3-STATEMENT SOVEREIGN FINANCIAL VAULT & 3-YEAR VISUAL FORECAST -->
     <div class="modal-overlay" id="modal-financial">
-        <div class="modal-card">
+        <div class="modal-card" style="max-width:750px;">
             <div class="modal-header">
-                <span style="font-size:16px; font-weight:900; color:#fff;">📊 3-Statement Sovereign Financial Vault</span>
+                <span style="font-size:18px; font-weight:900; color:#fff; display:flex; align-items:center; gap:8px;">
+                    <span>📊 3-Statement Sovereign Financial Vault & 3-Year Projections</span>
+                </span>
                 <button class="action-btn" onclick="closeModals()">✕</button>
             </div>
-            <div style="display:flex; gap:6px; padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.08); background:rgba(0,0,0,0.3); overflow-x:auto;">
-                <button class="action-btn btn-cyan active" id="fin-tab-sched" onclick="switchFinTab('sched')">📅 10-Mo Schedule</button>
-                <button class="action-btn" id="fin-tab-is" onclick="switchFinTab('is')">📈 Income</button>
-                <button class="action-btn" id="fin-tab-bs" onclick="switchFinTab('bs')">⚖️ Balance</button>
-                <button class="action-btn" id="fin-tab-cf" onclick="switchFinTab('cf')">💵 Cash Flow</button>
+            <div style="display:flex; gap:6px; padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.08); background:rgba(0,0,0,0.35); overflow-x:auto;">
+                <button class="action-btn btn-cyan active" id="fin-tab-sched" onclick="switchFinTab('sched')">📅 3-Yr Forecast & 10-Mo</button>
+                <button class="action-btn" id="fin-tab-is" onclick="switchFinTab('is')">📈 Income Statement</button>
+                <button class="action-btn" id="fin-tab-bs" onclick="switchFinTab('bs')">⚖️ Balance Sheet</button>
+                <button class="action-btn" id="fin-tab-cf" onclick="switchFinTab('cf')">💵 Cash Flows</button>
             </div>
             <div class="modal-body" id="fin-modal-body">
+                
+                <!-- VIEW 1: 3-YEAR ANNUAL REVENUE & MONTHLY PROFITS VISUAL GRAPHS -->
                 <div id="fin-view-sched">
-                    <div style="font-size:15px; font-weight:900; color:var(--accent-cyan); margin-bottom:8px;">2026 vs 2027 Annual Comparison & Forecast</div>
-                    <div style="font-size:13px; color:var(--text-sub); line-height:1.6;">
-                        • <b>2026 Trajectory:</b> $75,000 – $120,000 ARR<br>
-                        • <b>2027 Target:</b> $300,000 – $500,000 ARR<br>
-                        • <b>10-Year Master Peak:</b> <span style="color:var(--accent-gold); font-weight:900;">$1.5 Billion Enterprise Value / $80M Annual FCF</span>
+                    <div style="font-size:16px; font-weight:900; color:var(--accent-cyan); margin-bottom:4px;">📊 3-Year Annual Revenue & Monthly Profit Trajectory</div>
+                    <div style="font-size:13px; color:var(--text-sub); margin-bottom:12px;">Solo Founder + AI Swarm model with 100% equity ownership and 80%+ net cash conversion:</div>
+                    
+                    <!-- 3-YEAR VISUAL BAR GRAPHS -->
+                    <div style="background:rgba(0,0,0,0.45); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:14px; display:flex; flex-direction:column; gap:12px;">
+                        
+                        <!-- Year 1 (2026) -->
+                        <div>
+                            <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px; font-weight:900;">
+                                <span style="color:#fff;">🚀 Year 1 (2026): Foundation & Proof</span>
+                                <span style="color:var(--accent-green);">$120,000 Annual Revenue • $10,000 / Mo Profit</span>
+                            </div>
+                            <div class="gauge-bar-bg" style="height:14px; margin-top:5px;">
+                                <div class="gauge-bar-fill" style="width: 25%; background: linear-gradient(90deg, #00e676, #00f2fe);"></div>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-sub); margin-top:2px;">
+                                <span>Current Stash: $37.2k</span>
+                                <span>Phase 1 Verified • 100% Free Cash Flow</span>
+                            </div>
+                        </div>
+
+                        <!-- Year 2 (2027) -->
+                        <div>
+                            <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px; font-weight:900;">
+                                <span style="color:#fff;">⚡ Year 2 (2027): Agency Scale & Retainers</span>
+                                <span style="color:var(--accent-cyan);">$500,000 Annual Revenue • $41,600 / Mo Profit</span>
+                            </div>
+                            <div class="gauge-bar-bg" style="height:14px; margin-top:5px;">
+                                <div class="gauge-bar-fill" style="width: 55%; background: linear-gradient(90deg, #00f2fe, #a855f7);"></div>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-sub); margin-top:2px;">
+                                <span>Target: 10 Monthly Retainers ($35k/mo base)</span>
+                                <span>$430,000 Net Annual Take-Home Cash</span>
+                            </div>
+                        </div>
+
+                        <!-- Year 3 (2028) -->
+                        <div>
+                            <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px; font-weight:900;">
+                                <span style="color:#fff;">👑 Year 3 (2028): Multi-Tenant SaaS Expansion</span>
+                                <span style="color:var(--accent-gold);">$3,000,000 Annual Revenue • $250,000 / Mo Profit</span>
+                            </div>
+                            <div class="gauge-bar-bg" style="height:14px; margin-top:5px;">
+                                <div class="gauge-bar-fill" style="width: 90%; background: linear-gradient(90deg, #ffb703, #ff007f);"></div>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-sub); margin-top:2px;">
+                                <span>$15M – $30M Enterprise Valuation</span>
+                                <span>$2.5M Net Annual Free Cash Flow</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 10-MONTH SCHEDULE BREAKDOWN -->
+                    <div style="margin-top:14px;">
+                        <div style="font-size:14px; font-weight:900; color:#fff; margin-bottom:6px;">📅 10-Month Milestone Schedule</div>
+                        <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:8px;">
+                            <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.06); padding:8px 12px; border-radius:10px; font-size:12px;">
+                                <span style="color:var(--accent-green); font-weight:900;">• Mo 1–2 (Sept–Oct 2026):</span> $50k Pipeline / First Retainer
+                            </div>
+                            <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.06); padding:8px 12px; border-radius:10px; font-size:12px;">
+                                <span style="color:var(--accent-cyan); font-weight:900;">• Mo 3–4 (Nov–Dec 2026):</span> $75k Gross / $25k Banked Cash
+                            </div>
+                            <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.06); padding:8px 12px; border-radius:10px; font-size:12px;">
+                                <span style="color:var(--accent-purple); font-weight:900;">• Mo 5–6 (Jan–Feb 2027):</span> $100k Six-Figure Sovereign
+                            </div>
+                            <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.06); padding:8px 12px; border-radius:10px; font-size:12px;">
+                                <span style="color:var(--accent-gold); font-weight:900;">• Mo 7–10 (Mar–June 2027):</span> $250k Stash / $500k ARR Rate
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- VIEW 2: INCOME STATEMENT -->
                 <div id="fin-view-is" style="display:none;">
-                    <div style="font-size:15px; font-weight:900; color:var(--accent-green); margin-bottom:8px;">Income Statement (Accrual Basis)</div>
-                    <div style="font-size:13px; color:#cbd5e1; line-height:1.6;">
-                        • Gross Revenue: <b>$37,205.00</b><br>
-                        • Operating Expenses: <b>$0.00</b> (Solo AI Swarm Infrastructure)<br>
-                        • <b>Net Income: $37,205.00 (100% Margin)</b>
+                    <div style="font-size:16px; font-weight:900; color:var(--accent-green); margin-bottom:8px;">📈 Income Statement (Accrual Basis)</div>
+                    
+                    <div style="background:rgba(0,0,0,0.45); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:14px; display:flex; flex-direction:column; gap:8px;">
+                        <div style="display:flex; justify-content:space-between; font-size:14px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:6px;">
+                            <span>Gross Bounty Revenue:</span>
+                            <span style="font-weight:900; color:#fff;">$37,205.00</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; font-size:14px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:6px;">
+                            <span>Cost of Goods Sold (COGS):</span>
+                            <span style="font-weight:900; color:var(--accent-green);">$0.00</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; font-size:14px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:6px;">
+                            <span>Operating Expenses (OPEX):</span>
+                            <span style="font-weight:900; color:var(--accent-green);">$0.00</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; font-size:16px; font-weight:900; color:var(--accent-green); padding-top:4px;">
+                            <span>Net Profit (Take-Home):</span>
+                            <span>$37,205.00 (100% Margin)</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-top:12px; font-size:13px; color:var(--text-sub);">
+                        💡 <b>Solo AI Advantage:</b> Zero payroll liabilities, zero office rent, 100% equity retained by Solo Founder Garrett.
                     </div>
                 </div>
+
+                <!-- VIEW 3: BALANCE SHEET -->
                 <div id="fin-view-bs" style="display:none;">
-                    <div style="font-size:15px; font-weight:900; color:var(--accent-gold); margin-bottom:8px;">Balance Sheet</div>
-                    <div style="font-size:13px; color:#cbd5e1; line-height:1.6;">
-                        • Cash Balance: <b>$5,430.00</b><br>
-                        • Accounts Receivable: <b>$31,775.00</b><br>
-                        • <b>Total Assets: $37,205.00 = Total Equity: $37,205.00 (100% Balanced)</b>
+                    <div style="font-size:16px; font-weight:900; color:var(--accent-gold); margin-bottom:8px;">⚖️ Balance Sheet (Reconciled)</div>
+                    
+                    <div style="background:rgba(0,0,0,0.45); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:14px; display:flex; flex-direction:column; gap:8px;">
+                        <div style="font-size:14px; font-weight:900; color:var(--accent-cyan); border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:4px;">ASSETS</div>
+                        <div style="display:flex; justify-content:space-between; font-size:13px;">
+                            <span>Cash & Cash Equivalents (Stripe):</span>
+                            <span style="font-weight:900; color:#fff;">$5,430.00</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:6px;">
+                            <span>Accounts Receivable (155 Pending PRs):</span>
+                            <span style="font-weight:900; color:#fff;">$31,775.00</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; font-size:15px; font-weight:900; color:var(--accent-cyan); padding-bottom:10px;">
+                            <span>TOTAL ASSETS:</span>
+                            <span>$37,205.00</span>
+                        </div>
+
+                        <div style="font-size:14px; font-weight:900; color:var(--accent-green); border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:4px;">LIABILITIES & EQUITY</div>
+                        <div style="display:flex; justify-content:space-between; font-size:13px;">
+                            <span>Total Liabilities (Zero Debt):</span>
+                            <span style="font-weight:900; color:var(--accent-green);">$0.00</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:6px;">
+                            <span>Retained Earnings & Member Equity:</span>
+                            <span style="font-weight:900; color:#fff;">$37,205.00</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; font-size:15px; font-weight:900; color:var(--accent-green);">
+                            <span>TOTAL LIABILITIES & EQUITY:</span>
+                            <span>$37,205.00 (BALANCED)</span>
+                        </div>
                     </div>
                 </div>
+
+                <!-- VIEW 4: CASH FLOW STATEMENT -->
                 <div id="fin-view-cf" style="display:none;">
-                    <div style="font-size:15px; font-weight:900; color:var(--accent-cyan); margin-bottom:8px;">Statement of Cash Flows</div>
-                    <div style="font-size:13px; color:#cbd5e1; line-height:1.6;">
-                        • Cash from Settled Bounties: <b>$5,430.00</b><br>
-                        • Pending Accounts Receivable Conversion: <b>$31,775.00</b><br>
-                        • <b>Closing Cash: $5,430.00</b>
+                    <div style="font-size:16px; font-weight:900; color:var(--accent-cyan); margin-bottom:8px;">💵 Statement of Cash Flows</div>
+                    
+                    <div style="background:rgba(0,0,0,0.45); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:14px; display:flex; flex-direction:column; gap:8px;">
+                        <div style="display:flex; justify-content:space-between; font-size:13px;">
+                            <span>Net Cash Received from Settled Bounties:</span>
+                            <span style="font-weight:900; color:var(--accent-green);">+$5,430.00</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; font-size:13px;">
+                            <span>Pending In-Flight Accounts Receivable:</span>
+                            <span style="font-weight:900; color:var(--accent-gold);">+$31,775.00</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:6px;">
+                            <span>Financing / Investing Cash Outflows:</span>
+                            <span style="font-weight:900; color:#fff;">$0.00</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; font-size:15px; font-weight:900; color:var(--accent-green); padding-top:4px;">
+                            <span>CLOSING CASH BALANCE:</span>
+                            <span>$5,430.00</span>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -1635,6 +1843,10 @@ HTML_PAGE = """<!DOCTYPE html>
         const tabList = ['dash', 'delivery', 'intel', 'radar', 'heatmap', 'retainer', 'batch', 'badges', 'calc', 'chat'];
         
         function switchTab(name) {
+            const selectEl = document.getElementById('view-dropdown-select');
+            if (selectEl && selectEl.value !== name) {
+                selectEl.value = name;
+            }
             tabList.forEach(t => {
                 const v = document.getElementById('view-' + t);
                 const tabBtn = document.getElementById('tab-' + t);
