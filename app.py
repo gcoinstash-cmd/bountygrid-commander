@@ -629,33 +629,32 @@ HTML_PAGE = """<!DOCTYPE html>
             100% { transform: translateX(100%); }
         }
 
-        /* VISUAL DELIVERY STEPPER */
+        /* VISUAL DELIVERY STEPPER (PRECISE & REALISTIC) */
         .delivery-stepper {
             display: flex;
             align-items: center;
             justify-content: space-between;
             position: relative;
-            margin: 10px 0 6px 0;
-            padding: 0 8px;
+            margin: 12px 0 8px 0;
+            padding: 0 10px;
         }
-        .stepper-line-bg {
+        .stepper-track-wrap {
             position: absolute;
             top: 14px;
-            left: 20px;
-            right: 20px;
+            left: 24px;
+            right: 24px;
             height: 4px;
             background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
             z-index: 1;
+            overflow: hidden;
         }
-        .stepper-line-fill {
-            position: absolute;
-            top: 14px;
-            left: 20px;
-            height: 4px;
-            background: linear-gradient(90deg, #00f2fe, #00e676);
-            z-index: 2;
+        .stepper-track-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00e676, #00f2fe);
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.7);
             transition: width 0.4s ease;
-            box-shadow: 0 0 8px rgba(0, 242, 254, 0.6);
         }
         .stepper-step {
             position: relative;
@@ -664,13 +663,14 @@ HTML_PAGE = """<!DOCTYPE html>
             flex-direction: column;
             align-items: center;
             gap: 4px;
+            min-width: 50px;
         }
         .stepper-node {
             width: 28px;
             height: 28px;
             border-radius: 50%;
             background: #0d1527;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.25);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -683,14 +683,19 @@ HTML_PAGE = """<!DOCTYPE html>
             background: #00e676;
             border-color: #00e676;
             color: #000;
-            box-shadow: 0 0 12px rgba(0, 230, 118, 0.6);
+            box-shadow: 0 0 12px rgba(0, 230, 118, 0.5);
         }
         .stepper-step.active .stepper-node {
             background: #00f2fe;
             border-color: #00f2fe;
             color: #000;
-            box-shadow: 0 0 14px rgba(0, 242, 254, 0.8);
-            animation: pulse-node 1.5s infinite;
+            box-shadow: 0 0 14px rgba(0, 242, 254, 0.9);
+            animation: pulse-node 1.6s infinite;
+        }
+        .stepper-step.pending .stepper-node {
+            background: rgba(13, 21, 39, 0.9);
+            border-color: rgba(255, 255, 255, 0.15);
+            color: var(--text-dim);
         }
         @keyframes pulse-node {
             0%, 100% { transform: scale(1); }
@@ -708,6 +713,9 @@ HTML_PAGE = """<!DOCTYPE html>
         }
         .stepper-step.completed .stepper-lbl {
             color: var(--accent-green);
+        }
+        .stepper-step.pending .stepper-lbl {
+            color: var(--text-dim);
         }
 
         /* RPG PROGRESS BAR ON RADAR / DELIVERY CARD */
@@ -1767,6 +1775,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 return;
             }
 
+            // Strictly filter only PRs that are truly In Review (155 pending maintainer merge)
             const inReviewPRs = globalPRs.filter(p => !p.status || (!p.status.includes('Merged') && !p.status.includes('Paid')));
             
             container.innerHTML = '';
@@ -1777,10 +1786,10 @@ HTML_PAGE = """<!DOCTYPE html>
                 card.className = 'pr-item-card';
                 card.style.flexDirection = 'column';
                 card.style.alignItems = 'stretch';
-                card.style.gap = '8px';
+                card.style.gap = '10px';
 
-                // Calculate progress % based on package index for realistic video-game delivery simulation
-                const progressPct = 60 + ((i % 4) * 8); // 60% to 84% in review progress
+                // Accurate, realistic state: Exactly Stage 3 of 5 (50% progress to deposit)
+                const progressPct = 50; 
 
                 card.innerHTML = `
                     <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
@@ -1790,18 +1799,19 @@ HTML_PAGE = """<!DOCTYPE html>
                                 <a href="${pr.url || 'https://github.com'}" target="_blank" style="color:#fff; font-weight:800; font-size:14px; text-decoration:none;">${pr.repo_label || pr.tx}</a>
                                 <span style="font-size:11px; color:var(--text-sub); background:rgba(255,255,255,0.06); padding:2px 6px; border-radius:4px; font-family:monospace;">${trackingNum}</span>
                             </div>
-                            <div style="font-size:13px; color:var(--text-sub); margin-top:4px;">${pr.desc || 'Active Submission'} • Est Deposit: <b style="color:var(--accent-green);">Monday ~2:00 PM PDT</b></div>
+                            <div style="font-size:13px; color:var(--text-sub); margin-top:4px;">${pr.desc || 'Active Submission'} • Est Deposit: <b style="color:var(--accent-green);">Monday ~2:00 PM PDT (Post-Merge)</b></div>
                         </div>
                         <div style="text-align:right; flex-shrink:0;">
                             <div style="font-size:17px; font-weight:900; color:var(--accent-green);">+$${prVal}</div>
-                            <span style="font-size:11px; font-weight:800; color:var(--accent-gold); background:rgba(255,183,3,0.15); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:3px;">⏳ IN FLIGHT</span>
+                            <span style="font-size:11px; font-weight:900; color:var(--accent-gold); background:rgba(255,183,3,0.15); padding:3px 8px; border-radius:6px; display:inline-block; margin-top:3px; border:1px solid rgba(255,183,3,0.3);">⏳ IN REVIEW (STAGE 3/5)</span>
                         </div>
                     </div>
 
-                    <!-- 5-STEP VISUAL DELIVERY STEPPER -->
+                    <!-- 5-STEP REALISTIC VISUAL DELIVERY STEPPER -->
                     <div class="delivery-stepper">
-                        <div class="stepper-line-bg"></div>
-                        <div class="stepper-line-fill" style="width: ${progressPct}%;"></div>
+                        <div class="stepper-track-wrap">
+                            <div class="stepper-track-fill" style="width: 50%;"></div>
+                        </div>
 
                         <div class="stepper-step completed">
                             <div class="stepper-node">✓</div>
@@ -1815,23 +1825,23 @@ HTML_PAGE = """<!DOCTYPE html>
                             <div class="stepper-node">3</div>
                             <span class="stepper-lbl">In Review</span>
                         </div>
-                        <div class="stepper-step">
+                        <div class="stepper-step pending">
                             <div class="stepper-node">4</div>
                             <span class="stepper-lbl">Merged</span>
                         </div>
-                        <div class="stepper-step">
+                        <div class="stepper-step pending">
                             <div class="stepper-node">5</div>
                             <span class="stepper-lbl">Deposit</span>
                         </div>
                     </div>
 
-                    <!-- PROGRESS BAR WITH LIVE PERCENTAGE -->
-                    <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:var(--text-sub); margin-top:2px;">
-                        <span>🚀 Delivery Transit Progress</span>
-                        <span style="color:var(--accent-cyan); font-weight:900;">${progressPct}% Complete</span>
+                    <!-- ACCURATE PROGRESS BAR (STAGE 3 OF 5: 50%) -->
+                    <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:var(--text-sub);">
+                        <span>Status: <b style="color:var(--accent-cyan);">Awaiting Maintainer Acceptance & Merge</b></span>
+                        <span style="color:var(--accent-cyan); font-weight:900;">Stage 3 of 5 (50% to Payout)</span>
                     </div>
                     <div class="card-prog-track">
-                        <div class="card-prog-bar" style="width:${progressPct}%;"></div>
+                        <div class="card-prog-bar" style="width: 50%; background: linear-gradient(90deg, #00e676 0%, #00f2fe 100%);"></div>
                     </div>
                 `;
                 container.appendChild(card);
