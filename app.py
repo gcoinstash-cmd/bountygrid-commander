@@ -2271,26 +2271,29 @@ except ImportError:
 PORT = int(os.environ.get('PORT', 8080))
 
 KNOWN_REPOS = [
+    ("Lilly-Protocol/lily-frontend", ["lily-frontend", "lilly-frontend", "sitefooter", "sectionnav", "page-scaffold", "frontend"]),
+    ("Lilly-Protocol/lily-backend", ["lily-backend", "lilly-backend", "backend"]),
+    ("Lilly-Protocol/lily-sdk", ["lily-sdk", "lilly-sdk", "agentclient", "sdk"]),
+    ("Lilly-Protocol/lily-contracts", ["lily-contracts", "lilly-contracts", "contracts", "soroban", "stellar", "lilly", "lily"]),
     ("projectdiscovery/katana", ["katana", "pd-katana"]),
     ("projectdiscovery/subfinder", ["subfinder", "pd-subfinder"]),
     ("projectdiscovery/dnsx", ["dnsx", "pd-dnsx"]),
     ("projectdiscovery/httpx", ["httpx", "pd-httpx"]),
-    ("projectdiscovery/nuclei", ["nuclei", "pd-nuclei"]),
     ("projectdiscovery/nuclei-templates", ["nuclei-templates", "templates"]),
+    ("projectdiscovery/nuclei", ["nuclei", "pd-nuclei"]),
     ("projectdiscovery/cve-test-framework", ["cve-test-framework", "cve"]),
     ("projectdiscovery/asnmap", ["asnmap"]),
     ("projectdiscovery/tlsx", ["tlsx"]),
-    ("Lilly-Protocol/lily-contracts", ["lily-contracts", "lilly-contracts", "contracts", "lilly"]),
-    ("Lilly-Protocol/lily-sdk", ["lily-sdk", "lilly-sdk", "sdk"]),
-    ("permify/permify", ["permify"]),
-    ("tscircuit/schematic-trace-solver", ["schematic-trace-solver", "trace-solver", "trace solver", "tscircuit"]),
-    ("tscircuit/core", ["tscircuit/core", "core"]),
+    ("tscircuit/schematic-trace-solver", ["schematic-trace-solver", "trace-solver", "trace solver", "schematic"]),
     ("tscircuit/jlcsearch", ["jlcsearch"]),
+    ("tscircuit/core", ["tscircuit/core", "core", "tscircuit"]),
+    ("Permify/permify", ["permify"]),
     ("twentyhq/twenty", ["twentyhq/twenty", "twenty"]),
+    ("calcom/cal.diy", ["cal.diy", "calcom/cal.diy"]),
     ("calcom/cal.com", ["cal.com", "calcom", "cal"]),
     ("keephq/keep", ["keephq", "keep"]),
-    ("claude-builders/claude-builder-hub", ["claude-builders", "claude-builder-hub", "claude"]),
-    ("OphirPay/ophir-core", ["ophirpay", "ophir"]),
+    ("claude-builders-bounty/claude-builders-bounty", ["claude-builders-bounty", "claude-builders", "claude-builder-hub", "claude", "cb-"]),
+    ("OphirPay/OphirPay", ["ophirpay", "ophir"]),
     ("activepieces/activepieces", ["activepieces"]),
     ("formbricks/formbricks", ["formbricks"]),
     ("novuhq/novu", ["novuhq", "novu"]),
@@ -2315,11 +2318,13 @@ def resolve_github_link(tx, desc_str):
     num_m = re.search(r'#(\d+)', desc_str)
     p_num = int(pr_m.group(1)) if pr_m else (int(num_m.group(1)) if num_m else (int(iss_m.group(1)) if iss_m else None))
     d_low = (desc_str + " " + tx).lower()
-    matched_repo = "Lilly-Protocol/lily-contracts"
+    matched_repo = None
     for repo, keywords in KNOWN_REPOS:
         if any(k in d_low for k in keywords):
             matched_repo = repo
             break
+    if not matched_repo:
+        matched_repo = "Lilly-Protocol/lily-contracts"
     if p_num:
         return f"https://github.com/{matched_repo}/pull/{p_num}", f"{matched_repo} (PR #{p_num})"
     else:
