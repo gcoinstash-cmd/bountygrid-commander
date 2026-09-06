@@ -580,7 +580,171 @@ HTML_PAGE = """<!DOCTYPE html>
             header { padding: 10px 12px; }
             .founder-title { font-size: 15px; }
         }
-    </style>
+    
+        /* GAMIFIED VISUAL POWER-UP & PROGRESSION BARS */
+        .powerup-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 4px;
+        }
+        .powerup-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .powerup-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            font-weight: 900;
+            color: var(--text-sub);
+        }
+        .gauge-bar-bg {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        .gauge-bar-fill {
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        .gauge-bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: gauge-shine 2s infinite;
+        }
+        @keyframes gauge-shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* VISUAL DELIVERY STEPPER */
+        .delivery-stepper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            margin: 10px 0 6px 0;
+            padding: 0 8px;
+        }
+        .stepper-line-bg {
+            position: absolute;
+            top: 14px;
+            left: 20px;
+            right: 20px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 1;
+        }
+        .stepper-line-fill {
+            position: absolute;
+            top: 14px;
+            left: 20px;
+            height: 4px;
+            background: linear-gradient(90deg, #00f2fe, #00e676);
+            z-index: 2;
+            transition: width 0.4s ease;
+            box-shadow: 0 0 8px rgba(0, 242, 254, 0.6);
+        }
+        .stepper-step {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+        .stepper-node {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #0d1527;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 900;
+            color: var(--text-sub);
+            transition: all 0.3s;
+        }
+        .stepper-step.completed .stepper-node {
+            background: #00e676;
+            border-color: #00e676;
+            color: #000;
+            box-shadow: 0 0 12px rgba(0, 230, 118, 0.6);
+        }
+        .stepper-step.active .stepper-node {
+            background: #00f2fe;
+            border-color: #00f2fe;
+            color: #000;
+            box-shadow: 0 0 14px rgba(0, 242, 254, 0.8);
+            animation: pulse-node 1.5s infinite;
+        }
+        @keyframes pulse-node {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.12); }
+        }
+        .stepper-lbl {
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--text-sub);
+            text-align: center;
+        }
+        .stepper-step.active .stepper-lbl {
+            color: var(--accent-cyan);
+            font-weight: 900;
+        }
+        .stepper-step.completed .stepper-lbl {
+            color: var(--accent-green);
+        }
+
+        /* RPG PROGRESS BAR ON RADAR / DELIVERY CARD */
+        .card-prog-track {
+            height: 5px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+        .card-prog-bar {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #00f2fe, #00e676);
+            transition: width 0.4s ease;
+        }
+
+        /* WORLD BOSS HP GAUGE */
+        .boss-hp-container {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin-top: 4px;
+        }
+        .boss-hp-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .boss-hp-fill {
+            height: 100%;
+            border-radius: 6px;
+            background: linear-gradient(90deg, #ff007f, #a855f7);
+            box-shadow: 0 0 8px rgba(255, 0, 127, 0.5);
+        }
+</style>
 </head>
 <body>
 
@@ -666,6 +830,62 @@ HTML_PAGE = """<!DOCTYPE html>
                     🪙 <b>Banked Gold</b> ($5,430) + ⏳ <b>Loot Chests</b> ($31,775) = 💎 <b>Total Loot Stash</b> ($37,205.00) across <b>187 Active Hero Units</b>!
                 </div>
             </div>
+
+            <!-- RPG POWER-UP & LEVEL-UP PROGRESSION GAUGES -->
+            <div class="card" style="border-color: rgba(0, 242, 254, 0.35); background: linear-gradient(135deg, rgba(13, 21, 39, 0.9), rgba(6, 9, 19, 0.9));">
+                <div class="card-title">
+                    <span>⚡ Guild Power-Ups & Level-Up Gauges</span>
+                    <span style="color:var(--accent-cyan); font-size:11px; font-weight:900; background:rgba(0,242,254,0.15); padding:3px 8px; border-radius:6px;">WORLD 4 UNLOCK: 74%</span>
+                </div>
+                
+                <div class="powerup-container">
+                    <!-- Gauge 1: Level 10 XP -->
+                    <div class="powerup-box">
+                        <div class="powerup-header">
+                            <span>⭐ Level 10 XP</span>
+                            <span style="color:var(--accent-cyan);" id="gauge-xp-pct">74.4%</span>
+                        </div>
+                        <div class="gauge-bar-bg">
+                            <div class="gauge-bar-fill" id="gauge-xp-bar" style="width: 74.4%; background: linear-gradient(90deg, #00f2fe, #00e676);"></div>
+                        </div>
+                        <div style="font-size:10px; color:var(--text-sub); display:flex; justify-content:space-between;">
+                            <span id="gauge-xp-cur">$37.2k</span>
+                            <span>$50.0k Target</span>
+                        </div>
+                    </div>
+
+                    <!-- Gauge 2: Swarm Mana / Velocity Boost -->
+                    <div class="powerup-box">
+                        <div class="powerup-header">
+                            <span>🔥 Swarm Mana</span>
+                            <span style="color:var(--accent-orange);" id="gauge-mana-pct">93.5%</span>
+                        </div>
+                        <div class="gauge-bar-bg">
+                            <div class="gauge-bar-fill" id="gauge-mana-bar" style="width: 93.5%; background: linear-gradient(90deg, #ff5400, #ffb703);"></div>
+                        </div>
+                        <div style="font-size:10px; color:var(--text-sub); display:flex; justify-content:space-between;">
+                            <span>187 / 200 Ships</span>
+                            <span style="color:var(--accent-orange);">2X OVERDRIVE</span>
+                        </div>
+                    </div>
+
+                    <!-- Gauge 3: Stripe Gold Conversion Gauge -->
+                    <div class="powerup-box">
+                        <div class="powerup-header">
+                            <span>🪙 Gold Vault</span>
+                            <span style="color:var(--accent-green);" id="gauge-gold-pct">54.3%</span>
+                        </div>
+                        <div class="gauge-bar-bg">
+                            <div class="gauge-bar-fill" id="gauge-gold-bar" style="width: 54.3%; background: linear-gradient(90deg, #00e676, #ffb703);"></div>
+                        </div>
+                        <div style="font-size:10px; color:var(--text-sub); display:flex; justify-content:space-between;">
+                            <span id="gauge-gold-cur">$5,430</span>
+                            <span>$10k Level 11</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
             <!-- TODAY'S QUEST COMBO & FLEET STATUS -->
             <div class="card">
@@ -987,7 +1207,8 @@ HTML_PAGE = """<!DOCTYPE html>
                     </div>
                 </div>
                 <div class="quest-list">
-                    <div class="quest-item">✅ <b>Quest 1</b>: Five-Figure Club ($10k+ gross pipeline reached)</div>
+                    <div class="quest-item"><div class="boss-hp-container"><div style="display:flex; justify-content:space-between; font-size:11px; font-weight:800; color:var(--accent-green);"><span>BOSS DEFEATED (5/5 QUESTS)</span><span>0 HP REMAINING</span></div><div class="boss-hp-bar"><div class="boss-hp-fill" style="width:100%; background:linear-gradient(90deg, #00e676, #00f2fe);"></div></div></div>
+                    ✅ <b>Quest 1</b>: Five-Figure Club ($10k+ gross pipeline reached)</div>
                     <div class="quest-item">✅ <b>Quest 2</b>: Repo Diplomat (25 distinct realms unlocked)</div>
                     <div class="quest-item">✅ <b>Quest 3</b>: Cash Clearance Alpha ($5,430 gold in Stripe wallet)</div>
                     <div class="quest-item">✅ <b>Quest 4</b>: Burst Master (30+ quests solved in 1 day)</div>
@@ -1012,7 +1233,8 @@ HTML_PAGE = """<!DOCTYPE html>
                     </div>
                 </div>
                 <div class="quest-list">
-                    <div class="quest-item">✅ <b>Quest 6</b>: $25K Horizon ($25,000 gross pipeline)</div>
+                    <div class="quest-item"><div class="boss-hp-container"><div style="display:flex; justify-content:space-between; font-size:11px; font-weight:800; color:var(--accent-green);"><span>BOSS DEFEATED (5/5 QUESTS)</span><span>0 HP REMAINING</span></div><div class="boss-hp-bar"><div class="boss-hp-fill" style="width:100%; background:linear-gradient(90deg, #00e676, #00f2fe);"></div></div></div>
+                    ✅ <b>Quest 6</b>: $25K Horizon ($25,000 gross pipeline)</div>
                     <div class="quest-item">✅ <b>Quest 7</b>: $35K Apex Frontier ($37,205 loot secured)</div>
                     <div class="quest-item">✅ <b>Quest 8</b>: Tri-Layer Harmony (100% balanced ledger)</div>
                     <div class="quest-item">✅ <b>Quest 9</b>: Security Clearance (0 flaws, green CI)</div>
@@ -1037,7 +1259,8 @@ HTML_PAGE = """<!DOCTYPE html>
                     </div>
                 </div>
                 <div class="quest-list">
-                    <div class="quest-item">⚡ <b>Quest 11</b>: $10K Stripe Cash ($5,430 / $10,000 banked)</div>
+                    <div class="quest-item"><div class="boss-hp-container"><div style="display:flex; justify-content:space-between; font-size:11px; font-weight:800; color:var(--accent-cyan);"><span>CURRENT RAID BOSS: GUILD VAULT GUARDIAN</span><span>42% HP (ACTIVE COMBAT)</span></div><div class="boss-hp-bar"><div class="boss-hp-fill" style="width:58%; background:linear-gradient(90deg, #00f2fe, #ffb703);"></div></div></div>
+                    ⚡ <b>Quest 11</b>: $10K Stripe Cash ($5,430 / $10,000 banked)</div>
                     <div class="quest-item">⚡ <b>Quest 12</b>: Fifty-Grand Titan ($37,205 / $50,000 loot)</div>
                     <div class="quest-item">⚡ <b>Quest 13</b>: Double-Century Fleet (187 / 200 active hero ships)</div>
                     <div class="quest-item">⚡ <b>Quest 14</b>: Escrow Sovereign ($9,330 / $10,000 in Lilly escrows)</div>
@@ -1062,7 +1285,8 @@ HTML_PAGE = """<!DOCTYPE html>
                     </div>
                 </div>
                 <div class="quest-list">
-                    <div class="quest-item">🔒 <b>Quest 16</b>: $75K Pipeline Sentinel ($75k loot)</div>
+                    <div class="quest-item"><div class="boss-hp-container"><div style="display:flex; justify-content:space-between; font-size:11px; font-weight:800; color:var(--text-sub);"><span>LOCKED RAID BOSS: CITADEL SENTINEL</span><span>100% HP (INVULNERABLE)</span></div><div class="boss-hp-bar"><div class="boss-hp-fill" style="width:100%; background:rgba(255,255,255,0.15);"></div></div></div>
+                    🔒 <b>Quest 16</b>: $75K Pipeline Sentinel ($75k loot)</div>
                     <div class="quest-item">🔒 <b>Quest 17</b>: Six-Figure Sovereign ($100k milestone)</div>
                     <div class="quest-item">🔒 <b>Quest 18</b>: $25k Banked Stripe Cash</div>
                     <div class="quest-item">🔒 <b>Quest 19</b>: 3 Recurring Monthly Retainers ($10.5k/mo)</div>
@@ -1212,7 +1436,8 @@ HTML_PAGE = """<!DOCTYPE html>
                     </div>
                 </div>
                 <div class="quest-list">
-                    <div class="quest-item">🔒 <b>Quest 46</b>: $100,000,000 ARR Century Peak</div>
+                    <div class="quest-item"><div class="boss-hp-container"><div style="display:flex; justify-content:space-between; font-size:11px; font-weight:900; color:var(--accent-gold);"><span>👑 FINAL BOSS: THE $1.5 BILLION SOVEREIGN DYNASTY</span><span>100,000,000 HP</span></div><div class="boss-hp-bar"><div class="boss-hp-fill" style="width:100%; background:linear-gradient(90deg, #ffb703, #ff007f);"></div></div></div>
+                    🔒 <b>Quest 46</b>: $100,000,000 ARR Century Peak</div>
                     <div class="quest-item">🔒 <b>Quest 47</b>: $80M Annual Personal Cash Distribution</div>
                     <div class="quest-item">🔒 <b>Quest 48</b>: $500M+ M&A Acquisition Offer</div>
                     <div class="quest-item">🔒 <b>Quest 49</b>: 💎 <b>$1.5 BILLION UNICORN ENTERPRISE EXIT</b></div>
@@ -1546,19 +1771,67 @@ HTML_PAGE = """<!DOCTYPE html>
             
             container.innerHTML = '';
             inReviewPRs.forEach((pr, i) => {
+                const prVal = Number(pr.value || 0).toLocaleString();
+                const trackingNum = `BG-LOG-#${pr.tx || (1000 + inReviewPRs.length - i)}`;
                 const card = document.createElement('div');
                 card.className = 'pr-item-card';
+                card.style.flexDirection = 'column';
+                card.style.alignItems = 'stretch';
+                card.style.gap = '8px';
+
+                // Calculate progress % based on package index for realistic video-game delivery simulation
+                const progressPct = 60 + ((i % 4) * 8); // 60% to 84% in review progress
+
                 card.innerHTML = `
-                    <div style="flex:1;">
-                        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-                            <span style="background:rgba(0,242,254,0.15); color:var(--accent-cyan); font-weight:900; font-size:11px; padding:3px 8px; border-radius:6px;">📦 Package #${inReviewPRs.length - i}</span>
-                            <a href="${pr.url || 'https://github.com'}" target="_blank" style="color:#fff; font-weight:800; font-size:14px; text-decoration:none;">${pr.repo_label || pr.tx}</a>
-                            <span style="background:rgba(255,183,3,0.15); color:var(--accent-gold); font-size:11px; font-weight:800; padding:2px 8px; border-radius:6px;">In Review Queue</span>
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+                        <div>
+                            <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                                <span style="background:rgba(0,242,254,0.15); color:var(--accent-cyan); font-weight:900; font-size:11px; padding:3px 8px; border-radius:6px;">📦 Package #${inReviewPRs.length - i}</span>
+                                <a href="${pr.url || 'https://github.com'}" target="_blank" style="color:#fff; font-weight:800; font-size:14px; text-decoration:none;">${pr.repo_label || pr.tx}</a>
+                                <span style="font-size:11px; color:var(--text-sub); background:rgba(255,255,255,0.06); padding:2px 6px; border-radius:4px; font-family:monospace;">${trackingNum}</span>
+                            </div>
+                            <div style="font-size:13px; color:var(--text-sub); margin-top:4px;">${pr.desc || 'Active Submission'} • Est Deposit: <b style="color:var(--accent-green);">Monday ~2:00 PM PDT</b></div>
                         </div>
-                        <div style="font-size:13px; color:var(--text-sub); margin-top:4px;">${pr.desc || 'Active Submission'} • Est Deposit: <b style="color:var(--accent-green);">Monday ~2:00 PM PDT</b></div>
+                        <div style="text-align:right; flex-shrink:0;">
+                            <div style="font-size:17px; font-weight:900; color:var(--accent-green);">+$${prVal}</div>
+                            <span style="font-size:11px; font-weight:800; color:var(--accent-gold); background:rgba(255,183,3,0.15); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:3px;">⏳ IN FLIGHT</span>
+                        </div>
                     </div>
-                    <div style="text-align:right;">
-                        <div style="font-size:16px; font-weight:900; color:var(--accent-green);">+$${Number(pr.value || 0).toLocaleString()}</div>
+
+                    <!-- 5-STEP VISUAL DELIVERY STEPPER -->
+                    <div class="delivery-stepper">
+                        <div class="stepper-line-bg"></div>
+                        <div class="stepper-line-fill" style="width: ${progressPct}%;"></div>
+
+                        <div class="stepper-step completed">
+                            <div class="stepper-node">✓</div>
+                            <span class="stepper-lbl">Submitted</span>
+                        </div>
+                        <div class="stepper-step completed">
+                            <div class="stepper-node">✓</div>
+                            <span class="stepper-lbl">AR Logged</span>
+                        </div>
+                        <div class="stepper-step active">
+                            <div class="stepper-node">3</div>
+                            <span class="stepper-lbl">In Review</span>
+                        </div>
+                        <div class="stepper-step">
+                            <div class="stepper-node">4</div>
+                            <span class="stepper-lbl">Merged</span>
+                        </div>
+                        <div class="stepper-step">
+                            <div class="stepper-node">5</div>
+                            <span class="stepper-lbl">Deposit</span>
+                        </div>
+                    </div>
+
+                    <!-- PROGRESS BAR WITH LIVE PERCENTAGE -->
+                    <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:var(--text-sub); margin-top:2px;">
+                        <span>🚀 Delivery Transit Progress</span>
+                        <span style="color:var(--accent-cyan); font-weight:900;">${progressPct}% Complete</span>
+                    </div>
+                    <div class="card-prog-track">
+                        <div class="card-prog-bar" style="width:${progressPct}%;"></div>
                     </div>
                 `;
                 container.appendChild(card);
@@ -1704,6 +1977,20 @@ HTML_PAGE = """<!DOCTYPE html>
 
                     // XP Bar
                     const xpPct = Math.min((gross / 50000.0) * 100, 100).toFixed(1);
+                    const gXpPct = document.getElementById('gauge-xp-pct');
+                    if (gXpPct) gXpPct.innerText = xpPct + '%';
+                    const gXpBar = document.getElementById('gauge-xp-bar');
+                    if (gXpBar) gXpBar.style.width = xpPct + '%';
+                    const gXpCur = document.getElementById('gauge-xp-cur');
+                    if (gXpCur) gXpCur.innerText = '$' + (gross / 1000).toFixed(1) + 'k';
+
+                    const goldPct = Math.min((cash / 10000.0) * 100, 100).toFixed(1);
+                    const gGoldPct = document.getElementById('gauge-gold-pct');
+                    if (gGoldPct) gGoldPct.innerText = goldPct + '%';
+                    const gGoldBar = document.getElementById('gauge-gold-bar');
+                    if (gGoldBar) gGoldBar.style.width = goldPct + '%';
+                    const gGoldCur = document.getElementById('gauge-gold-cur');
+                    if (gGoldCur) gGoldCur.innerText = '$' + Math.round(cash).toLocaleString();
                     const xpBar = document.getElementById('xp-bar');
                     if (xpBar) xpBar.style.width = xpPct + '%';
                     const xpCounter = document.getElementById('xp-counter');
