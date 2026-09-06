@@ -976,7 +976,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 <div class="grid-2">
                     <div class="stat-box">
                         <div class="stat-val" id="stat-daily-rev" style="color:var(--accent-green);">+$7,050</div>
-                        <div class="stat-label" id="stat-daily-label">Today's Rev (41 PRs)</div>
+                        <div class="stat-label" id="stat-daily-label">Today's Rev (5 PRs)</div>
                     </div>
                     <div class="stat-box">
                         <div class="stat-val" id="stat-daily-avg">$4,658</div>
@@ -2546,7 +2546,7 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                     'review_prs_count': 161,
                     'merged_prs_count': 32,
                     'daily': 7050.0,
-                    'daily_prs': 41,
+                    'daily_prs': 5,
                     'daily_avg': 4658.0,
                     'weekly': 38505.0,
                     'weekly_avg': 38505.0,
