@@ -535,7 +535,7 @@ HTML_PAGE = """<!DOCTYPE html>
         }
         .modal-header {
             padding: 14px 18px;
-            border-bottom: 1px solid rgba(255,405,405,0.08);
+            border-bottom: 1px solid rgba(255,505,505,0.08);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -630,7 +630,7 @@ HTML_PAGE = """<!DOCTYPE html>
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,405,405,0.4), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,505,505,0.4), transparent);
             animation: gauge-shine 2s infinite;
         }
         .powerup-footer {
@@ -895,7 +895,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 </div>
                 
                 <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:4px;">
-                    <div style="font-size:36px; font-weight:900; color:var(--accent-cyan); letter-spacing:-1px;" id="stat-gross">$36,405.00</div>
+                    <div style="font-size:36px; font-weight:900; color:var(--accent-cyan); letter-spacing:-1px;" id="stat-gross">$36,505.00</div>
                     <span style="font-size:13px; font-weight:800; color:var(--accent-green); background:rgba(0,230,118,0.15); padding:4px 10px; border-radius:10px;">100% BALANCED</span>
                 </div>
                 
@@ -905,13 +905,13 @@ HTML_PAGE = """<!DOCTYPE html>
                         <div class="stat-label">🪙 Real Banked Gold (Stripe)</div>
                     </div>
                     <div class="stat-box" style="background:rgba(255,183,3,0.1); border-color:rgba(255,183,3,0.3);">
-                        <div class="stat-val" style="color:var(--accent-gold);" id="stat-ar">$30,975.00</div>
-                        <div class="stat-label">⏳ Loot Chests Opening (156 Quests)</div>
+                        <div class="stat-val" style="color:var(--accent-gold);" id="stat-ar">$30,075.00</div>
+                        <div class="stat-label">⏳ Loot Chests Opening (161 Quests)</div>
                     </div>
                 </div>
 
                 <div style="font-size:13px; color:var(--text-sub); line-height:1.4;">
-                    🪙 <b>Banked Gold</b> ($5,430) + ⏳ <b>Loot Chests</b> ($30,975) = 💎 <b>Total Loot Stash</b> ($36,405.00) across <b>188 Active Hero Units</b>!
+                    🪙 <b>Banked Gold</b> ($5,430) + ⏳ <b>Loot Chests</b> ($30,075) = 💎 <b>Total Loot Stash</b> ($36,505.00) across <b>193 Active Hero Units</b>!
                 </div>
             </div>
 
@@ -976,7 +976,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 <div class="grid-2">
                     <div class="stat-box">
                         <div class="stat-val" id="stat-daily-rev" style="color:var(--accent-green);">+$7,050</div>
-                        <div class="stat-label" id="stat-daily-label">Today's Rev (36 PRs)</div>
+                        <div class="stat-label" id="stat-daily-label">Today's Rev (41 PRs)</div>
                     </div>
                     <div class="stat-box">
                         <div class="stat-val" id="stat-daily-avg">$4,658</div>
@@ -985,11 +985,11 @@ HTML_PAGE = """<!DOCTYPE html>
                 </div>
                 <div class="grid-2">
                     <div class="stat-box">
-                        <div class="stat-val" id="stat-weekly-rev">$36,405</div>
+                        <div class="stat-val" id="stat-weekly-rev">$36,505</div>
                         <div class="stat-label">Weekly Loot Total</div>
                     </div>
                     <div class="stat-box">
-                        <div class="stat-val" style="color:var(--accent-cyan);" id="stat-fleet">188 Units</div>
+                        <div class="stat-val" style="color:var(--accent-cyan);" id="stat-fleet">193 Units</div>
                         <div class="stat-label">Active Hero Fleet</div>
                     </div>
                 </div>
@@ -1178,7 +1178,7 @@ HTML_PAGE = """<!DOCTYPE html>
                     <button class="action-btn" id="filter-review" onclick="filterRadar('review')">⏳ In Review (155)</button>
                     <button class="action-btn btn-green" id="filter-merged" onclick="filterRadar('merged')">🎉 Merged (32 • $5,430)</button>
                 </div>
-                <input type="text" id="radar-search" placeholder="Search by repo or keyword (e.g., Lilly, Permify, Katana)..." style="background:rgba(0,0,0,0.5); border:1px solid rgba(255,405,405,0.12); border-radius:10px; padding:10px 14px; color:#fff; font-size:13px;" onkeyup="filterRadarSearch()">
+                <input type="text" id="radar-search" placeholder="Search by repo or keyword (e.g., Lilly, Permify, Katana)..." style="background:rgba(0,0,0,0.5); border:1px solid rgba(255,505,505,0.12); border-radius:10px; padding:10px 14px; color:#fff; font-size:13px;" onkeyup="filterRadarSearch()">
                 
                 <div id="radar-list" style="display:flex; flex-direction:column; gap:8px;">
                     <!-- Populated dynamically via JS -->
@@ -1355,7 +1355,7 @@ HTML_PAGE = """<!DOCTYPE html>
             <div class="world-card locked">
                 <div class="world-header">
                     <div class="world-title">🔒 World 4: The Six-Figure Citadel (Levels 16–20)</div>
-                    <span class="world-badge" style="background:rgba(255,405,405,0.08); color:var(--text-sub);">LOCKED</span>
+                    <span class="world-badge" style="background:rgba(255,505,505,0.08); color:var(--text-sub);">LOCKED</span>
                 </div>
                 <div class="loot-metrics-banner">
                     <div class="loot-metric-item">
@@ -1368,7 +1368,7 @@ HTML_PAGE = """<!DOCTYPE html>
                     </div>
                 </div>
                 <div class="quest-list">
-                    <div class="quest-item"><div class="boss-hp-container"><div style="display:flex; justify-content:space-between; font-size:11px; font-weight:800; color:var(--text-sub);"><span>LOCKED RAID BOSS: CITADEL SENTINEL</span><span>100% HP (INVULNERABLE)</span></div><div class="boss-hp-bar"><div class="boss-hp-fill" style="width:100%; background:rgba(255,405,405,0.15);"></div></div></div>
+                    <div class="quest-item"><div class="boss-hp-container"><div style="display:flex; justify-content:space-between; font-size:11px; font-weight:800; color:var(--text-sub);"><span>LOCKED RAID BOSS: CITADEL SENTINEL</span><span>100% HP (INVULNERABLE)</span></div><div class="boss-hp-bar"><div class="boss-hp-fill" style="width:100%; background:rgba(255,505,505,0.15);"></div></div></div>
                     🔒 <b>Quest 16</b>: $75K Pipeline Sentinel ($75k loot)</div>
                     <div class="quest-item">🔒 <b>Quest 17</b>: Six-Figure Sovereign ($100k milestone)</div>
                     <div class="quest-item">🔒 <b>Quest 18</b>: $25k Banked Stripe Cash</div>
@@ -1381,7 +1381,7 @@ HTML_PAGE = """<!DOCTYPE html>
             <div class="world-card locked">
                 <div class="world-header">
                     <div class="world-title">🔒 World 5: The Millionaire Fortress (Levels 21–25)</div>
-                    <span class="world-badge" style="background:rgba(255,405,405,0.08); color:var(--text-sub);">LOCKED</span>
+                    <span class="world-badge" style="background:rgba(255,505,505,0.08); color:var(--text-sub);">LOCKED</span>
                 </div>
                 <div class="loot-metrics-banner">
                     <div class="loot-metric-item">
@@ -1406,7 +1406,7 @@ HTML_PAGE = """<!DOCTYPE html>
             <div class="world-card locked">
                 <div class="world-header">
                     <div class="world-title">🔒 World 6: The SaaS Empire (Levels 26–30)</div>
-                    <span class="world-badge" style="background:rgba(255,405,405,0.08); color:var(--text-sub);">LOCKED</span>
+                    <span class="world-badge" style="background:rgba(255,505,505,0.08); color:var(--text-sub);">LOCKED</span>
                 </div>
                 <div class="loot-metrics-banner">
                     <div class="loot-metric-item">
@@ -1431,7 +1431,7 @@ HTML_PAGE = """<!DOCTYPE html>
             <div class="world-card locked">
                 <div class="world-header">
                     <div class="world-title">🔒 World 7: The Titan Kingdom (Levels 31–35)</div>
-                    <span class="world-badge" style="background:rgba(255,405,405,0.08); color:var(--text-sub);">LOCKED</span>
+                    <span class="world-badge" style="background:rgba(255,505,505,0.08); color:var(--text-sub);">LOCKED</span>
                 </div>
                 <div class="loot-metrics-banner">
                     <div class="loot-metric-item">
@@ -1456,7 +1456,7 @@ HTML_PAGE = """<!DOCTYPE html>
             <div class="world-card locked">
                 <div class="world-header">
                     <div class="world-title">🔒 World 8: The Cloud Overlord (Levels 36–40)</div>
-                    <span class="world-badge" style="background:rgba(255,405,405,0.08); color:var(--text-sub);">LOCKED</span>
+                    <span class="world-badge" style="background:rgba(255,505,505,0.08); color:var(--text-sub);">LOCKED</span>
                 </div>
                 <div class="loot-metrics-banner">
                     <div class="loot-metric-item">
@@ -1481,7 +1481,7 @@ HTML_PAGE = """<!DOCTYPE html>
             <div class="world-card locked">
                 <div class="world-header">
                     <div class="world-title">🔒 World 9: The Global Dynasty (Levels 41–45)</div>
-                    <span class="world-badge" style="background:rgba(255,405,405,0.08); color:var(--text-sub);">LOCKED</span>
+                    <span class="world-badge" style="background:rgba(255,505,505,0.08); color:var(--text-sub);">LOCKED</span>
                 </div>
                 <div class="loot-metrics-banner">
                     <div class="loot-metric-item">
@@ -1571,7 +1571,7 @@ HTML_PAGE = """<!DOCTYPE html>
                     <span>💬 Guild Master AI Agent Copilot</span>
                     <button class="action-btn" onclick="clearChat()">🧹 Clear Chat</button>
                 </div>
-                <div id="chat-container" style="height:320px; overflow-y:auto; background:rgba(0,0,0,0.5); border:1px solid rgba(255,405,405,0.1); border-radius:14px; padding:14px; display:flex; flex-direction:column; gap:10px;">
+                <div id="chat-container" style="height:320px; overflow-y:auto; background:rgba(0,0,0,0.5); border:1px solid rgba(255,505,505,0.1); border-radius:14px; padding:14px; display:flex; flex-direction:column; gap:10px;">
                     <div style="background:rgba(0,242,254,0.15); border:1px solid rgba(0,242,254,0.3); padding:10px 14px; border-radius:12px; color:#fff; font-size:14px;">
                         🤖 <b>Guild Commander</b>: Welcome back, Guild Master Garrett! All 187 hero ships are active and standing by. Total loot stash is at <b>$37,205.00</b> ($5,430 Cash Settled, $31,775 AR). How shall we proceed?
                     </div>
@@ -1604,7 +1604,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 </span>
                 <button class="action-btn" onclick="closeModals()">✕</button>
             </div>
-            <div style="display:flex; gap:6px; padding:10px 16px; border-bottom:1px solid rgba(255,405,405,0.08); background:rgba(0,0,0,0.35); overflow-x:auto;">
+            <div style="display:flex; gap:6px; padding:10px 16px; border-bottom:1px solid rgba(255,505,505,0.08); background:rgba(0,0,0,0.35); overflow-x:auto;">
                 <button class="action-btn btn-cyan active" id="fin-tab-sched" onclick="switchFinTab('sched')">📅 3-Yr Forecast & 10-Mo</button>
                 <button class="action-btn" id="fin-tab-is" onclick="switchFinTab('is')">📈 Income Statement</button>
                 <button class="action-btn" id="fin-tab-bs" onclick="switchFinTab('bs')">⚖️ Balance Sheet</button>
@@ -1618,7 +1618,7 @@ HTML_PAGE = """<!DOCTYPE html>
                     <div style="font-size:13px; color:var(--text-sub); margin-bottom:12px;">Solo Founder + AI Swarm model with 100% equity ownership and 80%+ net cash conversion:</div>
                     
                     <!-- 3-YEAR VISUAL BAR GRAPHS -->
-                    <div style="background:rgba(0,0,0,0.45); border:1px solid rgba(255,405,405,0.08); border-radius:14px; padding:14px; display:flex; flex-direction:column; gap:12px;">
+                    <div style="background:rgba(0,0,0,0.45); border:1px solid rgba(255,505,505,0.08); border-radius:14px; padding:14px; display:flex; flex-direction:column; gap:12px;">
                         
                         <!-- Year 1 (2026) -->
                         <div>
@@ -1671,16 +1671,16 @@ HTML_PAGE = """<!DOCTYPE html>
                     <div style="margin-top:14px;">
                         <div style="font-size:14px; font-weight:900; color:#fff; margin-bottom:6px;">📅 10-Month Milestone Schedule</div>
                         <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:8px;">
-                            <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(255,405,405,0.06); padding:8px 12px; border-radius:10px; font-size:12px;">
+                            <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(255,505,505,0.06); padding:8px 12px; border-radius:10px; font-size:12px;">
                                 <span style="color:var(--accent-green); font-weight:900;">• Mo 1–2 (Sept–Oct 2026):</span> $50k Pipeline / First Retainer
                             </div>
-                            <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(255,405,405,0.06); padding:8px 12px; border-radius:10px; font-size:12px;">
+                            <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(255,505,505,0.06); padding:8px 12px; border-radius:10px; font-size:12px;">
                                 <span style="color:var(--accent-cyan); font-weight:900;">• Mo 3–4 (Nov–Dec 2026):</span> $75k Gross / $25k Banked Cash
                             </div>
-                            <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(255,405,405,0.06); padding:8px 12px; border-radius:10px; font-size:12px;">
+                            <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(255,505,505,0.06); padding:8px 12px; border-radius:10px; font-size:12px;">
                                 <span style="color:var(--accent-purple); font-weight:900;">• Mo 5–6 (Jan–Feb 2027):</span> $100k Six-Figure Sovereign
                             </div>
-                            <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(255,405,405,0.06); padding:8px 12px; border-radius:10px; font-size:12px;">
+                            <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(255,505,505,0.06); padding:8px 12px; border-radius:10px; font-size:12px;">
                                 <span style="color:var(--accent-gold); font-weight:900;">• Mo 7–10 (Mar–June 2027):</span> $250k Stash / $500k ARR Rate
                             </div>
                         </div>
@@ -1691,16 +1691,16 @@ HTML_PAGE = """<!DOCTYPE html>
                 <div id="fin-view-is" style="display:none;">
                     <div style="font-size:16px; font-weight:900; color:var(--accent-green); margin-bottom:8px;">📈 Income Statement (Accrual Basis)</div>
                     
-                    <div style="background:rgba(0,0,0,0.45); border:1px solid rgba(255,405,405,0.08); border-radius:12px; padding:14px; display:flex; flex-direction:column; gap:8px;">
-                        <div style="display:flex; justify-content:space-between; font-size:14px; border-bottom:1px solid rgba(255,405,405,0.08); padding-bottom:6px;">
+                    <div style="background:rgba(0,0,0,0.45); border:1px solid rgba(255,505,505,0.08); border-radius:12px; padding:14px; display:flex; flex-direction:column; gap:8px;">
+                        <div style="display:flex; justify-content:space-between; font-size:14px; border-bottom:1px solid rgba(255,505,505,0.08); padding-bottom:6px;">
                             <span>Gross Bounty Revenue:</span>
                             <span style="font-weight:900; color:#fff;">$37,205.00</span>
                         </div>
-                        <div style="display:flex; justify-content:space-between; font-size:14px; border-bottom:1px solid rgba(255,405,405,0.08); padding-bottom:6px;">
+                        <div style="display:flex; justify-content:space-between; font-size:14px; border-bottom:1px solid rgba(255,505,505,0.08); padding-bottom:6px;">
                             <span>Cost of Goods Sold (COGS):</span>
                             <span style="font-weight:900; color:var(--accent-green);">$0.00</span>
                         </div>
-                        <div style="display:flex; justify-content:space-between; font-size:14px; border-bottom:1px solid rgba(255,405,405,0.08); padding-bottom:6px;">
+                        <div style="display:flex; justify-content:space-between; font-size:14px; border-bottom:1px solid rgba(255,505,505,0.08); padding-bottom:6px;">
                             <span>Operating Expenses (OPEX):</span>
                             <span style="font-weight:900; color:var(--accent-green);">$0.00</span>
                         </div>
@@ -1719,13 +1719,13 @@ HTML_PAGE = """<!DOCTYPE html>
                 <div id="fin-view-bs" style="display:none;">
                     <div style="font-size:16px; font-weight:900; color:var(--accent-gold); margin-bottom:8px;">⚖️ Balance Sheet (Reconciled)</div>
                     
-                    <div style="background:rgba(0,0,0,0.45); border:1px solid rgba(255,405,405,0.08); border-radius:12px; padding:14px; display:flex; flex-direction:column; gap:8px;">
-                        <div style="font-size:14px; font-weight:900; color:var(--accent-cyan); border-bottom:1px solid rgba(255,405,405,0.08); padding-bottom:4px;">ASSETS</div>
+                    <div style="background:rgba(0,0,0,0.45); border:1px solid rgba(255,505,505,0.08); border-radius:12px; padding:14px; display:flex; flex-direction:column; gap:8px;">
+                        <div style="font-size:14px; font-weight:900; color:var(--accent-cyan); border-bottom:1px solid rgba(255,505,505,0.08); padding-bottom:4px;">ASSETS</div>
                         <div style="display:flex; justify-content:space-between; font-size:13px;">
                             <span>Cash & Cash Equivalents (Stripe):</span>
                             <span style="font-weight:900; color:#fff;">$5,430.00</span>
                         </div>
-                        <div style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid rgba(255,405,405,0.08); padding-bottom:6px;">
+                        <div style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid rgba(255,505,505,0.08); padding-bottom:6px;">
                             <span>Accounts Receivable (155 Pending PRs):</span>
                             <span style="font-weight:900; color:#fff;">$31,775.00</span>
                         </div>
@@ -1734,12 +1734,12 @@ HTML_PAGE = """<!DOCTYPE html>
                             <span>$37,205.00</span>
                         </div>
 
-                        <div style="font-size:14px; font-weight:900; color:var(--accent-green); border-bottom:1px solid rgba(255,405,405,0.08); padding-bottom:4px;">LIABILITIES & EQUITY</div>
+                        <div style="font-size:14px; font-weight:900; color:var(--accent-green); border-bottom:1px solid rgba(255,505,505,0.08); padding-bottom:4px;">LIABILITIES & EQUITY</div>
                         <div style="display:flex; justify-content:space-between; font-size:13px;">
                             <span>Total Liabilities (Zero Debt):</span>
                             <span style="font-weight:900; color:var(--accent-green);">$0.00</span>
                         </div>
-                        <div style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid rgba(255,405,405,0.08); padding-bottom:6px;">
+                        <div style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid rgba(255,505,505,0.08); padding-bottom:6px;">
                             <span>Retained Earnings & Member Equity:</span>
                             <span style="font-weight:900; color:#fff;">$37,205.00</span>
                         </div>
@@ -1754,7 +1754,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 <div id="fin-view-cf" style="display:none;">
                     <div style="font-size:16px; font-weight:900; color:var(--accent-cyan); margin-bottom:8px;">💵 Statement of Cash Flows</div>
                     
-                    <div style="background:rgba(0,0,0,0.45); border:1px solid rgba(255,405,405,0.08); border-radius:12px; padding:14px; display:flex; flex-direction:column; gap:8px;">
+                    <div style="background:rgba(0,0,0,0.45); border:1px solid rgba(255,505,505,0.08); border-radius:12px; padding:14px; display:flex; flex-direction:column; gap:8px;">
                         <div style="display:flex; justify-content:space-between; font-size:13px;">
                             <span>Net Cash Received from Settled Bounties:</span>
                             <span style="font-weight:900; color:var(--accent-green);">+$5,430.00</span>
@@ -1763,7 +1763,7 @@ HTML_PAGE = """<!DOCTYPE html>
                             <span>Pending In-Flight Accounts Receivable:</span>
                             <span style="font-weight:900; color:var(--accent-gold);">+$31,775.00</span>
                         </div>
-                        <div style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid rgba(255,405,405,0.08); padding-bottom:6px;">
+                        <div style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid rgba(255,505,505,0.08); padding-bottom:6px;">
                             <span>Financing / Investing Cash Outflows:</span>
                             <span style="font-weight:900; color:#fff;">$0.00</span>
                         </div>
@@ -1807,7 +1807,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 <button class="action-btn" onclick="closeModals()">✕</button>
             </div>
             <div class="modal-body">
-                <textarea id="retainer-proposal-text" readonly style="width:100%; height:180px; background:rgba(0,0,0,0.6); border:1px solid rgba(255,405,405,0.15); border-radius:10px; padding:12px; color:#fff; font-size:13px; font-family:monospace; resize:none;"></textarea>
+                <textarea id="retainer-proposal-text" readonly style="width:100%; height:180px; background:rgba(0,0,0,0.6); border:1px solid rgba(255,505,505,0.15); border-radius:10px; padding:12px; color:#fff; font-size:13px; font-family:monospace; resize:none;"></textarea>
                 <div style="display:flex; justify-content:space-between; align-items:center;">
                     <span id="copy-status" style="font-size:13px; color:var(--accent-green); font-weight:800;"></span>
                     <button class="action-btn btn-green" onclick="copyRetainerProposal()">📋 Copy Proposal to Clipboard</button>
@@ -1826,7 +1826,7 @@ HTML_PAGE = """<!DOCTYPE html>
             <div class="modal-body">
                 <div style="font-size:13px; color:var(--text-sub);">Copy markdown or HTML to embed in your GitHub profile or project README:</div>
                 <div style="font-size:12px; color:#fff; font-weight:800; margin-top:4px;">Markdown:</div>
-                <input type="text" id="badge-md-code" readonly value="[![BountyGrid Verified Contributor](https://img.shields.io/badge/BountyGrid%20OS-32%20Merged%20PRs%20%7C%20100%25%20CI%20Green-00e676)](https://bountygrid.com)" style="width:100%; background:rgba(0,0,0,0.5); border:1px solid rgba(255,405,405,0.12); border-radius:8px; padding:8px 12px; color:var(--accent-cyan); font-size:12px;">
+                <input type="text" id="badge-md-code" readonly value="[![BountyGrid Verified Contributor](https://img.shields.io/badge/BountyGrid%20OS-32%20Merged%20PRs%20%7C%20100%25%20CI%20Green-00e676)](https://bountygrid.com)" style="width:100%; background:rgba(0,0,0,0.5); border:1px solid rgba(255,505,505,0.12); border-radius:8px; padding:8px 12px; color:var(--accent-cyan); font-size:12px;">
                 <div style="display:flex; justify-content:flex-end;">
                     <button class="action-btn btn-cyan" onclick="navigator.clipboard.writeText(document.getElementById('badge-md-code').value); alert('✓ Markdown Copied to Clipboard!');">📋 Copy Markdown</button>
                 </div>
@@ -2009,7 +2009,7 @@ HTML_PAGE = """<!DOCTYPE html>
                             <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
                                 <span style="background:rgba(0,242,254,0.15); color:var(--accent-cyan); font-weight:900; font-size:11px; padding:3px 8px; border-radius:6px;">📦 Package #${inReviewPRs.length - i}</span>
                                 <a href="${pr.url || 'https://github.com'}" target="_blank" style="color:#fff; font-weight:800; font-size:14px; text-decoration:none;">${pr.repo_label || pr.tx}</a>
-                                <span style="font-size:11px; color:var(--text-sub); background:rgba(255,405,405,0.06); padding:2px 6px; border-radius:4px; font-family:monospace;">${trackingNum}</span>
+                                <span style="font-size:11px; color:var(--text-sub); background:rgba(255,505,505,0.06); padding:2px 6px; border-radius:4px; font-family:monospace;">${trackingNum}</span>
                             </div>
                             <div style="font-size:13px; color:var(--text-sub); margin-top:4px;">${pr.desc || 'Active Submission'} • Est Deposit: <b style="color:var(--accent-green);">Monday ~2:00 PM PDT (Post-Merge)</b></div>
                         </div>
@@ -2102,7 +2102,7 @@ HTML_PAGE = """<!DOCTYPE html>
             const box = document.getElementById('chat-container');
             
             const userMsg = document.createElement('div');
-            userMsg.style.cssText = 'background:rgba(255,405,405,0.08); padding:8px 12px; border-radius:10px; color:#fff; font-size:13px; text-align:right; align-self:flex-end; max-width:80%;';
+            userMsg.style.cssText = 'background:rgba(255,505,505,0.08); padding:8px 12px; border-radius:10px; color:#fff; font-size:13px; text-align:right; align-self:flex-end; max-width:80%;';
             userMsg.innerText = txt;
             box.appendChild(userMsg);
             
@@ -2504,9 +2504,9 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 calc_cash = sum(t['val'] for t in merged_txs)
                 calc_ar = sum(t['val'] for t in review_txs)
 
-                gross = float(ws_dash.cell(1, 2).value or calc_gross or 37405.0)
+                gross = float(ws_dash.cell(1, 2).value or calc_gross or 38505.0)
                 cash = float(ws_dash.cell(4, 2).value or calc_cash or 5430.0)
-                ar = float(ws_dash.cell(5, 2).value or calc_ar or 31975.0)
+                ar = float(ws_dash.cell(5, 2).value or calc_ar or 33075.0)
                 prs = int(ws_dash.cell(7, 2).value or 257)
 
                 all_dates = [t['date'] for t in all_txs if t['date'] is not None]
@@ -2538,18 +2538,18 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 }
             except Exception as e:
                 data = {
-                    'gross_pipeline': 37405.0,
-                    'ar': 31975.0,
+                    'gross_pipeline': 38505.0,
+                    'ar': 33075.0,
                     'cash': 5430.0,
-                    'total_prs': 262,
-                    'active_prs_count': 188,
-                    'review_prs_count': 156,
+                    'total_prs': 267,
+                    'active_prs_count': 193,
+                    'review_prs_count': 161,
                     'merged_prs_count': 32,
                     'daily': 7050.0,
-                    'daily_prs': 36,
+                    'daily_prs': 41,
                     'daily_avg': 4658.0,
-                    'weekly': 37405.0,
-                    'weekly_avg': 37405.0,
+                    'weekly': 38505.0,
+                    'weekly_avg': 38505.0,
                     'ecosystems': [],
                     'active_prs': []
                 }
