@@ -2065,17 +2065,24 @@ HTML_PAGE = """<!DOCTYPE html>
             if (!container || !window.lastEcosystems) return;
 
             container.innerHTML = '';
-            window.lastEcosystems.forEach(eco => {
+            const maxVal = Math.max(...window.lastEcosystems.map(e => e.value), 1);
+
+            window.lastEcosystems.forEach((eco, idx) => {
                 const card = document.createElement('div');
                 card.className = 'realm-card';
-                const pct = Math.min((eco.value / 9500) * 100, 100);
+                const pct = (eco.value / maxVal) * 100;
+                const activeLabel = eco.value > 0 ? `$${Number(eco.value).toLocaleString()}` : '<span style="color:var(--text-dim); font-weight:700;">$0 (Ready)</span>';
+                const statusBadge = eco.value > 0 ? `<span style="font-size:10px; font-weight:900; color:var(--accent-cyan); background:rgba(0,242,254,0.12); padding:2px 6px; border-radius:6px;">#${idx+1}</span>` : `<span style="font-size:10px; font-weight:800; color:var(--text-dim); background:rgba(255,255,255,0.04); padding:2px 6px; border-radius:6px;">UNLOCKED</span>`;
+
                 card.innerHTML = `
                     <div style="display:flex; justify-content:space-between; align-items:center;">
-                        <span style="font-weight:900; color:#fff; font-size:14px;">${eco.icon || '⚔️'} ${eco.name}</span>
-                        <span style="color:var(--accent-green); font-weight:900; font-size:14px;">$${Number(eco.value).toLocaleString()}</span>
+                        <span style="font-weight:900; color:#fff; font-size:13px; display:flex; align-items:center; gap:6px;">
+                            ${eco.icon || '⚔️'} ${eco.name} ${statusBadge}
+                        </span>
+                        <span style="color:var(--accent-green); font-weight:900; font-size:13px;">${activeLabel}</span>
                     </div>
-                    <div class="realm-bar-bg">
-                        <div class="realm-bar-fill" style="width:${pct}%; background:${pct > 50 ? 'var(--accent-cyan)' : 'var(--accent-purple)'};"></div>
+                    <div class="realm-bar-bg" style="margin-top:6px;">
+                        <div class="realm-bar-fill" style="width:${Math.max(pct, eco.value > 0 ? 4 : 0)}%; background:${pct >= 70 ? 'linear-gradient(90deg, #00f2fe, #00e676)' : (pct > 20 ? 'linear-gradient(90deg, #a855f7, #00f2fe)' : 'var(--accent-purple)')};"></div>
                     </div>
                 `;
                 container.appendChild(card);
@@ -2497,7 +2504,9 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                         d_low = (desc_str + " " + tx).lower()
                         eco_name = "Other"
                         eco_icon = "📦"
-                        if any(k in d_low for k in ["katana", "subfinder", "dnsx", "httpx", "pd-", "projectdiscovery", "nuclei"]):
+                        if "capacitor" in d_low or "cap-go" in d_low or "capgo" in d_low:
+                            eco_name, eco_icon = "Capacitor-Updater", "⚡"
+                        elif any(k in d_low for k in ["katana", "subfinder", "dnsx", "httpx", "pd-", "projectdiscovery", "nuclei"]):
                             eco_name, eco_icon = "ProjectDiscovery", "🕷️"
                         elif "lilly" in d_low:
                             eco_name, eco_icon = "Lilly Protocol", "⛓️"
@@ -2507,15 +2516,15 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                             eco_name, eco_icon = "TSCircuit", "📐"
                         elif any(k in d_low for k in ["claude-builders", "cb-"]):
                             eco_name, eco_icon = "Claude Builders", "🤖"
-                        elif "twenty" in d_low:
+                        elif "twenty" in d_low or "tw-" in d_low:
                             eco_name, eco_icon = "Twenty CRM", "💼"
                         elif "ophir" in d_low:
                             eco_name, eco_icon = "OphirPay", "🪙"
                         elif "cal" in d_low or "calcom" in d_low:
                             eco_name, eco_icon = "Cal.com", "📅"
-                        elif "documenso" in d_low:
+                        elif "documenso" in d_low or "doc-" in d_low:
                             eco_name, eco_icon = "Documenso", "📄"
-                        elif "capsoftware" in d_low:
+                        elif "capsoftware" in d_low or "cap" in d_low:
                             eco_name, eco_icon = "CapSoftware", "🎥"
                         elif "activepieces" in d_low:
                             eco_name, eco_icon = "Activepieces", "🧩"
@@ -2523,19 +2532,17 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                             eco_name, eco_icon = "KeepHQ", "🚨"
                         elif "exo" in d_low:
                             eco_name, eco_icon = "Exo Explore", "🌌"
-                        elif "capacitor" in d_low or "cap-go" in d_low:
-                            eco_name, eco_icon = "Capacitor-Updater", "⚡"
-                        elif "formbricks" in d_low:
+                        elif "formbricks" in d_low or "form-" in d_low:
                             eco_name, eco_icon = "Formbricks", "🗄️"
                         elif "novu" in d_low:
                             eco_name, eco_icon = "Novu", "🔔"
-                        elif "chatwoot" in d_low:
+                        elif "chatwoot" in d_low or "chat-" in d_low:
                             eco_name, eco_icon = "Chatwoot", "💬"
-                        elif "posthog" in d_low:
+                        elif "posthog" in d_low or "post-" in d_low:
                             eco_name, eco_icon = "PostHog", "📊"
                         elif "directus" in d_low:
                             eco_name, eco_icon = "Directus", "🌐"
-                        elif "infisical" in d_low:
+                        elif "infisical" in d_low or "infis-" in d_low:
                             eco_name, eco_icon = "Infisical", "🔐"
                         elif "opensign" in d_low:
                             eco_name, eco_icon = "OpenSign", "📈"
