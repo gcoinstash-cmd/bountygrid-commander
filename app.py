@@ -895,7 +895,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 </div>
                 
                 <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:4px;">
-                    <div style="font-size:36px; font-weight:900; color:var(--accent-cyan); letter-spacing:-1px;" id="stat-gross">$37,205.00</div>
+                    <div style="font-size:36px; font-weight:900; color:var(--accent-cyan); letter-spacing:-1px;" id="stat-gross">$36,255.00</div>
                     <span style="font-size:13px; font-weight:800; color:var(--accent-green); background:rgba(0,230,118,0.15); padding:4px 10px; border-radius:10px;">100% BALANCED</span>
                 </div>
                 
@@ -905,13 +905,13 @@ HTML_PAGE = """<!DOCTYPE html>
                         <div class="stat-label">🪙 Real Banked Gold (Stripe)</div>
                     </div>
                     <div class="stat-box" style="background:rgba(255,183,3,0.1); border-color:rgba(255,183,3,0.3);">
-                        <div class="stat-val" style="color:var(--accent-gold);" id="stat-ar">$31,775.00</div>
-                        <div class="stat-label">⏳ Loot Chests Opening (155 Quests)</div>
+                        <div class="stat-val" style="color:var(--accent-gold);" id="stat-ar">$30,825.00</div>
+                        <div class="stat-label">⏳ Loot Chests Opening (151 Quests)</div>
                     </div>
                 </div>
 
                 <div style="font-size:13px; color:var(--text-sub); line-height:1.4;">
-                    🪙 <b>Banked Gold</b> ($5,430) + ⏳ <b>Loot Chests</b> ($31,775) = 💎 <b>Total Loot Stash</b> ($37,205.00) across <b>187 Active Hero Units</b>!
+                    🪙 <b>Banked Gold</b> ($5,430) + ⏳ <b>Loot Chests</b> ($30,825) = 💎 <b>Total Loot Stash</b> ($36,255.00) across <b>183 Active Hero Units</b>!
                 </div>
             </div>
 
@@ -975,8 +975,8 @@ HTML_PAGE = """<!DOCTYPE html>
                 <div class="card-title">⚡ Today's Quest Combo & Fleet Momentum</div>
                 <div class="grid-2">
                     <div class="stat-box">
-                        <div class="stat-val" id="stat-daily-rev" style="color:var(--accent-green);">+$8,000</div>
-                        <div class="stat-label" id="stat-daily-label">Today's Rev (35 PRs)</div>
+                        <div class="stat-val" id="stat-daily-rev" style="color:var(--accent-green);">+$7,050</div>
+                        <div class="stat-label" id="stat-daily-label">Today's Rev (31 PRs)</div>
                     </div>
                     <div class="stat-box">
                         <div class="stat-val" id="stat-daily-avg">$4,658</div>
@@ -985,11 +985,11 @@ HTML_PAGE = """<!DOCTYPE html>
                 </div>
                 <div class="grid-2">
                     <div class="stat-box">
-                        <div class="stat-val" id="stat-weekly-rev">$37,205</div>
+                        <div class="stat-val" id="stat-weekly-rev">$36,255</div>
                         <div class="stat-label">Weekly Loot Total</div>
                     </div>
                     <div class="stat-box">
-                        <div class="stat-val" style="color:var(--accent-cyan);" id="stat-fleet">187 Units</div>
+                        <div class="stat-val" style="color:var(--accent-cyan);" id="stat-fleet">183 Units</div>
                         <div class="stat-label">Active Hero Fleet</div>
                     </div>
                 </div>
@@ -2504,18 +2504,18 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 calc_cash = sum(t['val'] for t in merged_txs)
                 calc_ar = sum(t['val'] for t in review_txs)
 
-                gross = float(ws_dash.cell(1, 2).value or calc_gross or 37205.0)
+                gross = float(ws_dash.cell(1, 2).value or calc_gross or 36255.0)
                 cash = float(ws_dash.cell(4, 2).value or calc_cash or 5430.0)
-                ar = float(ws_dash.cell(5, 2).value or calc_ar or 31775.0)
-                prs = int(ws_dash.cell(7, 2).value or 261)
+                ar = float(ws_dash.cell(5, 2).value or calc_ar or 30825.0)
+                prs = int(ws_dash.cell(7, 2).value or 257)
 
                 all_dates = [t['date'] for t in all_txs if t['date'] is not None]
                 latest_date = max(all_dates) if all_dates else datetime.now().date()
                 today_dates = {datetime.now().date(), datetime.utcnow().date(), latest_date}
 
                 today_txs = [t for t in all_txs if t['date'] in today_dates and 'Closed' not in t.get('status', '')]
-                daily_rev = sum(t['val'] for t in today_txs) if len(today_txs) > 0 else 8000.0
-                daily_prs_count = len(today_txs) if len(today_txs) > 0 else 35
+                daily_rev = sum(t['val'] for t in today_txs) if len(today_txs) > 0 else 7050.0
+                daily_prs_count = len(today_txs) if len(today_txs) > 0 else 31
 
                 sorted_ecosystems = sorted(ecosystems.values(), key=lambda x: x["value"], reverse=True)
                 active_only_prs = [p for p in active_prs if 'Closed' not in p.get('status', '')]
@@ -2538,18 +2538,18 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 }
             except Exception as e:
                 data = {
-                    'gross_pipeline': 37205.0,
-                    'ar': 31775.0,
+                    'gross_pipeline': 36255.0,
+                    'ar': 30825.0,
                     'cash': 5430.0,
-                    'total_prs': 261,
-                    'active_prs_count': 187,
-                    'review_prs_count': 155,
+                    'total_prs': 257,
+                    'active_prs_count': 183,
+                    'review_prs_count': 151,
                     'merged_prs_count': 32,
-                    'daily': 8000.0,
-                    'daily_prs': 35,
+                    'daily': 7050.0,
+                    'daily_prs': 31,
                     'daily_avg': 4658.0,
-                    'weekly': 37205.0,
-                    'weekly_avg': 37205.0,
+                    'weekly': 36255.0,
+                    'weekly_avg': 36255.0,
                     'ecosystems': [],
                     'active_prs': []
                 }
