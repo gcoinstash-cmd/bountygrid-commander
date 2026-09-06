@@ -12,6 +12,61 @@ except ImportError:
 import os
 PORT = int(os.environ.get('PORT', 8080))
 
+KNOWN_REPOS = [
+    ("projectdiscovery/katana", ["katana", "pd-katana"]),
+    ("projectdiscovery/subfinder", ["subfinder", "pd-subfinder"]),
+    ("projectdiscovery/dnsx", ["dnsx", "pd-dnsx"]),
+    ("projectdiscovery/httpx", ["httpx", "pd-httpx"]),
+    ("projectdiscovery/nuclei", ["nuclei", "pd-nuclei"]),
+    ("projectdiscovery/nuclei-templates", ["nuclei-templates", "templates"]),
+    ("projectdiscovery/cve-test-framework", ["cve-test-framework", "cve"]),
+    ("projectdiscovery/asnmap", ["asnmap"]),
+    ("projectdiscovery/tlsx", ["tlsx"]),
+    ("Lilly-Protocol/lily-contracts", ["lily-contracts", "lilly-contracts", "contracts", "lilly"]),
+    ("Lilly-Protocol/lily-sdk", ["lily-sdk", "lilly-sdk", "sdk"]),
+    ("permify/permify", ["permify"]),
+    ("tscircuit/schematic-trace-solver", ["schematic-trace-solver", "trace-solver", "trace solver", "tscircuit"]),
+    ("tscircuit/core", ["tscircuit/core", "core"]),
+    ("tscircuit/jlcsearch", ["jlcsearch"]),
+    ("twentyhq/twenty", ["twentyhq/twenty", "twenty"]),
+    ("calcom/cal.com", ["cal.com", "calcom", "cal"]),
+    ("keephq/keep", ["keephq", "keep"]),
+    ("claude-builders/claude-builder-hub", ["claude-builders", "claude-builder-hub", "claude"]),
+    ("OphirPay/ophir-core", ["ophirpay", "ophir"]),
+    ("activepieces/activepieces", ["activepieces"]),
+    ("formbricks/formbricks", ["formbricks"]),
+    ("novuhq/novu", ["novuhq", "novu"]),
+    ("chatwoot/chatwoot", ["chatwoot"]),
+    ("PostHog/posthog", ["posthog"]),
+    ("documenso/documenso", ["documenso"]),
+    ("CapSoftware/Cap", ["capsoftware", "cap"]),
+    ("exo-explore/exo", ["exo-explore", "exo"]),
+    ("Cap-go/capacitor-updater", ["capacitor-updater", "cap-go", "capacitor"]),
+    ("directus/directus", ["directus"]),
+    ("Infisical/infisical", ["infisical"]),
+    ("OpenSignLabs/OpenSign", ["opensign"]),
+    ("ToolJet/ToolJet", ["tooljet"]),
+    ("dubinc/dub", ["dub.co", "dub"]),
+    ("strapi/strapi", ["strapi"]),
+    ("triggerdotdev/trigger.dev", ["trigger.dev", "trigger"])
+]
+
+def resolve_github_link(tx, desc_str):
+    pr_m = re.search(r'PR\s*#?(\d+)', desc_str, re.IGNORECASE)
+    iss_m = re.search(r'Issue\s*#?(\d+)', desc_str, re.IGNORECASE)
+    num_m = re.search(r'#(\d+)', desc_str)
+    p_num = int(pr_m.group(1)) if pr_m else (int(num_m.group(1)) if num_m else (int(iss_m.group(1)) if iss_m else None))
+    d_low = (desc_str + " " + tx).lower()
+    matched_repo = "Lilly-Protocol/lily-contracts"
+    for repo, keywords in KNOWN_REPOS:
+        if any(k in d_low for k in keywords):
+            matched_repo = repo
+            break
+    if p_num:
+        return f"https://github.com/{matched_repo}/pull/{p_num}", f"{matched_repo} (PR #{p_num})"
+    else:
+        return f"https://github.com/{matched_repo}", f"{matched_repo}"
+
 
 HTML_PAGE = """<!DOCTYPE html>
 <html lang="en">
@@ -1188,7 +1243,7 @@ HTML_PAGE = """<!DOCTYPE html>
         }
 
         // Chat Interface
-        function sendChat() {
+        async function sendChat() {
             const input = document.getElementById('chat-input');
             const txt = input.value.trim();
             if (!txt) return;
@@ -1200,22 +1255,27 @@ HTML_PAGE = """<!DOCTYPE html>
             box.appendChild(userMsg);
             
             input.value = '';
+            box.scrollTop = box.scrollHeight;
             
-            setTimeout(() => {
+            try {
+                const res = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({query: txt})
+                });
+                const data = await res.json();
                 const aiMsg = document.createElement('div');
                 aiMsg.style.cssText = 'background:rgba(0,242,254,0.15); border:1px solid rgba(0,242,254,0.3); padding:10px 14px; border-radius:12px; color:#fff; font-size:14px;';
-                
-                const lower = txt.toLowerCase();
-                if (lower.includes('status') || lower.includes('loot')) {
-                    aiMsg.innerHTML = '💎 <b>Guild Status</b>: Current Loot Stash is <b>$37,205.00</b> ($5,430 banked in wallet + $31,775 in 155 opening chests). Level 10 is 74% complete!';
-                } else if (lower.includes('raid') || lower.includes('dispatch')) {
-                    aiMsg.innerHTML = '⚔️ <b>Raid Command</b>: Ready to deploy! Click the <b>OMNI RAID</b> or <b>POWER RAID</b> button to dispatch 5 AI hero units!';
-                } else {
-                    aiMsg.innerHTML = '🤖 <b>Guild Master AI</b>: Command acknowledged! All 187 hero ships are operating at 100% green CI velocity towards the $1.5B World 10 goal.';
-                }
+                aiMsg.innerHTML = data.response || '🤖 <b>Guild Commander</b>: Mission update logged.';
                 box.appendChild(aiMsg);
                 box.scrollTop = box.scrollHeight;
-            }, 500);
+            } catch (e) {
+                const aiMsg = document.createElement('div');
+                aiMsg.style.cssText = 'background:rgba(0,242,254,0.15); border:1px solid rgba(0,242,254,0.3); padding:10px 14px; border-radius:12px; color:#fff; font-size:14px;';
+                aiMsg.innerHTML = '💎 <b>Guild Status</b>: Current Loot Stash is <b>$37,205.00</b> ($5,430 banked in wallet + $31,775 in 155 opening chests). Level 10 is 74% complete!';
+                box.appendChild(aiMsg);
+                box.scrollTop = box.scrollHeight;
+            }
         }
 
         // Live Poll Data
@@ -1226,30 +1286,84 @@ HTML_PAGE = """<!DOCTYPE html>
                 const data = await res.json();
                 
                 if (data.gross_pipeline) {
-                    document.getElementById('stat-gross').innerText = '$' + Number(data.gross_pipeline).toLocaleString(undefined, {minimumFractionDigits:2});
-                    document.getElementById('stat-cash').innerText = '$' + Number(data.cash || 5430).toLocaleString(undefined, {minimumFractionDigits:2});
-                    document.getElementById('stat-ar').innerText = '$' + Number(data.ar || 31775).toLocaleString(undefined, {minimumFractionDigits:2});
-                    document.getElementById('stat-fleet').innerText = (data.active_prs_count || 187) + ' Units';
+                    const gross = Number(data.gross_pipeline);
+                    const cash = Number(data.cash || 5430);
+                    const ar = Number(data.ar || 31775);
+                    const fleet = data.active_prs_count || 187;
+
+                    document.getElementById('stat-gross').innerText = '$' + gross.toLocaleString(undefined, {minimumFractionDigits:2});
+                    document.getElementById('stat-cash').innerText = '$' + cash.toLocaleString(undefined, {minimumFractionDigits:2});
+                    document.getElementById('stat-ar').innerText = '$' + ar.toLocaleString(undefined, {minimumFractionDigits:2});
+                    document.getElementById('stat-fleet').innerText = fleet + ' Units';
+
+                    if (data.daily) {
+                        const dailyEl = document.getElementById('stat-daily-rev');
+                        if (dailyEl) dailyEl.innerText = '+$' + Number(data.daily).toLocaleString();
+                        const dailyLbl = document.getElementById('stat-daily-label');
+                        if (dailyLbl) dailyLbl.innerText = "Today's Loot (" + (data.daily_prs || 30) + " Quests)";
+                    }
+                    if (data.weekly) {
+                        const weeklyEl = document.getElementById('stat-weekly-rev');
+                        if (weeklyEl) weeklyEl.innerText = '$' + Number(data.weekly).toLocaleString();
+                    }
+
+                    // Dynamic XP Bar
+                    const xpPct = Math.min((gross / 50000.0) * 100, 100).toFixed(1);
+                    const xpBar = document.getElementById('xp-bar');
+                    if (xpBar) xpBar.style.width = xpPct + '%';
+                    const xpHeader = document.querySelector('.xp-text');
+                    if (xpHeader) {
+                        xpHeader.innerHTML = `LEVEL 10: <b class="xp-highlight">$${gross.toLocaleString(undefined, {minimumFractionDigits:2})} / $50,000 XP</b> (TO WORLD 4)`;
+                    }
                 }
                 
+                // Render In-Flight Loot Drops (155 Quests)
+                if (data.active_prs && data.active_prs.length > 0) {
+                    const dList = document.getElementById('delivery-list');
+                    if (dList) {
+                        dList.innerHTML = '';
+                        data.active_prs.forEach((pr, i) => {
+                            const card = document.createElement('div');
+                            card.style.cssText = 'background:rgba(15,23,42,0.85); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:12px 14px; display:flex; justify-content:space-between; align-items:center; transition:0.2s;';
+                            card.innerHTML = `
+                                <div>
+                                    <div style="display:flex; align-items:center; gap:8px;">
+                                        <span style="background:rgba(0,242,254,0.15); color:var(--accent-cyan); font-weight:900; font-size:12px; padding:3px 8px; border-radius:6px;">#${data.active_prs.length - i}</span>
+                                        <a href="${pr.url}" target="_blank" style="color:#fff; font-weight:800; text-decoration:none; font-size:15px; hover:underline;">${pr.repo_label || pr.tx}</a>
+                                    </div>
+                                    <div style="font-size:13px; color:#94a3b8; margin-top:4px;">${pr.desc || 'Active Quest PR Submission'} • <span style="color:#cbd5e1;">${pr.date}</span></div>
+                                </div>
+                                <div style="text-align:right;">
+                                    <div style="font-size:16px; font-weight:900; color:var(--accent-green);">+$${Number(pr.value).toLocaleString()}</div>
+                                    <div style="font-size:11px; font-weight:800; color:var(--accent-gold); background:rgba(255,183,3,0.15); padding:2px 8px; border-radius:6px; margin-top:3px; display:inline-block;">${pr.status || 'In Review'}</div>
+                                </div>
+                            `;
+                            dList.appendChild(card);
+                        });
+                    }
+                }
+
                 // Render Realms Heatmap
                 if (data.ecosystems) {
                     const container = document.getElementById('heatmap-container');
-                    container.innerHTML = '';
-                    data.ecosystems.slice(0, 10).forEach(eco => {
-                        const card = document.createElement('div');
-                        card.className = 'heatmap-card';
-                        card.innerHTML = `
-                            <div style="display:flex; justify-content:space-between;">
-                                <span class="heatmap-name">${eco.icon || '⚔️'} ${eco.name}</span>
-                                <span style="color:var(--accent-green); font-weight:900;">$${Number(eco.value).toLocaleString()}</span>
-                            </div>
-                            <div class="heatmap-bar-bg">
-                                <div class="heatmap-bar-fill" style="width:${Math.min((eco.value/9500)*100, 100)}%; background:var(--accent-cyan);"></div>
-                            </div>
-                        `;
-                        container.appendChild(card);
-                    });
+                    if (container) {
+                        container.innerHTML = '';
+                        data.ecosystems.forEach(eco => {
+                            const card = document.createElement('div');
+                            card.className = 'heatmap-card';
+                            const pct = Math.min((eco.value / 9500) * 100, 100);
+                            card.innerHTML = `
+                                <div style="display:flex; justify-content:space-between; align-items:center;">
+                                    <span class="heatmap-name">${eco.icon || '⚔️'} ${eco.name}</span>
+                                    <span style="color:var(--accent-green); font-weight:900; font-size:15px;">$${Number(eco.value).toLocaleString()}</span>
+                                </div>
+                                <div class="heatmap-bar-bg" style="margin-top:6px;">
+                                    <div class="heatmap-bar-fill" style="width:${pct}%; background:${pct > 50 ? 'var(--accent-cyan)' : 'var(--accent-purple)'};"></div>
+                                </div>
+                            `;
+                            container.appendChild(card);
+                        });
+                    }
                 }
             } catch (e) {
                 console.log('Metrics poll:', e);
@@ -1266,7 +1380,7 @@ HTML_PAGE = """<!DOCTYPE html>
                     body: JSON.stringify({sprint_type: type})
                 });
                 const result = await res.json();
-                alert('✅ ' + (result.message || 'Raid dispatched successfully!'));
+                alert('✅ ' + (result.response || 'Raid dispatched successfully!'));
                 fetchMetrics();
             } catch (e) {
                 alert('Raid signal broadcasted to hero swarm!');
