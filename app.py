@@ -228,11 +228,12 @@ HTML_PAGE = """<!DOCTYPE html>
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 14px;
+            align-items: stretch;
         }
-        @media (max-width: 860px) {
+        @media (max-width: 1024px) {
             .kpi-grid { grid-template-columns: repeat(2, 1fr); }
         }
-        @media (max-width: 480px) {
+        @media (max-width: 520px) {
             .kpi-grid { grid-template-columns: 1fr; }
         }
 
@@ -240,10 +241,12 @@ HTML_PAGE = """<!DOCTYPE html>
             background: var(--bg-surface);
             border: 1px solid var(--border-subtle);
             border-radius: 14px;
-            padding: 18px;
+            padding: 16px 18px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            justify-content: space-between;
+            min-height: 110px;
+            box-sizing: border-box;
             transition: all 0.2s ease;
         }
         .kpi-card:hover {
@@ -251,7 +254,7 @@ HTML_PAGE = """<!DOCTYPE html>
             transform: translateY(-2px);
         }
         .kpi-label {
-            font-size: 12px;
+            font-size: 11.5px;
             font-weight: 600;
             color: var(--text-secondary);
             text-transform: uppercase;
@@ -259,12 +262,25 @@ HTML_PAGE = """<!DOCTYPE html>
             display: flex;
             justify-content: space-between;
             align-items: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.2;
+            margin-bottom: 2px;
+        }
+        .kpi-label span:first-child {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         .kpi-value {
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 800;
             color: #fff;
             letter-spacing: -0.5px;
+            white-space: nowrap;
+            line-height: 1.2;
+            margin: 2px 0;
         }
         .kpi-sub {
             font-size: 12px;
@@ -273,6 +289,10 @@ HTML_PAGE = """<!DOCTYPE html>
             display: flex;
             align-items: center;
             gap: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.2;
         }
         .kpi-sub.up { color: var(--accent-emerald); }
         .kpi-sub.cyan { color: var(--accent-cyan); }
@@ -709,10 +729,10 @@ HTML_PAGE = """<!DOCTYPE html>
                     <div class="kpi-card">
                         <div class="kpi-label">
                             <span>Today Revenue</span>
-                            <span style="color:var(--accent-purple);">Pace</span>
+                            <span style="color:var(--accent-purple);">Day 1 Wave</span>
                         </div>
-                        <div class="kpi-value" id="stat-daily-rev">$17,250.00</div>
-                        <div class="kpi-sub up" id="stat-daily-label">76 PRs Dispatched Today</div>
+                        <div class="kpi-value" id="stat-daily-rev" style="color:var(--accent-purple);">$0.00</div>
+                        <div class="kpi-sub" id="stat-daily-label" style="color:var(--text-muted);">0 PRs Dispatched Today</div>
                     </div>
                 </div>
 
@@ -1651,8 +1671,10 @@ HTML_PAGE = """<!DOCTYPE html>
                 if (document.getElementById('stat-cash')) document.getElementById('stat-cash').innerText = '$' + cash.toLocaleString(undefined, {minimumFractionDigits:2});
                 if (document.getElementById('stat-ar')) document.getElementById('stat-ar').innerText = '$' + ar.toLocaleString(undefined, {minimumFractionDigits:2});
                 if (document.getElementById('stat-fleet')) document.getElementById('stat-fleet').innerText = `${totalTxs} Units (${fleet} Active)`;
-                if (document.getElementById('stat-daily-rev')) document.getElementById('stat-daily-rev').innerText = '+$' + Number(data.daily || 17250).toLocaleString();
-                if (document.getElementById('stat-daily-label')) document.getElementById('stat-daily-label').innerText = `Today's Rev (${data.daily_prs || 76} PRs)`;
+                const dailyVal = Number(data.daily || 0);
+                const dailyPrs = Number(data.daily_prs || 0);
+                if (document.getElementById('stat-daily-rev')) document.getElementById('stat-daily-rev').innerText = '$' + dailyVal.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2});
+                if (document.getElementById('stat-daily-label')) document.getElementById('stat-daily-label').innerText = `${dailyPrs} PRs Dispatched Today`;
 
                 // Financial Vault fields
                 const y1Pct = ((gross / 100000.0) * 100).toFixed(1);
@@ -1884,9 +1906,9 @@ def get_dynamic_html():
         ar = float(ws_dash.cell(5, 2).value or calc_ar or 34225.0)
         prs = int(ws_dash.cell(7, 2).value or len(all_txs) or 272)
 
-        all_dates = [t['date'] for t in all_txs if t['date'] is not None]
-        latest_date = max(all_dates) if all_dates else datetime.now().date()
-        today_dates = {datetime.now().date(), datetime.utcnow().date(), latest_date}
+        today_now = datetime.now().date()
+        today_utc = datetime.utcnow().date()
+        today_dates = {today_now, today_utc}
         today_txs = [t for t in all_txs if t['date'] in today_dates and 'Closed' not in t.get('status', '')]
         daily_rev = sum(t['val'] for t in today_txs)
         daily_prs_count = len(today_txs)
@@ -1895,9 +1917,9 @@ def get_dynamic_html():
         page = re.sub(r'id="stat-gross">\$[0-9,]+\.[0-9]{2}<', f'id="stat-gross">${gross:,.2f}<', page)
         page = re.sub(r'id="stat-cash">\$[0-9,]+\.[0-9]{2}<', f'id="stat-cash">${cash:,.2f}<', page)
         page = re.sub(r'id="stat-ar">\$[0-9,]+\.[0-9]{2}<', f'id="stat-ar">${ar:,.2f}<', page)
-        page = re.sub(r'id="stat-fleet">[0-9]+ Units<', f'id="stat-fleet">{len(active_txs)} Units<', page)
-        page = re.sub(r'id="stat-daily-rev"[^>]*>\+\$[0-9,]+<', f'id="stat-daily-rev" style="color:var(--accent-green);">+${daily_rev:,.0f}<', page)
-        page = re.sub(r'id="stat-daily-label">Today\'s Rev \([0-9]+ PRs\)<', f"id=\"stat-daily-label\">Today's Rev ({daily_prs_count} PRs)<", page)
+        page = re.sub(r'id="stat-fleet">[0-9]+ Units[^<]*<', f'id="stat-fleet">{len(all_txs)} Units ({len(active_txs)} Active)<', page)
+        page = re.sub(r'id="stat-daily-rev"[^>]*>\$?[0-9,\.]+<', f'id="stat-daily-rev" style="color:var(--accent-purple);">${daily_rev:,.2f}<', page)
+        page = re.sub(r'id="stat-daily-label"[^>]*>[^<]+<', f'id="stat-daily-label" style="color:var(--text-muted);">{daily_prs_count} PRs Dispatched Today<', page)
         page = re.sub(r'id="stat-weekly-rev">\$[0-9,]+<', f'id="stat-weekly-rev">${gross:,.0f}<', page)
         page = re.sub(r'id="gauge-xp-cur"[^>]*>\$[0-9,]+<', f'id="gauge-xp-cur" style="color:#fff; font-weight:900;">${gross:,.0f}<', page)
         return page
@@ -2087,13 +2109,13 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 ar = float(ws_dash.cell(5, 2).value or calc_ar or 34225.0)
                 prs = int(ws_dash.cell(7, 2).value or len(all_txs) or 272)
 
-                all_dates = [t['date'] for t in all_txs if t['date'] is not None]
-                latest_date = max(all_dates) if all_dates else datetime.now().date()
-                today_dates = {datetime.now().date(), datetime.utcnow().date(), latest_date}
+                today_now = datetime.now().date()
+                today_utc = datetime.utcnow().date()
+                today_dates = {today_now, today_utc}
 
                 today_txs = [t for t in all_txs if t['date'] in today_dates and 'Closed' not in t.get('status', '')]
-                daily_rev = sum(t['val'] for t in today_txs) if len(today_txs) > 0 else 2250.0
-                daily_prs_count = len(today_txs) if len(today_txs) > 0 else 10
+                daily_rev = sum(t['val'] for t in today_txs)
+                daily_prs_count = len(today_txs)
 
                 sorted_ecosystems = sorted(ecosystems.values(), key=lambda x: x["value"], reverse=True)
                 active_only_prs = [p for p in active_prs if 'Closed' not in p.get('status', '')]
