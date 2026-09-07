@@ -1151,7 +1151,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 <button class="btn-secondary" style="padding:4px 8px; font-size:12px;" onclick="closeModals()">✕</button>
             </div>
             <div style="display:flex; gap:8px; margin-bottom:16px;">
-                <button class="btn-secondary active" id="fin-tab-sched" onclick="switchFinTab('sched')">3-Yr Forecast & Schedule</button>
+                <button class="btn-secondary active" id="fin-tab-sched" onclick="switchFinTab('sched')">3-Yr Forecast &amp; Schedule</button>
                 <button class="btn-secondary" id="fin-tab-is" onclick="switchFinTab('is')">Income Statement</button>
                 <button class="btn-secondary" id="fin-tab-bs" onclick="switchFinTab('bs')">Balance Sheet</button>
                 <button class="btn-secondary" id="fin-tab-cf" onclick="switchFinTab('cf')">Cash Flows</button>
@@ -1164,7 +1164,7 @@ HTML_PAGE = """<!DOCTYPE html>
                     <!-- Year 1 (2026) -->
                     <div>
                         <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px; font-weight:700;">
-                            <span style="color:#fff;">🚀 Year 1 (2026): Foundation & Proof</span>
+                            <span style="color:#fff;">🚀 Year 1 (2026): Foundation &amp; Proof</span>
                             <span style="color:var(--accent-emerald);">,000 Annual • ,000 / Mo Profit</span>
                         </div>
                         <div style="height:10px; background:rgba(255,255,255,0.06); border-radius:5px; margin-top:6px; overflow:hidden;">
@@ -1179,7 +1179,7 @@ HTML_PAGE = """<!DOCTYPE html>
                     <!-- Year 2 (2027) -->
                     <div>
                         <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px; font-weight:700;">
-                            <span style="color:#fff;">⚡ Year 2 (2027): Agency Scale & Retainers</span>
+                            <span style="color:#fff;">⚡ Year 2 (2027): Agency Scale &amp; Retainers</span>
                             <span style="color:var(--accent-cyan);">,000 Annual • ,600 / Mo Profit</span>
                         </div>
                         <div style="height:10px; background:rgba(255,255,255,0.06); border-radius:5px; margin-top:6px; overflow:hidden;">
@@ -1259,7 +1259,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); border-radius:10px; padding:14px; display:flex; flex-direction:column; gap:10px;">
                     <div style="font-size:12px; font-weight:700; color:var(--accent-cyan); border-bottom:1px solid rgba(255,255,255,0.06); padding-bottom:4px; text-transform:uppercase;">ASSETS</div>
                     <div style="display:flex; justify-content:space-between; font-size:13px;">
-                        <span style="color:var(--text-muted);">Cash & Cash Equivalents (Stripe / Bank):</span>
+                        <span style="color:var(--text-muted);">Cash &amp; Cash Equivalents (Stripe / Bank):</span>
                         <span style="font-weight:700; color:#fff;" id="fin-bs-cash">,430.00</span>
                     </div>
                     <div style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid rgba(255,255,255,0.06); padding-bottom:6px;">
@@ -1271,17 +1271,17 @@ HTML_PAGE = """<!DOCTYPE html>
                         <span id="fin-bs-assets">,655.00</span>
                     </div>
 
-                    <div style="font-size:12px; font-weight:700; color:var(--accent-emerald); border-bottom:1px solid rgba(255,255,255,0.06); padding-bottom:4px; text-transform:uppercase; margin-top:4px;">LIABILITIES & EQUITY</div>
+                    <div style="font-size:12px; font-weight:700; color:var(--accent-emerald); border-bottom:1px solid rgba(255,255,255,0.06); padding-bottom:4px; text-transform:uppercase; margin-top:4px;">LIABILITIES &amp; EQUITY</div>
                     <div style="display:flex; justify-content:space-between; font-size:13px;">
                         <span style="color:var(--text-muted);">Total Liabilities (Zero Debt):</span>
                         <span style="font-weight:700; color:var(--accent-emerald);">zsh.00</span>
                     </div>
                     <div style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid rgba(255,255,255,0.06); padding-bottom:6px;">
-                        <span style="color:var(--text-muted);">Retained Earnings & Member Equity:</span>
+                        <span style="color:var(--text-muted);">Retained Earnings &amp; Member Equity:</span>
                         <span style="font-weight:700; color:#fff;" id="fin-bs-equity">,655.00</span>
                     </div>
                     <div style="display:flex; justify-content:space-between; font-size:14px; font-weight:700; color:var(--accent-emerald);">
-                        <span>TOTAL LIABILITIES & EQUITY:</span>
+                        <span>TOTAL LIABILITIES &amp; EQUITY:</span>
                         <span id="fin-bs-total-liab">,655.00 (BALANCED)</span>
                     </div>
                 </div>
