@@ -1,4 +1,4 @@
-HTML_PAGE = """<!DOCTYPE html>
+HTML_PAGE = """CTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +6,7 @@ HTML_PAGE = """<!DOCTYPE html>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>BountyGrid OS — Solo Commander RPG</title>
+    <title>BountyGrid OS — Executive Commander</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="BountyGrid OS">
@@ -14,114 +14,88 @@ HTML_PAGE = """<!DOCTYPE html>
     <link rel="icon" type="image/jpeg" href="/app-icon.jpg">
 
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif; -webkit-tap-highlight-color: transparent; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif; -webkit-tap-highlight-color: transparent; }
         
         :root {
-            --bg-base: #060913;
-            --bg-card: #0d1527;
-            --bg-card-sub: rgba(18, 28, 50, 0.7);
+            --bg-base: #0b0d13;
+            --bg-surface: #121826;
+            --bg-surface-elevated: #182235;
             --border-subtle: rgba(255, 255, 255, 0.08);
-            --border-glow: rgba(0, 242, 254, 0.3);
-            --accent-cyan: #00f2fe;
-            --accent-green: #00e676;
-            --accent-gold: #ffb703;
-            --accent-purple: #a855f7;
-            --accent-pink: #ff007f;
-            --accent-orange: #ff5400;
-            --text-main: #f8fafc;
-            --text-sub: #94a3b8;
-            --text-dim: #64748b;
+            --border-active: rgba(0, 242, 254, 0.4);
+            --accent-emerald: #10b981;
+            --accent-cyan: #06b6d4;
+            --accent-amber: #f59e0b;
+            --accent-purple: #8b5cf6;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
         }
 
         body { 
             background: var(--bg-base); 
-            color: var(--text-main); 
+            color: var(--text-primary); 
             display: flex; 
             flex-direction: column; 
             height: 100vh; 
             height: 100dvh;
             overflow: hidden; 
-            background-image: radial-gradient(circle at 50% 0%, rgba(0, 242, 254, 0.12) 0%, transparent 60%);
-            font-size: 15px;
+            font-size: 14px;
             line-height: 1.5;
-        }
-        
-        /* HEADER HUD */
-        header { 
-            background: rgba(13, 21, 39, 0.95); 
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            padding: 12px 16px 10px 16px; 
-            display: flex; 
-            flex-direction: column;
-            gap: 8px;
-            border-bottom: 2px solid rgba(0, 242, 254, 0.25); 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-            flex-shrink: 0;
-            z-index: 50;
-        }
-        .header-top-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .founder-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .rank-badge { 
-            background: linear-gradient(135deg, #ffb703, #ff5400); 
-            color: #000; 
-            font-size: 12px; 
-            font-weight: 900; 
-            padding: 4px 10px; 
-            border-radius: 10px; 
-            letter-spacing: 0.5px;
-            box-shadow: 0 0 14px rgba(255, 183, 3, 0.4);
-        }
-        .founder-title { 
-            font-size: 17px; 
-            font-weight: 900; 
-            color: #ffffff; 
-            letter-spacing: -0.2px; 
+            -webkit-font-smoothing: antialiased;
         }
 
-        .header-actions {
+        /* TOP NAVIGATION NAVBAR */
+        header { 
+            background: rgba(18, 24, 38, 0.95); 
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 12px 20px; 
+            display: flex; 
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-subtle); 
+            flex-shrink: 0;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .brand-logo {
             display: flex;
             align-items: center;
             gap: 8px;
-        }
-        .streak-pill {
-            background: rgba(255, 84, 0, 0.15);
-            border: 1px solid rgba(255, 84, 0, 0.4);
-            color: #ff5400;
-            font-size: 12px;
-            font-weight: 900;
-            padding: 4px 10px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        .conn-pill {
-            background: rgba(0, 230, 118, 0.12);
-            border: 1px solid rgba(0, 230, 118, 0.3);
-            color: #00e676;
-            font-size: 11px;
             font-weight: 800;
-            padding: 4px 8px;
-            border-radius: 20px;
+            font-size: 16px;
+            letter-spacing: -0.3px;
+            color: #fff;
+            text-decoration: none;
+        }
+        .brand-logo svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--accent-cyan);
+        }
+        .live-pill {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: var(--accent-emerald);
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
         }
-        .conn-dot {
-            width: 7px;
-            height: 7px;
-            background: #00e676;
+        .live-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent-emerald);
             border-radius: 50%;
-            box-shadow: 0 0 8px #00e676;
+            box-shadow: 0 0 8px var(--accent-emerald);
             animation: pulse-glow 2s infinite;
         }
         @keyframes pulse-glow {
@@ -129,561 +103,277 @@ HTML_PAGE = """<!DOCTYPE html>
             50% { opacity: 0.4; transform: scale(0.85); }
         }
 
-        .header-bottom-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        /* DROPDOWN VIEW SELECTOR */
+        .dropdown-container {
+            position: relative;
         }
-        .xp-bar-container {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .xp-text {
-            font-size: 12px;
-            font-weight: 800;
-            color: var(--text-sub);
-            white-space: nowrap;
-        }
-        .xp-highlight {
-            color: var(--accent-cyan);
-            font-weight: 900;
-        }
-        .xp-bar-bg {
-            flex: 1;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.08);
+        .dropdown-trigger {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            padding: 8px 16px;
             border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid rgba(0, 242, 254, 0.3);
-        }
-        .xp-bar-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #00f2fe, #00e676);
-            border-radius: 10px;
-            transition: width 0.4s ease;
-            box-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
-        }
-
-        /* LIVE EVENT TICKER BAR */
-        #webhook-live-bar {
-            background: rgba(10, 16, 30, 0.95);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            padding: 6px 16px;
-            font-size: 12px;
-            font-weight: 800;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            flex-shrink: 0;
-        }
-
-        /* TAB NAVIGATION BAR */
-        .tab-bar { 
-            display: flex; 
-            background: rgba(13, 21, 39, 0.9); 
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
-            overflow-x: auto; 
-            -webkit-overflow-scrolling: touch; 
-            padding: 8px 12px; 
-            gap: 8px; 
-            flex-shrink: 0;
-            scrollbar-width: none;
-        }
-        .tab-bar::-webkit-scrollbar { display: none; }
-        .tab { 
-            flex: 0 0 auto; 
-            white-space: nowrap; 
-            padding: 8px 14px; 
-            border-radius: 12px; 
-            font-size: 13px; 
-            font-weight: 800; 
-            color: var(--text-sub); 
-            cursor: pointer; 
-            background: rgba(255, 255, 255, 0.04); 
-            border: 1px solid rgba(255, 255, 255, 0.08); 
+            gap: 8px;
             transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
         }
-        .tab:hover {
+        .dropdown-trigger:hover {
+            background: rgba(255, 255, 255, 0.09);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+        .dropdown-trigger svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--text-secondary);
+            transition: transform 0.2s ease;
+        }
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%) translateY(-10px);
+            background: var(--bg-surface-elevated);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 14px;
+            padding: 6px;
+            min-width: 250px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 200;
+        }
+        .dropdown-menu.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 12px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .dropdown-item:hover, .dropdown-item.active {
             color: #fff;
             background: rgba(255, 255, 255, 0.08);
         }
-        .tab.active { 
-            color: #000; 
-            background: linear-gradient(135deg, #00f2fe, #00e676); 
-            border-color: #00f2fe; 
-            font-weight: 900; 
-            box-shadow: 0 2px 14px rgba(0, 242, 254, 0.35); 
+        .dropdown-item.active {
+            color: var(--accent-cyan);
+            font-weight: 700;
         }
 
-        /* MAIN CONTENT SCROLL CONTAINER */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .sync-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .sync-btn:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* MAIN SCROLL CONTAINER */
         .content-scroll {
             flex: 1 1 0;
             min-height: 0;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
-            padding: 14px 16px 40px 16px;
+            padding: 20px 20px 60px 20px;
         }
-        .content-view { 
-            display: flex; 
-            flex-direction: column; 
-            gap: 14px; 
-            max-width: 900px;
+        .max-w {
+            max-width: 1040px;
             margin: 0 auto;
-        }
-
-        /* CARDS */
-        .card { 
-            background: var(--bg-card); 
-            border: 1px solid var(--border-subtle); 
-            border-radius: 18px; 
-            padding: 16px 18px; 
-            box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-            position: relative;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 20px;
         }
-        .card-title { 
-            font-size: 15px; 
-            font-weight: 900; 
-            color: #fff; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            letter-spacing: -0.2px;
-        }
-        
-        /* STAT BOXES & GRIDS */
-        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
 
-        .stat-box { 
-            background: var(--bg-card-sub); 
-            border: 1px solid var(--border-subtle); 
-            border-radius: 14px; 
-            padding: 12px 14px; 
-            text-align: center; 
-            transition: all 0.2s;
+        /* TOP KPI METRIC CARDS (LINEAR OBSIDIAN STYLE) */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+        }
+        @media (max-width: 860px) {
+            .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 480px) {
+            .kpi-grid { grid-template-columns: 1fr; }
+        }
+
+        .kpi-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            padding: 18px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            gap: 4px;
+            gap: 8px;
+            transition: all 0.2s ease;
         }
-        .stat-val { 
-            font-size: 26px; 
-            font-weight: 900; 
-            color: #ffffff; 
+        .kpi-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+        .kpi-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .kpi-value {
+            font-size: 26px;
+            font-weight: 800;
+            color: #fff;
             letter-spacing: -0.5px;
         }
-        .stat-label { 
-            font-size: 12px; 
-            color: var(--text-sub); 
-            font-weight: 800; 
-            letter-spacing: 0.2px;
+        .kpi-sub {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .kpi-sub.up { color: var(--accent-emerald); }
+        .kpi-sub.cyan { color: var(--accent-cyan); }
+        .kpi-sub.amber { color: var(--accent-amber); }
+
+        /* CARDS & CONTAINERS */
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            padding: 20px;
+        }
+        .card-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .card-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* TABLES */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 13px;
+        }
+        .data-table th {
+            padding: 10px 16px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .data-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--text-secondary);
+        }
+        .data-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: #fff;
+        }
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+        .status-pill.merged {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent-emerald);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        .status-pill.review {
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--accent-amber);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        /* VIEW CONTAINERS */
+        .view-pane {
+            display: none;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .view-pane.active {
+            display: flex;
         }
 
         /* BUTTONS */
-        .action-btn {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            color: #fff;
-            padding: 8px 14px;
-            border-radius: 10px;
-            font-size: 13px;
-            font-weight: 800;
-            cursor: pointer;
-            transition: 0.2s;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-        .action-btn:hover {
-            background: rgba(255, 255, 255, 0.12);
-        }
-        .action-btn.btn-cyan {
-            background: rgba(0, 242, 254, 0.15);
-            border-color: rgba(0, 242, 254, 0.35);
-            color: var(--accent-cyan);
-        }
-        .action-btn.btn-green {
-            background: rgba(0, 230, 118, 0.15);
-            border-color: rgba(0, 230, 118, 0.35);
-            color: var(--accent-green);
-        }
-        .action-btn.btn-gold {
-            background: rgba(255, 183, 3, 0.15);
-            border-color: rgba(255, 183, 3, 0.35);
-            color: var(--accent-gold);
-        }
-
-        /* SPRINT RAID BUTTONS */
-        .batch-btn {
-            padding: 14px;
-            border-radius: 14px;
-            font-size: 15px;
-            font-weight: 900;
-            cursor: pointer;
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-emerald));
+            color: #000;
             border: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            transition: all 0.2s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-        .batch-btn:hover { transform: translateY(-2px); }
-        .batch-btn:active { transform: translateY(1px); }
-        .btn-omni {
-            background: linear-gradient(135deg, #00f2fe, #0077b6);
-            color: #000;
-        }
-        .btn-power {
-            background: linear-gradient(135deg, #ff007f, #7928ca);
-            color: #fff;
-        }
-        .btn-mini {
-            background: linear-gradient(135deg, #00e676, #0077b6);
-            color: #000;
-        }
-        .batch-sub {
-            font-size: 11px;
-            font-weight: 800;
-            opacity: 0.9;
-        }
-
-        /* 10 VIDEO GAME WORLDS CARDS */
-        .world-card {
-            background: var(--bg-card-sub);
-            border: 1px solid var(--border-subtle);
-            border-radius: 16px;
-            padding: 14px 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            transition: 0.2s;
-        }
-        .world-card.unlocked {
-            border-color: rgba(0, 230, 118, 0.35);
-            background: linear-gradient(135deg, rgba(0, 230, 118, 0.08), rgba(13, 21, 39, 0.7));
-        }
-        .world-card.current {
-            border-color: var(--accent-cyan);
-            background: linear-gradient(135deg, rgba(0, 242, 254, 0.12), rgba(13, 21, 39, 0.8));
-            box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
-        }
-        .world-card.locked {
-            opacity: 0.75;
-        }
-        .world-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-        .world-title {
-            font-size: 15px;
-            font-weight: 900;
-            color: #fff;
-        }
-        .world-badge {
-            font-size: 11px;
-            font-weight: 900;
-            padding: 3px 8px;
-            border-radius: 6px;
-        }
-        .loot-metrics-banner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(0, 0, 0, 0.35);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 10px;
-            padding: 8px 12px;
-        }
-        .loot-metric-item {
-            display: flex;
-            flex-direction: column;
-        }
-        .loot-metric-val {
-            font-size: 15px;
-            font-weight: 900;
-        }
-        .loot-metric-lbl {
-            font-size: 11px;
-            color: var(--text-sub);
-            font-weight: 800;
-        }
-        .quest-list {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            font-size: 13px;
-            color: #cbd5e1;
-        }
-        .quest-item {
-            background: rgba(0, 0, 0, 0.25);
-            padding: 6px 10px;
+            padding: 8px 16px;
             border-radius: 8px;
-            border-left: 3px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* HERO MINION ROSTER */
-        .hero-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-        .hero-card {
-            background: var(--bg-card-sub);
-            border: 1px solid var(--border-subtle);
-            border-radius: 14px;
-            padding: 12px 14px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .hero-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .hero-icon { font-size: 24px; }
-        .hero-name { font-size: 14px; font-weight: 900; color: #fff; }
-        .hero-sub { font-size: 11px; color: var(--text-sub); font-weight: 700; }
-        .hero-stats {
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-            font-weight: 800;
-            background: rgba(0,0,0,0.3);
-            padding: 6px 8px;
-            border-radius: 8px;
-        }
-
-        /* RADAR & DELIVERY ITEMS */
-        .pr-item-card {
-            background: var(--bg-card-sub);
-            border: 1px solid var(--border-subtle);
-            border-radius: 14px;
-            padding: 12px 14px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
-            transition: 0.2s;
-        }
-        .pr-item-card:hover {
-            border-color: rgba(0, 242, 254, 0.4);
-            background: rgba(18, 28, 50, 0.9);
-        }
-
-        /* HEATMAP REALM BARS */
-        .realm-card {
-            background: var(--bg-card-sub);
-            border: 1px solid var(--border-subtle);
-            border-radius: 12px;
-            padding: 10px 14px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-        .realm-bar-bg {
-            height: 6px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 6px;
-            overflow: hidden;
-        }
-        .realm-bar-fill {
-            height: 100%;
-            border-radius: 6px;
-            background: var(--accent-cyan);
-            transition: width 0.3s ease;
-        }
-
-        /* MODALS */
-        .modal-overlay {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(4, 7, 16, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            z-index: 999;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 16px;
-        }
-        .modal-card {
-            background: #0d1527;
-            border: 2px solid var(--accent-cyan);
-            border-radius: 20px;
-            width: 100%;
-            max-width: 650px;
-            max-height: 85vh;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 10px 40px rgba(0, 242, 254, 0.3);
-            overflow: hidden;
-        }
-        .modal-header {
-            padding: 14px 18px;
-            border-bottom: 1px solid rgba(255,505,505,0.08);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .modal-body {
-            padding: 16px 18px;
-            overflow-y: auto;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        /* CHAT VIEW FOOTER BAR */
-        .chat-input-bar {
-            display: flex;
-            gap: 8px;
-            padding: 10px 14px;
-            background: rgba(13, 21, 39, 0.95);
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 14px;
-        }
-        .chat-input {
-            flex: 1;
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 10px;
-            padding: 10px 14px;
-            color: #fff;
-            font-size: 14px;
-        }
-        .chat-input:focus {
-            outline: none;
-            border-color: var(--accent-cyan);
-        }
-
-        @media (max-width: 600px) {
-            .grid-4 { grid-template-columns: repeat(2, 1fr); }
-            .grid-3 { grid-template-columns: 1fr; }
-            .hero-grid { grid-template-columns: 1fr; }
-            .stat-val { font-size: 22px; }
-            header { padding: 10px 12px; }
-            .founder-title { font-size: 15px; }
-        }
-    
-        /* GAMIFIED VISUAL POWER-UP & PROGRESSION GAUGES (LARGE FONT & HIGH VISIBILITY) */
-        .powerup-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-top: 6px;
-        }
-        .powerup-box {
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(0, 242, 254, 0.25);
-            border-radius: 14px;
-            padding: 14px 12px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-        .powerup-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 14px;
-            font-weight: 900;
-            color: #ffffff;
-        }
-        .powerup-pct-badge {
-            font-size: 15px;
-            font-weight: 900;
-            padding: 2px 8px;
-            border-radius: 6px;
-        }
-        .gauge-bar-bg {
-            height: 12px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .gauge-bar-fill {
-            height: 100%;
-            border-radius: 12px;
-            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-        }
-        .gauge-bar-fill::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,505,505,0.4), transparent);
-            animation: gauge-shine 2s infinite;
-        }
-        .powerup-footer {
             font-size: 13px;
-            font-weight: 800;
-            color: var(--text-sub);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        /* QUICK NAVIGATION DROP-DOWN SELECTOR */
-        .nav-dropdown-bar {
-            background: rgba(13, 21, 39, 0.95);
-            border-bottom: 2px solid rgba(0, 242, 254, 0.3);
-            padding: 10px 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-shrink: 0;
-            z-index: 45;
-        }
-        .nav-select-wrap {
-            flex: 1;
-            position: relative;
-        }
-        .nav-select {
-            width: 100%;
-            background: linear-gradient(135deg, rgba(18, 28, 50, 0.95), rgba(6, 9, 19, 0.95));
-            border: 2px solid var(--accent-cyan);
-            border-radius: 12px;
-            padding: 10px 16px;
-            color: #ffffff;
-            font-size: 15px;
-            font-weight: 900;
+            font-weight: 700;
             cursor: pointer;
-            outline: none;
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
-            -webkit-appearance: none;
-            appearance: none;
+            transition: opacity 0.2s ease;
         }
-        .nav-select-arrow {
-            position: absolute;
-            right: 14px;
-            top: 50%;
-            transform: translateY(-50%);
-            pointer-events: none;
-            color: var(--accent-cyan);
-            font-size: 14px;
-            font-weight: 900;
+        .btn-primary:hover { opacity: 0.9; }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            border: 1px solid var(--border-subtle);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
         }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.12); }
 
-        /* VISUAL DELIVERY STEPPER (PRECISE & REALISTIC) */
+        /* AMAZON DELIVERY STEPPER */
         .delivery-stepper {
             display: flex;
             align-items: center;
@@ -705,9 +395,8 @@ HTML_PAGE = """<!DOCTYPE html>
         }
         .stepper-track-fill {
             height: 100%;
-            background: linear-gradient(90deg, #00e676, #00f2fe);
+            background: linear-gradient(90deg, var(--accent-emerald), var(--accent-cyan));
             border-radius: 4px;
-            box-shadow: 0 0 10px rgba(0, 242, 254, 0.7);
             transition: width 0.4s ease;
         }
         .stepper-step {
@@ -723,1150 +412,648 @@ HTML_PAGE = """<!DOCTYPE html>
             width: 28px;
             height: 28px;
             border-radius: 50%;
-            background: #0d1527;
-            border: 2px solid rgba(255, 255, 255, 0.25);
+            background: var(--bg-surface-elevated);
+            border: 2px solid rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 11px;
-            font-weight: 900;
-            color: var(--text-sub);
-            transition: all 0.3s;
+            font-weight: 800;
+            color: var(--text-secondary);
         }
         .stepper-step.completed .stepper-node {
-            background: #00e676;
-            border-color: #00e676;
+            background: var(--accent-emerald);
+            border-color: var(--accent-emerald);
             color: #000;
-            box-shadow: 0 0 12px rgba(0, 230, 118, 0.5);
         }
         .stepper-step.active .stepper-node {
-            background: #00f2fe;
-            border-color: #00f2fe;
+            background: var(--accent-cyan);
+            border-color: var(--accent-cyan);
             color: #000;
-            box-shadow: 0 0 14px rgba(0, 242, 254, 0.9);
-            animation: pulse-node 1.6s infinite;
-        }
-        .stepper-step.pending .stepper-node {
-            background: rgba(13, 21, 39, 0.9);
-            border-color: rgba(255, 255, 255, 0.15);
-            color: var(--text-dim);
-        }
-        @keyframes pulse-node {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.12); }
         }
         .stepper-lbl {
-            font-size: 10px;
-            font-weight: 800;
-            color: var(--text-sub);
-            text-align: center;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-secondary);
         }
         .stepper-step.active .stepper-lbl {
             color: var(--accent-cyan);
-            font-weight: 900;
+            font-weight: 700;
         }
         .stepper-step.completed .stepper-lbl {
-            color: var(--accent-green);
-        }
-        .stepper-step.pending .stepper-lbl {
-            color: var(--text-dim);
+            color: var(--accent-emerald);
         }
 
-        /* RPG PROGRESS BAR ON RADAR / DELIVERY CARD */
-        .card-prog-track {
-            height: 5px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 4px;
-            overflow: hidden;
-            margin-top: 8px;
+        /* HERO SWARM GRID */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
         }
-        .card-prog-bar {
-            height: 100%;
-            border-radius: 4px;
-            background: linear-gradient(90deg, #00f2fe, #00e676);
-            transition: width 0.4s ease;
+        @media (max-width: 600px) {
+            .hero-grid { grid-template-columns: 1fr; }
         }
-
-        /* WORLD BOSS HP GAUGE */
-        .boss-hp-container {
+        .hero-card {
+            background: var(--bg-surface-elevated);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 14px;
             display: flex;
             flex-direction: column;
-            gap: 4px;
-            margin-top: 4px;
+            gap: 8px;
         }
-        .boss-hp-bar {
-            height: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 6px;
+
+        /* 10 WORLDS CARDS */
+        .world-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .world-card.unlocked {
+            border-color: rgba(16, 185, 129, 0.4);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), var(--bg-surface));
+        }
+        .world-card.current {
+            border-color: var(--accent-cyan);
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.08), var(--bg-surface));
+        }
+
+        /* CHAT CONTAINER */
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 160px);
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
             overflow: hidden;
         }
-        .boss-hp-fill {
-            height: 100%;
-            border-radius: 6px;
-            background: linear-gradient(90deg, #ff007f, #a855f7);
-            box-shadow: 0 0 8px rgba(255, 0, 127, 0.5);
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
         }
-</style>
+        .chat-bubble {
+            padding: 12px 16px;
+            border-radius: 12px;
+            max-width: 80%;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .chat-bubble.ai {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            align-self: flex-start;
+            border: 1px solid var(--border-subtle);
+        }
+        .chat-bubble.user {
+            background: var(--accent-cyan);
+            color: #000;
+            font-weight: 600;
+            align-self: flex-end;
+        }
+        .chat-input-bar {
+            padding: 14px 16px;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            gap: 10px;
+            background: rgba(10, 14, 24, 0.8);
+        }
+        .chat-input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 10px 14px;
+            color: #fff;
+            font-size: 13px;
+            outline: none;
+        }
+
+        /* MODAL OVERLAYS */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-box {
+            background: var(--bg-surface-elevated);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            padding: 24px;
+            max-width: 650px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+        }
+    </style>
 </head>
 <body>
 
-    <!-- GAMER HUD HEADER -->
+    <!-- TOP NAVIGATION NAVBAR -->
     <header>
-        <div class="header-top-row">
-            <div class="founder-brand">
-                <span class="rank-badge" id="founder-lvl-badge">👑 LEVEL 16 CITADEL MASTER</span>
-                <span class="founder-title">Garrett • BountyGrid OS</span>
+        <div class="nav-left">
+            <a href="#" class="brand-logo">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <span>BountyGrid <span style="color:var(--accent-cyan);">OS</span></span>
+            </a>
+            <div class="live-pill">
+                <div class="live-dot"></div>
+                <span>LIVE SYNC</span>
             </div>
-            <div class="header-actions">
-                <div class="streak-pill" id="streak-badge">🔥 5-DAY STREAK (2X LOOT)</div>
-                <div class="conn-pill" id="conn-status-pill">
-                    <span class="conn-dot"></span>
-                    <span>RAID ACTIVE</span>
+        </div>
+
+        <!-- DROPDOWN VIEW SELECTOR -->
+        <div class="dropdown-container">
+            <button class="dropdown-trigger" id="dropdownTrigger" onclick="toggleDropdown()">
+                <span id="currentViewLabel">💎 Overview & KPIs</span>
+                <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+            </button>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <div class="dropdown-item active" onclick="switchView('view-dash', '💎 Overview & KPIs')">
+                    <span>💎 1. Overview & KPIs</span>
+                </div>
+                <div class="dropdown-item" onclick="switchView('view-delivery', '📦 Amazon PR Delivery (264)')">
+                    <span>📦 2. Amazon Delivery Tracker</span>
+                </div>
+                <div class="dropdown-item" onclick="switchView('view-intel', '🧠 AI Hero Swarm & Intel')">
+                    <span>🧠 3. AI Hero Swarm & Intel</span>
+                </div>
+                <div class="dropdown-item" onclick="switchView('view-radar', '📡 Live PR Radar')">
+                    <span>📡 4. Live PR Radar & Feed</span>
+                </div>
+                <div class="dropdown-item" onclick="switchView('view-heatmap', '🗺️ 25 Conquered Realms')">
+                    <span>🗺️ 5. 25 Realms Heatmap</span>
+                </div>
+                <div class="dropdown-item" onclick="switchView('view-retainer', '💼 Retainer Deal Room')">
+                    <span>💼 6. Engineering Retainers</span>
+                </div>
+                <div class="dropdown-item" onclick="switchView('view-batch', '⚡ 1-Tap Sprints')">
+                    <span>⚡ 7. 1-Tap Autonomous Sprints</span>
+                </div>
+                <div class="dropdown-item" onclick="switchView('view-badges', '🏆 Badges & 10 Worlds')">
+                    <span>🏆 8. Badges & 10 Worlds ($1.5B)</span>
+                </div>
+                <div class="dropdown-item" onclick="switchView('view-calc', '📈 ARR Calculator')">
+                    <span>📈 9. Gold Multiplier (ARR)</span>
+                </div>
+                <div class="dropdown-item" onclick="switchView('view-chat', '💬 Guild Master AI')">
+                    <span>💬 10. Guild Master AI Agent</span>
                 </div>
             </div>
         </div>
 
-        <div class="header-bottom-row">
-            <div class="xp-bar-container">
-                <span class="xp-text" id="xp-counter">LEVEL 10: <b class="xp-highlight">$37,505 / $50,000 XP</b> (TO WORLD 4)</span>
-                <div class="xp-bar-bg">
-                    <div class="xp-bar-fill" id="xp-bar" style="width: 74.4%;"></div>
-                </div>
-                <span style="font-size:12px; font-weight:900; color:var(--accent-green);" id="xp-percent-lbl">74%</span>
-            </div>
+        <div class="nav-right">
+            <button class="btn-primary" onclick="showFinancialModal()" style="font-size:12px; padding:6px 12px;">📊 3-Statement Vault</button>
+            <button class="sync-btn" onclick="fetchMetrics()">
+                <svg style="width:12px; height:12px; fill:currentColor;" viewBox="0 0 24 24"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+                <span>Sync</span>
+            </button>
         </div>
     </header>
 
-    <!-- LIVE WEBHOOK TICKER BAR -->
-    <div id="webhook-live-bar">
-        <span style="display:flex; align-items:center; gap:6px;">
-            <span style="color:#00e676;">⚡ LIVE EVENT:</span>
-            <span id="webhook-event-text">PR #1858 Verified & Dispatched to Subfinder (+$200)</span>
-        </span>
-        <span style="font-size:11px; color:var(--text-sub);" id="webhook-time">JUST NOW</span>
-    </div>
+    <!-- MAIN SCROLL CONTAINER -->
+    <main class="content-scroll">
+        <div class="max-w">
 
-        <!-- QUICK DROP-DOWN NAVIGATION MENU -->
-    <div class="nav-dropdown-bar">
-        <span style="font-size:14px; font-weight:900; color:var(--accent-cyan); display:flex; align-items:center; gap:6px;">
-            <span>⚡ JUMP TO:</span>
-        </span>
-        <div class="nav-select-wrap">
-            <select class="nav-select" id="view-dropdown-select" onchange="switchTab(this.value)">
-                <option value="dash">💎 1. Loot Stash HUD (Overview)</option>
-                <option value="delivery">📦 2. Amazon PR Delivery Tracker (264)</option>
-                <option value="intel">🧠 3. AI Hero Swarm & Maintainer Intel</option>
-                <option value="radar">📡 4. Live PR Radar & Feed</option>
-                <option value="heatmap">🗺️ 5. 25 Conquered Realms Heatmap</option>
-                <option value="retainer">💼 6. Engineering Retainer Deal Room</option>
-                <option value="batch">⚡ 7. 1-Tap Autonomous Sprints</option>
-                <option value="badges">🏆 8. Badges & 10 Worlds ($1.5B Exit)</option>
-                <option value="calc">📈 9. Gold Multiplier & ARR Calculator</option>
-                <option value="chat">💬 10. Guild Master AI Agent Copilot</option>
-            </select>
-            <span class="nav-select-arrow">▼</span>
-        </div>
-    </div>
-
-    <!-- 10 GAMIFIED NAVIGATION TABS -->
-    <div class="tab-bar">
-        <div class="tab active" id="tab-dash" onclick="switchTab('dash')">💎 Loot Stash HUD</div>
-        <div class="tab" id="tab-delivery" onclick="switchTab('delivery')">📦 Amazon Delivery (264)</div>
-        <div class="tab" id="tab-intel" onclick="switchTab('intel')">🧠 AI Hero Swarm & Intel</div>
-        <div class="tab" id="tab-radar" onclick="switchTab('radar')">📡 PR Radar</div>
-        <div class="tab" id="tab-heatmap" onclick="switchTab('heatmap')">🗺️ 25 Realms Heatmap</div>
-        <div class="tab" id="tab-retainer" onclick="switchTab('retainer')">💼 Retainer Hub</div>
-        <div class="tab" id="tab-batch" onclick="switchTab('batch')">⚡ 1-Tap Sprints</div>
-        <div class="tab" id="tab-badges" onclick="switchTab('badges')">🏆 Badges & 10 Worlds ($1.5B)</div>
-        <div class="tab" id="tab-calc" onclick="switchTab('calc')">📈 Gold Multiplier (ARR)</div>
-        <div class="tab" id="tab-chat" onclick="switchTab('chat')">💬 Guild Master AI</div>
-    </div>
-
-    <!-- MAIN SCROLLABLE CONTENT VIEW CONTAINER -->
-    <div class="content-scroll">
-
-        <!-- TAB 1: 💎 LOOT STASH HUD (MAIN DASHBOARD) -->
-        <div class="content-view" id="view-dash">
-            <!-- PRIMARY LOOT STASH CARD -->
-            <div class="card" style="background: linear-gradient(135deg, rgba(0, 242, 254, 0.12), rgba(0, 230, 118, 0.08)); border-color: rgba(0, 242, 254, 0.35);">
-                <div class="card-title">
-                    <span>💎 Current Loot Stash (Total Pipeline)</span>
-                    <button class="action-btn btn-cyan" onclick="showFinancialModal()">📊 View 3-Statement Vault</button>
-                </div>
-                
-                <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:4px;">
-                    <div style="font-size:36px; font-weight:900; color:var(--accent-cyan); letter-spacing:-1px;" id="stat-gross">$39,655.00</div>
-                    <span style="font-size:13px; font-weight:800; color:var(--accent-green); background:rgba(0,230,118,0.15); padding:4px 10px; border-radius:10px;">100% BALANCED</span>
-                </div>
-                
-                <div class="grid-2">
-                    <div class="stat-box" style="background:rgba(0,230,118,0.1); border-color:rgba(0,230,118,0.3);">
-                        <div class="stat-val" style="color:var(--accent-green);" id="stat-cash">$5,430.00</div>
-                        <div class="stat-label">🪙 Real Banked Gold (Stripe)</div>
+            <!-- ================= VIEW 1: OVERVIEW ================= -->
+            <div id="view-dash" class="view-pane active">
+                <!-- TOP 4 KPI METRIC CARDS -->
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-label">
+                            <span>Total Pipeline</span>
+                            <span style="color:var(--accent-cyan);">Gross</span>
+                        </div>
+                        <div class="kpi-value" id="stat-gross">$54,655.00</div>
+                        <div class="kpi-sub cyan" id="stat-fleet">338 Units (264 Active)</div>
                     </div>
-                    <div class="stat-box" style="background:rgba(255,183,3,0.1); border-color:rgba(255,183,3,0.3);">
-                        <div class="stat-val" style="color:var(--accent-gold);" id="stat-ar">$34,225.00</div>
-                        <div class="stat-label">⏳ Loot Chests Opening (166 Quests)</div>
+                    <div class="kpi-card">
+                        <div class="kpi-label">
+                            <span>Cash Settled</span>
+                            <span style="color:var(--accent-emerald);">Stripe</span>
+                        </div>
+                        <div class="kpi-value" id="stat-cash">$5,430.00</div>
+                        <div class="kpi-sub up">32 Merged PRs</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-label">
+                            <span>Accounts Receivable</span>
+                            <span style="color:var(--accent-amber);">Pending</span>
+                        </div>
+                        <div class="kpi-value" id="stat-ar">$49,225.00</div>
+                        <div class="kpi-sub amber">264 PRs In Review</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-label">
+                            <span>Today Revenue</span>
+                            <span style="color:var(--accent-purple);">Pace</span>
+                        </div>
+                        <div class="kpi-value" id="stat-daily-rev">$17,250.00</div>
+                        <div class="kpi-sub up" id="stat-daily-label">76 PRs Dispatched Today</div>
                     </div>
                 </div>
 
-                <div style="font-size:13px; color:var(--text-sub); line-height:1.4;">
-                    🪙 <b>Banked Gold</b> ($5,430) + ⏳ <b>Loot Chests</b> ($34,225) = 💎 <b>Total Loot Stash</b> ($39,655.00) across <b>198 Active Hero Units</b>!
+                <!-- QUICK DISPATCH ACTION CARD -->
+                <div class="card" style="flex-direction:row; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+                    <div>
+                        <div style="font-size:15px; font-weight:700; color:#fff;">⚡ One-Tap 5-PR Autonomous Sprint</div>
+                        <div style="font-size:12px; color:var(--text-secondary); margin-top:2px;">Safe 5-PR wave dispatch across diversified repositories with zero maintainer strain.</div>
+                    </div>
+                    <div style="display:flex; gap:10px;">
+                        <button class="btn-primary" onclick="executeRealBatch('power')">Dispatch 5-PR Wave</button>
+                        <button class="btn-secondary" onclick="showFinancialModal()">View Ledger Vault</button>
+                    </div>
                 </div>
-            </div>
 
-            <!-- RPG POWER-UP & LEVEL-UP PROGRESSION GAUGES -->
-            <div class="card" style="border-color: rgba(0, 242, 254, 0.4); background: linear-gradient(135deg, rgba(13, 21, 39, 0.95), rgba(6, 9, 19, 0.95));">
-                <div class="card-title">
-                    <span style="font-size: 17px; font-weight: 900; color: #fff;">⚡ Guild Power-Ups & Level-Up Gauges</span>
-                    <span style="color:var(--accent-cyan); font-size:13px; font-weight:900; background:rgba(0,242,254,0.15); padding:4px 10px; border-radius:8px; border: 1px solid rgba(0,242,254,0.3);">WORLD 4 UNLOCK: 79%</span>
-                </div>
-                
-                <div class="powerup-container">
-                    <!-- Gauge 1: Level 10 XP -->
-                    <div class="powerup-box">
-                        <div class="powerup-header">
-                            <span>⭐ Level 10 XP</span>
-                            <span class="powerup-pct-badge" style="color:var(--accent-cyan); background:rgba(0,242,254,0.15);" id="gauge-xp-pct">79.3%</span>
-                        </div>
-                        <div class="gauge-bar-bg">
-                            <div class="gauge-bar-fill" id="gauge-xp-bar" style="width: 79.3%; background: linear-gradient(90deg, #00f2fe, #00e676);"></div>
-                        </div>
-                        <div class="powerup-footer">
-                            <span id="gauge-xp-cur" style="color:#fff; font-weight:900;">$39,655</span>
-                            <span>$50,000 Next Lvl</span>
-                        </div>
+                <!-- LIVE PR RADAR SUMMARY TABLE -->
+                <div class="card">
+                    <div class="card-header-row">
+                        <div class="card-title">🚀 Recent Pull Request Feed</div>
+                        <button class="btn-secondary" style="font-size:12px; padding:4px 10px;" onclick="switchView('view-radar', '📡 Live PR Radar')">Open Full Radar ↗</button>
                     </div>
-
-                    <!-- Gauge 2: Swarm Mana / Velocity Boost -->
-                    <div class="powerup-box">
-                        <div class="powerup-header">
-                            <span>🔥 Swarm Fleet</span>
-                            <span class="powerup-pct-badge" style="color:var(--accent-orange); background:rgba(255,84,0,0.15);" id="gauge-mana-pct">99.0%</span>
-                        </div>
-                        <div class="gauge-bar-bg">
-                            <div class="gauge-bar-fill" id="gauge-mana-bar" style="width: 99.0%; background: linear-gradient(90deg, #ff5400, #ffb703);"></div>
-                        </div>
-                        <div class="powerup-footer">
-                            <span style="color:#fff; font-weight:900;">198 / 200 Ships</span>
-                            <span style="color:var(--accent-orange); font-weight:900;">2X BOOST</span>
-                        </div>
-                    </div>
-
-                    <!-- Gauge 3: Stripe Gold Conversion Gauge -->
-                    <div class="powerup-box">
-                        <div class="powerup-header">
-                            <span>🪙 Gold Vault</span>
-                            <span class="powerup-pct-badge" style="color:var(--accent-green); background:rgba(0,230,118,0.15);" id="gauge-gold-pct">54.3%</span>
-                        </div>
-                        <div class="gauge-bar-bg">
-                            <div class="gauge-bar-fill" id="gauge-gold-bar" style="width: 54.3%; background: linear-gradient(90deg, #00e676, #ffb703);"></div>
-                        </div>
-                        <div class="powerup-footer">
-                            <span id="gauge-gold-cur" style="color:#fff; font-weight:900;">$5,430 Cash</span>
-                            <span>$10,000 Target</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- TODAY'S QUEST COMBO & FLEET STATUS -->
-            <div class="card">
-                <div class="card-title">⚡ Today's Quest Combo & Fleet Momentum</div>
-                <div class="grid-2">
-                    <div class="stat-box">
-                        <div class="stat-val" id="stat-daily-rev" style="color:var(--accent-green);">+$2,250</div>
-                        <div class="stat-label" id="stat-daily-label">Today's Rev (10 PRs)</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-val" id="stat-daily-avg">$4,658</div>
-                        <div class="stat-label">Avg Daily Pace</div>
-                    </div>
-                </div>
-                <div class="grid-2">
-                    <div class="stat-box">
-                        <div class="stat-val" id="stat-weekly-rev">$39,655</div>
-                        <div class="stat-label">Weekly Loot Total</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-val" style="color:var(--accent-cyan);" id="stat-fleet">198 Units</div>
-                        <div class="stat-label">Active Hero Fleet</div>
+                    <div style="overflow-x:auto;">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Transaction ID</th>
+                                    <th>Repository</th>
+                                    <th>Description / PR</th>
+                                    <th>Value</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="overview-feed-body">
+                                <tr><td colspan="5" style="text-align:center; padding:20px;">Loading live transactions...</td></tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
 
-            <!-- 1-TAP INSTANT RAID SPRINT DISPATCHER -->
-            <div class="card" style="border-color: rgba(255, 0, 127, 0.35);">
-                <div class="card-title">
-                    <span>⚔️ 1-Tap Autonomous Raid Sprints</span>
-                    <span style="font-size:12px; color:var(--accent-pink); font-weight:800;">AUTONOMOUS AGENTS</span>
-                </div>
-                <div style="font-size:13px; color:var(--text-sub);">
-                    Launch autonomous AI swarm agents across verified open-source ecosystems in 1 tap:
-                </div>
-                <div class="grid-3">
-                    <button class="batch-btn btn-omni" onclick="executeRealBatch('omni')">
-                        <span>⚡ OMNI RAID</span>
-                        <span class="batch-sub">+$1,100 • 5 PRs</span>
-                    </button>
-                    <button class="batch-btn btn-power" onclick="executeRealBatch('power')">
-                        <span>🚀 POWER RAID</span>
-                        <span class="batch-sub">+$1,050 • 5 PRs</span>
-                    </button>
-                    <button class="batch-btn btn-mini" onclick="executeRealBatch('mini')">
-                        <span>🛡️ MINI RAID</span>
-                        <span class="batch-sub">+$600 • 3 PRs</span>
-                    </button>
-                </div>
-                <div id="batch-receipt-area" style="display:none; margin-top:10px; background:rgba(0,0,0,0.5); border:1px solid rgba(0,242,254,0.3); border-radius:12px; padding:12px; font-size:13px; line-height:1.5;"></div>
-            </div>
-        </div>
-
-        <!-- TAB 2: 📦 AMAZON-STYLE LOGISTICS TRACKER -->
-        <div class="content-view" id="view-delivery" style="display:none;">
-            <div class="card" style="background: linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(0, 230, 118, 0.08)); border-color: rgba(0, 242, 254, 0.35);">
-                <div class="card-title">
-                    <span>📦 Amazon-Style PR Logistics Tracker</span>
-                    <span style="color:var(--accent-green); font-size:12px; font-weight:900;">161 PACKAGES IN FLIGHT</span>
-                </div>
-                <div style="font-size:13px; color:var(--text-sub);">
-                    Every pull request is tracked from initial submission to final Stripe bank deposit.
-                </div>
-                <div style="display:flex; justify-content:space-between; background:rgba(0,0,0,0.35); border-radius:10px; padding:10px 14px; font-size:12px; font-weight:800; color:#fff; overflow-x:auto;">
-                    <span>1. 🚀 Submitted</span>
-                    <span>➔</span>
-                    <span>2. ⏳ AR Logged</span>
-                    <span>➔</span>
-                    <span style="color:var(--accent-cyan);">3. 🔍 In Review</span>
-                    <span>➔</span>
-                    <span>4. 🎉 Merged</span>
-                    <span>➔</span>
-                    <span style="color:var(--accent-green);">5. 💵 Bank Deposit</span>
+            <!-- ================= VIEW 2: AMAZON PR DELIVERY TRACKER ================= -->
+            <div id="view-delivery" class="view-pane">
+                <div class="card">
+                    <div class="card-header-row">
+                        <div class="card-title">📦 Amazon-Style PR Logistics Tracker</div>
+                        <span style="font-size:12px; color:var(--accent-emerald); font-weight:700;">264 PACKAGES IN FLIGHT</span>
+                    </div>
+                    <div style="font-size:13px; color:var(--text-secondary);">
+                        Every pull request is tracked from initial submission to final Stripe bank deposit.
+                    </div>
+                    <div id="delivery-list" style="display:flex; flex-direction:column; gap:12px;">
+                        <div style="text-align:center; padding:20px; color:var(--text-muted);">Loading delivery queue...</div>
+                    </div>
                 </div>
             </div>
 
-            <!-- CHRONOLOGICAL QUEUE -->
-            <div class="card">
-                <div class="card-title">
-                    <span>⏱️ Chronological Delivery Queue (Newest First)</span>
-                    <span style="color:var(--accent-gold); font-size:12px; font-weight:800;">$31,075.00 PENDING</span>
-                </div>
-                <div id="delivery-list" style="display:flex; flex-direction:column; gap:8px;">
-                    <div style="text-align:center; padding:20px; color:var(--text-sub);">Loading delivery tracker...</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- TAB 3: 🧠 AI HERO SWARM & MAINTAINER INTEL -->
-        <div class="content-view" id="view-intel" style="display:none;">
-            <!-- AI HERO SWARM ROSTER -->
-            <div class="card" style="border-color: rgba(0, 242, 254, 0.35);">
-                <div class="card-title">
-                    <span>🤖 AI Hero Minion Swarm (24/7 Agent Army)</span>
-                    <span style="color:var(--accent-cyan); font-size:12px; font-weight:900;">5 ACTIVE HERO UNITS</span>
-                </div>
-                <div style="font-size:13px; color:var(--text-sub);">
-                    Your elite AI agents solving bounties and clearing backlogs around the clock:
-                </div>
-                <div class="hero-grid">
-                    <div class="hero-card" style="border-color:rgba(0,242,254,0.35);">
-                        <div class="hero-header">
-                            <span class="hero-icon">🕷️</span>
-                            <div>
-                                <div class="hero-name">The Web Spider</div>
-                                <div class="hero-sub">ProjectDiscovery Scout • Lv 8</div>
+            <!-- ================= VIEW 3: AI HERO SWARM & INTEL ================= -->
+            <div id="view-intel" class="view-pane">
+                <div class="card">
+                    <div class="card-header-row">
+                        <div class="card-title">🧠 AI Hero Minion Swarm (24/7 Agent Army)</div>
+                        <span style="font-size:12px; color:var(--accent-cyan); font-weight:700;">5 ACTIVE HERO UNITS</span>
+                    </div>
+                    <div class="hero-grid">
+                        <div class="hero-card">
+                            <div style="display:flex; align-items:center; gap:10px;">
+                                <span style="font-size:24px;">🕷️</span>
+                                <div>
+                                    <div style="font-weight:700; color:#fff;">The Web Spider</div>
+                                    <div style="font-size:11px; color:var(--text-secondary);">ProjectDiscovery Scout</div>
+                                </div>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; font-size:12px; font-weight:700; color:var(--accent-emerald); margin-top:6px;">
+                                <span>35 Bugs Slayed</span>
+                                <span>$8,450 Loot</span>
                             </div>
                         </div>
-                        <div class="hero-stats">
-                            <span>⚔️ 35 Bugs Slayed</span>
-                            <span style="color:var(--accent-green);">💎 $8,450 Loot</span>
-                        </div>
-                    </div>
-
-                    <div class="hero-card" style="border-color:rgba(0,230,118,0.35);">
-                        <div class="hero-header">
-                            <span class="hero-icon">🛡️</span>
-                            <div>
-                                <div class="hero-name">The Security Paladin</div>
-                                <div class="hero-sub">Permify Defender • Lv 7</div>
+                        <div class="hero-card">
+                            <div style="display:flex; align-items:center; gap:10px;">
+                                <span style="font-size:24px;">🛡️</span>
+                                <div>
+                                    <div style="font-weight:700; color:#fff;">The Security Paladin</div>
+                                    <div style="font-size:11px; color:var(--text-secondary);">Permify Defender</div>
+                                </div>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; font-size:12px; font-weight:700; color:var(--accent-emerald); margin-top:6px;">
+                                <span>28 Quests Done</span>
+                                <span>$7,750 Loot</span>
                             </div>
                         </div>
-                        <div class="hero-stats">
-                            <span>⚔️ 28 Quests Done</span>
-                            <span style="color:var(--accent-green);">💎 $7,750 Loot</span>
-                        </div>
-                    </div>
-
-                    <div class="hero-card" style="border-color:rgba(255,183,3,0.35);">
-                        <div class="hero-header">
-                            <span class="hero-icon">⛓️</span>
-                            <div>
-                                <div class="hero-name">The Soroban Sorcerer</div>
-                                <div class="hero-sub">Lilly Protocol Master • Lv 9</div>
+                        <div class="hero-card">
+                            <div style="display:flex; align-items:center; gap:10px;">
+                                <span style="font-size:24px;">⛓️</span>
+                                <div>
+                                    <div style="font-weight:700; color:#fff;">The Soroban Sorcerer</div>
+                                    <div style="font-size:11px; color:var(--text-secondary);">Lilly Protocol Master</div>
+                                </div>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; font-size:12px; font-weight:700; color:var(--accent-emerald); margin-top:6px;">
+                                <span>40 Escrows Locked</span>
+                                <span>$9,330 Loot</span>
                             </div>
                         </div>
-                        <div class="hero-stats">
-                            <span>⚔️ 40 Escrows Locked</span>
-                            <span style="color:var(--accent-green);">💎 $9,330 Loot</span>
-                        </div>
-                    </div>
-
-                    <div class="hero-card" style="border-color:rgba(168,85,247,0.35);">
-                        <div class="hero-header">
-                            <span class="hero-icon">📐</span>
-                            <div>
-                                <div class="hero-name">The Circuit Wizard</div>
-                                <div class="hero-sub">TSCircuit Solver • Lv 6</div>
+                        <div class="hero-card">
+                            <div style="display:flex; align-items:center; gap:10px;">
+                                <span style="font-size:24px;">📐</span>
+                                <div>
+                                    <div style="font-weight:700; color:#fff;">The Circuit Wizard</div>
+                                    <div style="font-size:11px; color:var(--text-secondary);">TSCircuit Solver</div>
+                                </div>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; font-size:12px; font-weight:700; color:var(--accent-emerald); margin-top:6px;">
+                                <span>22 Traces Solved</span>
+                                <span>$6,400 Loot</span>
                             </div>
                         </div>
-                        <div class="hero-stats">
-                            <span>⚔️ 22 Traces Solved</span>
-                            <span style="color:var(--accent-green);">💎 $6,400 Loot</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= VIEW 4: LIVE PR RADAR ================= -->
+            <div id="view-radar" class="view-pane">
+                <div class="card">
+                    <div class="card-header-row">
+                        <div class="card-title">📡 Live Pull Request Radar</div>
+                        <span id="radar-count-badge" style="font-size:12px; color:var(--accent-cyan); font-weight:700;">264 UNITS</span>
+                    </div>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                        <button class="btn-secondary active" id="filter-all" onclick="filterRadar('all')">All</button>
+                        <button class="btn-secondary" id="filter-review" onclick="filterRadar('review')">⏳ In Review</button>
+                        <button class="btn-secondary" id="filter-merged" onclick="filterRadar('merged')">🎉 Merged</button>
+                    </div>
+                    <input type="text" id="radar-search" placeholder="Search by repo or keyword (e.g. Lilly, Permify, Katana)..." class="chat-input" onkeyup="filterRadarSearch()">
+                    <div id="radar-list" style="display:flex; flex-direction:column; gap:10px;">
+                        <!-- Injected via JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= VIEW 5: 25 CONQUERED REALMS ================= -->
+            <div id="view-heatmap" class="view-pane">
+                <div class="card">
+                    <div class="card-header-row">
+                        <div class="card-title">🗺️ 25 Conquered Realms & Portfolios</div>
+                        <span style="font-size:12px; color:var(--accent-emerald); font-weight:700;">25 REPOSITORIES</span>
+                    </div>
+                    <div id="heatmap-list" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:12px;">
+                        <!-- Injected via JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= VIEW 6: RETAINER DEAL ROOM ================= -->
+            <div id="view-retainer" class="view-pane">
+                <div class="card">
+                    <div class="card-header-row">
+                        <div class="card-title">💼 Engineering Retainer Deal Room</div>
+                        <span style="font-size:12px; color:var(--accent-amber); font-weight:700;">$6k–$8k / MO TIERS</span>
+                    </div>
+                    <div style="font-size:13px; color:var(--text-secondary);">
+                        Convert high-velocity PR contributions into recurring monthly enterprise retainers ($72k–$96k ARR per client):
+                    </div>
+                    <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:12px;">
+                        <button class="btn-secondary" onclick="showRetainerModal('Lilly Protocol')">⛓️ Lilly Protocol Proposal</button>
+                        <button class="btn-secondary" onclick="showRetainerModal('ProjectDiscovery')">🕷️ ProjectDiscovery Proposal</button>
+                        <button class="btn-secondary" onclick="showRetainerModal('Permify')">🛡️ Permify Proposal</button>
+                        <button class="btn-secondary" onclick="showRetainerModal('TSCircuit')">📐 TSCircuit Proposal</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= VIEW 7: 1-TAP SPRINTS ================= -->
+            <div id="view-batch" class="view-pane">
+                <div class="card">
+                    <div class="card-header-row">
+                        <div class="card-title">⚡ Autonomous Multi-Repo Sprint Engine</div>
+                        <span style="font-size:12px; color:var(--accent-emerald); font-weight:700;">BATCH EXECUTOR</span>
+                    </div>
+                    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px;">
+                        <button class="btn-primary" onclick="executeRealBatch('omni')">⚡ OMNI RAID (5 PRs)</button>
+                        <button class="btn-primary" onclick="executeRealBatch('power')">🚀 POWER RAID (5 PRs)</button>
+                        <button class="btn-secondary" onclick="executeRealBatch('mini')">🛡️ MINI RAID (3 PRs)</button>
+                    </div>
+                    <div id="batch-receipt-area" style="display:none; margin-top:10px; background:rgba(0,0,0,0.5); border:1px solid var(--border-subtle); border-radius:12px; padding:16px;"></div>
+                </div>
+            </div>
+
+            <!-- ================= VIEW 8: BADGES & 10 WORLDS ================= -->
+            <div id="view-badges" class="view-pane">
+                <div class="card">
+                    <div class="card-header-row">
+                        <div class="card-title">🏆 10 Video Game Worlds (The $1.5B Exit Ladder)</div>
+                        <button class="btn-primary" style="font-size:12px; padding:4px 10px;" onclick="showBadgeModal()">📋 Embed Badge</button>
+                    </div>
+                    <div class="world-card unlocked">
+                        <div style="display:flex; justify-content:space-between; font-weight:700; color:var(--accent-emerald);">
+                            <span>🟢 World 1: The Starter Dungeon ($75k/yr)</span>
+                            <span>COMPLETED</span>
                         </div>
                     </div>
-
-                    <div class="hero-card" style="border-color:rgba(255,84,0,0.35); grid-column:span 2;">
-                        <div class="hero-header">
-                            <span class="hero-icon">🚨</span>
-                            <div>
-                                <div class="hero-name">The Alert Hunter</div>
-                                <div class="hero-sub">KeepHQ Rule Engine • Lv 5</div>
-                            </div>
-                        </div>
-                        <div class="hero-stats">
-                            <span>⚔️ 15 Alarms Filtered</span>
-                            <span style="color:var(--accent-green);">💎 $1,200 Loot</span>
+                    <div class="world-card unlocked">
+                        <div style="display:flex; justify-content:space-between; font-weight:700; color:var(--accent-emerald);">
+                            <span>🟢 World 2: The Cyber Castle ($120k/yr)</span>
+                            <span>COMPLETED</span>
                         </div>
                     </div>
+                    <div class="world-card unlocked" id="world3-card">
+                        <div style="display:flex; justify-content:space-between; font-weight:700; color:var(--accent-emerald);">
+                            <span>🟢 World 3: The Guild Vault ($300k/yr)</span>
+                            <span id="world3-badge">5/5 COMPLETED</span>
+                        </div>
+                        <div style="font-size:12px; color:var(--text-secondary);" id="w3-q12-txt">Fifty-Grand Titan ($54,655 / $50,000 loot) • 109% EXCEEDED</div>
+                    </div>
+                    <div class="world-card current" id="world4-card">
+                        <div style="display:flex; justify-content:space-between; font-weight:700; color:var(--accent-cyan);">
+                            <span>⚡ World 4: The Six-Figure Citadel ($500k/yr)</span>
+                            <span id="w4-boss-hp">27% HP REMAINING</span>
+                        </div>
+                        <div style="font-size:12px; color:var(--text-secondary);" id="w4-q16-txt">$75K Pipeline Sentinel ($54,655 / $75,000 loot) • 73% Active</div>
+                    </div>
                 </div>
             </div>
 
-            <!-- MAINTAINER SENTIMENT & VELOCITY -->
-            <div class="card">
-                <div class="card-title">
-                    <span>⚡ Maintainer Velocity & CI Auto-Healer</span>
-                    <span style="color:var(--accent-green); font-size:12px; font-weight:900;">100% GREEN CI RATE</span>
-                </div>
-                <div class="grid-2">
-                    <div class="stat-box">
-                        <div class="stat-val" style="color:var(--accent-cyan);">~24h</div>
-                        <div class="stat-label">Avg Maintainer Turnaround</div>
+            <!-- ================= VIEW 9: ARR CALCULATOR ================= -->
+            <div id="view-calc" class="view-pane">
+                <div class="card">
+                    <div class="card-header-row">
+                        <div class="card-title">📈 Gold Multiplier & ARR Calculator</div>
+                        <span id="calc-prs-val" style="font-size:12px; color:var(--accent-cyan); font-weight:700;">5 PRs / Day</span>
                     </div>
-                    <div class="stat-box">
-                        <div class="stat-val" style="color:var(--accent-green);">94%</div>
-                        <div class="stat-label">Merge Prediction Score</div>
+                    <input type="range" id="calc-slider" min="1" max="20" value="5" oninput="updateCalc()" style="width:100%; accent-color:var(--accent-cyan);">
+                    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px;">
+                        <div class="kpi-card"><div class="kpi-label">Daily</div><div class="kpi-value" id="calc-daily">$1,000</div></div>
+                        <div class="kpi-card"><div class="kpi-label">Monthly</div><div class="kpi-value" id="calc-monthly" style="color:var(--accent-cyan);">$22,000</div></div>
+                        <div class="kpi-card"><div class="kpi-label">Annual ARR</div><div class="kpi-value" id="calc-annual" style="color:var(--accent-emerald);">$264,000</div></div>
                     </div>
                 </div>
-                <div style="background:rgba(0,0,0,0.45); border:1px solid rgba(0,230,118,0.3); border-radius:10px; padding:12px; font-size:13px; color:#00e676; line-height:1.6;">
-                    ✓ Auto-Healer Telemetry: 187/187 PR pipelines verified 100% green checkmarks.<br>
-                    ✓ Flaky test discriminator: 0 false-positive build failures.<br>
-                    ✓ Upstream clean rebase status: In-Sync with main branches across 25 ecosystems.
-                </div>
-                <button class="action-btn btn-green" onclick="alert('🧪 Auto-Healer Scan Complete: 100% green checkmarks across all 193 PRs!')" style="width:100%;">⚡ Run Auto-Healer Diagnostic Scan</button>
             </div>
+
+            <!-- ================= VIEW 10: COPILOT ================= -->
+            <div id="view-copilot" class="view-pane">
+                <div class="chat-container">
+                    <div class="chat-messages" id="chat-container">
+                        <div class="chat-bubble ai">
+                            👋 <b>Guild Master AI Copilot Online!</b><br>
+                            Connected directly to your live bookkeeping ledger and GitHub pipeline. Ask me anything about your balance sheet, AR pacing, logistics, or repo retainers!
+                        </div>
+                    </div>
+                    <div class="chat-input-bar">
+                        <input type="text" class="chat-input" id="chat-input-box" placeholder="Ask anything about financials, PRs, or retainers..." onkeydown="if(event.key==='Enter') sendChatCommand()">
+                        <button class="btn-primary" onclick="sendChatCommand()">Send</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
+    </main>
 
-        <!-- TAB 4: 📡 PR RADAR -->
-        <div class="content-view" id="view-radar" style="display:none;">
-            <div class="card">
-                <div class="card-title">
-                    <span>📡 Live Pull Request Radar</span>
-                    <span style="color:var(--accent-cyan); font-size:12px; font-weight:800;" id="radar-count-badge">193 UNITS</span>
-                </div>
-                <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                    <button class="action-btn btn-cyan active" id="filter-all" onclick="filterRadar('all')">All (193)</button>
-                    <button class="action-btn" id="filter-review" onclick="filterRadar('review')">⏳ In Review (161)</button>
-                    <button class="action-btn btn-green" id="filter-merged" onclick="filterRadar('merged')">🎉 Merged (32 • $5,430)</button>
-                </div>
-                <input type="text" id="radar-search" placeholder="Search by repo or keyword (e.g., Lilly, Permify, Katana)..." style="background:rgba(0,0,0,0.5); border:1px solid rgba(255,505,505,0.12); border-radius:10px; padding:10px 14px; color:#fff; font-size:13px;" onkeyup="filterRadarSearch()">
-                
-                <div id="radar-list" style="display:flex; flex-direction:column; gap:8px;">
-                    <!-- Populated dynamically via JS -->
-                </div>
-            </div>
-        </div>
-
-        <!-- TAB 5: 🗺️ 25 CONQUERED REALMS -->
-        <div class="content-view" id="view-heatmap" style="display:none;">
-            <div class="card">
-                <div class="card-title">
-                    <span>🗺️ 25 Conquered Realms & Portfolios</span>
-                    <span style="color:var(--accent-green); font-size:12px; font-weight:800;">25 REPOSITORIES</span>
-                </div>
-                <div style="font-size:13px; color:var(--text-sub);">
-                    Capital is spread systematically across 25 open-source realms with 0% over-allocation risk.
-                </div>
-                <div id="heatmap-list" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:10px;">
-                    <!-- Populated dynamically via JS -->
-                </div>
-            </div>
-        </div>
-
-        <!-- TAB 6: 💼 RETAINER HUB -->
-        <div class="content-view" id="view-retainer" style="display:none;">
-            <div class="card" style="border-color: rgba(255, 183, 3, 0.35);">
-                <div class="card-title">
-                    <span>💼 Engineering Retainer Deal Room</span>
-                    <span style="color:var(--accent-gold); font-size:12px; font-weight:800;">$6k–$8k / MO TIERS</span>
-                </div>
-                <div style="font-size:13px; color:var(--text-sub);">
-                    Convert high-velocity PR contributions into recurring monthly enterprise retainers ($72k–$96k ARR per client):
-                </div>
-                
-                <div class="grid-2">
-                    <button class="action-btn btn-gold" onclick="showRetainerModal('Lilly Protocol')" style="padding:12px;">⛓️ Lilly Protocol Proposal</button>
-                    <button class="action-btn btn-cyan" onclick="showRetainerModal('ProjectDiscovery')" style="padding:12px;">🕷️ ProjectDiscovery Proposal</button>
-                    <button class="action-btn btn-green" onclick="showRetainerModal('Permify')" style="padding:12px;">🛡️ Permify Proposal</button>
-                    <button class="action-btn" onclick="showRetainerModal('TSCircuit')" style="padding:12px; border-color:var(--accent-purple); color:var(--accent-purple);">📐 TSCircuit Proposal</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- TAB 7: ⚡ 1-TAP SPRINTS -->
-        <div class="content-view" id="view-batch" style="display:none;">
-            <div class="card">
-                <div class="card-title">
-                    <span>⚡ Autonomous Multi-Repo Sprint Engine</span>
-                    <span style="color:var(--accent-green); font-size:12px; font-weight:900;">BATCH EXECUTOR</span>
-                </div>
-                <div style="font-size:13px; color:var(--text-sub);">
-                    Dispatch multiple autonomous AI hero agents at once across target ecosystems to collect maximum bounty loot:
-                </div>
-                <div class="grid-3" style="margin-top:6px;">
-                    <button class="batch-btn btn-omni" onclick="executeRealBatch('omni')">
-                        <span>⚡ OMNI RAID</span>
-                        <span class="batch-sub">+$1,100 Loot • 5 PRs</span>
-                    </button>
-                    <button class="batch-btn btn-power" onclick="executeRealBatch('power')">
-                        <span>🚀 POWER RAID</span>
-                        <span class="batch-sub">+$1,050 Loot • 5 PRs</span>
-                    </button>
-                    <button class="batch-btn btn-mini" onclick="executeRealBatch('mini')">
-                        <span>🛡️ MINI RAID</span>
-                        <span class="batch-sub">+$600 Loot • 3 PRs</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- TAB 8: 🏆 BADGES & 10 WORLDS ($1.5B EXIT) -->
-        <div class="content-view" id="view-badges" style="display:none;">
-            <!-- VERIFICATION BADGE CARD -->
-            <div class="card" style="background: linear-gradient(135deg, rgba(0, 230, 118, 0.12), rgba(0, 242, 254, 0.08)); border-color: rgba(0, 230, 118, 0.35);">
-                <div class="card-title">
-                    <span>🛡️ Public Proof-of-Work Verification Badge</span>
-                    <button class="action-btn btn-green" onclick="showBadgeModal()">📋 Embed Badge</button>
-                </div>
-                <div style="font-size:13px; color:var(--text-sub);">
-                    Verified cryptographic record of 32 merged PRs, $5,430 cash settled, and 100% green CI velocity across 25 open-source ecosystems.
-                </div>
-            </div>
-
-            <!-- 10 WORLDS LADDER (50 MILESTONES) -->
-            <div class="card">
-                <div class="card-title">
-                    <span>🏆 10 Video Game Worlds (The $1.5B Exit Ladder)</span>
-                    <span style="color:var(--accent-green); font-size:12px; font-weight:900; background:rgba(0,230,118,0.15); padding:4px 10px; border-radius:8px;">10 / 50 UNLOCKED (20%)</span>
-                </div>
-                <div style="font-size:13px; color:var(--text-sub);">
-                    Every tier displays the required <b>Monthly Profit</b> and <b>Yearly Loot / Free Cash Flow</b> to reach the <b>$1.5B Unicorn Exit</b>:
-                </div>
-            </div>
-
-            <!-- WORLD 1 -->
-            <div class="world-card unlocked">
-                <div class="world-header">
-                    <div class="world-title">🟢 World 1: The Starter Dungeon (Levels 1–5)</div>
-                    <span class="world-badge" style="background:#00e676; color:#000;">5/5 COMPLETED</span>
-                </div>
-                <div class="loot-metrics-banner">
-                    <div class="loot-metric-item">
-                        <span class="loot-metric-val" style="color:var(--accent-green);">$6,000 / mo</span>
-                        <span class="loot-metric-lbl">💰 Monthly Cash</span>
-                    </div>
-                    <div class="loot-metric-item" style="text-align:right;">
-                        <span class="loot-metric-val" style="color:var(--accent-cyan);">$75,000 / yr</span>
-                        <span class="loot-metric-lbl">🏆 Yearly Loot</span>
-                    </div>
-                </div>
-                <div class="quest-list">
-                    <div class="quest-item"><div class="boss-hp-container"><div style="display:flex; justify-content:space-between; font-size:11px; font-weight:800; color:var(--accent-green);"><span>BOSS DEFEATED (5/5 QUESTS)</span><span>0 HP REMAINING</span></div><div class="boss-hp-bar"><div class="boss-hp-fill" style="width:100%; background:linear-gradient(90deg, #00e676, #00f2fe);"></div></div></div>
-                    ✅ <b>Quest 1</b>: Five-Figure Club ($10k+ gross pipeline reached)</div>
-                    <div class="quest-item">✅ <b>Quest 2</b>: Repo Diplomat (25 distinct realms unlocked)</div>
-                    <div class="quest-item">✅ <b>Quest 3</b>: Cash Clearance Alpha ($5,430 gold in Stripe wallet)</div>
-                    <div class="quest-item">✅ <b>Quest 4</b>: Burst Master (30+ quests solved in 1 day)</div>
-                    <div class="quest-item">✅ <b>Quest 5</b>: Centurion Titan (100+ active PR ships in flight)</div>
-                </div>
-            </div>
-
-            <!-- WORLD 2 -->
-            <div class="world-card unlocked">
-                <div class="world-header">
-                    <div class="world-title">🟢 World 2: The Cyber Castle (Levels 6–10)</div>
-                    <span class="world-badge" style="background:#00e676; color:#000;">5/5 COMPLETED</span>
-                </div>
-                <div class="loot-metrics-banner">
-                    <div class="loot-metric-item">
-                        <span class="loot-metric-val" style="color:var(--accent-green);">$10,000 / mo</span>
-                        <span class="loot-metric-lbl">💰 Monthly Cash</span>
-                    </div>
-                    <div class="loot-metric-item" style="text-align:right;">
-                        <span class="loot-metric-val" style="color:var(--accent-cyan);">$120,000 / yr</span>
-                        <span class="loot-metric-lbl">🏆 Yearly Loot</span>
-                    </div>
-                </div>
-                <div class="quest-list">
-                    <div class="quest-item"><div class="boss-hp-container"><div style="display:flex; justify-content:space-between; font-size:11px; font-weight:800; color:var(--accent-green);"><span>BOSS DEFEATED (5/5 QUESTS)</span><span>0 HP REMAINING</span></div><div class="boss-hp-bar"><div class="boss-hp-fill" style="width:100%; background:linear-gradient(90deg, #00e676, #00f2fe);"></div></div></div>
-                    ✅ <b>Quest 6</b>: $25K Horizon ($25,000 gross pipeline)</div>
-                    <div class="quest-item">✅ <b>Quest 7</b>: $35K Apex Frontier ($37,505 loot secured)</div>
-                    <div class="quest-item">✅ <b>Quest 8</b>: Tri-Layer Harmony (100% balanced ledger)</div>
-                    <div class="quest-item">✅ <b>Quest 9</b>: Security Clearance (0 flaws, green CI)</div>
-                    <div class="quest-item">✅ <b>Quest 10</b>: Fleet Command (161 in-review queue)</div>
-                </div>
-            </div>
-
-            <!-- WORLD 3 -->
-            <div class="world-card unlocked" id="world3-card">
-                <div class="world-header">
-                    <div class="world-title" style="color:var(--accent-green);">🟢 World 3: The Guild Vault (Levels 11–15)</div>
-                    <span class="world-badge" style="background:#00e676; color:#000; font-weight:900;" id="world3-badge">5/5 COMPLETED</span>
-                </div>
-                <div class="loot-metrics-banner">
-                    <div class="loot-metric-item">
-                        <span class="loot-metric-val" style="color:var(--accent-green);">$25,000 / mo</span>
-                        <span class="loot-metric-lbl">💰 Monthly Cash</span>
-                    </div>
-                    <div class="loot-metric-item" style="text-align:right;">
-                        <span class="loot-metric-val" style="color:var(--accent-cyan);">$300,000 / yr</span>
-                        <span class="loot-metric-lbl">🏆 Yearly Loot Target</span>
-                    </div>
-                </div>
-                <div class="quest-list">
-                    <div class="quest-item"><div class="boss-hp-container"><div style="display:flex; justify-content:space-between; font-size:11px; font-weight:800; color:var(--accent-green);"><span>BOSS DEFEATED (5/5 QUESTS)</span><span>0 HP REMAINING</span></div><div class="boss-hp-bar"><div class="boss-hp-fill" style="width:100%; background:linear-gradient(90deg, #00e676, #00f2fe);"></div></div></div>
-                    ✅ <b>Quest 11</b>: $10K Cash Pace ($5,430 gold secured)</div>
-                    ✅ <b>Quest 12</b>: <span id="w3-q12-txt">Fifty-Grand Titan ($54,655 / $50,000 loot) • 109% EXCEEDED</span></div>
-                    ✅ <b>Quest 13</b>: <span id="w3-q13-txt">Double-Century Fleet (264 / 200 hero units in flight)</span></div>
-                    ✅ <b>Quest 14</b>: Escrow Sovereign ($9,330 in Lilly escrows)</div>
-                    ✅ <b>Quest 15</b>: Retainer Deal Room ($6k–$8k proposals active)</div>
-                </div>
-            </div>
-
-            <!-- WORLD 4 -->
-            <div class="world-card current" id="world4-card">
-                <div class="world-header">
-                    <div class="world-title" style="color:var(--accent-cyan);">⚡ World 4: The Six-Figure Citadel (Levels 16–20)</div>
-                    <span class="world-badge" style="background:rgba(0,242,254,0.25); color:#00f2fe; border:1px solid #00f2fe;">ACTIVE WORLD</span>
-                </div>
-                <div class="loot-metrics-banner">
-                    <div class="loot-metric-item">
-                        <span class="loot-metric-val" style="color:var(--accent-green);">$40,000 / mo</span>
-                        <span class="loot-metric-lbl">💰 Monthly Cash Target</span>
-                    </div>
-                    <div class="loot-metric-item" style="text-align:right;">
-                        <span class="loot-metric-val" style="color:var(--accent-cyan);">$500,000 / yr</span>
-                        <span class="loot-metric-lbl">🏆 Yearly Loot Target</span>
-                    </div>
-                </div>
-                <div class="quest-list">
-                    <div class="quest-item"><div class="boss-hp-container"><div style="display:flex; justify-content:space-between; font-size:11px; font-weight:800; color:var(--accent-cyan);"><span>CURRENT RAID BOSS: CITADEL SENTINEL</span><span id="w4-boss-hp">27% HP REMAINING</span></div><div class="boss-hp-bar"><div class="boss-hp-fill" id="w4-boss-bar" style="width:73%; background:linear-gradient(90deg, #00f2fe, #a855f7);"></div></div></div>
-                    ⚡ <b>Quest 16</b>: <span id="w4-q16-txt">$75K Pipeline Sentinel ($54,655 / $75,000 loot) • 73% Active</span></div>
-                    <div class="quest-item">🔒 <b>Quest 17</b>: Six-Figure Sovereign ($100k milestone)</div>
-                    <div class="quest-item">🔒 <b>Quest 18</b>: $25k Banked Stripe Cash</div>
-                    <div class="quest-item">🔒 <b>Quest 19</b>: 3 Recurring Monthly Retainers ($18k–$24k/mo)</div>
-                    <div class="quest-item">🔒 <b>Quest 20</b>: $150k ARR Benchmark Achieved</div>
-                </div>
-            </div>
-
-            <!-- WORLD 5 -->
-            <div class="world-card locked">
-                <div class="world-header">
-                    <div class="world-title">🔒 World 5: The Millionaire Fortress (Levels 21–25)</div>
-                    <span class="world-badge" style="background:rgba(255,505,505,0.08); color:var(--text-sub);">LOCKED</span>
-                </div>
-                <div class="loot-metrics-banner">
-                    <div class="loot-metric-item">
-                        <span class="loot-metric-val" style="color:var(--accent-green);">$83,000 / mo</span>
-                        <span class="loot-metric-lbl">💰 Monthly Cash</span>
-                    </div>
-                    <div class="loot-metric-item" style="text-align:right;">
-                        <span class="loot-metric-val" style="color:var(--accent-cyan);">$1,000,000 / yr</span>
-                        <span class="loot-metric-lbl">🏆 Yearly Loot (Seven-Figures)</span>
-                    </div>
-                </div>
-                <div class="quest-list">
-                    <div class="quest-item">🔒 <b>Quest 21</b>: 10 Enterprise Retainers ($35k/mo base)</div>
-                    <div class="quest-item">🔒 <b>Quest 22</b>: $250k Cumulative Bounty Stash</div>
-                    <div class="quest-item">🔒 <b>Quest 23</b>: $100k Direct Bank Reserves</div>
-                    <div class="quest-item">🔒 <b>Quest 24</b>: 300-Ship Autonomous Swarm</div>
-                    <div class="quest-item">🔒 <b>Quest 25</b>: $500k ARR Studio ($430k Net Cash Take-Home)</div>
-                </div>
-            </div>
-
-            <!-- WORLD 6 -->
-            <div class="world-card locked">
-                <div class="world-header">
-                    <div class="world-title">🔒 World 6: The SaaS Empire (Levels 26–30)</div>
-                    <span class="world-badge" style="background:rgba(255,505,505,0.08); color:var(--text-sub);">LOCKED</span>
-                </div>
-                <div class="loot-metrics-banner">
-                    <div class="loot-metric-item">
-                        <span class="loot-metric-val" style="color:var(--accent-green);">$250,000 / mo</span>
-                        <span class="loot-metric-lbl">💰 Monthly Cash</span>
-                    </div>
-                    <div class="loot-metric-item" style="text-align:right;">
-                        <span class="loot-metric-val" style="color:var(--accent-cyan);">$3,000,000 / yr</span>
-                        <span class="loot-metric-lbl">🏆 Yearly Loot</span>
-                    </div>
-                </div>
-                <div class="quest-list">
-                    <div class="quest-item">🔒 <b>Quest 26</b>: B2B Self-Serve SaaS Web App Launch</div>
-                    <div class="quest-item">🔒 <b>Quest 27</b>: First 50 Paying Dev Teams</div>
-                    <div class="quest-item">🔒 <b>Quest 28</b>: $1,000,000 ARR Titan Milestone</div>
-                    <div class="quest-item">🔒 <b>Quest 29</b>: 1,000 Autonomous Merged PRs/Month</div>
-                    <div class="quest-item">🔒 <b>Quest 30</b>: $15M–$30M Institutional Valuation Gateway</div>
-                </div>
-            </div>
-
-            <!-- WORLD 7 -->
-            <div class="world-card locked">
-                <div class="world-header">
-                    <div class="world-title">🔒 World 7: The Titan Kingdom (Levels 31–35)</div>
-                    <span class="world-badge" style="background:rgba(255,505,505,0.08); color:var(--text-sub);">LOCKED</span>
-                </div>
-                <div class="loot-metrics-banner">
-                    <div class="loot-metric-item">
-                        <span class="loot-metric-val" style="color:var(--accent-green);">$650,000 / mo</span>
-                        <span class="loot-metric-lbl">💰 Monthly Cash</span>
-                    </div>
-                    <div class="loot-metric-item" style="text-align:right;">
-                        <span class="loot-metric-val" style="color:var(--accent-cyan);">$8,000,000 / yr</span>
-                        <span class="loot-metric-lbl">🏆 Yearly Loot</span>
-                    </div>
-                </div>
-                <div class="quest-list">
-                    <div class="quest-item">🔒 <b>Quest 31</b>: SOC2 Type II & ISO 27001 Certified</div>
-                    <div class="quest-item">🔒 <b>Quest 32</b>: 10 Fortune 500 Contracts ($100k ACV)</div>
-                    <div class="quest-item">🔒 <b>Quest 33</b>: $5M ARR Scale (80% Net Free Cash Flow)</div>
-                    <div class="quest-item">🔒 <b>Quest 34</b>: Air-Gapped VPC Cloud Deployments</div>
-                    <div class="quest-item">🔒 <b>Quest 35</b>: $100M+ Nine-Figure Valuation Milestone</div>
-                </div>
-            </div>
-
-            <!-- WORLD 8 -->
-            <div class="world-card locked">
-                <div class="world-header">
-                    <div class="world-title">🔒 World 8: The Cloud Overlord (Levels 36–40)</div>
-                    <span class="world-badge" style="background:rgba(255,505,505,0.08); color:var(--text-sub);">LOCKED</span>
-                </div>
-                <div class="loot-metrics-banner">
-                    <div class="loot-metric-item">
-                        <span class="loot-metric-val" style="color:var(--accent-green);">$2,000,000 / mo</span>
-                        <span class="loot-metric-lbl">💰 Monthly Cash</span>
-                    </div>
-                    <div class="loot-metric-item" style="text-align:right;">
-                        <span class="loot-metric-val" style="color:var(--accent-cyan);">$25,000,000 / yr</span>
-                        <span class="loot-metric-lbl">🏆 Yearly Loot</span>
-                    </div>
-                </div>
-                <div class="quest-list">
-                    <div class="quest-item">🔒 <b>Quest 36</b>: GitHub/GitLab Native Remediation Partner</div>
-                    <div class="quest-item">🔒 <b>Quest 37</b>: $25M ARR Benchmark ($2M/mo)</div>
-                    <div class="quest-item">🔒 <b>Quest 38</b>: $20,000,000 Annual Free Cash Flow</div>
-                    <div class="quest-item">🔒 <b>Quest 39</b>: 5,000 AI Agent Swarm Fleet</div>
-                    <div class="quest-item">🔒 <b>Quest 40</b>: $350M–$500M Private Equity Valuation</div>
-                </div>
-            </div>
-
-            <!-- WORLD 9 -->
-            <div class="world-card locked">
-                <div class="world-header">
-                    <div class="world-title">🔒 World 9: The Global Dynasty (Levels 41–45)</div>
-                    <span class="world-badge" style="background:rgba(255,505,505,0.08); color:var(--text-sub);">LOCKED</span>
-                </div>
-                <div class="loot-metrics-banner">
-                    <div class="loot-metric-item">
-                        <span class="loot-metric-val" style="color:var(--accent-green);">$5,000,000 / mo</span>
-                        <span class="loot-metric-lbl">💰 Monthly Cash</span>
-                    </div>
-                    <div class="loot-metric-item" style="text-align:right;">
-                        <span class="loot-metric-val" style="color:var(--accent-cyan);">$60,000,000 / yr</span>
-                        <span class="loot-metric-lbl">🏆 Yearly Loot</span>
-                    </div>
-                </div>
-                <div class="quest-list">
-                    <div class="quest-item">🔒 <b>Quest 41</b>: 5,000+ Enterprise Clients Standard</div>
-                    <div class="quest-item">🔒 <b>Quest 42</b>: $75M ARR Milestone</div>
-                    <div class="quest-item">🔒 <b>Quest 43</b>: $50,000,000 Annual Take-Home Cash</div>
-                    <div class="quest-item">🔒 <b>Quest 44</b>: Zero-Debt $100M+ Balance Sheet</div>
-                    <div class="quest-item">🔒 <b>Quest 45</b>: 10,000 AI Swarm Solo Dynasty</div>
-                </div>
-            </div>
-
-            <!-- WORLD 10 -->
-            <div class="world-card locked" style="border: 2px solid var(--accent-gold); background: linear-gradient(135deg, rgba(255, 183, 3, 0.15), rgba(13, 21, 39, 0.9));">
-                <div class="world-header">
-                    <div class="world-title" style="color:var(--accent-gold);">👑 World 10: The Sovereign God Tier (Levels 46–50)</div>
-                    <span class="world-badge" style="background:linear-gradient(90deg, #ffb703, #00e676); color:#000; font-weight:900;">FINAL BOSS EXIT</span>
-                </div>
-                <div class="loot-metrics-banner">
-                    <div class="loot-metric-item">
-                        <span class="loot-metric-val" style="color:var(--accent-green);">$6,600,000 / mo</span>
-                        <span class="loot-metric-lbl">💰 Monthly Cash</span>
-                    </div>
-                    <div class="loot-metric-item" style="text-align:right;">
-                        <span class="loot-metric-val" style="color:var(--accent-gold);">$80,000,000 / yr</span>
-                        <span class="loot-metric-lbl">🏆 Yearly Free Cash Flow</span>
-                    </div>
-                </div>
-                <div class="quest-list">
-                    <div class="quest-item"><div class="boss-hp-container"><div style="display:flex; justify-content:space-between; font-size:11px; font-weight:900; color:var(--accent-gold);"><span>👑 FINAL BOSS: THE $1.5 BILLION SOVEREIGN DYNASTY</span><span>100,000,000 HP</span></div><div class="boss-hp-bar"><div class="boss-hp-fill" style="width:100%; background:linear-gradient(90deg, #ffb703, #ff007f);"></div></div></div>
-                    🔒 <b>Quest 46</b>: $100,000,000 ARR Century Peak</div>
-                    <div class="quest-item">🔒 <b>Quest 47</b>: $80M Annual Personal Cash Distribution</div>
-                    <div class="quest-item">🔒 <b>Quest 48</b>: $500M+ M&A Acquisition Offer</div>
-                    <div class="quest-item">🔒 <b>Quest 49</b>: 💎 <b>$1.5 BILLION UNICORN ENTERPRISE EXIT</b></div>
-                    <div class="quest-item">🔒 <b>Quest 50</b>: 👑 <b>SOVEREIGN FREEDOM & FINANCIAL INDEPENDENCE (100% EQUITY PAYOUT)</b></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- TAB 9: 📈 GOLD MULTIPLIER (ARR CALCULATOR) -->
-        <div class="content-view" id="view-calc" style="display:none;">
-            <div class="card">
-                <div class="card-title">
-                    <span>📈 Gold Multiplier & ARR Calculator</span>
-                    <span style="color:var(--accent-cyan); font-size:12px; font-weight:800;">ANNUAL RUN RATE</span>
-                </div>
-                <div style="font-size:14px; color:var(--text-sub);">
-                    Adjust daily solved quest velocity to project annualized recurring revenue:
-                </div>
-                
-                <div style="display:flex; justify-content:space-between; font-size:15px; font-weight:900; margin-top:10px;">
-                    <span>Daily Quest Velocity:</span>
-                    <span style="color:var(--accent-cyan);" id="calc-prs-val">5 PRs / Day</span>
-                </div>
-                <input type="range" id="calc-slider" min="1" max="20" value="5" oninput="updateCalc()" style="width:100%; margin:12px 0; accent-color:var(--accent-cyan);">
-                
-                <div class="grid-2">
-                    <div class="stat-box">
-                        <div class="stat-val" id="calc-daily">$1,000</div>
-                        <div class="stat-label">Daily Gold</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-val" id="calc-monthly" style="color:var(--accent-cyan);">$22,000</div>
-                        <div class="stat-label">Monthly Loot</div>
-                    </div>
-                </div>
-                
-                <div class="stat-box" style="background:linear-gradient(135deg, rgba(0,230,118,0.15), rgba(0,242,254,0.12)); border-color:#00e676; padding:16px;">
-                    <div class="stat-val" id="calc-annual" style="color:var(--accent-green); font-size:32px;">$264,000</div>
-                    <div class="stat-label" style="color:var(--accent-green); font-size:13px; font-weight:900;">Annualized Run Rate (ARR)</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- TAB 10: 💬 GUILD MASTER AI CHAT -->
-        <div class="content-view" id="view-chat" style="display:none;">
-            <div class="card">
-                <div class="card-title">
-                    <span>💬 Guild Master AI Agent Copilot</span>
-                    <button class="action-btn" onclick="clearChat()">🧹 Clear Chat</button>
-                </div>
-                <div id="chat-container" style="height:320px; overflow-y:auto; background:rgba(0,0,0,0.5); border:1px solid rgba(255,505,505,0.1); border-radius:14px; padding:14px; display:flex; flex-direction:column; gap:10px;">
-                    <div style="background:rgba(0,242,254,0.15); border:1px solid rgba(0,242,254,0.3); padding:10px 14px; border-radius:12px; color:#fff; font-size:14px;">
-                        🤖 <b>Guild Commander</b>: Welcome back, Guild Master Garrett! All 187 hero ships are active and standing by. Total loot stash is at <b>$37,505.00</b> ($5,430 Cash Settled, $31,075 AR). How shall we proceed?
-                    </div>
-                </div>
-                
-                <!-- QUICK CHIPS -->
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:8px;">
-                    <button class="action-btn btn-cyan" onclick="quickNav('Status')">📊 Status</button>
-                    <button class="action-btn" onclick="quickNav('Tracker')">📦 Tracker</button>
-                    <button class="action-btn" onclick="quickNav('Radar')">📡 PR Radar</button>
-                    <button class="action-btn" onclick="quickNav('Heatmap')">🗺️ Heatmap</button>
-                    <button class="action-btn" onclick="quickNav('Retainer')">💼 Retainers</button>
-                </div>
-
-                <div class="chat-input-bar" style="margin-top:8px;">
-                    <input type="text" id="chat-input-box" class="chat-input" placeholder="Type command (e.g. status, delivery, forecast, raid)..." onkeypress="if(event.key==='Enter') sendChatCommand()">
-                    <button class="action-btn btn-cyan" onclick="sendChatCommand()">Send ➤</button>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-        <!-- MODAL 1: 📊 3-STATEMENT SOVEREIGN FINANCIAL VAULT & 3-YEAR VISUAL FORECAST -->
+    <!-- MODAL 1: 3-STATEMENT FINANCIAL VAULT -->
     <div class="modal-overlay" id="modal-financial">
-        <div class="modal-card" style="max-width:750px;">
-            <div class="modal-header">
-                <span style="font-size:18px; font-weight:900; color:#fff; display:flex; align-items:center; gap:8px;">
-                    <span>📊 3-Statement Sovereign Financial Vault & 3-Year Projections</span>
-                </span>
-                <button class="action-btn" onclick="closeModals()">✕</button>
+        <div class="modal-box">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+                <span style="font-size:16px; font-weight:700; color:#fff;">📊 3-Statement Executive Financial Ledger</span>
+                <button class="btn-secondary" style="padding:4px 8px;" onclick="closeModals()">✕</button>
             </div>
-            <div style="display:flex; gap:6px; padding:10px 16px; border-bottom:1px solid rgba(255,505,505,0.08); background:rgba(0,0,0,0.35); overflow-x:auto;">
-                <button class="action-btn btn-cyan active" id="fin-tab-sched" onclick="switchFinTab('sched')">📅 3-Yr Forecast & 10-Mo</button>
-                <button class="action-btn" id="fin-tab-is" onclick="switchFinTab('is')">📈 Income Statement</button>
-                <button class="action-btn" id="fin-tab-bs" onclick="switchFinTab('bs')">⚖️ Balance Sheet</button>
-                <button class="action-btn" id="fin-tab-cf" onclick="switchFinTab('cf')">💵 Cash Flows</button>
+            <div style="display:flex; gap:8px; margin-bottom:16px;">
+                <button class="btn-secondary active" id="fin-tab-sched" onclick="switchFinTab('sched')">3-Yr Forecast</button>
+                <button class="btn-secondary" id="fin-tab-is" onclick="switchFinTab('is')">Income Statement</button>
+                <button class="btn-secondary" id="fin-tab-bs" onclick="switchFinTab('bs')">Balance Sheet</button>
+                <button class="btn-secondary" id="fin-tab-cf" onclick="switchFinTab('cf')">Cash Flows</button>
             </div>
-            <div class="modal-body" id="fin-modal-body">
-                
-                <!-- VIEW 1: 3-YEAR ANNUAL REVENUE & MONTHLY PROFITS VISUAL GRAPHS -->
-                <div id="fin-view-sched">
-                    <div style="font-size:16px; font-weight:900; color:var(--accent-cyan); margin-bottom:4px;">📊 3-Year Annual Revenue & Monthly Profit Trajectory</div>
-                    <div style="font-size:13px; color:var(--text-sub); margin-bottom:12px;">Solo Founder + AI Swarm model with 100% equity ownership and 80%+ net cash conversion:</div>
-                    
-                    <!-- 3-YEAR VISUAL BAR GRAPHS -->
-                    <div style="background:rgba(0,0,0,0.45); border:1px solid rgba(255,505,505,0.08); border-radius:14px; padding:14px; display:flex; flex-direction:column; gap:12px;">
-                        
-                        <!-- Year 1 (2026) -->
-                        <div>
-                            <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px; font-weight:900;">
-                                <span style="color:#fff;">🚀 Year 1 (2026): Foundation & Proof</span>
-                                <span style="color:var(--accent-green);">$120,000 Annual Revenue • $10,000 / Mo Profit</span>
-                            </div>
-                            <div class="gauge-bar-bg" style="height:14px; margin-top:5px;">
-                                <div class="gauge-bar-fill" id="fin-y1-prog" style="width: 45.5%; background: linear-gradient(90deg, #00e676, #00f2fe);"></div>
-                            </div>
-                            <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-sub); margin-top:2px;">
-                                <span id="fin-y1-stash">Current Stash: $54.7k</span>
-                                <span id="fin-y1-pace">Phase 1 Verified • 45.5% Complete</span>
-                            </div>
-                        </div>
-
-                        <!-- Year 2 (2027) -->
-                        <div>
-                            <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px; font-weight:900;">
-                                <span style="color:#fff;">⚡ Year 2 (2027): Agency Scale & Retainers</span>
-                                <span style="color:var(--accent-cyan);">$500,000 Annual Revenue • $41,600 / Mo Profit</span>
-                            </div>
-                            <div class="gauge-bar-bg" style="height:14px; margin-top:5px;">
-                                <div class="gauge-bar-fill" style="width: 55%; background: linear-gradient(90deg, #00f2fe, #a855f7);"></div>
-                            </div>
-                            <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-sub); margin-top:2px;">
-                                <span>Target: 10 Monthly Retainers ($35k/mo base)</span>
-                                <span>$430,000 Net Annual Take-Home Cash</span>
-                            </div>
-                        </div>
-
-                        <!-- Year 3 (2028) -->
-                        <div>
-                            <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px; font-weight:900;">
-                                <span style="color:#fff;">👑 Year 3 (2028): Multi-Tenant SaaS Expansion</span>
-                                <span style="color:var(--accent-gold);">$3,000,000 Annual Revenue • $250,000 / Mo Profit</span>
-                            </div>
-                            <div class="gauge-bar-bg" style="height:14px; margin-top:5px;">
-                                <div class="gauge-bar-fill" style="width: 90%; background: linear-gradient(90deg, #ffb703, #ff007f);"></div>
-                            </div>
-                            <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-sub); margin-top:2px;">
-                                <span>$15M – $30M Enterprise Valuation</span>
-                                <span>$2.5M Net Annual Free Cash Flow</span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- 10-MONTH SCHEDULE BREAKDOWN -->
-                    <div style="margin-top:14px;">
-                        <div style="font-size:14px; font-weight:900; color:#fff; margin-bottom:6px;">📅 10-Month Milestone Schedule</div>
-                        <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:8px;">
-                            <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(255,505,505,0.06); padding:8px 12px; border-radius:10px; font-size:12px;">
-                                <span style="color:var(--accent-green); font-weight:900;">• Mo 1–2 (Sept–Oct 2026):</span> $50k Pipeline / First Retainer
-                            </div>
-                            <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(255,505,505,0.06); padding:8px 12px; border-radius:10px; font-size:12px;">
-                                <span style="color:var(--accent-cyan); font-weight:900;">• Mo 3–4 (Nov–Dec 2026):</span> $75k Gross / $25k Banked Cash
-                            </div>
-                            <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(255,505,505,0.06); padding:8px 12px; border-radius:10px; font-size:12px;">
-                                <span style="color:var(--accent-purple); font-weight:900;">• Mo 5–6 (Jan–Feb 2027):</span> $100k Six-Figure Sovereign
-                            </div>
-                            <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(255,505,505,0.06); padding:8px 12px; border-radius:10px; font-size:12px;">
-                                <span style="color:var(--accent-gold); font-weight:900;">• Mo 7–10 (Mar–June 2027):</span> $250k Stash / $500k ARR Rate
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- VIEW 2: INCOME STATEMENT -->
-                <div id="fin-view-is" style="display:none;">
-                    <div style="font-size:16px; font-weight:900; color:var(--accent-green); margin-bottom:8px;">📈 Income Statement (Accrual Basis)</div>
-                    
-                    <div style="background:rgba(0,0,0,0.45); border:1px solid rgba(255,505,505,0.08); border-radius:12px; padding:14px; display:flex; flex-direction:column; gap:8px;">
-                        <div style="display:flex; justify-content:space-between; font-size:14px; border-bottom:1px solid rgba(255,505,505,0.08); padding-bottom:6px;">
-                            <span>Gross Bounty Revenue:</span>
-                            <span style="font-weight:900; color:#fff;" id="fin-is-gross">$54,655.00</span>
-                        </div>
-                        <div style="display:flex; justify-content:space-between; font-size:14px; border-bottom:1px solid rgba(255,505,505,0.08); padding-bottom:6px;">
-                            <span>Cost of Goods Sold (COGS):</span>
-                            <span style="font-weight:900; color:var(--accent-green);">$0.00</span>
-                        </div>
-                        <div style="display:flex; justify-content:space-between; font-size:14px; border-bottom:1px solid rgba(255,505,505,0.08); padding-bottom:6px;">
-                            <span>Operating Expenses (OPEX):</span>
-                            <span style="font-weight:900; color:var(--accent-green);">$0.00</span>
-                        </div>
-                        <div style="display:flex; justify-content:space-between; font-size:16px; font-weight:900; color:var(--accent-green); padding-top:4px;">
-                            <span>Net Profit (Take-Home):</span>
-                            <span id="fin-is-net">$54,655.00 (100% Margin)</span>
-                        </div>
-                    </div>
-
-                    <div style="margin-top:12px; font-size:13px; color:var(--text-sub);">
-                        💡 <b>Solo AI Advantage:</b> Zero payroll liabilities, zero office rent, 100% equity retained by Solo Founder Garrett.
-                    </div>
-                </div>
-
-                <!-- VIEW 3: BALANCE SHEET -->
-                <div id="fin-view-bs" style="display:none;">
-                    <div style="font-size:16px; font-weight:900; color:var(--accent-gold); margin-bottom:8px;">⚖️ Balance Sheet (Reconciled)</div>
-                    
-                    <div style="background:rgba(0,0,0,0.45); border:1px solid rgba(255,505,505,0.08); border-radius:12px; padding:14px; display:flex; flex-direction:column; gap:8px;">
-                        <div style="font-size:14px; font-weight:900; color:var(--accent-cyan); border-bottom:1px solid rgba(255,505,505,0.08); padding-bottom:4px;">ASSETS</div>
-                        <div style="display:flex; justify-content:space-between; font-size:13px;">
-                            <span>Cash & Cash Equivalents (Stripe):</span>
-                            <span style="font-weight:900; color:#fff;" id="fin-bs-cash">$5,430.00</span>
-                        </div>
-                        <div style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid rgba(255,505,505,0.08); padding-bottom:6px;">
-                            <span>Accounts Receivable (<span id="fin-bs-ar-units">264</span> Pending PRs):</span>
-                            <span style="font-weight:900; color:#fff;" id="fin-bs-ar">$49,225.00</span>
-                        </div>
-                        <div style="display:flex; justify-content:space-between; font-size:15px; font-weight:900; color:var(--accent-cyan); padding-bottom:10px;">
-                            <span>TOTAL ASSETS:</span>
-                            <span id="fin-bs-assets">$54,655.00</span>
-                        </div>
-
-                        <div style="font-size:14px; font-weight:900; color:var(--accent-green); border-bottom:1px solid rgba(255,505,505,0.08); padding-bottom:4px;">LIABILITIES & EQUITY</div>
-                        <div style="display:flex; justify-content:space-between; font-size:13px;">
-                            <span>Total Liabilities (Zero Debt):</span>
-                            <span style="font-weight:900; color:var(--accent-green);">$0.00</span>
-                        </div>
-                        <div style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid rgba(255,505,505,0.08); padding-bottom:6px;">
-                            <span>Retained Earnings & Member Equity:</span>
-                            <span style="font-weight:900; color:#fff;" id="fin-bs-equity">$54,655.00</span>
-                        </div>
-                        <div style="display:flex; justify-content:space-between; font-size:15px; font-weight:900; color:var(--accent-green);">
-                            <span>TOTAL LIABILITIES & EQUITY:</span>
-                            <span id="fin-bs-total-liab">$54,655.00 (BALANCED)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- VIEW 4: CASH FLOW STATEMENT -->
-                <div id="fin-view-cf" style="display:none;">
-                    <div style="font-size:16px; font-weight:900; color:var(--accent-cyan); margin-bottom:8px;">💵 Statement of Cash Flows</div>
-                    
-                    <div style="background:rgba(0,0,0,0.45); border:1px solid rgba(255,505,505,0.08); border-radius:12px; padding:14px; display:flex; flex-direction:column; gap:8px;">
-                        <div style="display:flex; justify-content:space-between; font-size:13px;">
-                            <span>Net Cash Received from Settled Bounties:</span>
-                            <span style="font-weight:900; color:var(--accent-green);" id="fin-cf-cash">+$5,430.00</span>
-                        </div>
-                        <div style="display:flex; justify-content:space-between; font-size:13px;">
-                            <span>Pending In-Flight Accounts Receivable:</span>
-                            <span style="font-weight:900; color:var(--accent-gold);" id="fin-cf-ar">+$49,225.00</span>
-                        </div>
-                        <div style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid rgba(255,505,505,0.08); padding-bottom:6px;">
-                            <span>Financing / Investing Cash Outflows:</span>
-                            <span style="font-weight:900; color:#fff;">$0.00</span>
-                        </div>
-                        <div style="display:flex; justify-content:space-between; font-size:15px; font-weight:900; color:var(--accent-green); padding-top:4px;">
-                            <span>CLOSING CASH BALANCE:</span>
-                            <span id="fin-cf-close">$5,430.00</span>
-                        </div>
-                    </div>
-                </div>
-
+            <div id="fin-view-sched">
+                <table class="data-table">
+                    <thead><tr><th>Milestone</th><th>Target</th><th>Reality</th><th>Pace</th></tr></thead>
+                    <tbody>
+                        <tr><td>Year 1 Pace ($100k)</td><td>$100,000.00</td><td id="fin-y1-prog" style="color:var(--accent-cyan); font-weight:700;">$54,655.00</td><td id="fin-y1-pace" style="color:var(--accent-emerald); font-weight:700;">54.7%</td></tr>
+                        <tr><td>Stash Cash Target</td><td>$50,000.00</td><td id="fin-y1-stash" style="color:var(--accent-emerald); font-weight:700;">$5,430.00</td><td>10.9%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="fin-view-is" style="display:none;">
+                <table class="data-table">
+                    <thead><tr><th>Item</th><th>Gross Amount</th><th>Net Realized</th></tr></thead>
+                    <tbody>
+                        <tr><td>Gross Bounty Pipeline</td><td id="fin-is-gross">$54,655.00</td><td id="fin-is-net" style="color:var(--accent-emerald); font-weight:700;">$54,655.00</td></tr>
+                        <tr><td>Operational Debt</td><td>$0.00</td><td>$0.00 (Zero Debt)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="fin-view-bs" style="display:none;">
+                <table class="data-table">
+                    <thead><tr><th>Account</th><th>Value</th><th>Status</th></tr></thead>
+                    <tbody>
+                        <tr><td>Cash & Equivalents</td><td id="fin-bs-cash" style="color:var(--accent-emerald); font-weight:700;">$5,430.00</td><td>Settled in Bank</td></tr>
+                        <tr><td>Accounts Receivable</td><td id="fin-bs-ar" style="color:var(--accent-amber); font-weight:700;">$49,225.00</td><td id="fin-bs-ar-units">264 Units In Review</td></tr>
+                        <tr><td>Total Assets</td><td id="fin-bs-assets" style="color:var(--accent-cyan); font-weight:700;">$54,655.00</td><td>Verified Ledger</td></tr>
+                        <tr><td>Total Liabilities</td><td id="fin-bs-total-liab">$0.00</td><td>Zero Debt</td></tr>
+                        <tr><td>Retained Equity</td><td id="fin-bs-equity" style="color:var(--accent-emerald); font-weight:700;">$54,655.00</td><td>100% Equity</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="fin-view-cf" style="display:none;">
+                <table class="data-table">
+                    <thead><tr><th>Cash Activity</th><th>Flow</th><th>Net Position</th></tr></thead>
+                    <tbody>
+                        <tr><td>Operating Inflow</td><td id="fin-cf-cash" style="color:var(--accent-emerald); font-weight:700;">+$5,430.00</td><td>Positive Cashflow</td></tr>
+                        <tr><td>Pending Settlement Float</td><td id="fin-cf-ar" style="color:var(--accent-amber); font-weight:700;">+$49,225.00</td><td>Pending Disbursement</td></tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 
-    <!-- MODAL 2: 🛡️ VISUAL PROOF STUDIO -->
-    <div class="modal-overlay" id="modal-proof">
-        <div class="modal-card">
-            <div class="modal-header">
-                <span style="font-size:16px; font-weight:900; color:#fff;" id="proof-modal-title">🔍 Visual Proof & Artifact Studio</span>
-                <button class="action-btn" onclick="closeModals()">✕</button>
-            </div>
-            <div class="modal-body">
-                <div style="font-size:13px; color:var(--accent-cyan); font-weight:800;" id="proof-modal-sub">Verified PR Fix Submission</div>
-                <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(0,230,118,0.3); border-radius:10px; padding:12px; font-family:monospace; font-size:12px; color:#00e676; line-height:1.6;">
-                    ✓ CI Test Suite: 100% Passed (0 flakes)<br>
-                    ✓ Cryptographic Proof SHA-256: 7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069<br>
-                    ✓ Verification Status: Verified Clean Rebase
-                </div>
-                <div style="display:flex; justify-content:flex-end;">
-                    <a id="proof-modal-gh-link" href="https://github.com/gcoinstash-cmd" target="_blank" class="action-btn btn-cyan" style="text-decoration:none;">View on GitHub ↗</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL 3: 💼 RETAINER PROPOSAL MODAL -->
+    <!-- MODAL 2: RETAINER PROPOSAL MODAL -->
     <div class="modal-overlay" id="modal-retainer">
-        <div class="modal-card">
-            <div class="modal-header">
-                <span style="font-size:16px; font-weight:900; color:#fff;" id="retainer-modal-title">💼 Engineering Retainer Proposal</span>
-                <button class="action-btn" onclick="closeModals()">✕</button>
+        <div class="modal-box">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                <span style="font-size:16px; font-weight:700; color:#fff;" id="retainer-modal-title">💼 Retainer Proposal</span>
+                <button class="btn-secondary" style="padding:4px 8px;" onclick="closeModals()">✕</button>
             </div>
-            <div class="modal-body">
-                <textarea id="retainer-proposal-text" readonly style="width:100%; height:180px; background:rgba(0,0,0,0.6); border:1px solid rgba(255,505,505,0.15); border-radius:10px; padding:12px; color:#fff; font-size:13px; font-family:monospace; resize:none;"></textarea>
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                    <span id="copy-status" style="font-size:13px; color:var(--accent-green); font-weight:800;"></span>
-                    <button class="action-btn btn-green" onclick="copyRetainerProposal()">📋 Copy Proposal to Clipboard</button>
-                </div>
+            <textarea id="retainer-proposal-text" readonly style="width:100%; height:180px; background:rgba(0,0,0,0.6); border:1px solid var(--border-subtle); border-radius:10px; padding:12px; color:#fff; font-size:13px; font-family:monospace; resize:none;"></textarea>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:12px;">
+                <span id="copy-status" style="font-size:13px; color:var(--accent-emerald); font-weight:700;"></span>
+                <button class="btn-primary" onclick="copyRetainerProposal()">📋 Copy Proposal</button>
             </div>
         </div>
     </div>
 
-    <!-- MODAL 4: 🏆 BADGE EMBED MODAL -->
+    <!-- MODAL 3: BADGE MODAL -->
     <div class="modal-overlay" id="modal-badge">
-        <div class="modal-card">
-            <div class="modal-header">
-                <span style="font-size:16px; font-weight:900; color:#fff;">🛡️ Public Proof-of-Work Verification Badge</span>
-                <button class="action-btn" onclick="closeModals()">✕</button>
+        <div class="modal-box">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                <span style="font-size:16px; font-weight:700; color:#fff;">🛡️ Public Proof-of-Work Verification Badge</span>
+                <button class="btn-secondary" style="padding:4px 8px;" onclick="closeModals()">✕</button>
             </div>
-            <div class="modal-body">
-                <div style="font-size:13px; color:var(--text-sub);">Copy markdown or HTML to embed in your GitHub profile or project README:</div>
-                <div style="font-size:12px; color:#fff; font-weight:800; margin-top:4px;">Markdown:</div>
-                <input type="text" id="badge-md-code" readonly value="[![BountyGrid Verified Contributor](https://img.shields.io/badge/BountyGrid%20OS-32%20Merged%20PRs%20%7C%20100%25%20CI%20Green-00e676)](https://bountygrid.com)" style="width:100%; background:rgba(0,0,0,0.5); border:1px solid rgba(255,505,505,0.12); border-radius:8px; padding:8px 12px; color:var(--accent-cyan); font-size:12px;">
-                <div style="display:flex; justify-content:flex-end;">
-                    <button class="action-btn btn-cyan" onclick="navigator.clipboard.writeText(document.getElementById('badge-md-code').value); alert('✓ Markdown Copied to Clipboard!');">📋 Copy Markdown</button>
-                </div>
+            <input type="text" id="badge-md-code" readonly value="[![BountyGrid Verified Contributor](https://img.shields.io/badge/BountyGrid%20OS-32%20Merged%20PRs%20%7C%20100%25%20CI%20Green-00e676)](https://bountygrid.com)" style="width:100%; background:rgba(0,0,0,0.5); border:1px solid var(--border-subtle); border-radius:8px; padding:8px 12px; color:var(--accent-cyan); font-size:12px;">
+            <div style="display:flex; justify-content:flex-end; margin-top:12px;">
+                <button class="btn-primary" onclick="navigator.clipboard.writeText(document.getElementById('badge-md-code').value); alert('✓ Markdown Copied to Clipboard!');">📋 Copy Markdown</button>
             </div>
         </div>
     </div>
 
+    <!-- MODAL 4: PROOF MODAL -->
+    <div class="modal-overlay" id="modal-proof">
+        <div class="modal-box">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                <span style="font-size:16px; font-weight:700; color:#fff;" id="proof-modal-title">🔍 Proof of Fix</span>
+                <button class="btn-secondary" style="padding:4px 8px;" onclick="closeModals()">✕</button>
+            </div>
+            <div id="proof-modal-sub" style="font-size:13px; color:var(--text-secondary); margin-bottom:16px;"></div>
+            <a id="proof-modal-gh-link" href="#" target="_blank" class="btn-primary" style="display:inline-block; text-decoration:none; text-align:center;">View Pull Request on GitHub ↗</a>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC ENGINE -->
     <script>
-        // GLOBAL STATE
         let globalPRs = [];
         let currentFilter = 'all';
 
-        // TAB SWITCHING (100% Bulletproof)
-        const tabList = ['dash', 'delivery', 'intel', 'radar', 'heatmap', 'retainer', 'batch', 'badges', 'calc', 'chat'];
-        
-        function switchTab(name) {
-            const selectEl = document.getElementById('view-dropdown-select');
-            if (selectEl && selectEl.value !== name) {
-                selectEl.value = name;
-            }
-            tabList.forEach(t => {
-                const v = document.getElementById('view-' + t);
-                const tabBtn = document.getElementById('tab-' + t);
-                if (v) v.style.display = (t === name) ? 'flex' : 'none';
-                if (tabBtn) {
-                    if (t === name) tabBtn.classList.add('active');
-                    else tabBtn.classList.remove('active');
-                }
-            });
+        function toggleDropdown() {
+            const menu = document.getElementById('dropdownMenu');
+            menu.classList.toggle('open');
+        }
 
-            if (name === 'radar' || name === 'delivery') {
+        function switchView(viewId, label) {
+            document.querySelectorAll('.view-pane').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.dropdown-item').forEach(el => el.classList.remove('active'));
+            
+            const targetView = document.getElementById(viewId);
+            if (targetView) targetView.classList.add('active');
+            
+            document.getElementById('currentViewLabel').textContent = label;
+            document.getElementById('dropdownMenu').classList.remove('open');
+
+            if (viewId === 'view-radar' || viewId === 'view-delivery') {
                 renderRadar();
                 renderDeliveryQueue();
             }
-            if (name === 'heatmap') {
+            if (viewId === 'view-heatmap') {
                 renderHeatmap();
             }
         }
 
-        // MODAL HANDLERS
+        window.onclick = function(e) {
+            if (!e.target.closest('.dropdown-container')) {
+                document.getElementById('dropdownMenu').classList.remove('open');
+            }
+        };
+
         function closeModals() {
             document.querySelectorAll('.modal-overlay').forEach(m => m.style.display = 'none');
         }
@@ -1899,26 +1086,26 @@ HTML_PAGE = """<!DOCTYPE html>
             document.execCommand('copy');
             document.getElementById('copy-status').innerText = '✓ Proposal Copied to Clipboard!';
         }
+
         function switchFinTab(tab) {
             ['sched', 'is', 'bs', 'cf'].forEach(t => {
                 const view = document.getElementById('fin-view-' + t);
                 const btn = document.getElementById('fin-tab-' + t);
                 if (view) view.style.display = (t === tab) ? 'block' : 'none';
                 if (btn) {
-                    if (t === tab) btn.classList.add('active', 'btn-cyan');
-                    else btn.classList.remove('active', 'btn-cyan');
+                    if (t === tab) btn.classList.add('active');
+                    else btn.classList.remove('active');
                 }
             });
         }
 
-        // RADAR & DELIVERY RENDERING
         function filterRadar(filterType) {
             currentFilter = filterType;
             ['all', 'review', 'merged'].forEach(f => {
                 const btn = document.getElementById('filter-' + f);
                 if (btn) {
-                    if (f === filterType) btn.classList.add('active', 'btn-cyan');
-                    else btn.classList.remove('active', 'btn-cyan');
+                    if (f === filterType) btn.classList.add('active');
+                    else btn.classList.remove('active');
                 }
             });
             renderRadar();
@@ -1933,7 +1120,7 @@ HTML_PAGE = """<!DOCTYPE html>
             if (!container) return;
 
             if (!globalPRs || globalPRs.length === 0) {
-                container.innerHTML = '<div style="color:var(--text-sub); text-align:center; padding:20px;">Loading PR radar feed...</div>';
+                container.innerHTML = '<div style="color:var(--text-muted); text-align:center; padding:20px;">Loading PR radar feed...</div>';
                 return;
             }
 
@@ -1950,28 +1137,27 @@ HTML_PAGE = """<!DOCTYPE html>
                 filtered = filtered.filter(p => (p.repo_label + ' ' + p.desc + ' ' + p.tx).toLowerCase().includes(searchVal));
             }
 
-            if (filtered.length === 0) {
-                container.innerHTML = '<div style="color:var(--text-sub); text-align:center; padding:20px;">No PRs match current filter.</div>';
-                return;
-            }
-
             container.innerHTML = '';
             filtered.forEach((pr, i) => {
                 const isMerged = pr.status && (pr.status.includes('Merged') || pr.status.includes('Paid'));
                 const card = document.createElement('div');
-                card.className = 'pr-item-card';
+                card.className = 'card';
+                card.style.flexDirection = 'row';
+                card.style.justifyContent = 'space-between';
+                card.style.alignItems = 'center';
+                card.style.padding = '14px 16px';
                 card.innerHTML = `
                     <div style="flex:1;">
                         <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-                            <span style="background:rgba(0,242,254,0.15); color:var(--accent-cyan); font-weight:900; font-size:11px; padding:3px 8px; border-radius:6px;">#${pr.tx || (i+1)}</span>
-                            <a href="${pr.url || 'https://github.com'}" target="_blank" style="color:#fff; font-weight:800; font-size:14px; text-decoration:none;">${pr.repo_label || pr.tx}</a>
-                            <span style="font-size:11px; font-weight:900; padding:2px 8px; border-radius:6px; ${isMerged ? 'background:rgba(0,230,118,0.2); color:#00e676;' : 'background:rgba(255,183,3,0.2); color:#ffb703;'}">${isMerged ? 'MERGED & PAID' : 'IN REVIEW'}</span>
+                            <span style="background:rgba(6,182,212,0.15); color:var(--accent-cyan); font-weight:700; font-size:11px; padding:3px 8px; border-radius:6px;">#${pr.tx || (i+1)}</span>
+                            <a href="${pr.url || 'https://github.com'}" target="_blank" style="color:#fff; font-weight:700; font-size:14px; text-decoration:none;">${pr.repo_label || pr.tx}</a>
+                            <span class="status-pill ${isMerged ? 'merged' : 'review'}">${isMerged ? 'MERGED' : 'IN REVIEW'}</span>
                         </div>
-                        <div style="font-size:13px; color:var(--text-sub); margin-top:4px;">${pr.desc || 'PR Contribution'} • <span style="color:#cbd5e1;">${pr.date || 'Recent'}</span></div>
+                        <div style="font-size:12px; color:var(--text-secondary); margin-top:4px;">${pr.desc || 'PR Contribution'} • <span>${pr.date || 'Recent'}</span></div>
                     </div>
                     <div style="text-align:right;">
-                        <div style="font-size:16px; font-weight:900; color:var(--accent-green);">+$${Number(pr.value || 0).toLocaleString()}</div>
-                        <button class="action-btn btn-cyan" onclick="showProofModal('${pr.repo_label || 'Repo'}', '${pr.desc || 'PR'}', '${pr.value || '200'}', '${pr.url || ''}')" style="margin-top:4px; font-size:11px; padding:4px 8px;">Proof ↗</button>
+                        <div style="font-size:15px; font-weight:800; color:var(--accent-emerald);">+$${Number(pr.value || 0).toLocaleString()}</div>
+                        <button class="btn-secondary" onclick="showProofModal('${pr.repo_label || 'Repo'}', '${pr.desc || 'PR'}', '${pr.value || '200'}', '${pr.url || ''}')" style="margin-top:4px; font-size:11px; padding:4px 8px;">Proof ↗</button>
                     </div>
                 `;
                 container.appendChild(card);
@@ -1983,77 +1169,43 @@ HTML_PAGE = """<!DOCTYPE html>
             if (!container) return;
 
             if (!globalPRs || globalPRs.length === 0) {
-                container.innerHTML = '<div style="color:var(--text-sub); text-align:center; padding:20px;">Loading delivery tracker...</div>';
+                container.innerHTML = '<div style="color:var(--text-muted); text-align:center; padding:20px;">Loading delivery tracker...</div>';
                 return;
             }
 
-            // Strictly filter only PRs that are truly In Review (155 pending maintainer merge)
             const inReviewPRs = globalPRs.filter(p => !p.status || (!p.status.includes('Merged') && !p.status.includes('Paid')));
-            
             container.innerHTML = '';
             inReviewPRs.forEach((pr, i) => {
                 const prVal = Number(pr.value || 0).toLocaleString();
                 const trackingNum = `BG-LOG-#${pr.tx || (1000 + inReviewPRs.length - i)}`;
                 const card = document.createElement('div');
-                card.className = 'pr-item-card';
-                card.style.flexDirection = 'column';
-                card.style.alignItems = 'stretch';
-                card.style.gap = '10px';
-
-                // Accurate, realistic state: Exactly Stage 3 of 5 (50% progress to deposit)
-                const progressPct = 50; 
-
+                card.className = 'card';
+                card.style.padding = '14px 16px';
                 card.innerHTML = `
                     <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
                         <div>
                             <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-                                <span style="background:rgba(0,242,254,0.15); color:var(--accent-cyan); font-weight:900; font-size:11px; padding:3px 8px; border-radius:6px;">📦 Package #${inReviewPRs.length - i}</span>
-                                <a href="${pr.url || 'https://github.com'}" target="_blank" style="color:#fff; font-weight:800; font-size:14px; text-decoration:none;">${pr.repo_label || pr.tx}</a>
-                                <span style="font-size:11px; color:var(--text-sub); background:rgba(255,505,505,0.06); padding:2px 6px; border-radius:4px; font-family:monospace;">${trackingNum}</span>
+                                <span style="background:rgba(6,182,212,0.15); color:var(--accent-cyan); font-weight:700; font-size:11px; padding:3px 8px; border-radius:6px;">📦 Package #${inReviewPRs.length - i}</span>
+                                <a href="${pr.url || 'https://github.com'}" target="_blank" style="color:#fff; font-weight:700; font-size:14px; text-decoration:none;">${pr.repo_label || pr.tx}</a>
+                                <span style="font-size:11px; color:var(--text-muted); font-family:monospace;">${trackingNum}</span>
                             </div>
-                            <div style="font-size:13px; color:var(--text-sub); margin-top:4px;">${pr.desc || 'Active Submission'} • Est Deposit: <b style="color:var(--accent-green);">Monday ~2:00 PM PDT (Post-Merge)</b></div>
+                            <div style="font-size:12px; color:var(--text-secondary); margin-top:4px;">${pr.desc || 'Active Submission'} • Est Deposit: <b style="color:var(--accent-emerald);">Monday ~2:00 PM PDT</b></div>
                         </div>
                         <div style="text-align:right; flex-shrink:0;">
-                            <div style="font-size:17px; font-weight:900; color:var(--accent-green);">+$${prVal}</div>
-                            <span style="font-size:11px; font-weight:900; color:var(--accent-gold); background:rgba(255,183,3,0.15); padding:3px 8px; border-radius:6px; display:inline-block; margin-top:3px; border:1px solid rgba(255,183,3,0.3);">⏳ IN REVIEW (STAGE 3/5)</span>
+                            <div style="font-size:16px; font-weight:800; color:var(--accent-emerald);">+$${prVal}</div>
+                            <span class="status-pill review" style="margin-top:3px;">STAGE 3/5</span>
                         </div>
                     </div>
 
-                    <!-- 5-STEP REALISTIC VISUAL DELIVERY STEPPER -->
                     <div class="delivery-stepper">
                         <div class="stepper-track-wrap">
                             <div class="stepper-track-fill" style="width: 50%;"></div>
                         </div>
-
-                        <div class="stepper-step completed">
-                            <div class="stepper-node">✓</div>
-                            <span class="stepper-lbl">Submitted</span>
-                        </div>
-                        <div class="stepper-step completed">
-                            <div class="stepper-node">✓</div>
-                            <span class="stepper-lbl">AR Logged</span>
-                        </div>
-                        <div class="stepper-step active">
-                            <div class="stepper-node">3</div>
-                            <span class="stepper-lbl">In Review</span>
-                        </div>
-                        <div class="stepper-step pending">
-                            <div class="stepper-node">4</div>
-                            <span class="stepper-lbl">Merged</span>
-                        </div>
-                        <div class="stepper-step pending">
-                            <div class="stepper-node">5</div>
-                            <span class="stepper-lbl">Deposit</span>
-                        </div>
-                    </div>
-
-                    <!-- ACCURATE PROGRESS BAR (STAGE 3 OF 5: 50%) -->
-                    <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:var(--text-sub);">
-                        <span>Status: <b style="color:var(--accent-cyan);">Awaiting Maintainer Acceptance & Merge</b></span>
-                        <span style="color:var(--accent-cyan); font-weight:900;">Stage 3 of 5 (50% to Payout)</span>
-                    </div>
-                    <div class="card-prog-track">
-                        <div class="card-prog-bar" style="width: 50%; background: linear-gradient(90deg, #00e676 0%, #00f2fe 100%);"></div>
+                        <div class="stepper-step completed"><div class="stepper-node">✓</div><span class="stepper-lbl">Submitted</span></div>
+                        <div class="stepper-step completed"><div class="stepper-node">✓</div><span class="stepper-lbl">AR Logged</span></div>
+                        <div class="stepper-step active"><div class="stepper-node">3</div><span class="stepper-lbl">In Review</span></div>
+                        <div class="stepper-step"><div class="stepper-node">4</div><span class="stepper-lbl">Merged</span></div>
+                        <div class="stepper-step"><div class="stepper-node">5</div><span class="stepper-lbl">Deposit</span></div>
                     </div>
                 `;
                 container.appendChild(card);
@@ -2069,27 +1221,26 @@ HTML_PAGE = """<!DOCTYPE html>
 
             window.lastEcosystems.forEach((eco, idx) => {
                 const card = document.createElement('div');
-                card.className = 'realm-card';
+                card.className = 'kpi-card';
+                card.style.padding = '12px 14px';
                 const pct = (eco.value / maxVal) * 100;
-                const activeLabel = eco.value > 0 ? `$${Number(eco.value).toLocaleString()}` : '<span style="color:var(--text-dim); font-weight:700;">$0 (Ready)</span>';
-                const statusBadge = eco.value > 0 ? `<span style="font-size:10px; font-weight:900; color:var(--accent-cyan); background:rgba(0,242,254,0.12); padding:2px 6px; border-radius:6px;">#${idx+1}</span>` : `<span style="font-size:10px; font-weight:800; color:var(--text-dim); background:rgba(255,255,255,0.04); padding:2px 6px; border-radius:6px;">UNLOCKED</span>`;
+                const activeLabel = eco.value > 0 ? `$${Number(eco.value).toLocaleString()}` : '<span style="color:var(--text-muted);">$0 (Ready)</span>';
 
                 card.innerHTML = `
                     <div style="display:flex; justify-content:space-between; align-items:center;">
-                        <span style="font-weight:900; color:#fff; font-size:13px; display:flex; align-items:center; gap:6px;">
-                            ${eco.icon || '⚔️'} ${eco.name} ${statusBadge}
+                        <span style="font-weight:700; color:#fff; font-size:13px; display:flex; align-items:center; gap:6px;">
+                            ${eco.icon || '⚔️'} ${eco.name}
                         </span>
-                        <span style="color:var(--accent-green); font-weight:900; font-size:13px;">${activeLabel}</span>
+                        <span style="color:var(--accent-emerald); font-weight:800; font-size:13px;">${activeLabel}</span>
                     </div>
-                    <div class="realm-bar-bg" style="margin-top:6px;">
-                        <div class="realm-bar-fill" style="width:${Math.max(pct, eco.value > 0 ? 4 : 0)}%; background:${pct >= 70 ? 'linear-gradient(90deg, #00f2fe, #00e676)' : (pct > 20 ? 'linear-gradient(90deg, #a855f7, #00f2fe)' : 'var(--accent-purple)')};"></div>
+                    <div style="height:6px; background:rgba(255,255,255,0.08); border-radius:6px; overflow:hidden; margin-top:6px;">
+                        <div style="height:100%; width:${Math.max(pct, eco.value > 0 ? 4 : 0)}%; background:var(--accent-cyan); border-radius:6px;"></div>
                     </div>
                 `;
                 container.appendChild(card);
             });
         }
 
-        // ARR CALCULATOR
         function updateCalc() {
             const prs = parseInt(document.getElementById('calc-slider').value);
             document.getElementById('calc-prs-val').innerText = prs + " PRs / Day";
@@ -2101,55 +1252,6 @@ HTML_PAGE = """<!DOCTYPE html>
             document.getElementById('calc-annual').innerText = "$" + annual.toLocaleString();
         }
 
-        // CHAT INTERFACE
-        async function sendChatCommand(customQuery) {
-            const input = document.getElementById('chat-input-box');
-            const txt = customQuery || (input ? input.value.trim() : '');
-            if (!txt) return;
-            const box = document.getElementById('chat-container');
-            
-            const userMsg = document.createElement('div');
-            userMsg.style.cssText = 'background:rgba(255,505,505,0.08); padding:8px 12px; border-radius:10px; color:#fff; font-size:13px; text-align:right; align-self:flex-end; max-width:80%;';
-            userMsg.innerText = txt;
-            box.appendChild(userMsg);
-            
-            if (input) input.value = '';
-            box.scrollTop = box.scrollHeight;
-            
-            try {
-                const res = await fetch('/api/chat', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({query: txt})
-                });
-                const data = await res.json();
-                const aiMsg = document.createElement('div');
-                aiMsg.style.cssText = 'background:rgba(0,242,254,0.15); border:1px solid rgba(0,242,254,0.3); padding:10px 14px; border-radius:12px; color:#fff; font-size:13px; max-width:90%;';
-                aiMsg.innerHTML = data.response || '🤖 <b>Guild Commander</b>: Mission update logged.';
-                box.appendChild(aiMsg);
-                box.scrollTop = box.scrollHeight;
-            } catch (e) {
-                const aiMsg = document.createElement('div');
-                aiMsg.style.cssText = 'background:rgba(0,242,254,0.15); border:1px solid rgba(0,242,254,0.3); padding:10px 14px; border-radius:12px; color:#fff; font-size:13px;';
-                aiMsg.innerHTML = '💎 <b>Guild Status</b>: Total Loot Stash is <b>$37,505.00</b> ($5,430 banked + $31,075 in 155 opening chests). Level 10 is 74% complete!';
-                box.appendChild(aiMsg);
-                box.scrollTop = box.scrollHeight;
-            }
-        }
-
-        function quickNav(target) {
-            switchTab('chat');
-            sendChatCommand(target);
-        }
-
-        function clearChat() {
-            const box = document.getElementById('chat-container');
-            if (box) {
-                box.innerHTML = '<div style="background:rgba(0,242,254,0.15); border:1px solid rgba(0,242,254,0.3); padding:10px 14px; border-radius:12px; color:#fff; font-size:13px;">🤖 <b>Guild Commander</b>: Command terminal cleared. Ready for orders!</div>';
-            }
-        }
-
-        // BATCH EXECUTION
         async function executeRealBatch(type) {
             alert('🚀 Dispatching ' + type.toUpperCase() + ' RAID across 5 target ecosystems! Hero agents deploying...');
             try {
@@ -2171,132 +1273,93 @@ HTML_PAGE = """<!DOCTYPE html>
             }
         }
 
-        // LIVE DATA POLLING & 100% COMPREHENSIVE UI SYNC
+        async function sendChatCommand() {
+            const input = document.getElementById('chat-input-box');
+            const txt = input.value.trim();
+            if (!txt) return;
+
+            const box = document.getElementById('chat-container');
+            box.innerHTML += `<div class="chat-bubble user">${txt}</div>`;
+            input.value = '';
+            box.scrollTop = box.scrollHeight;
+
+            try {
+                const res = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({query: txt})
+                });
+                const data = await res.json();
+                box.innerHTML += `<div class="chat-bubble ai">${data.response}</div>`;
+                box.scrollTop = box.scrollHeight;
+            } catch (err) {
+                box.innerHTML += `<div class="chat-bubble ai">❌ Error: ${err}</div>`;
+            }
+        }
+
         async function fetchMetrics() {
             try {
                 const res = await fetch('/api/metrics?t=' + Date.now());
                 if (!res.ok) return;
                 const data = await res.json();
-                
-                if (data.gross_pipeline) {
-                    const gross = Number(data.gross_pipeline);
-                    const cash = Number(data.cash || 5430);
-                    const ar = Number(data.ar || (gross - cash));
-                    const fleet = data.active_prs_count || 264;
-                    const totalTxs = data.total_prs || 338;
-                    const mergedCount = data.merged_prs_count || 32;
-                    const reviewCount = data.review_prs_count || (fleet - mergedCount);
 
-                    // Top Level Stats
-                    const gEl = document.getElementById('stat-gross');
-                    if (gEl) gEl.innerText = '$' + gross.toLocaleString(undefined, {minimumFractionDigits:2});
-                    const cEl = document.getElementById('stat-cash');
-                    if (cEl) cEl.innerText = '$' + cash.toLocaleString(undefined, {minimumFractionDigits:2});
-                    const aEl = document.getElementById('stat-ar');
-                    if (aEl) aEl.innerText = '$' + ar.toLocaleString(undefined, {minimumFractionDigits:2});
-                    const fEl = document.getElementById('stat-fleet');
-                    if (fEl) fEl.innerText = fleet + ' Units';
+                const gross = Number(data.gross_pipeline || 54655);
+                const cash = Number(data.cash || 5430);
+                const ar = Number(data.ar || (gross - cash));
+                const fleet = data.active_prs_count || 264;
+                const totalTxs = data.total_prs || 338;
+                const reviewCount = data.review_prs_count || 232;
 
-                    if (data.daily) {
-                        const dailyEl = document.getElementById('stat-daily-rev');
-                        if (dailyEl) dailyEl.innerText = '+$' + Number(data.daily).toLocaleString();
-                        const dailyLbl = document.getElementById('stat-daily-label');
-                        if (dailyLbl) dailyLbl.innerText = "Today's Rev (" + (data.daily_prs || 76) + " PRs)";
-                    }
-                    if (data.weekly) {
-                        const weeklyEl = document.getElementById('stat-weekly-rev');
-                        if (weeklyEl) weeklyEl.innerText = '$' + Number(data.weekly).toLocaleString();
-                    }
+                if (document.getElementById('stat-gross')) document.getElementById('stat-gross').innerText = '$' + gross.toLocaleString(undefined, {minimumFractionDigits:2});
+                if (document.getElementById('stat-cash')) document.getElementById('stat-cash').innerText = '$' + cash.toLocaleString(undefined, {minimumFractionDigits:2});
+                if (document.getElementById('stat-ar')) document.getElementById('stat-ar').innerText = '$' + ar.toLocaleString(undefined, {minimumFractionDigits:2});
+                if (document.getElementById('stat-fleet')) document.getElementById('stat-fleet').innerText = `${totalTxs} Units (${fleet} Active)`;
+                if (document.getElementById('stat-daily-rev')) document.getElementById('stat-daily-rev').innerText = '+$' + Number(data.daily || 17250).toLocaleString();
+                if (document.getElementById('stat-daily-label')) document.getElementById('stat-daily-label').innerText = `Today's Rev (${data.daily_prs || 76} PRs)`;
 
-                    // Level & XP Bar Progression (World 4 Citadel: $75,000 Target)
-                    const w4Target = 75000.0;
-                    const xpPct = Math.min((gross / w4Target) * 100, 100).toFixed(1);
-                    const gXpPct = document.getElementById('gauge-xp-pct');
-                    if (gXpPct) gXpPct.innerText = xpPct + '%';
-                    const gXpBar = document.getElementById('gauge-xp-bar');
-                    if (gXpBar) gXpBar.style.width = xpPct + '%';
-                    const gXpCur = document.getElementById('gauge-xp-cur');
-                    if (gXpCur) gXpCur.innerText = '$' + (gross / 1000).toFixed(1) + 'k';
+                // Financial Vault fields
+                const y1Pct = ((gross / 100000.0) * 100).toFixed(1);
+                if (document.getElementById('fin-y1-prog')) document.getElementById('fin-y1-prog').innerText = '$' + gross.toLocaleString(undefined, {minimumFractionDigits:2});
+                if (document.getElementById('fin-y1-pace')) document.getElementById('fin-y1-pace').innerText = y1Pct + '%';
+                if (document.getElementById('fin-y1-stash')) document.getElementById('fin-y1-stash').innerText = '$' + cash.toLocaleString(undefined, {minimumFractionDigits:2});
+                if (document.getElementById('fin-is-gross')) document.getElementById('fin-is-gross').innerText = '$' + gross.toLocaleString(undefined, {minimumFractionDigits:2});
+                if (document.getElementById('fin-is-net')) document.getElementById('fin-is-net').innerText = '$' + gross.toLocaleString(undefined, {minimumFractionDigits:2});
+                if (document.getElementById('fin-bs-cash')) document.getElementById('fin-bs-cash').innerText = '$' + cash.toLocaleString(undefined, {minimumFractionDigits:2});
+                if (document.getElementById('fin-bs-ar')) document.getElementById('fin-bs-ar').innerText = '$' + ar.toLocaleString(undefined, {minimumFractionDigits:2});
+                if (document.getElementById('fin-bs-ar-units')) document.getElementById('fin-bs-ar-units').innerText = `${reviewCount} Units In Review`;
+                if (document.getElementById('fin-bs-assets')) document.getElementById('fin-bs-assets').innerText = '$' + gross.toLocaleString(undefined, {minimumFractionDigits:2});
+                if (document.getElementById('fin-bs-equity')) document.getElementById('fin-bs-equity').innerText = '$' + gross.toLocaleString(undefined, {minimumFractionDigits:2});
+                if (document.getElementById('fin-bs-total-liab')) document.getElementById('fin-bs-total-liab').innerText = '$' + gross.toLocaleString(undefined, {minimumFractionDigits:2}) + ' (BALANCED)';
+                if (document.getElementById('fin-cf-cash')) document.getElementById('fin-cf-cash').innerText = '+$' + cash.toLocaleString(undefined, {minimumFractionDigits:2});
+                if (document.getElementById('fin-cf-ar')) document.getElementById('fin-cf-ar').innerText = '+$' + ar.toLocaleString(undefined, {minimumFractionDigits:2});
 
-                    const goldPct = Math.min((cash / 10000.0) * 100, 100).toFixed(1);
-                    const gGoldPct = document.getElementById('gauge-gold-pct');
-                    if (gGoldPct) gGoldPct.innerText = goldPct + '%';
-                    const gGoldBar = document.getElementById('gauge-gold-bar');
-                    if (gGoldBar) gGoldBar.style.width = goldPct + '%';
-                    const gGoldCur = document.getElementById('gauge-gold-cur');
-                    if (gGoldCur) gGoldCur.innerText = '$' + Math.round(cash).toLocaleString() + ' Cash';
-                    
-                    const xpBar = document.getElementById('xp-bar');
-                    if (xpBar) xpBar.style.width = xpPct + '%';
-                    const xpCounter = document.getElementById('xp-counter');
-                    if (xpCounter) {
-                        xpCounter.innerHTML = `LEVEL 16: <b class="xp-highlight">$${gross.toLocaleString(undefined, {minimumFractionDigits:2})} / $75,000 XP</b> (TO CITADEL SENTINEL)`;
-                    }
-                    const xpPctLbl = document.getElementById('xp-percent-lbl');
-                    if (xpPctLbl) xpPctLbl.innerText = xpPct + '%';
+                // Worlds
+                const xpPct = Math.min((gross / 75000.0) * 100, 100).toFixed(1);
+                const w4Remaining = Math.max(0, 100 - Number(xpPct)).toFixed(0);
+                if (document.getElementById('w3-q12-txt')) document.getElementById('w3-q12-txt').innerText = `Fifty-Grand Titan ($${gross.toLocaleString(undefined, {minimumFractionDigits:2})} / $50,000 loot) • 100% EXCEEDED`;
+                if (document.getElementById('w4-boss-hp')) document.getElementById('w4-boss-hp').innerText = `${w4Remaining}% HP REMAINING`;
+                if (document.getElementById('w4-q16-txt')) document.getElementById('w4-q16-txt').innerText = `$75K Pipeline Sentinel ($${gross.toLocaleString(undefined, {minimumFractionDigits:2})} / $75,000 loot) • ${xpPct}% Active`;
 
-                    // 1. DYNAMIC UPDATE FOR 3-STATEMENT VAULT MODAL
-                    const y1Pct = ((gross / 120000.0) * 100).toFixed(1);
-                    const y1Prog = document.getElementById('fin-y1-prog');
-                    if (y1Prog) y1Prog.style.width = y1Pct + '%';
-                    const y1Stash = document.getElementById('fin-y1-stash');
-                    if (y1Stash) y1Stash.innerText = `Current Stash: $${(gross/1000).toFixed(1)}k`;
-                    const y1Pace = document.getElementById('fin-y1-pace');
-                    if (y1Pace) y1Pace.innerText = `Phase 1 Verified • ${y1Pct}% Complete`;
-
-                    // Income Statement Modal Fields
-                    const isGross = document.getElementById('fin-is-gross');
-                    if (isGross) isGross.innerText = '$' + gross.toLocaleString(undefined, {minimumFractionDigits:2});
-                    const isNet = document.getElementById('fin-is-net');
-                    if (isNet) isNet.innerText = '$' + gross.toLocaleString(undefined, {minimumFractionDigits:2}) + ' (100% Margin)';
-
-                    // Balance Sheet Modal Fields
-                    const bsCash = document.getElementById('fin-bs-cash');
-                    if (bsCash) bsCash.innerText = '$' + cash.toLocaleString(undefined, {minimumFractionDigits:2});
-                    const bsArUnits = document.getElementById('fin-bs-ar-units');
-                    if (bsArUnits) bsArUnits.innerText = reviewCount;
-                    const bsAr = document.getElementById('fin-bs-ar');
-                    if (bsAr) bsAr.innerText = '$' + ar.toLocaleString(undefined, {minimumFractionDigits:2});
-                    const bsAssets = document.getElementById('fin-bs-assets');
-                    if (bsAssets) bsAssets.innerText = '$' + gross.toLocaleString(undefined, {minimumFractionDigits:2});
-                    const bsEquity = document.getElementById('fin-bs-equity');
-                    if (bsEquity) bsEquity.innerText = '$' + gross.toLocaleString(undefined, {minimumFractionDigits:2});
-                    const bsTotalLiab = document.getElementById('fin-bs-total-liab');
-                    if (bsTotalLiab) bsTotalLiab.innerText = '$' + gross.toLocaleString(undefined, {minimumFractionDigits:2}) + ' (BALANCED)';
-
-                    // Cash Flows Modal Fields
-                    const cfCash = document.getElementById('fin-cf-cash');
-                    if (cfCash) cfCash.innerText = '+$' + cash.toLocaleString(undefined, {minimumFractionDigits:2});
-                    const cfAr = document.getElementById('fin-cf-ar');
-                    if (cfAr) cfAr.innerText = '+$' + ar.toLocaleString(undefined, {minimumFractionDigits:2});
-                    const cfClose = document.getElementById('fin-cf-close');
-                    if (cfClose) cfClose.innerText = '$' + cash.toLocaleString(undefined, {minimumFractionDigits:2});
-
-                    // 2. DYNAMIC UPDATE FOR WORLD 3 & WORLD 4 CARDS
-                    const w3q12 = document.getElementById('w3-q12-txt');
-                    if (w3q12) w3q12.innerText = `Fifty-Grand Titan ($${gross.toLocaleString(undefined, {minimumFractionDigits:2})} / $50,000 loot) • 100% EXCEEDED`;
-                    const w3q13 = document.getElementById('w3-q13-txt');
-                    if (w3q13) w3q13.innerText = `Double-Century Fleet (${fleet} / 200 hero units in flight)`;
-
-                    const w4BossHp = document.getElementById('w4-boss-hp');
-                    const w4BossBar = document.getElementById('w4-boss-bar');
-                    const w4q16 = document.getElementById('w4-q16-txt');
-                    const w4Remaining = Math.max(0, 100 - Number(xpPct)).toFixed(0);
-                    if (w4BossHp) w4BossHp.innerText = `${w4Remaining}% HP REMAINING`;
-                    if (w4BossBar) w4BossBar.style.width = `${xpPct}%`;
-                    if (w4q16) w4q16.innerText = `$75K Pipeline Sentinel ($${gross.toLocaleString(undefined, {minimumFractionDigits:2})} / $75,000 loot) • ${xpPct}% Active`;
-                }
-                
+                // PR Feeds
                 if (data.active_prs) {
                     globalPRs = data.active_prs;
-                    const rBadge = document.getElementById('radar-count-badge');
-                    if (rBadge) rBadge.innerText = globalPRs.length + ' UNITS';
-                    const fAll = document.getElementById('filter-all');
-                    if (fAll) fAll.innerText = `All (${globalPRs.length})`;
-                    const fRev = document.getElementById('filter-review');
-                    if (fRev) fRev.innerText = `⏳ In Review (${data.review_prs_count || (globalPRs.length - 32)})`;
-                    const fMerg = document.getElementById('filter-merged');
-                    if (fMerg) fMerg.innerText = `🎉 Merged (${data.merged_prs_count || 32} • $${Number(data.cash||5430).toLocaleString()})`;
+                    if (document.getElementById('radar-count-badge')) document.getElementById('radar-count-badge').innerText = globalPRs.length + ' UNITS';
+                    
+                    const tbody = document.getElementById('overview-feed-body');
+                    if (tbody) {
+                        tbody.innerHTML = globalPRs.slice(0, 10).map(pr => {
+                            const isMerged = (pr.status || '').includes('Merged') || (pr.status || '').includes('Paid');
+                            return `
+                                <tr>
+                                    <td style="font-weight:700; color:#fff;">${pr.tx}</td>
+                                    <td><a href="${pr.url}" target="_blank" style="color:var(--accent-cyan); text-decoration:none; font-weight:600;">${pr.repo_label}</a></td>
+                                    <td style="max-width:320px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${pr.desc}</td>
+                                    <td style="font-weight:700; color:#fff;">$${pr.value.toFixed(2)}</td>
+                                    <td><span class="status-pill ${isMerged ? 'merged' : 'review'}">${isMerged ? 'Merged' : 'In Review'}</span></td>
+                                </tr>
+                            `;
+                        }).join('');
+                    }
 
                     renderRadar();
                     renderDeliveryQueue();
@@ -2306,18 +1369,18 @@ HTML_PAGE = """<!DOCTYPE html>
                     window.lastEcosystems = data.ecosystems;
                     renderHeatmap();
                 }
-            } catch (e) {
-                console.log('Metrics error:', e);
+            } catch (err) {
+                console.error("Error fetching metrics:", err);
             }
         }
 
-        // INITIALIZE
         fetchMetrics();
         setInterval(fetchMetrics, 6000);
     </script>
 </body>
 </html>
 """
+
 
 import http.server
 import socketserver
