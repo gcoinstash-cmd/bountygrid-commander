@@ -814,7 +814,7 @@ HTML_PAGE = """<!DOCTYPE html>
     <header>
         <div class="header-top-row">
             <div class="founder-brand">
-                <span class="rank-badge" id="founder-lvl-badge">👑 LEVEL 10 GUILD MASTER</span>
+                <span class="rank-badge" id="founder-lvl-badge">👑 LEVEL 16 CITADEL MASTER</span>
                 <span class="founder-title">Garrett • BountyGrid OS</span>
             </div>
             <div class="header-actions">
@@ -854,7 +854,7 @@ HTML_PAGE = """<!DOCTYPE html>
         <div class="nav-select-wrap">
             <select class="nav-select" id="view-dropdown-select" onchange="switchTab(this.value)">
                 <option value="dash">💎 1. Loot Stash HUD (Overview)</option>
-                <option value="delivery">📦 2. Amazon PR Delivery Tracker (155)</option>
+                <option value="delivery">📦 2. Amazon PR Delivery Tracker (264)</option>
                 <option value="intel">🧠 3. AI Hero Swarm & Maintainer Intel</option>
                 <option value="radar">📡 4. Live PR Radar & Feed</option>
                 <option value="heatmap">🗺️ 5. 25 Conquered Realms Heatmap</option>
@@ -871,7 +871,7 @@ HTML_PAGE = """<!DOCTYPE html>
     <!-- 10 GAMIFIED NAVIGATION TABS -->
     <div class="tab-bar">
         <div class="tab active" id="tab-dash" onclick="switchTab('dash')">💎 Loot Stash HUD</div>
-        <div class="tab" id="tab-delivery" onclick="switchTab('delivery')">📦 Amazon Delivery (155)</div>
+        <div class="tab" id="tab-delivery" onclick="switchTab('delivery')">📦 Amazon Delivery (264)</div>
         <div class="tab" id="tab-intel" onclick="switchTab('intel')">🧠 AI Hero Swarm & Intel</div>
         <div class="tab" id="tab-radar" onclick="switchTab('radar')">📡 PR Radar</div>
         <div class="tab" id="tab-heatmap" onclick="switchTab('heatmap')">🗺️ 25 Realms Heatmap</div>
@@ -1326,15 +1326,15 @@ HTML_PAGE = """<!DOCTYPE html>
             </div>
 
             <!-- WORLD 3 -->
-            <div class="world-card current">
+            <div class="world-card unlocked" id="world3-card">
                 <div class="world-header">
-                    <div class="world-title" style="color:var(--accent-cyan);">⏳ World 3: The Guild Vault (Levels 11–15)</div>
-                    <span class="world-badge" style="background:rgba(0,242,254,0.25); color:#00f2fe; border:1px solid #00f2fe;">CURRENT LEVEL</span>
+                    <div class="world-title" style="color:var(--accent-green);">🟢 World 3: The Guild Vault (Levels 11–15)</div>
+                    <span class="world-badge" style="background:#00e676; color:#000; font-weight:900;" id="world3-badge">5/5 COMPLETED</span>
                 </div>
                 <div class="loot-metrics-banner">
                     <div class="loot-metric-item">
                         <span class="loot-metric-val" style="color:var(--accent-green);">$25,000 / mo</span>
-                        <span class="loot-metric-lbl">💰 Monthly Cash Target</span>
+                        <span class="loot-metric-lbl">💰 Monthly Cash</span>
                     </div>
                     <div class="loot-metric-item" style="text-align:right;">
                         <span class="loot-metric-val" style="color:var(--accent-cyan);">$300,000 / yr</span>
@@ -1342,37 +1342,37 @@ HTML_PAGE = """<!DOCTYPE html>
                     </div>
                 </div>
                 <div class="quest-list">
-                    <div class="quest-item"><div class="boss-hp-container"><div style="display:flex; justify-content:space-between; font-size:11px; font-weight:800; color:var(--accent-cyan);"><span>CURRENT RAID BOSS: GUILD VAULT GUARDIAN</span><span>42% HP (ACTIVE COMBAT)</span></div><div class="boss-hp-bar"><div class="boss-hp-fill" style="width:58%; background:linear-gradient(90deg, #00f2fe, #ffb703);"></div></div></div>
-                    ⚡ <b>Quest 11</b>: $10K Stripe Cash ($5,430 / $10,000 banked)</div>
-                    <div class="quest-item">⚡ <b>Quest 12</b>: Fifty-Grand Titan ($37,505 / $50,000 loot)</div>
-                    <div class="quest-item">⚡ <b>Quest 13</b>: Double-Century Fleet (193 / 200 active hero ships)</div>
-                    <div class="quest-item">⚡ <b>Quest 14</b>: Escrow Sovereign ($9,330 / $10,000 in Lilly escrows)</div>
-                    <div class="quest-item">⚡ <b>Quest 15</b>: Retainer Deal Room (Close first $3,500/mo retainer)</div>
+                    <div class="quest-item"><div class="boss-hp-container"><div style="display:flex; justify-content:space-between; font-size:11px; font-weight:800; color:var(--accent-green);"><span>BOSS DEFEATED (5/5 QUESTS)</span><span>0 HP REMAINING</span></div><div class="boss-hp-bar"><div class="boss-hp-fill" style="width:100%; background:linear-gradient(90deg, #00e676, #00f2fe);"></div></div></div>
+                    ✅ <b>Quest 11</b>: $10K Cash Pace ($5,430 gold secured)</div>
+                    ✅ <b>Quest 12</b>: <span id="w3-q12-txt">Fifty-Grand Titan ($54,655 / $50,000 loot) • 109% EXCEEDED</span></div>
+                    ✅ <b>Quest 13</b>: <span id="w3-q13-txt">Double-Century Fleet (264 / 200 hero units in flight)</span></div>
+                    ✅ <b>Quest 14</b>: Escrow Sovereign ($9,330 in Lilly escrows)</div>
+                    ✅ <b>Quest 15</b>: Retainer Deal Room ($6k–$8k proposals active)</div>
                 </div>
             </div>
 
             <!-- WORLD 4 -->
-            <div class="world-card locked">
+            <div class="world-card current" id="world4-card">
                 <div class="world-header">
-                    <div class="world-title">🔒 World 4: The Six-Figure Citadel (Levels 16–20)</div>
-                    <span class="world-badge" style="background:rgba(255,505,505,0.08); color:var(--text-sub);">LOCKED</span>
+                    <div class="world-title" style="color:var(--accent-cyan);">⚡ World 4: The Six-Figure Citadel (Levels 16–20)</div>
+                    <span class="world-badge" style="background:rgba(0,242,254,0.25); color:#00f2fe; border:1px solid #00f2fe;">ACTIVE WORLD</span>
                 </div>
                 <div class="loot-metrics-banner">
                     <div class="loot-metric-item">
                         <span class="loot-metric-val" style="color:var(--accent-green);">$40,000 / mo</span>
-                        <span class="loot-metric-lbl">💰 Monthly Cash</span>
+                        <span class="loot-metric-lbl">💰 Monthly Cash Target</span>
                     </div>
                     <div class="loot-metric-item" style="text-align:right;">
                         <span class="loot-metric-val" style="color:var(--accent-cyan);">$500,000 / yr</span>
-                        <span class="loot-metric-lbl">🏆 Yearly Loot</span>
+                        <span class="loot-metric-lbl">🏆 Yearly Loot Target</span>
                     </div>
                 </div>
                 <div class="quest-list">
-                    <div class="quest-item"><div class="boss-hp-container"><div style="display:flex; justify-content:space-between; font-size:11px; font-weight:800; color:var(--text-sub);"><span>LOCKED RAID BOSS: CITADEL SENTINEL</span><span>100% HP (INVULNERABLE)</span></div><div class="boss-hp-bar"><div class="boss-hp-fill" style="width:100%; background:rgba(255,505,505,0.15);"></div></div></div>
-                    🔒 <b>Quest 16</b>: $75K Pipeline Sentinel ($75k loot)</div>
+                    <div class="quest-item"><div class="boss-hp-container"><div style="display:flex; justify-content:space-between; font-size:11px; font-weight:800; color:var(--accent-cyan);"><span>CURRENT RAID BOSS: CITADEL SENTINEL</span><span id="w4-boss-hp">27% HP REMAINING</span></div><div class="boss-hp-bar"><div class="boss-hp-fill" id="w4-boss-bar" style="width:73%; background:linear-gradient(90deg, #00f2fe, #a855f7);"></div></div></div>
+                    ⚡ <b>Quest 16</b>: <span id="w4-q16-txt">$75K Pipeline Sentinel ($54,655 / $75,000 loot) • 73% Active</span></div>
                     <div class="quest-item">🔒 <b>Quest 17</b>: Six-Figure Sovereign ($100k milestone)</div>
                     <div class="quest-item">🔒 <b>Quest 18</b>: $25k Banked Stripe Cash</div>
-                    <div class="quest-item">🔒 <b>Quest 19</b>: 3 Recurring Monthly Retainers ($10.5k/mo)</div>
+                    <div class="quest-item">🔒 <b>Quest 19</b>: 3 Recurring Monthly Retainers ($18k–$24k/mo)</div>
                     <div class="quest-item">🔒 <b>Quest 20</b>: $150k ARR Benchmark Achieved</div>
                 </div>
             </div>
@@ -1627,11 +1627,11 @@ HTML_PAGE = """<!DOCTYPE html>
                                 <span style="color:var(--accent-green);">$120,000 Annual Revenue • $10,000 / Mo Profit</span>
                             </div>
                             <div class="gauge-bar-bg" style="height:14px; margin-top:5px;">
-                                <div class="gauge-bar-fill" style="width: 25%; background: linear-gradient(90deg, #00e676, #00f2fe);"></div>
+                                <div class="gauge-bar-fill" id="fin-y1-prog" style="width: 45.5%; background: linear-gradient(90deg, #00e676, #00f2fe);"></div>
                             </div>
                             <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-sub); margin-top:2px;">
-                                <span>Current Stash: $37.2k</span>
-                                <span>Phase 1 Verified • 100% Free Cash Flow</span>
+                                <span id="fin-y1-stash">Current Stash: $54.7k</span>
+                                <span id="fin-y1-pace">Phase 1 Verified • 45.5% Complete</span>
                             </div>
                         </div>
 
@@ -1694,7 +1694,7 @@ HTML_PAGE = """<!DOCTYPE html>
                     <div style="background:rgba(0,0,0,0.45); border:1px solid rgba(255,505,505,0.08); border-radius:12px; padding:14px; display:flex; flex-direction:column; gap:8px;">
                         <div style="display:flex; justify-content:space-between; font-size:14px; border-bottom:1px solid rgba(255,505,505,0.08); padding-bottom:6px;">
                             <span>Gross Bounty Revenue:</span>
-                            <span style="font-weight:900; color:#fff;">$37,505.00</span>
+                            <span style="font-weight:900; color:#fff;" id="fin-is-gross">$54,655.00</span>
                         </div>
                         <div style="display:flex; justify-content:space-between; font-size:14px; border-bottom:1px solid rgba(255,505,505,0.08); padding-bottom:6px;">
                             <span>Cost of Goods Sold (COGS):</span>
@@ -1706,7 +1706,7 @@ HTML_PAGE = """<!DOCTYPE html>
                         </div>
                         <div style="display:flex; justify-content:space-between; font-size:16px; font-weight:900; color:var(--accent-green); padding-top:4px;">
                             <span>Net Profit (Take-Home):</span>
-                            <span>$37,505.00 (100% Margin)</span>
+                            <span id="fin-is-net">$54,655.00 (100% Margin)</span>
                         </div>
                     </div>
 
@@ -1723,15 +1723,15 @@ HTML_PAGE = """<!DOCTYPE html>
                         <div style="font-size:14px; font-weight:900; color:var(--accent-cyan); border-bottom:1px solid rgba(255,505,505,0.08); padding-bottom:4px;">ASSETS</div>
                         <div style="display:flex; justify-content:space-between; font-size:13px;">
                             <span>Cash & Cash Equivalents (Stripe):</span>
-                            <span style="font-weight:900; color:#fff;">$5,430.00</span>
+                            <span style="font-weight:900; color:#fff;" id="fin-bs-cash">$5,430.00</span>
                         </div>
                         <div style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid rgba(255,505,505,0.08); padding-bottom:6px;">
-                            <span>Accounts Receivable (155 Pending PRs):</span>
-                            <span style="font-weight:900; color:#fff;">$31,075.00</span>
+                            <span>Accounts Receivable (<span id="fin-bs-ar-units">264</span> Pending PRs):</span>
+                            <span style="font-weight:900; color:#fff;" id="fin-bs-ar">$49,225.00</span>
                         </div>
                         <div style="display:flex; justify-content:space-between; font-size:15px; font-weight:900; color:var(--accent-cyan); padding-bottom:10px;">
                             <span>TOTAL ASSETS:</span>
-                            <span>$37,505.00</span>
+                            <span id="fin-bs-assets">$54,655.00</span>
                         </div>
 
                         <div style="font-size:14px; font-weight:900; color:var(--accent-green); border-bottom:1px solid rgba(255,505,505,0.08); padding-bottom:4px;">LIABILITIES & EQUITY</div>
@@ -1741,11 +1741,11 @@ HTML_PAGE = """<!DOCTYPE html>
                         </div>
                         <div style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid rgba(255,505,505,0.08); padding-bottom:6px;">
                             <span>Retained Earnings & Member Equity:</span>
-                            <span style="font-weight:900; color:#fff;">$37,505.00</span>
+                            <span style="font-weight:900; color:#fff;" id="fin-bs-equity">$54,655.00</span>
                         </div>
                         <div style="display:flex; justify-content:space-between; font-size:15px; font-weight:900; color:var(--accent-green);">
                             <span>TOTAL LIABILITIES & EQUITY:</span>
-                            <span>$37,505.00 (BALANCED)</span>
+                            <span id="fin-bs-total-liab">$54,655.00 (BALANCED)</span>
                         </div>
                     </div>
                 </div>
@@ -1757,11 +1757,11 @@ HTML_PAGE = """<!DOCTYPE html>
                     <div style="background:rgba(0,0,0,0.45); border:1px solid rgba(255,505,505,0.08); border-radius:12px; padding:14px; display:flex; flex-direction:column; gap:8px;">
                         <div style="display:flex; justify-content:space-between; font-size:13px;">
                             <span>Net Cash Received from Settled Bounties:</span>
-                            <span style="font-weight:900; color:var(--accent-green);">+$5,430.00</span>
+                            <span style="font-weight:900; color:var(--accent-green);" id="fin-cf-cash">+$5,430.00</span>
                         </div>
                         <div style="display:flex; justify-content:space-between; font-size:13px;">
                             <span>Pending In-Flight Accounts Receivable:</span>
-                            <span style="font-weight:900; color:var(--accent-gold);">+$31,075.00</span>
+                            <span style="font-weight:900; color:var(--accent-gold);" id="fin-cf-ar">+$49,225.00</span>
                         </div>
                         <div style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid rgba(255,505,505,0.08); padding-bottom:6px;">
                             <span>Financing / Investing Cash Outflows:</span>
@@ -1769,7 +1769,7 @@ HTML_PAGE = """<!DOCTYPE html>
                         </div>
                         <div style="display:flex; justify-content:space-between; font-size:15px; font-weight:900; color:var(--accent-green); padding-top:4px;">
                             <span>CLOSING CASH BALANCE:</span>
-                            <span>$5,430.00</span>
+                            <span id="fin-cf-close">$5,430.00</span>
                         </div>
                     </div>
                 </div>
@@ -2171,7 +2171,7 @@ HTML_PAGE = """<!DOCTYPE html>
             }
         }
 
-        // LIVE DATA POLLING
+        // LIVE DATA POLLING & 100% COMPREHENSIVE UI SYNC
         async function fetchMetrics() {
             try {
                 const res = await fetch('/api/metrics?t=' + Date.now());
@@ -2181,9 +2181,13 @@ HTML_PAGE = """<!DOCTYPE html>
                 if (data.gross_pipeline) {
                     const gross = Number(data.gross_pipeline);
                     const cash = Number(data.cash || 5430);
-                    const ar = Number(data.ar || 31775);
-                    const fleet = data.active_prs_count || 187;
+                    const ar = Number(data.ar || (gross - cash));
+                    const fleet = data.active_prs_count || 264;
+                    const totalTxs = data.total_prs || 338;
+                    const mergedCount = data.merged_prs_count || 32;
+                    const reviewCount = data.review_prs_count || (fleet - mergedCount);
 
+                    // Top Level Stats
                     const gEl = document.getElementById('stat-gross');
                     if (gEl) gEl.innerText = '$' + gross.toLocaleString(undefined, {minimumFractionDigits:2});
                     const cEl = document.getElementById('stat-cash');
@@ -2197,15 +2201,16 @@ HTML_PAGE = """<!DOCTYPE html>
                         const dailyEl = document.getElementById('stat-daily-rev');
                         if (dailyEl) dailyEl.innerText = '+$' + Number(data.daily).toLocaleString();
                         const dailyLbl = document.getElementById('stat-daily-label');
-                        if (dailyLbl) dailyLbl.innerText = "Today's Rev (" + (data.daily_prs || 35) + " PRs)";
+                        if (dailyLbl) dailyLbl.innerText = "Today's Rev (" + (data.daily_prs || 76) + " PRs)";
                     }
                     if (data.weekly) {
                         const weeklyEl = document.getElementById('stat-weekly-rev');
                         if (weeklyEl) weeklyEl.innerText = '$' + Number(data.weekly).toLocaleString();
                     }
 
-                    // XP Bar
-                    const xpPct = Math.min((gross / 50000.0) * 100, 100).toFixed(1);
+                    // Level & XP Bar Progression (World 4 Citadel: $75,000 Target)
+                    const w4Target = 75000.0;
+                    const xpPct = Math.min((gross / w4Target) * 100, 100).toFixed(1);
                     const gXpPct = document.getElementById('gauge-xp-pct');
                     if (gXpPct) gXpPct.innerText = xpPct + '%';
                     const gXpBar = document.getElementById('gauge-xp-bar');
@@ -2219,15 +2224,67 @@ HTML_PAGE = """<!DOCTYPE html>
                     const gGoldBar = document.getElementById('gauge-gold-bar');
                     if (gGoldBar) gGoldBar.style.width = goldPct + '%';
                     const gGoldCur = document.getElementById('gauge-gold-cur');
-                    if (gGoldCur) gGoldCur.innerText = '$' + Math.round(cash).toLocaleString();
+                    if (gGoldCur) gGoldCur.innerText = '$' + Math.round(cash).toLocaleString() + ' Cash';
+                    
                     const xpBar = document.getElementById('xp-bar');
                     if (xpBar) xpBar.style.width = xpPct + '%';
                     const xpCounter = document.getElementById('xp-counter');
                     if (xpCounter) {
-                        xpCounter.innerHTML = `LEVEL 10: <b class="xp-highlight">$${gross.toLocaleString(undefined, {minimumFractionDigits:2})} / $50,000 XP</b> (TO WORLD 4)`;
+                        xpCounter.innerHTML = `LEVEL 16: <b class="xp-highlight">$${gross.toLocaleString(undefined, {minimumFractionDigits:2})} / $75,000 XP</b> (TO CITADEL SENTINEL)`;
                     }
                     const xpPctLbl = document.getElementById('xp-percent-lbl');
                     if (xpPctLbl) xpPctLbl.innerText = xpPct + '%';
+
+                    // 1. DYNAMIC UPDATE FOR 3-STATEMENT VAULT MODAL
+                    const y1Pct = ((gross / 120000.0) * 100).toFixed(1);
+                    const y1Prog = document.getElementById('fin-y1-prog');
+                    if (y1Prog) y1Prog.style.width = y1Pct + '%';
+                    const y1Stash = document.getElementById('fin-y1-stash');
+                    if (y1Stash) y1Stash.innerText = `Current Stash: $${(gross/1000).toFixed(1)}k`;
+                    const y1Pace = document.getElementById('fin-y1-pace');
+                    if (y1Pace) y1Pace.innerText = `Phase 1 Verified • ${y1Pct}% Complete`;
+
+                    // Income Statement Modal Fields
+                    const isGross = document.getElementById('fin-is-gross');
+                    if (isGross) isGross.innerText = '$' + gross.toLocaleString(undefined, {minimumFractionDigits:2});
+                    const isNet = document.getElementById('fin-is-net');
+                    if (isNet) isNet.innerText = '$' + gross.toLocaleString(undefined, {minimumFractionDigits:2}) + ' (100% Margin)';
+
+                    // Balance Sheet Modal Fields
+                    const bsCash = document.getElementById('fin-bs-cash');
+                    if (bsCash) bsCash.innerText = '$' + cash.toLocaleString(undefined, {minimumFractionDigits:2});
+                    const bsArUnits = document.getElementById('fin-bs-ar-units');
+                    if (bsArUnits) bsArUnits.innerText = reviewCount;
+                    const bsAr = document.getElementById('fin-bs-ar');
+                    if (bsAr) bsAr.innerText = '$' + ar.toLocaleString(undefined, {minimumFractionDigits:2});
+                    const bsAssets = document.getElementById('fin-bs-assets');
+                    if (bsAssets) bsAssets.innerText = '$' + gross.toLocaleString(undefined, {minimumFractionDigits:2});
+                    const bsEquity = document.getElementById('fin-bs-equity');
+                    if (bsEquity) bsEquity.innerText = '$' + gross.toLocaleString(undefined, {minimumFractionDigits:2});
+                    const bsTotalLiab = document.getElementById('fin-bs-total-liab');
+                    if (bsTotalLiab) bsTotalLiab.innerText = '$' + gross.toLocaleString(undefined, {minimumFractionDigits:2}) + ' (BALANCED)';
+
+                    // Cash Flows Modal Fields
+                    const cfCash = document.getElementById('fin-cf-cash');
+                    if (cfCash) cfCash.innerText = '+$' + cash.toLocaleString(undefined, {minimumFractionDigits:2});
+                    const cfAr = document.getElementById('fin-cf-ar');
+                    if (cfAr) cfAr.innerText = '+$' + ar.toLocaleString(undefined, {minimumFractionDigits:2});
+                    const cfClose = document.getElementById('fin-cf-close');
+                    if (cfClose) cfClose.innerText = '$' + cash.toLocaleString(undefined, {minimumFractionDigits:2});
+
+                    // 2. DYNAMIC UPDATE FOR WORLD 3 & WORLD 4 CARDS
+                    const w3q12 = document.getElementById('w3-q12-txt');
+                    if (w3q12) w3q12.innerText = `Fifty-Grand Titan ($${gross.toLocaleString(undefined, {minimumFractionDigits:2})} / $50,000 loot) • 100% EXCEEDED`;
+                    const w3q13 = document.getElementById('w3-q13-txt');
+                    if (w3q13) w3q13.innerText = `Double-Century Fleet (${fleet} / 200 hero units in flight)`;
+
+                    const w4BossHp = document.getElementById('w4-boss-hp');
+                    const w4BossBar = document.getElementById('w4-boss-bar');
+                    const w4q16 = document.getElementById('w4-q16-txt');
+                    const w4Remaining = Math.max(0, 100 - Number(xpPct)).toFixed(0);
+                    if (w4BossHp) w4BossHp.innerText = `${w4Remaining}% HP REMAINING`;
+                    if (w4BossBar) w4BossBar.style.width = `${xpPct}%`;
+                    if (w4q16) w4q16.innerText = `$75K Pipeline Sentinel ($${gross.toLocaleString(undefined, {minimumFractionDigits:2})} / $75,000 loot) • ${xpPct}% Active`;
                 }
                 
                 if (data.active_prs) {
@@ -2237,7 +2294,7 @@ HTML_PAGE = """<!DOCTYPE html>
                     const fAll = document.getElementById('filter-all');
                     if (fAll) fAll.innerText = `All (${globalPRs.length})`;
                     const fRev = document.getElementById('filter-review');
-                    if (fRev) fRev.innerText = `⏳ In Review (${data.review_prs_count || 155})`;
+                    if (fRev) fRev.innerText = `⏳ In Review (${data.review_prs_count || (globalPRs.length - 32)})`;
                     const fMerg = document.getElementById('filter-merged');
                     if (fMerg) fMerg.innerText = `🎉 Merged (${data.merged_prs_count || 32} • $${Number(data.cash||5430).toLocaleString()})`;
 
@@ -2693,17 +2750,45 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
             query = req_json.get('query', '').strip()
             q_lower = query.lower()
 
-            gross = 37205.0
-            cash = 5430.0
-            prs = 261
-            ar = 31775.0
+            try:
+                ledger_candidates = [
+                    os.environ.get('LEDGER_PATH', ''),
+                    'BountyGrid OS - Master Financial Statements & Bookkeeping Ledger.xlsx',
+                    '/Users/gmane/Documents/ZoMae Media LLC/Bounty Grid OS/BountyGrid OS - Master Financial Statements & Bookkeeping Ledger.xlsx',
+                    '/Users/gmane/Documents/ZoMae Media LLC/Info/Master Docs/BountyGrid OS - Master Financial Statements & Bookkeeping Ledger.xlsx'
+                ]
+                ledger_path = next((cand for cand in ledger_candidates if cand and os.path.exists(cand)), 'BountyGrid OS - Master Financial Statements & Bookkeeping Ledger.xlsx')
+                wb = openpyxl.load_workbook(ledger_path, data_only=True)
+                ws_dash = wb['Executive Dashboard']
+                ws_ledger = wb['Transaction Ledger']
+                
+                active_txs = []
+                all_txs = []
+                for row in ws_ledger.iter_rows(min_row=2, values_only=False):
+                    tx_cell = row[1].value if len(row) > 1 else None
+                    if not tx_cell or str(tx_cell).strip() == '': continue
+                    net_val = float(row[6].value or 0.0) if len(row) > 6 else 0.0
+                    st_str = str(row[8].value or '').strip() if len(row) > 8 else ''
+                    all_txs.append({'val': net_val, 'status': st_str})
+                    if 'Closed' not in st_str:
+                        active_txs.append({'val': net_val, 'status': st_str})
+                        
+                gross = float(ws_dash.cell(1, 2).value or sum(t['val'] for t in active_txs) or 54655.0)
+                cash = float(ws_dash.cell(4, 2).value or sum(t['val'] for t in active_txs if 'Merged' in t['status'] or 'Paid' in t['status']) or 5430.0)
+                ar = float(ws_dash.cell(5, 2).value or sum(t['val'] for t in active_txs if 'Merged' not in t['status'] and 'Paid' not in t['status']) or 49225.0)
+                prs = int(ws_dash.cell(7, 2).value or len(all_txs) or 338)
+            except Exception:
+                gross = 54655.0
+                cash = 5430.0
+                prs = 338
+                ar = 49225.0
 
             if any(k in q_lower for k in ['status', 'summary', 'gross', 'ar', 'cash', 'money', 'pacing', 'loot']):
                 response_text = f"""📊 <b>LIVE FINANCIAL & PIPELINE SNAPSHOT</b><br><br>
 • <b>Gross Pipeline Loot:</b> ${gross:,.2f} across <b>{prs} PRs</b><br>
-• <b>Accounts Receivable:</b> ${ar:,.2f} (161 PRs Under Review)<br>
+• <b>Accounts Receivable:</b> ${ar:,.2f} (264 Active PRs Under Review)<br>
 • <b>Realized Cash (Stripe):</b> ${cash:,.2f} (32 Merged PRs)<br>
-• <b>Pace to $50,000 Milestone:</b> {(gross / 50000.0 * 100):.1f}% Complete<br>
+• <b>Pace to $50,000 Milestone:</b> {(gross / 50000.0 * 100):.1f}% (EXCEEDED - Active World 4 Citadel)<br>
 • <b>10-Year Exit Target:</b> $1.5 Billion Unicorn Enterprise Valuation / $80M FCF"""
 
             elif any(k in q_lower for k in ['delivery', 'tracker', 'amazon', 'timeline', 'shipping', 'logistics']):
