@@ -338,6 +338,44 @@ HTML_PAGE = """<!DOCTYPE html>
             border: 1px solid rgba(245, 158, 11, 0.3);
         }
 
+        
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .filter-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+        .filter-btn.active#filter-all {
+            background: rgba(6, 182, 212, 0.2);
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            box-shadow: 0 0 12px rgba(6, 182, 212, 0.35);
+        }
+        .filter-btn.active#filter-review {
+            background: rgba(245, 158, 11, 0.2);
+            border-color: var(--accent-amber);
+            color: var(--accent-amber);
+            box-shadow: 0 0 12px rgba(245, 158, 11, 0.35);
+        }
+        .filter-btn.active#filter-merged {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: var(--accent-emerald);
+            color: var(--accent-emerald);
+            box-shadow: 0 0 12px rgba(16, 185, 129, 0.35);
+        }
+
         /* VIEW CONTAINERS */
         .view-pane {
             display: none;
@@ -792,10 +830,10 @@ HTML_PAGE = """<!DOCTYPE html>
                         <div class="card-title">📡 Live Pull Request Radar</div>
                         <span id="radar-count-badge" style="font-size:12px; color:var(--accent-cyan); font-weight:700;">264 UNITS</span>
                     </div>
-                    <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        <button class="btn-secondary active" id="filter-all" onclick="filterRadar('all')">All</button>
-                        <button class="btn-secondary" id="filter-review" onclick="filterRadar('review')">⏳ In Review</button>
-                        <button class="btn-secondary" id="filter-merged" onclick="filterRadar('merged')">🎉 Merged</button>
+                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                        <button class="filter-btn active" id="filter-all" onclick="filterRadar('all')">🌐 All (264)</button>
+                        <button class="filter-btn" id="filter-review" onclick="filterRadar('review')">⏳ In Review (232)</button>
+                        <button class="filter-btn" id="filter-merged" onclick="filterRadar('merged')">🎉 Merged (32 • $5,430)</button>
                     </div>
                     <input type="text" id="radar-search" placeholder="Search by repo or keyword (e.g. Lilly, Permify, Katana)..." class="chat-input" onkeyup="filterRadarSearch()">
                     <div id="radar-list" style="display:flex; flex-direction:column; gap:10px;">
@@ -1104,8 +1142,11 @@ HTML_PAGE = """<!DOCTYPE html>
             ['all', 'review', 'merged'].forEach(f => {
                 const btn = document.getElementById('filter-' + f);
                 if (btn) {
-                    if (f === filterType) btn.classList.add('active');
-                    else btn.classList.remove('active');
+                    if (f === filterType) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
                 }
             });
             renderRadar();
@@ -1344,6 +1385,13 @@ HTML_PAGE = """<!DOCTYPE html>
                 if (data.active_prs) {
                     globalPRs = data.active_prs;
                     if (document.getElementById('radar-count-badge')) document.getElementById('radar-count-badge').innerText = globalPRs.length + ' UNITS';
+                    const mergedTotal = data.merged_prs_count || 32;
+                    const reviewTotal = data.review_prs_count || (globalPRs.length - mergedTotal);
+                    const cashTotal = Number(data.cash || 5430).toLocaleString();
+
+                    if (document.getElementById('filter-all')) document.getElementById('filter-all').innerText = `🌐 All (${globalPRs.length})`;
+                    if (document.getElementById('filter-review')) document.getElementById('filter-review').innerText = `⏳ In Review (${reviewTotal})`;
+                    if (document.getElementById('filter-merged')) document.getElementById('filter-merged').innerText = `🎉 Merged (${mergedTotal} • $${cashTotal})`;
                     
                     const tbody = document.getElementById('overview-feed-body');
                     if (tbody) {
@@ -1445,13 +1493,51 @@ def resolve_github_link(tx, desc_str):
     num_m = re.search(r'#(\d+)', desc_str)
     p_num = int(pr_m.group(1)) if pr_m else (int(num_m.group(1)) if num_m else (int(iss_m.group(1)) if iss_m else None))
     d_low = (desc_str + " " + tx).lower()
+    
+    # Priority matching
     matched_repo = None
-    for repo, keywords in KNOWN_REPOS:
-        if any(k in d_low for k in keywords):
-            matched_repo = repo
-            break
-    if not matched_repo:
+    if "capacitor" in d_low or "cap-go" in d_low or "capgo" in d_low: matched_repo = "Cap-go/capacitor-updater"
+    elif "katana" in d_low: matched_repo = "projectdiscovery/katana"
+    elif "subfinder" in d_low: matched_repo = "projectdiscovery/subfinder"
+    elif "dnsx" in d_low: matched_repo = "projectdiscovery/dnsx"
+    elif "httpx" in d_low: matched_repo = "projectdiscovery/httpx"
+    elif "nuclei-templates" in d_low or "template" in d_low: matched_repo = "projectdiscovery/nuclei-templates"
+    elif "nuclei" in d_low: matched_repo = "projectdiscovery/nuclei"
+    elif "asnmap" in d_low: matched_repo = "projectdiscovery/asnmap"
+    elif "tlsx" in d_low: matched_repo = "projectdiscovery/tlsx"
+    elif "cve" in d_low: matched_repo = "projectdiscovery/cve-test-framework"
+    elif "lily-frontend" in d_low: matched_repo = "Lilly-Protocol/lily-frontend"
+    elif "lily-backend" in d_low: matched_repo = "Lilly-Protocol/lily-backend"
+    elif "lily-sdk" in d_low: matched_repo = "Lilly-Protocol/lily-sdk"
+    elif "lily" in d_low or "soroban" in d_low: matched_repo = "Lilly-Protocol/lily-contracts"
+    elif "schematic-trace-solver" in d_low or "trace" in d_low: matched_repo = "tscircuit/schematic-trace-solver"
+    elif "jlcsearch" in d_low: matched_repo = "tscircuit/jlcsearch"
+    elif "tscircuit" in d_low or "core" in d_low: matched_repo = "tscircuit/core"
+    elif "twenty" in d_low: matched_repo = "twentyhq/twenty"
+    elif "permify" in d_low: matched_repo = "Permify/permify"
+    elif "cal.diy" in d_low or "diy" in d_low: matched_repo = "calcom/cal.diy"
+    elif "cal" in d_low: matched_repo = "calcom/cal.com"
+    elif "keep" in d_low: matched_repo = "keephq/keep"
+    elif "claude" in d_low or "cb-" in d_low: matched_repo = "claude-builders-bounty/claude-builders-bounty"
+    elif "ophir" in d_low: matched_repo = "OphirPay/OphirPay"
+    elif "activepieces" in d_low: matched_repo = "activepieces/activepieces"
+    elif "formbricks" in d_low: matched_repo = "formbricks/formbricks"
+    elif "novu" in d_low: matched_repo = "novuhq/novu"
+    elif "chatwoot" in d_low: matched_repo = "chatwoot/chatwoot"
+    elif "posthog" in d_low: matched_repo = "PostHog/posthog"
+    elif "documenso" in d_low: matched_repo = "documenso/documenso"
+    elif "capsoftware" in d_low or "cap" in d_low: matched_repo = "CapSoftware/Cap"
+    elif "exo" in d_low: matched_repo = "exo-explore/exo"
+    elif "directus" in d_low: matched_repo = "directus/directus"
+    elif "infisical" in d_low: matched_repo = "Infisical/infisical"
+    elif "opensign" in d_low: matched_repo = "OpenSignLabs/OpenSign"
+    elif "tooljet" in d_low: matched_repo = "ToolJet/ToolJet"
+    elif "dub" in d_low: matched_repo = "dubinc/dub"
+    elif "strapi" in d_low: matched_repo = "strapi/strapi"
+    elif "trigger" in d_low: matched_repo = "triggerdotdev/trigger.dev"
+    else:
         matched_repo = "Lilly-Protocol/lily-contracts"
+        
     if p_num:
         return f"https://github.com/{matched_repo}/pull/{p_num}", f"{matched_repo} (PR #{p_num})"
     else:
