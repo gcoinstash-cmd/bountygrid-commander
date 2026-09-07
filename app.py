@@ -900,39 +900,207 @@ HTML_PAGE = """<!DOCTYPE html>
                 </div>
             </div>
 
-            <!-- ================= VIEW 8: BADGES & 10 WORLDS ================= -->
+                        <!-- ================= VIEW 8: BADGES & 10 WORLDS ================= -->
             <div id="view-badges" class="view-pane">
                 <div class="card">
                     <div class="card-header-row">
                         <div class="card-title">🏆 10 Video Game Worlds (The $1.5B Exit Ladder)</div>
                         <button class="btn-primary" style="font-size:12px; padding:4px 10px;" onclick="showBadgeModal()">📋 Embed Badge</button>
                     </div>
+                    <div style="font-size:13px; color:var(--text-secondary);">
+                        Every world displays required <b>Monthly Profit</b> and <b>Yearly Loot / Free Cash Flow</b> to reach the <b>$1.5B Unicorn Exit</b>:
+                    </div>
+
+                    <!-- WORLD 1 -->
                     <div class="world-card unlocked">
-                        <div style="display:flex; justify-content:space-between; font-weight:700; color:var(--accent-emerald);">
-                            <span>🟢 World 1: The Starter Dungeon ($75k/yr)</span>
-                            <span>COMPLETED</span>
+                        <div style="display:flex; justify-content:space-between; align-items:center; font-weight:700;">
+                            <span style="color:var(--accent-emerald); font-size:14px;">🟢 World 1: The Starter Dungeon (Levels 1–5)</span>
+                            <span class="status-pill merged">5/5 COMPLETED</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; background:rgba(0,0,0,0.3); padding:8px 12px; border-radius:8px; font-size:12px;">
+                            <span>💰 <b>$6,000 / mo</b> Cash</span>
+                            <span style="color:var(--accent-cyan);">🏆 <b>$75,000 / yr</b> Loot</span>
+                        </div>
+                        <div style="font-size:12px; color:var(--text-secondary); line-height:1.6;">
+                            ✓ Quest 1: Five-Figure Club ($10k+ gross pipeline reached)<br>
+                            ✓ Quest 2: Repo Diplomat (25 distinct realms unlocked)<br>
+                            ✓ Quest 3: Cash Clearance Alpha ($5,430 gold in Stripe wallet)<br>
+                            ✓ Quest 4: Burst Master (30+ quests solved in 1 day)<br>
+                            ✓ Quest 5: Centurion Titan (100+ active PR units in flight)
                         </div>
                     </div>
+
+                    <!-- WORLD 2 -->
                     <div class="world-card unlocked">
-                        <div style="display:flex; justify-content:space-between; font-weight:700; color:var(--accent-emerald);">
-                            <span>🟢 World 2: The Cyber Castle ($120k/yr)</span>
-                            <span>COMPLETED</span>
+                        <div style="display:flex; justify-content:space-between; align-items:center; font-weight:700;">
+                            <span style="color:var(--accent-emerald); font-size:14px;">🟢 World 2: The Cyber Castle (Levels 6–10)</span>
+                            <span class="status-pill merged">5/5 COMPLETED</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; background:rgba(0,0,0,0.3); padding:8px 12px; border-radius:8px; font-size:12px;">
+                            <span>💰 <b>$10,000 / mo</b> Cash</span>
+                            <span style="color:var(--accent-cyan);">🏆 <b>$120,000 / yr</b> Loot</span>
+                        </div>
+                        <div style="font-size:12px; color:var(--text-secondary); line-height:1.6;">
+                            ✓ Quest 6: $25K Horizon ($25,000 gross pipeline)<br>
+                            ✓ Quest 7: $35K Apex Frontier ($37,505 loot secured)<br>
+                            ✓ Quest 8: Tri-Layer Harmony (100% balanced ledger)<br>
+                            ✓ Quest 9: Security Clearance (0 flaws, green CI)<br>
+                            ✓ Quest 10: Fleet Command (161 in-review queue)
                         </div>
                     </div>
+
+                    <!-- WORLD 3 -->
                     <div class="world-card unlocked" id="world3-card">
-                        <div style="display:flex; justify-content:space-between; font-weight:700; color:var(--accent-emerald);">
-                            <span>🟢 World 3: The Guild Vault ($300k/yr)</span>
-                            <span id="world3-badge">5/5 COMPLETED</span>
+                        <div style="display:flex; justify-content:space-between; align-items:center; font-weight:700;">
+                            <span style="color:var(--accent-emerald); font-size:14px;">🟢 World 3: The Guild Vault (Levels 11–15)</span>
+                            <span class="status-pill merged" id="world3-badge">5/5 COMPLETED</span>
                         </div>
-                        <div style="font-size:12px; color:var(--text-secondary);" id="w3-q12-txt">Fifty-Grand Titan ($54,655 / $50,000 loot) • 109% EXCEEDED</div>
+                        <div style="display:flex; justify-content:space-between; background:rgba(0,0,0,0.3); padding:8px 12px; border-radius:8px; font-size:12px;">
+                            <span>💰 <b>$25,000 / mo</b> Cash</span>
+                            <span style="color:var(--accent-cyan);">🏆 <b>$300,000 / yr</b> Loot</span>
+                        </div>
+                        <div style="font-size:12px; color:var(--text-secondary); line-height:1.6;">
+                            ✓ Quest 11: $10K Cash Pace ($5,430 gold secured)<br>
+                            ✓ Quest 12: <span id="w3-q12-txt">Fifty-Grand Titan ($54,655 / $50,000 loot) • 109% EXCEEDED</span><br>
+                            ✓ Quest 13: Double-Century Fleet (264 / 200 hero units in flight)<br>
+                            ✓ Quest 14: Escrow Sovereign ($9,330 in Lilly escrows)<br>
+                            ✓ Quest 15: Retainer Deal Room ($6k–$8k proposals active)
+                        </div>
                     </div>
+
+                    <!-- WORLD 4 -->
                     <div class="world-card current" id="world4-card">
-                        <div style="display:flex; justify-content:space-between; font-weight:700; color:var(--accent-cyan);">
-                            <span>⚡ World 4: The Six-Figure Citadel ($500k/yr)</span>
-                            <span id="w4-boss-hp">27% HP REMAINING</span>
+                        <div style="display:flex; justify-content:space-between; align-items:center; font-weight:700;">
+                            <span style="color:var(--accent-cyan); font-size:14px;">⚡ World 4: The Six-Figure Citadel (Levels 16–20)</span>
+                            <span class="status-pill review" id="w4-boss-hp">27% HP REMAINING</span>
                         </div>
-                        <div style="font-size:12px; color:var(--text-secondary);" id="w4-q16-txt">$75K Pipeline Sentinel ($54,655 / $75,000 loot) • 73% Active</div>
+                        <div style="display:flex; justify-content:space-between; background:rgba(0,0,0,0.3); padding:8px 12px; border-radius:8px; font-size:12px;">
+                            <span>💰 <b>$40,000 / mo</b> Target</span>
+                            <span style="color:var(--accent-cyan);">🏆 <b>$500,000 / yr</b> Loot Target</span>
+                        </div>
+                        <div style="font-size:12px; color:var(--text-secondary); line-height:1.6;">
+                            ⚡ Quest 16: <span id="w4-q16-txt">$75K Pipeline Sentinel ($54,655 / $75,000 loot) • 73% Active</span><br>
+                            🔒 Quest 17: Six-Figure Sovereign ($100k milestone)<br>
+                            🔒 Quest 18: $25k Banked Stripe Cash<br>
+                            🔒 Quest 19: 3 Recurring Monthly Retainers ($18k–$24k/mo)<br>
+                            🔒 Quest 20: $150k ARR Benchmark Achieved
+                        </div>
                     </div>
+
+                    <!-- WORLD 5 -->
+                    <div class="world-card" style="opacity:0.8;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; font-weight:700;">
+                            <span style="color:#fff; font-size:14px;">🔒 World 5: The Millionaire Fortress (Levels 21–25)</span>
+                            <span class="status-pill" style="background:rgba(255,255,255,0.06); color:var(--text-muted);">LOCKED</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; background:rgba(0,0,0,0.3); padding:8px 12px; border-radius:8px; font-size:12px;">
+                            <span>💰 <b>$83,000 / mo</b> Cash</span>
+                            <span style="color:var(--accent-cyan);">🏆 <b>$1,000,000 / yr</b> Loot</span>
+                        </div>
+                        <div style="font-size:12px; color:var(--text-secondary); line-height:1.6;">
+                            🔒 Quest 21: 10 Enterprise Retainers ($35k/mo base)<br>
+                            🔒 Quest 22: $250k Cumulative Bounty Stash<br>
+                            🔒 Quest 23: $100k Direct Bank Reserves<br>
+                            🔒 Quest 24: 300-Ship Autonomous Swarm<br>
+                            🔒 Quest 25: $500k ARR Studio ($430k Net Cash Take-Home)
+                        </div>
+                    </div>
+
+                    <!-- WORLD 6 -->
+                    <div class="world-card" style="opacity:0.8;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; font-weight:700;">
+                            <span style="color:#fff; font-size:14px;">🔒 World 6: The SaaS Empire (Levels 26–30)</span>
+                            <span class="status-pill" style="background:rgba(255,255,255,0.06); color:var(--text-muted);">LOCKED</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; background:rgba(0,0,0,0.3); padding:8px 12px; border-radius:8px; font-size:12px;">
+                            <span>💰 <b>$250,000 / mo</b> Cash</span>
+                            <span style="color:var(--accent-cyan);">🏆 <b>$3,000,000 / yr</b> Loot</span>
+                        </div>
+                        <div style="font-size:12px; color:var(--text-secondary); line-height:1.6;">
+                            🔒 Quest 26: B2B Self-Serve SaaS Web App Launch<br>
+                            🔒 Quest 27: First 50 Paying Dev Teams<br>
+                            🔒 Quest 28: $1,000,000 ARR Titan Milestone<br>
+                            🔒 Quest 29: 1,000 Autonomous Merged PRs/Month<br>
+                            🔒 Quest 30: $15M–$30M Institutional Valuation Gateway
+                        </div>
+                    </div>
+
+                    <!-- WORLD 7 -->
+                    <div class="world-card" style="opacity:0.8;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; font-weight:700;">
+                            <span style="color:#fff; font-size:14px;">🔒 World 7: The Titan Kingdom (Levels 31–35)</span>
+                            <span class="status-pill" style="background:rgba(255,255,255,0.06); color:var(--text-muted);">LOCKED</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; background:rgba(0,0,0,0.3); padding:8px 12px; border-radius:8px; font-size:12px;">
+                            <span>💰 <b>$650,000 / mo</b> Cash</span>
+                            <span style="color:var(--accent-cyan);">🏆 <b>$8,000,000 / yr</b> Loot</span>
+                        </div>
+                        <div style="font-size:12px; color:var(--text-secondary); line-height:1.6;">
+                            🔒 Quest 31: SOC2 Type II & ISO 27001 Certified<br>
+                            🔒 Quest 32: 10 Fortune 500 Contracts ($100k ACV)<br>
+                            🔒 Quest 33: $5M ARR Scale (80% Net Free Cash Flow)<br>
+                            🔒 Quest 34: Air-Gapped VPC Cloud Deployments<br>
+                            🔒 Quest 35: $100M+ Nine-Figure Valuation Milestone
+                        </div>
+                    </div>
+
+                    <!-- WORLD 8 -->
+                    <div class="world-card" style="opacity:0.8;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; font-weight:700;">
+                            <span style="color:#fff; font-size:14px;">🔒 World 8: The Cloud Overlord (Levels 36–40)</span>
+                            <span class="status-pill" style="background:rgba(255,255,255,0.06); color:var(--text-muted);">LOCKED</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; background:rgba(0,0,0,0.3); padding:8px 12px; border-radius:8px; font-size:12px;">
+                            <span>💰 <b>$2,000,000 / mo</b> Cash</span>
+                            <span style="color:var(--accent-cyan);">🏆 <b>$25,000,000 / yr</b> Loot</span>
+                        </div>
+                        <div style="font-size:12px; color:var(--text-secondary); line-height:1.6;">
+                            🔒 Quest 36: GitHub/GitLab Native Remediation Partner<br>
+                            🔒 Quest 37: $25M ARR Benchmark ($2M/mo)<br>
+                            🔒 Quest 38: $20,000,000 Annual Free Cash Flow<br>
+                            🔒 Quest 39: 5,000 AI Agent Swarm Fleet<br>
+                            🔒 Quest 40: $350M–$500M Private Equity Valuation
+                        </div>
+                    </div>
+
+                    <!-- WORLD 9 -->
+                    <div class="world-card" style="opacity:0.8;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; font-weight:700;">
+                            <span style="color:#fff; font-size:14px;">🔒 World 9: The Global Dynasty (Levels 41–45)</span>
+                            <span class="status-pill" style="background:rgba(255,255,255,0.06); color:var(--text-muted);">LOCKED</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; background:rgba(0,0,0,0.3); padding:8px 12px; border-radius:8px; font-size:12px;">
+                            <span>💰 <b>$5,000,000 / mo</b> Cash</span>
+                            <span style="color:var(--accent-cyan);">🏆 <b>$60,000,000 / yr</b> Loot</span>
+                        </div>
+                        <div style="font-size:12px; color:var(--text-secondary); line-height:1.6;">
+                            🔒 Quest 41: 5,000+ Enterprise Clients Standard<br>
+                            🔒 Quest 42: $75M ARR Milestone<br>
+                            🔒 Quest 43: $50,000,000 Annual Take-Home Cash<br>
+                            🔒 Quest 44: Zero-Debt $100M+ Balance Sheet<br>
+                            🔒 Quest 45: 10,000 AI Swarm Solo Dynasty
+                        </div>
+                    </div>
+
+                    <!-- WORLD 10 -->
+                    <div class="world-card" style="border: 2px solid var(--accent-amber); background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), var(--bg-surface));">
+                        <div style="display:flex; justify-content:space-between; align-items:center; font-weight:700;">
+                            <span style="color:var(--accent-amber); font-size:14px;">👑 World 10: The Sovereign God Tier (Levels 46–50)</span>
+                            <span class="status-pill" style="background:linear-gradient(90deg, #f59e0b, #10b981); color:#000; font-weight:800;">FINAL BOSS EXIT</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; background:rgba(0,0,0,0.3); padding:8px 12px; border-radius:8px; font-size:12px;">
+                            <span>💰 <b>$6,600,000 / mo</b> Cash</span>
+                            <span style="color:var(--accent-amber);">🏆 <b>$80,000,000 / yr</b> FCF</span>
+                        </div>
+                        <div style="font-size:12px; color:var(--text-secondary); line-height:1.6;">
+                            🔒 Quest 46: $100,000,000 ARR Century Peak<br>
+                            🔒 Quest 47: $80M Annual Personal Cash Distribution<br>
+                            🔒 Quest 48: $500M+ M&A Acquisition Offer<br>
+                            🔒 Quest 49: 💎 <b>$1.5 BILLION UNICORN ENTERPRISE EXIT</b><br>
+                            🔒 Quest 50: 👑 <b>SOVEREIGN FREEDOM & FINANCIAL INDEPENDENCE (100% EQUITY PAYOUT)</b>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
