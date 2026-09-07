@@ -1140,56 +1140,174 @@ HTML_PAGE = """<!DOCTYPE html>
     </main>
 
     <!-- MODAL 1: 3-STATEMENT FINANCIAL VAULT -->
+    <!-- MODAL 1: 3-STATEMENT FINANCIAL VAULT -->
     <div class="modal-overlay" id="modal-financial">
-        <div class="modal-box">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
-                <span style="font-size:16px; font-weight:700; color:#fff;">📊 3-Statement Executive Financial Ledger</span>
-                <button class="btn-secondary" style="padding:4px 8px;" onclick="closeModals()">✕</button>
+        <div class="modal-box" style="max-width:680px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; border-bottom:1px solid rgba(255,255,255,0.06); padding-bottom:12px;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <span style="font-size:18px;">📊</span>
+                    <span style="font-size:16px; font-weight:700; color:#fff;">3-Statement Executive Financial Ledger</span>
+                </div>
+                <button class="btn-secondary" style="padding:4px 8px; font-size:12px;" onclick="closeModals()">✕</button>
             </div>
             <div style="display:flex; gap:8px; margin-bottom:16px;">
-                <button class="btn-secondary active" id="fin-tab-sched" onclick="switchFinTab('sched')">3-Yr Forecast</button>
+                <button class="btn-secondary active" id="fin-tab-sched" onclick="switchFinTab('sched')">3-Yr Forecast & Schedule</button>
                 <button class="btn-secondary" id="fin-tab-is" onclick="switchFinTab('is')">Income Statement</button>
                 <button class="btn-secondary" id="fin-tab-bs" onclick="switchFinTab('bs')">Balance Sheet</button>
                 <button class="btn-secondary" id="fin-tab-cf" onclick="switchFinTab('cf')">Cash Flows</button>
             </div>
+
+            <!-- VIEW 1: 3-YEAR REVENUE SCHEDULE & 10-MO MILESTONES -->
             <div id="fin-view-sched">
-                <table class="data-table">
-                    <thead><tr><th>Milestone</th><th>Target</th><th>Reality</th><th>Pace</th></tr></thead>
-                    <tbody>
-                        <tr><td>Year 1 Pace ($100k)</td><td>$100,000.00</td><td id="fin-y1-prog" style="color:var(--accent-cyan); font-weight:700;">$54,655.00</td><td id="fin-y1-pace" style="color:var(--accent-emerald); font-weight:700;">54.7%</td></tr>
-                        <tr><td>Stash Cash Target</td><td>$50,000.00</td><td id="fin-y1-stash" style="color:var(--accent-emerald); font-weight:700;">$5,430.00</td><td>10.9%</td></tr>
-                    </tbody>
-                </table>
+                <div style="font-size:14px; font-weight:700; color:var(--accent-cyan); margin-bottom:10px;">🚀 3-Year Sovereign Growth Model</div>
+                <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); border-radius:10px; padding:14px; display:flex; flex-direction:column; gap:12px;">
+                    <!-- Year 1 (2026) -->
+                    <div>
+                        <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px; font-weight:700;">
+                            <span style="color:#fff;">🚀 Year 1 (2026): Foundation & Proof</span>
+                            <span style="color:var(--accent-emerald);">,000 Annual • ,000 / Mo Profit</span>
+                        </div>
+                        <div style="height:10px; background:rgba(255,255,255,0.06); border-radius:5px; margin-top:6px; overflow:hidden;">
+                            <div id="fin-y1-prog" style="height:100%; width: 45.5%; background: linear-gradient(90deg, #10b981, #06b6d4); border-radius:5px;"></div>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-muted); margin-top:4px;">
+                            <span id="fin-y1-stash">Current Stash: .7k</span>
+                            <span id="fin-y1-pace" style="color:var(--accent-emerald); font-weight:600;">Phase 1 Verified • 45.5% Complete</span>
+                        </div>
+                    </div>
+
+                    <!-- Year 2 (2027) -->
+                    <div>
+                        <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px; font-weight:700;">
+                            <span style="color:#fff;">⚡ Year 2 (2027): Agency Scale & Retainers</span>
+                            <span style="color:var(--accent-cyan);">,000 Annual • ,600 / Mo Profit</span>
+                        </div>
+                        <div style="height:10px; background:rgba(255,255,255,0.06); border-radius:5px; margin-top:6px; overflow:hidden;">
+                            <div style="height:100%; width: 55%; background: linear-gradient(90deg, #06b6d4, #8b5cf6); border-radius:5px;"></div>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-muted); margin-top:4px;">
+                            <span>Target: 10 Monthly Retainers (k/mo base)</span>
+                            <span>,000 Net Annual Take-Home Cash</span>
+                        </div>
+                    </div>
+
+                    <!-- Year 3 (2028) -->
+                    <div>
+                        <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px; font-weight:700;">
+                            <span style="color:#fff;">👑 Year 3 (2028): Multi-Tenant SaaS Expansion</span>
+                            <span style="color:var(--accent-amber);">,000,000 Annual • ,000 / Mo Profit</span>
+                        </div>
+                        <div style="height:10px; background:rgba(255,255,255,0.06); border-radius:5px; margin-top:6px; overflow:hidden;">
+                            <div style="height:100%; width: 90%; background: linear-gradient(90deg, #f59e0b, #ec4899); border-radius:5px;"></div>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-muted); margin-top:4px;">
+                            <span>M – M Enterprise Valuation</span>
+                            <span>.5M Net Annual Free Cash Flow</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10-MONTH SCHEDULE BREAKDOWN -->
+                <div style="margin-top:14px;">
+                    <div style="font-size:13px; font-weight:700; color:#fff; margin-bottom:8px;">📅 10-Month Milestone Schedule</div>
+                    <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:8px;">
+                        <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); padding:10px 12px; border-radius:8px; font-size:12px;">
+                            <span style="color:var(--accent-emerald); font-weight:700;">• Mo 1–2 (Sept–Oct 2026):</span><br><span style="color:var(--text-muted);">k Pipeline / First Retainer</span>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); padding:10px 12px; border-radius:8px; font-size:12px;">
+                            <span style="color:var(--accent-cyan); font-weight:700;">• Mo 3–4 (Nov–Dec 2026):</span><br><span style="color:var(--text-muted);">k Gross / k Banked Cash</span>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); padding:10px 12px; border-radius:8px; font-size:12px;">
+                            <span style="color:var(--accent-purple); font-weight:700;">• Mo 5–6 (Jan–Feb 2027):</span><br><span style="color:var(--text-muted);">k Six-Figure Sovereign</span>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); padding:10px 12px; border-radius:8px; font-size:12px;">
+                            <span style="color:var(--accent-amber); font-weight:700;">• Mo 7–10 (Mar–June 2027):</span><br><span style="color:var(--text-muted);">k Stash / k ARR Rate</span>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!-- VIEW 2: INCOME STATEMENT -->
             <div id="fin-view-is" style="display:none;">
-                <table class="data-table">
-                    <thead><tr><th>Item</th><th>Gross Amount</th><th>Net Realized</th></tr></thead>
-                    <tbody>
-                        <tr><td>Gross Bounty Pipeline</td><td id="fin-is-gross">$54,655.00</td><td id="fin-is-net" style="color:var(--accent-emerald); font-weight:700;">$54,655.00</td></tr>
-                        <tr><td>Operational Debt</td><td>$0.00</td><td>$0.00 (Zero Debt)</td></tr>
-                    </tbody>
-                </table>
+                <div style="font-size:14px; font-weight:700; color:var(--accent-emerald); margin-bottom:10px;">📈 Income Statement (Accrual Basis)</div>
+                <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); border-radius:10px; padding:14px; display:flex; flex-direction:column; gap:10px;">
+                    <div style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid rgba(255,255,255,0.06); padding-bottom:6px;">
+                        <span style="color:var(--text-muted);">Gross Bounty Revenue:</span>
+                        <span style="font-weight:700; color:#fff;" id="fin-is-gross">,655.00</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid rgba(255,255,255,0.06); padding-bottom:6px;">
+                        <span style="color:var(--text-muted);">Cost of Goods Sold (COGS):</span>
+                        <span style="font-weight:700; color:var(--accent-emerald);">zsh.00</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid rgba(255,255,255,0.06); padding-bottom:6px;">
+                        <span style="color:var(--text-muted);">Operating Expenses (OPEX):</span>
+                        <span style="font-weight:700; color:var(--accent-emerald);">zsh.00</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; font-size:15px; font-weight:700; color:var(--accent-emerald); padding-top:4px;">
+                        <span>Net Profit (Take-Home):</span>
+                        <span id="fin-is-net">,655.00 (100% Margin)</span>
+                    </div>
+                </div>
+                <div style="margin-top:12px; font-size:12px; color:var(--text-muted); background:rgba(16,185,129,0.05); border:1px solid rgba(16,185,129,0.15); padding:10px 12px; border-radius:8px;">
+                    💡 <b style="color:#fff;">Solo AI Advantage:</b> Zero payroll liabilities, zero office rent, 100% equity retained by Solo Founder Garrett.
+                </div>
             </div>
+
+            <!-- VIEW 3: BALANCE SHEET -->
             <div id="fin-view-bs" style="display:none;">
-                <table class="data-table">
-                    <thead><tr><th>Account</th><th>Value</th><th>Status</th></tr></thead>
-                    <tbody>
-                        <tr><td>Cash & Equivalents</td><td id="fin-bs-cash" style="color:var(--accent-emerald); font-weight:700;">$5,430.00</td><td>Settled in Bank</td></tr>
-                        <tr><td>Accounts Receivable</td><td id="fin-bs-ar" style="color:var(--accent-amber); font-weight:700;">$49,225.00</td><td id="fin-bs-ar-units">264 Units In Review</td></tr>
-                        <tr><td>Total Assets</td><td id="fin-bs-assets" style="color:var(--accent-cyan); font-weight:700;">$54,655.00</td><td>Verified Ledger</td></tr>
-                        <tr><td>Total Liabilities</td><td id="fin-bs-total-liab">$0.00</td><td>Zero Debt</td></tr>
-                        <tr><td>Retained Equity</td><td id="fin-bs-equity" style="color:var(--accent-emerald); font-weight:700;">$54,655.00</td><td>100% Equity</td></tr>
-                    </tbody>
-                </table>
+                <div style="font-size:14px; font-weight:700; color:var(--accent-amber); margin-bottom:10px;">⚖️ Balance Sheet (Reconciled)</div>
+                <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); border-radius:10px; padding:14px; display:flex; flex-direction:column; gap:10px;">
+                    <div style="font-size:12px; font-weight:700; color:var(--accent-cyan); border-bottom:1px solid rgba(255,255,255,0.06); padding-bottom:4px; text-transform:uppercase;">ASSETS</div>
+                    <div style="display:flex; justify-content:space-between; font-size:13px;">
+                        <span style="color:var(--text-muted);">Cash & Cash Equivalents (Stripe / Bank):</span>
+                        <span style="font-weight:700; color:#fff;" id="fin-bs-cash">,430.00</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid rgba(255,255,255,0.06); padding-bottom:6px;">
+                        <span style="color:var(--text-muted);">Accounts Receivable (<span id="fin-bs-ar-units">264</span> Pending PRs):</span>
+                        <span style="font-weight:700; color:#fff;" id="fin-bs-ar">,225.00</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; font-size:14px; font-weight:700; color:var(--accent-cyan); padding-bottom:8px;">
+                        <span>TOTAL ASSETS:</span>
+                        <span id="fin-bs-assets">,655.00</span>
+                    </div>
+
+                    <div style="font-size:12px; font-weight:700; color:var(--accent-emerald); border-bottom:1px solid rgba(255,255,255,0.06); padding-bottom:4px; text-transform:uppercase; margin-top:4px;">LIABILITIES & EQUITY</div>
+                    <div style="display:flex; justify-content:space-between; font-size:13px;">
+                        <span style="color:var(--text-muted);">Total Liabilities (Zero Debt):</span>
+                        <span style="font-weight:700; color:var(--accent-emerald);">zsh.00</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid rgba(255,255,255,0.06); padding-bottom:6px;">
+                        <span style="color:var(--text-muted);">Retained Earnings & Member Equity:</span>
+                        <span style="font-weight:700; color:#fff;" id="fin-bs-equity">,655.00</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; font-size:14px; font-weight:700; color:var(--accent-emerald);">
+                        <span>TOTAL LIABILITIES & EQUITY:</span>
+                        <span id="fin-bs-total-liab">,655.00 (BALANCED)</span>
+                    </div>
+                </div>
             </div>
+
+            <!-- VIEW 4: CASH FLOW STATEMENT -->
             <div id="fin-view-cf" style="display:none;">
-                <table class="data-table">
-                    <thead><tr><th>Cash Activity</th><th>Flow</th><th>Net Position</th></tr></thead>
-                    <tbody>
-                        <tr><td>Operating Inflow</td><td id="fin-cf-cash" style="color:var(--accent-emerald); font-weight:700;">+$5,430.00</td><td>Positive Cashflow</td></tr>
-                        <tr><td>Pending Settlement Float</td><td id="fin-cf-ar" style="color:var(--accent-amber); font-weight:700;">+$49,225.00</td><td>Pending Disbursement</td></tr>
-                    </tbody>
-                </table>
+                <div style="font-size:14px; font-weight:700; color:var(--accent-cyan); margin-bottom:10px;">💵 Statement of Cash Flows</div>
+                <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); border-radius:10px; padding:14px; display:flex; flex-direction:column; gap:10px;">
+                    <div style="display:flex; justify-content:space-between; font-size:13px;">
+                        <span style="color:var(--text-muted);">Net Cash Received from Settled Bounties:</span>
+                        <span style="font-weight:700; color:var(--accent-emerald);" id="fin-cf-cash">+,430.00</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; font-size:13px;">
+                        <span style="color:var(--text-muted);">Pending In-Flight Accounts Receivable:</span>
+                        <span style="font-weight:700; color:var(--accent-amber);" id="fin-cf-ar">+,225.00</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid rgba(255,255,255,0.06); padding-bottom:6px;">
+                        <span style="color:var(--text-muted);">Financing / Investing Cash Outflows:</span>
+                        <span style="font-weight:700; color:#fff;">zsh.00</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; font-size:15px; font-weight:700; color:var(--accent-emerald); padding-top:4px;">
+                        <span>CLOSING CASH BALANCE:</span>
+                        <span id="fin-cf-close">,430.00</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
