@@ -72,6 +72,16 @@ HTML_PAGE = """<!DOCTYPE html>
             letter-spacing: -0.3px;
             color: #fff;
             text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+        .brand-logo:hover {
+            opacity: 0.85;
+            transform: translateY(-1px);
+        }
+        .brand-logo:active {
+            transform: scale(0.98);
         }
         .brand-logo svg {
             width: 20px;
@@ -605,7 +615,7 @@ HTML_PAGE = """<!DOCTYPE html>
     <!-- TOP NAVIGATION NAVBAR -->
     <header>
         <div class="nav-left">
-            <a href="#" class="brand-logo">
+            <a href="javascript:void(0)" class="brand-logo" onclick="switchView('view-dash', '💎 Overview & KPIs')">
                 <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                 <span>BountyGrid <span style="color:var(--accent-cyan);">OS</span></span>
             </a>
