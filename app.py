@@ -707,8 +707,8 @@ HTML_PAGE = """<!DOCTYPE html>
                             <span>Total Pipeline</span>
                             <span style="color:var(--accent-cyan);">Gross</span>
                         </div>
-                        <div class="kpi-value" id="stat-gross">$55,805.00</div>
-                        <div class="kpi-sub cyan" id="stat-fleet">343 Units (269 Active)</div>
+                        <div class="kpi-value" id="stat-gross">$56,955.00</div>
+                        <div class="kpi-sub cyan" id="stat-fleet">348 Units (274 Active)</div>
                     </div>
                     <div class="kpi-card">
                         <div class="kpi-label">
@@ -723,16 +723,16 @@ HTML_PAGE = """<!DOCTYPE html>
                             <span>Accounts Receivable</span>
                             <span style="color:var(--accent-amber);">Pending</span>
                         </div>
-                        <div class="kpi-value" id="stat-ar">$50,375.00</div>
-                        <div class="kpi-sub amber">269 PRs In Review</div>
+                        <div class="kpi-value" id="stat-ar">$51,525.00</div>
+                        <div class="kpi-sub amber">274 PRs In Review</div>
                     </div>
                     <div class="kpi-card">
                         <div class="kpi-label">
                             <span>Today Revenue</span>
-                            <span style="color:var(--accent-purple);">Day 1 Wave</span>
+                            <span style="color:var(--accent-purple);">Today Wave 2</span>
                         </div>
-                        <div class="kpi-value" id="stat-daily-rev" style="color:var(--accent-purple);">+$1,150.00</div>
-                        <div class="kpi-sub up" id="stat-daily-label">5 PRs Dispatched Today</div>
+                        <div class="kpi-value" id="stat-daily-rev" style="color:var(--accent-purple);">+$2,300.00</div>
+                        <div class="kpi-sub up" id="stat-daily-label">10 PRs Dispatched Today</div>
                     </div>
                 </div>
 
