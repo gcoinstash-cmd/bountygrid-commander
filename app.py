@@ -2412,7 +2412,7 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(get_dynamic_html().encode('utf-8'))
         elif clean_path in ['/app-icon.jpg', '/apple-touch-icon.png', '/apple-touch-icon-precomposed.png']:
-            icon_path = '/Users/gmane/.gemini/antigravity/brain/05fb0951-3c61-49c8-81c2-c5318bfdc09f/scratch/app-icon.jpg'
+            icon_path = '/Users/gmane/.gemini/antigravity/brain/05fb0951-3c61-49c8-81c2-c5322bfdc09f/scratch/app-icon.jpg'
             self.send_response(200)
             self.send_header('Content-type', 'image/jpeg')
             self.end_headers()
