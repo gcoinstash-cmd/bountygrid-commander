@@ -1183,16 +1183,16 @@ HTML_PAGE = """<!DOCTYPE html>
                 <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); border-radius:10px; padding:14px; display:flex; flex-direction:column; gap:12px;">
                     <!-- Year 1 (2026) -->
                     <div>
-                        <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px; font-weight:700;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:4px; font-size:13px; font-weight:700;">
                             <span style="color:#fff;">🚀 Year 1 (2026): Foundation &amp; Proof</span>
-                            <span style="color:var(--accent-emerald);">$120,000 Annual • $10,000 / Mo Profit</span>
+                            <span style="color:var(--accent-emerald); font-size:12px;">$120,000 Annual • $10,000/mo</span>
                         </div>
-                        <div style="height:10px; background:rgba(255,255,255,0.06); border-radius:5px; margin-top:6px; overflow:hidden;">
-                            <div id="fin-y1-prog" style="height:100%; width: 45.5%; background: linear-gradient(90deg, #10b981, #06b6d4); border-radius:5px;"></div>
+                        <div style="height:12px; background:rgba(255,255,255,0.08); border-radius:6px; margin-top:8px; overflow:hidden; position:relative;">
+                            <div id="fin-y1-bar" style="height:100%; width: 47.5%; background: linear-gradient(90deg, #10b981, #06b6d4); border-radius:6px; transition: width 0.4s ease;"></div>
                         </div>
-                        <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-muted); margin-top:4px;">
-                            <span id="fin-y1-stash">Current Stash: $54.7k</span>
-                            <span id="fin-y1-pace" style="color:var(--accent-emerald); font-weight:600;">Phase 1 Verified • 45.5% Complete</span>
+                        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:4px; font-size:12px; margin-top:6px;">
+                            <span style="color:#fff; font-weight:700;">Pipeline: <span id="fin-y1-prog" style="color:var(--accent-cyan);">$56,955.00</span> (<span id="fin-y1-pace" style="color:var(--accent-emerald);">47.5%</span>)</span>
+                            <span id="fin-y1-stash" style="color:var(--text-muted); font-size:11px;">Stripe Cash: $5,430.00</span>
                         </div>
                     </div>
 
@@ -1677,10 +1677,11 @@ HTML_PAGE = """<!DOCTYPE html>
                 if (document.getElementById('stat-daily-label')) document.getElementById('stat-daily-label').innerText = `${dailyPrs} PRs Dispatched Today`;
 
                 // Financial Vault fields
-                const y1Pct = ((gross / 100000.0) * 100).toFixed(1);
+                const y1Pct = Math.min(100, ((gross / 120000.0) * 100)).toFixed(1);
+                if (document.getElementById('fin-y1-bar')) document.getElementById('fin-y1-bar').style.width = y1Pct + '%';
                 if (document.getElementById('fin-y1-prog')) document.getElementById('fin-y1-prog').innerText = '$' + gross.toLocaleString(undefined, {minimumFractionDigits:2});
                 if (document.getElementById('fin-y1-pace')) document.getElementById('fin-y1-pace').innerText = y1Pct + '%';
-                if (document.getElementById('fin-y1-stash')) document.getElementById('fin-y1-stash').innerText = '$' + cash.toLocaleString(undefined, {minimumFractionDigits:2});
+                if (document.getElementById('fin-y1-stash')) document.getElementById('fin-y1-stash').innerText = 'Stripe Cash: $' + cash.toLocaleString(undefined, {minimumFractionDigits:2});
                 if (document.getElementById('fin-is-gross')) document.getElementById('fin-is-gross').innerText = '$' + gross.toLocaleString(undefined, {minimumFractionDigits:2});
                 if (document.getElementById('fin-is-net')) document.getElementById('fin-is-net').innerText = '$' + gross.toLocaleString(undefined, {minimumFractionDigits:2});
                 if (document.getElementById('fin-bs-cash')) document.getElementById('fin-bs-cash').innerText = '$' + cash.toLocaleString(undefined, {minimumFractionDigits:2});
