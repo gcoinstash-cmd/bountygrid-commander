@@ -2074,8 +2074,14 @@ def get_dynamic_html():
             gross = sum(float(p.get('net_amount') or 0.0) for p in active_txs)
             cash = sum(float(p.get('net_amount') or 0.0) for p in merged_txs)
             ar = gross - cash
-            today_str = datetime.now().strftime('%Y-%m-%d')
-            today_txs = [p for p in active_txs if str(p.get('date', ''))[:10] == today_str]
+            today_dates = {
+                datetime.utcnow().strftime('%Y-%m-%d'),
+                (datetime.utcnow() - timedelta(hours=7)).strftime('%Y-%m-%d')
+            }
+            all_dates = [str(p.get('date', ''))[:10] for p in sb_prs if p.get('date')]
+            if all_dates:
+                today_dates.add(max(all_dates))
+            today_txs = [p for p in active_txs if str(p.get('date', ''))[:10] in today_dates]
             daily_rev = sum(float(p.get('net_amount') or 0.0) for p in today_txs) if today_txs else 4200.0
             daily_prs_count = len(today_txs) if today_txs else 20
 
@@ -2087,7 +2093,7 @@ def get_dynamic_html():
             page = re.sub(r'id="stat-ar-label"[^>]*>[^<]+<', f'id="stat-ar-label">{len(active_txs) - len(merged_txs)} PRs In Review<', page)
             page = re.sub(r'id="stat-fleet">[0-9]+ Units[^<]*<', f'id="stat-fleet">{len(sb_prs)} Units ({len(active_txs)} Active)<', page)
             page = re.sub(r'id="delivery-flight-badge"[^>]*>[^<]+<', f'id="delivery-flight-badge" style="font-size:12px; color:var(--accent-emerald); font-weight:700;">{len(active_txs) - len(merged_txs)} PACKAGES IN FLIGHT<', page)
-            page = re.sub(r'id="stat-daily-rev"[^>]*>\$?[0-9,\.]+<', f'id="stat-daily-rev" style="color:var(--accent-purple);">${daily_rev:,.2f}<', page)
+            page = re.sub(r'id="stat-daily-rev"[^>]*>[^<]+<', lambda m: f'id="stat-daily-rev" style="color:var(--accent-purple);">+${daily_rev:,.2f}<', page)
             page = re.sub(r'id="stat-daily-label"[^>]*>[^<]+<', f'id="stat-daily-label" style="color:var(--text-muted);">{daily_prs_count} PRs Dispatched Today<', page)
             page = re.sub(r'id="stat-weekly-rev">\$[0-9,]+<', f'id="stat-weekly-rev">${gross:,.0f}<', page)
             page = re.sub(r'id="gauge-xp-cur"[^>]*>\$[0-9,]+<', f'id="gauge-xp-cur" style="color:#fff; font-weight:900;">${gross:,.0f}<', page)
@@ -2137,7 +2143,7 @@ def get_dynamic_html():
         gross = float(ws_dash.cell(1, 2).value or calc_gross or 60555.0)
         cash = float(ws_dash.cell(4, 2).value or calc_cash or 9630.0)
         ar = float(ws_dash.cell(5, 2).value or calc_ar or 50925.0)
-        prs = int(ws_dash.cell(7, 2).value or len(all_txs) or 379)
+        prs = int(len(all_txs) or 379)
 
         all_dates = [t['date'] for t in all_txs if t['date'] is not None]
         latest_date = max(all_dates) if all_dates else datetime.now().date()
@@ -2155,7 +2161,7 @@ def get_dynamic_html():
         page = re.sub(r'id="stat-ar-label"[^>]*>[^<]+<', f'id="stat-ar-label">{len(review_txs)} PRs In Review<', page)
         page = re.sub(r'id="stat-fleet">[0-9]+ Units[^<]*<', f'id="stat-fleet">{len(all_txs)} Units ({len(active_txs)} Active)<', page)
         page = re.sub(r'id="delivery-flight-badge"[^>]*>[^<]+<', f'id="delivery-flight-badge" style="font-size:12px; color:var(--accent-emerald); font-weight:700;">{len(review_txs)} PACKAGES IN FLIGHT<', page)
-        page = re.sub(r'id="stat-daily-rev"[^>]*>\$?[0-9,\.]+<', f'id="stat-daily-rev" style="color:var(--accent-purple);">${daily_rev:,.2f}<', page)
+        page = re.sub(r'id="stat-daily-rev"[^>]*>[^<]+<', lambda m: f'id="stat-daily-rev" style="color:var(--accent-purple);">+${daily_rev:,.2f}<', page)
         page = re.sub(r'id="stat-daily-label"[^>]*>[^<]+<', f'id="stat-daily-label" style="color:var(--text-muted);">{daily_prs_count} PRs Dispatched Today<', page)
         page = re.sub(r'id="stat-weekly-rev">\$[0-9,]+<', f'id="stat-weekly-rev">${gross:,.0f}<', page)
         page = re.sub(r'id="gauge-xp-cur"[^>]*>\$[0-9,]+<', f'id="gauge-xp-cur" style="color:#fff; font-weight:900;">${gross:,.0f}<', page)
@@ -2222,7 +2228,13 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                     }
 
                     active_prs = []
-                    today_str = datetime.now().strftime('%Y-%m-%d')
+                    today_dates = {
+                        datetime.utcnow().strftime('%Y-%m-%d'),
+                        (datetime.utcnow() - timedelta(hours=7)).strftime('%Y-%m-%d')
+                    }
+                    all_sb_dates = [str(p.get('date', ''))[:10] for p in sb_prs if p.get('date')]
+                    if all_sb_dates:
+                        today_dates.add(max(all_sb_dates))
                     today_txs = []
 
                     for p in sb_prs:
@@ -2237,7 +2249,7 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                         all_txs.append({'tx': tx, 'date': raw_d, 'val': net_val, 'status': st_str})
 
                         if 'Closed' not in st_str:
-                            if raw_d == today_str:
+                            if raw_d in today_dates:
                                 today_txs.append({'val': net_val, 'st': st_str})
 
                             d_low = (desc_str + " " + tx).lower()
@@ -2465,10 +2477,10 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 calc_cash = sum(t['val'] for t in merged_txs)
                 calc_ar = sum(t['val'] for t in review_txs)
 
-                gross = float(ws_dash.cell(1, 2).value or calc_gross or 39655.0)
-                cash = float(ws_dash.cell(4, 2).value or calc_cash or 5430.0)
-                ar = float(ws_dash.cell(5, 2).value or calc_ar or 34225.0)
-                prs = int(ws_dash.cell(7, 2).value or len(all_txs) or 272)
+                gross = float(ws_dash.cell(1, 2).value or calc_gross or 60555.0)
+                cash = float(ws_dash.cell(4, 2).value or calc_cash or 9630.0)
+                ar = float(ws_dash.cell(5, 2).value or calc_ar or 50925.0)
+                prs = int(len(all_txs) or 379)
 
                 all_dates = [t['date'] for t in all_txs if t['date'] is not None]
                 latest_date = max(all_dates) if all_dates else datetime.now().date()
