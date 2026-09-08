@@ -715,16 +715,16 @@ HTML_PAGE = """<!DOCTYPE html>
                             <span>Cash Settled</span>
                             <span style="color:var(--accent-emerald);">Stripe</span>
                         </div>
-                        <div class="kpi-value" id="stat-cash">$5,430.00</div>
-                        <div class="kpi-sub up">32 Merged PRs</div>
+                        <div class="kpi-value" id="stat-cash">$9,630.00</div>
+                        <div class="kpi-sub up">49 Merged PRs</div>
                     </div>
                     <div class="kpi-card">
                         <div class="kpi-label">
                             <span>Accounts Receivable</span>
                             <span style="color:var(--accent-amber);">Pending</span>
                         </div>
-                        <div class="kpi-value" id="stat-ar">$55,125.00</div>
-                        <div class="kpi-sub amber">258 PRs In Review</div>
+                        <div class="kpi-value" id="stat-ar">$50,925.00</div>
+                        <div class="kpi-sub amber">241 PRs In Review</div>
                     </div>
                     <div class="kpi-card">
                         <div class="kpi-label">
@@ -2467,12 +2467,12 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
             except Exception as e:
                 data = {
                     'gross_pipeline': 60555.0,
-                    'ar': 55125.0,
-                    'cash': 5430.0,
+                    'ar': 50925.0,
+                    'cash': 9630.0,
                     'total_prs': 379,
                     'active_prs_count': 290,
-                    'review_prs_count': 258,
-                    'merged_prs_count': 32,
+                    'review_prs_count': 241,
+                    'merged_prs_count': 49,
                     'daily': 3800.0,
                     'daily_prs': 18,
                     'daily_avg': 4658.0,
