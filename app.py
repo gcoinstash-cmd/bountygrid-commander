@@ -708,7 +708,7 @@ HTML_PAGE = """<!DOCTYPE html>
                             <span style="color:var(--accent-cyan);">Gross</span>
                         </div>
                         <div class="kpi-value" id="stat-gross">$59,155.00</div>
-                        <div class="kpi-sub cyan" id="stat-fleet">369 Units (294 Active)</div>
+                        <div class="kpi-sub cyan" id="stat-fleet">374 Units (299 Active)</div>
                     </div>
                     <div class="kpi-card">
                         <div class="kpi-label">
@@ -724,15 +724,15 @@ HTML_PAGE = """<!DOCTYPE html>
                             <span style="color:var(--accent-amber);">Pending</span>
                         </div>
                         <div class="kpi-value" id="stat-ar">$53,725.00</div>
-                        <div class="kpi-sub amber">294 PRs In Review</div>
+                        <div class="kpi-sub amber">299 PRs In Review</div>
                     </div>
                     <div class="kpi-card">
                         <div class="kpi-label">
                             <span>Today Revenue</span>
-                            <span id="stat-wave-badge" style="color:var(--accent-purple);">Today Wave 2</span>
+                            <span id="stat-wave-badge" style="color:var(--accent-purple);">Today Wave 3</span>
                         </div>
                         <div class="kpi-value" id="stat-daily-rev" style="color:var(--accent-purple);">+$2,100.00</div>
-                        <div class="kpi-sub up" id="stat-daily-label">10 PRs Dispatched Today</div>
+                        <div class="kpi-sub up" id="stat-daily-label">15 PRs Dispatched Today</div>
                     </div>
                 </div>
 
@@ -1191,7 +1191,7 @@ HTML_PAGE = """<!DOCTYPE html>
                             <div id="fin-y1-bar" style="height:100%; width: 48.4%; background: linear-gradient(90deg, #10b981, #06b6d4); border-radius:6px; transition: width 0.4s ease;"></div>
                         </div>
                         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:4px; font-size:12px; margin-top:6px;">
-                            <span style="color:#fff; font-weight:700;">Pipeline: <span id="fin-y1-prog" style="color:var(--accent-cyan);">$59,155.00</span> (<span id="fin-y1-pace" style="color:var(--accent-emerald);">51.0%</span>)</span>
+                            <span style="color:#fff; font-weight:700;">Pipeline: <span id="fin-y1-prog" style="color:var(--accent-cyan);">$59,155.00</span> (<span id="fin-y1-pace" style="color:var(--accent-emerald);">51.9%</span>)</span>
                             <span id="fin-y1-stash" style="color:var(--text-muted); font-size:11px;">Stripe Cash: $5,430.00</span>
                         </div>
                     </div>
@@ -1777,8 +1777,8 @@ HTML_PAGE = """<!DOCTYPE html>
                     active_prs_count: active_txs.length,
                     review_prs_count: review_txs.length,
                     merged_prs_count: merged_txs.length,
-                    daily: todayRev || 2100.0,
-                    daily_prs: todayCount || 10,
+                    daily: todayRev || 3150.0,
+                    daily_prs: todayCount || 15,
                     daily_avg: 4658.0,
                     weekly: gross,
                     weekly_avg: gross,
@@ -2472,18 +2472,18 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 }
             except Exception as e:
                 data = {
-                    'gross_pipeline': 61255.0,
-                    'ar': 55825.0,
+                    'gross_pipeline': 62305.0,
+                    'ar': 56875.0,
                     'cash': 5430.0,
-                    'total_prs': 369,
-                    'active_prs_count': 294,
-                    'review_prs_count': 262,
+                    'total_prs': 374,
+                    'active_prs_count': 299,
+                    'review_prs_count': 267,
                     'merged_prs_count': 32,
-                    'daily': 2100.0,
-                    'daily_prs': 10,
+                    'daily': 3150.0,
+                    'daily_prs': 15,
                     'daily_avg': 4658.0,
-                    'weekly': 61255.0,
-                    'weekly_avg': 61255.0,
+                    'weekly': 62305.0,
+                    'weekly_avg': 62305.0,
                     'ecosystems': [],
                     'active_prs': []
                 }
