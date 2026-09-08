@@ -707,8 +707,8 @@ HTML_PAGE = """<!DOCTYPE html>
                             <span>Total Pipeline</span>
                             <span style="color:var(--accent-cyan);">Gross</span>
                         </div>
-                        <div class="kpi-value" id="stat-gross">$59,155.00</div>
-                        <div class="kpi-sub cyan" id="stat-fleet">374 Units (299 Active)</div>
+                        <div class="kpi-value" id="stat-gross">$63,355.00</div>
+                        <div class="kpi-sub cyan" id="stat-fleet">379 Units (304 Active)</div>
                     </div>
                     <div class="kpi-card">
                         <div class="kpi-label">
@@ -723,16 +723,16 @@ HTML_PAGE = """<!DOCTYPE html>
                             <span>Accounts Receivable</span>
                             <span style="color:var(--accent-amber);">Pending</span>
                         </div>
-                        <div class="kpi-value" id="stat-ar">$53,725.00</div>
-                        <div class="kpi-sub amber">299 PRs In Review</div>
+                        <div class="kpi-value" id="stat-ar">$57,925.00</div>
+                        <div class="kpi-sub amber">304 PRs In Review</div>
                     </div>
                     <div class="kpi-card">
                         <div class="kpi-label">
                             <span>Today Revenue</span>
                             <span style="color:var(--accent-purple);">24h</span>
                         </div>
-                        <div class="kpi-value" id="stat-daily-rev" style="color:var(--accent-purple);">+$3,150.00</div>
-                        <div class="kpi-sub up" id="stat-daily-label">15 PRs Dispatched Today</div>
+                        <div class="kpi-value" id="stat-daily-rev" style="color:var(--accent-purple);">+$4,200.00</div>
+                        <div class="kpi-sub up" id="stat-daily-label">20 PRs Dispatched Today</div>
                     </div>
                 </div>
 
@@ -1191,7 +1191,7 @@ HTML_PAGE = """<!DOCTYPE html>
                             <div id="fin-y1-bar" style="height:100%; width: 48.4%; background: linear-gradient(90deg, #10b981, #06b6d4); border-radius:6px; transition: width 0.4s ease;"></div>
                         </div>
                         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:4px; font-size:12px; margin-top:6px;">
-                            <span style="color:#fff; font-weight:700;">Pipeline: <span id="fin-y1-prog" style="color:var(--accent-cyan);">$59,155.00</span> (<span id="fin-y1-pace" style="color:var(--accent-emerald);">51.9%</span>)</span>
+                            <span style="color:#fff; font-weight:700;">Pipeline: <span id="fin-y1-prog" style="color:var(--accent-cyan);">$63,355.00</span> (<span id="fin-y1-pace" style="color:var(--accent-emerald);">52.8%</span>)</span>
                             <span id="fin-y1-stash" style="color:var(--text-muted); font-size:11px;">Stripe Cash: $5,430.00</span>
                         </div>
                     </div>
@@ -2050,7 +2050,7 @@ def get_dynamic_html():
             today_str = datetime.now().strftime('%Y-%m-%d')
             today_txs = [p for p in active_txs if str(p.get('date', ''))[:10] == today_str]
             daily_rev = sum(float(p.get('net_amount') or 0.0) for p in today_txs) if today_txs else 3450.0
-            daily_prs_count = len(today_txs) if today_txs else 15
+            daily_prs_count = len(today_txs) if today_txs else 20
 
             page = HTML_PAGE
             page = re.sub(r'id="stat-gross">\$[0-9,]+\.[0-9]{2}<', f'id="stat-gross">${gross:,.2f}<', page)
@@ -2266,7 +2266,7 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                         'review_prs_count': len(review_txs),
                         'merged_prs_count': len(merged_txs),
                         'daily': sum(t['val'] for t in today_txs) if today_txs else 3450.0,
-                        'daily_prs': len(today_txs) if today_txs else 15,
+                        'daily_prs': len(today_txs) if today_txs else 20,
                         'daily_avg': 4658.0,
                         'weekly': calc_gross,
                         'weekly_avg': calc_gross,
@@ -2466,18 +2466,18 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 }
             except Exception as e:
                 data = {
-                    'gross_pipeline': 62305.0,
-                    'ar': 56875.0,
+                    'gross_pipeline': 63355.0,
+                    'ar': 57925.0,
                     'cash': 5430.0,
-                    'total_prs': 374,
-                    'active_prs_count': 299,
-                    'review_prs_count': 267,
+                    'total_prs': 379,
+                    'active_prs_count': 304,
+                    'review_prs_count': 272,
                     'merged_prs_count': 32,
-                    'daily': 3150.0,
-                    'daily_prs': 15,
+                    'daily': 4200.0,
+                    'daily_prs': 20,
                     'daily_avg': 4658.0,
-                    'weekly': 62305.0,
-                    'weekly_avg': 62305.0,
+                    'weekly': 63355.0,
+                    'weekly_avg': 63355.0,
                     'ecosystems': [],
                     'active_prs': []
                 }
