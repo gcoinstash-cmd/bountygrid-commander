@@ -707,8 +707,8 @@ HTML_PAGE = """<!DOCTYPE html>
                             <span>Total Pipeline</span>
                             <span style="color:var(--accent-cyan);">Gross</span>
                         </div>
-                        <div class="kpi-value" id="stat-gross">$56,955.00</div>
-                        <div class="kpi-sub cyan" id="stat-fleet">348 Units (274 Active)</div>
+                        <div class="kpi-value" id="stat-gross">$58,105.00</div>
+                        <div class="kpi-sub cyan" id="stat-fleet">354 Units (279 Active)</div>
                     </div>
                     <div class="kpi-card">
                         <div class="kpi-label">
@@ -723,16 +723,16 @@ HTML_PAGE = """<!DOCTYPE html>
                             <span>Accounts Receivable</span>
                             <span style="color:var(--accent-amber);">Pending</span>
                         </div>
-                        <div class="kpi-value" id="stat-ar">$51,525.00</div>
-                        <div class="kpi-sub amber">274 PRs In Review</div>
+                        <div class="kpi-value" id="stat-ar">$52,675.00</div>
+                        <div class="kpi-sub amber">279 PRs In Review</div>
                     </div>
                     <div class="kpi-card">
                         <div class="kpi-label">
                             <span>Today Revenue</span>
-                            <span style="color:var(--accent-purple);">Today Wave 2</span>
+                            <span style="color:var(--accent-purple);">Today Wave 3</span>
                         </div>
-                        <div class="kpi-value" id="stat-daily-rev" style="color:var(--accent-purple);">+$2,300.00</div>
-                        <div class="kpi-sub up" id="stat-daily-label">10 PRs Dispatched Today</div>
+                        <div class="kpi-value" id="stat-daily-rev" style="color:var(--accent-purple);">+$3,450.00</div>
+                        <div class="kpi-sub up" id="stat-daily-label">15 PRs Dispatched Today</div>
                     </div>
                 </div>
 
@@ -1188,10 +1188,10 @@ HTML_PAGE = """<!DOCTYPE html>
                             <span style="color:var(--accent-emerald); font-size:12px;">$120,000 Annual • $10,000/mo</span>
                         </div>
                         <div style="height:12px; background:rgba(255,255,255,0.08); border-radius:6px; margin-top:8px; overflow:hidden; position:relative;">
-                            <div id="fin-y1-bar" style="height:100%; width: 47.5%; background: linear-gradient(90deg, #10b981, #06b6d4); border-radius:6px; transition: width 0.4s ease;"></div>
+                            <div id="fin-y1-bar" style="height:100%; width: 48.4%; background: linear-gradient(90deg, #10b981, #06b6d4); border-radius:6px; transition: width 0.4s ease;"></div>
                         </div>
                         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:4px; font-size:12px; margin-top:6px;">
-                            <span style="color:#fff; font-weight:700;">Pipeline: <span id="fin-y1-prog" style="color:var(--accent-cyan);">$56,955.00</span> (<span id="fin-y1-pace" style="color:var(--accent-emerald);">47.5%</span>)</span>
+                            <span style="color:#fff; font-weight:700;">Pipeline: <span id="fin-y1-prog" style="color:var(--accent-cyan);">$58,105.00</span> (<span id="fin-y1-pace" style="color:var(--accent-emerald);">48.4%</span>)</span>
                             <span id="fin-y1-stash" style="color:var(--text-muted); font-size:11px;">Stripe Cash: $5,430.00</span>
                         </div>
                     </div>
@@ -2141,18 +2141,18 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 }
             except Exception as e:
                 data = {
-                    'gross_pipeline': 39655.0,
-                    'ar': 34225.0,
+                    'gross_pipeline': 58105.0,
+                    'ar': 52675.0,
                     'cash': 5430.0,
-                    'total_prs': 272,
-                    'active_prs_count': 198,
-                    'review_prs_count': 166,
+                    'total_prs': 354,
+                    'active_prs_count': 279,
+                    'review_prs_count': 247,
                     'merged_prs_count': 32,
-                    'daily': 2250.0,
-                    'daily_prs': 10,
+                    'daily': 3450.0,
+                    'daily_prs': 15,
                     'daily_avg': 4658.0,
-                    'weekly': 39655.0,
-                    'weekly_avg': 39655.0,
+                    'weekly': 58105.0,
+                    'weekly_avg': 58105.0,
                     'ecosystems': [],
                     'active_prs': []
                 }
