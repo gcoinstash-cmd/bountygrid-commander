@@ -729,9 +729,9 @@ HTML_PAGE = """<!DOCTYPE html>
                     <div class="kpi-card">
                         <div class="kpi-label">
                             <span>Today Revenue</span>
-                            <span style="color:var(--accent-purple);">Today Wave 2</span>
+                            <span id="stat-wave-badge" style="color:var(--accent-purple);">Today Wave 2</span>
                         </div>
-                        <div class="kpi-value" id="stat-daily-rev" style="color:var(--accent-purple);">+$4,500.00</div>
+                        <div class="kpi-value" id="stat-daily-rev" style="color:var(--accent-purple);">+$2,100.00</div>
                         <div class="kpi-sub up" id="stat-daily-label">10 PRs Dispatched Today</div>
                     </div>
                 </div>
@@ -1820,6 +1820,8 @@ HTML_PAGE = """<!DOCTYPE html>
                 const dailyPrs = Number(data.daily_prs || 0);
                 if (document.getElementById('stat-daily-rev')) document.getElementById('stat-daily-rev').innerText = '$' + dailyVal.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2});
                 if (document.getElementById('stat-daily-label')) document.getElementById('stat-daily-label').innerText = `${dailyPrs} PRs Dispatched Today`;
+                const waveNum = Math.max(1, Math.ceil(dailyPrs / 5));
+                if (document.getElementById('stat-wave-badge')) document.getElementById('stat-wave-badge').innerText = `Today Wave ${waveNum}`;
 
                 // Financial Vault fields
                 const y1Pct = Math.min(100, ((gross / 120000.0) * 100)).toFixed(1);
@@ -2059,6 +2061,8 @@ def get_dynamic_html():
             page = re.sub(r'id="stat-fleet">[0-9]+ Units[^<]*<', f'id="stat-fleet">{len(sb_prs)} Units ({len(active_txs)} Active)<', page)
             page = re.sub(r'id="stat-daily-rev"[^>]*>\$?[0-9,\.]+<', f'id="stat-daily-rev" style="color:var(--accent-purple);">${daily_rev:,.2f}<', page)
             page = re.sub(r'id="stat-daily-label"[^>]*>[^<]+<', f'id="stat-daily-label" style="color:var(--text-muted);">{daily_prs_count} PRs Dispatched Today<', page)
+            dynamic_wave_num = max(1, (daily_prs_count + 4) // 5)
+            page = re.sub(r'id="stat-wave-badge"[^>]*>[^<]+<', f'id="stat-wave-badge" style="color:var(--accent-purple);">Today Wave {dynamic_wave_num}<', page)
             page = re.sub(r'id="stat-weekly-rev">\$[0-9,]+<', f'id="stat-weekly-rev">${gross:,.0f}<', page)
             page = re.sub(r'id="gauge-xp-cur"[^>]*>\$[0-9,]+<', f'id="gauge-xp-cur" style="color:#fff; font-weight:900;">${gross:,.0f}<', page)
             return page
@@ -2124,6 +2128,8 @@ def get_dynamic_html():
         page = re.sub(r'id="stat-fleet">[0-9]+ Units[^<]*<', f'id="stat-fleet">{len(all_txs)} Units ({len(active_txs)} Active)<', page)
         page = re.sub(r'id="stat-daily-rev"[^>]*>\$?[0-9,\.]+<', f'id="stat-daily-rev" style="color:var(--accent-purple);">${daily_rev:,.2f}<', page)
         page = re.sub(r'id="stat-daily-label"[^>]*>[^<]+<', f'id="stat-daily-label" style="color:var(--text-muted);">{daily_prs_count} PRs Dispatched Today<', page)
+        dynamic_wave_num = max(1, (daily_prs_count + 4) // 5)
+        page = re.sub(r'id="stat-wave-badge"[^>]*>[^<]+<', f'id="stat-wave-badge" style="color:var(--accent-purple);">Today Wave {dynamic_wave_num}<', page)
         page = re.sub(r'id="stat-weekly-rev">\$[0-9,]+<', f'id="stat-weekly-rev">${gross:,.0f}<', page)
         page = re.sub(r'id="gauge-xp-cur"[^>]*>\$[0-9,]+<', f'id="gauge-xp-cur" style="color:#fff; font-weight:900;">${gross:,.0f}<', page)
         return page
