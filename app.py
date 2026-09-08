@@ -731,8 +731,8 @@ HTML_PAGE = """<!DOCTYPE html>
                             <span>Today Revenue</span>
                             <span style="color:var(--accent-purple);">24h</span>
                         </div>
-                        <div class="kpi-value" id="stat-daily-rev" style="color:var(--accent-purple);">+$3,800.00</div>
-                        <div class="kpi-sub up" id="stat-daily-label">18 Active PRs Dispatched Today</div>
+                        <div class="kpi-value" id="stat-daily-rev" style="color:var(--accent-purple);">+$4,200.00</div>
+                        <div class="kpi-sub up" id="stat-daily-label">20 PRs Dispatched Today</div>
                     </div>
                 </div>
 
@@ -1798,8 +1798,8 @@ HTML_PAGE = """<!DOCTYPE html>
                     active_prs_count: active_txs.length,
                     review_prs_count: review_txs.length,
                     merged_prs_count: merged_txs.length,
-                    daily: todayRev || 3150.0,
-                    daily_prs: todayCount || 15,
+                    daily: todayRev || 4200.0,
+                    daily_prs: todayCount || 20,
                     daily_avg: 4658.0,
                     weekly: gross,
                     weekly_avg: gross,
@@ -2076,7 +2076,7 @@ def get_dynamic_html():
             ar = gross - cash
             today_str = datetime.now().strftime('%Y-%m-%d')
             today_txs = [p for p in active_txs if str(p.get('date', ''))[:10] == today_str]
-            daily_rev = sum(float(p.get('net_amount') or 0.0) for p in today_txs) if today_txs else 3450.0
+            daily_rev = sum(float(p.get('net_amount') or 0.0) for p in today_txs) if today_txs else 4200.0
             daily_prs_count = len(today_txs) if today_txs else 20
 
             page = HTML_PAGE
@@ -2298,7 +2298,7 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                         'active_prs_count': len(active_only_prs),
                         'review_prs_count': len(review_txs),
                         'merged_prs_count': len(merged_txs),
-                        'daily': sum(t['val'] for t in today_txs) if today_txs else 3450.0,
+                        'daily': sum(t['val'] for t in today_txs) if today_txs else 4200.0,
                         'daily_prs': len(today_txs) if today_txs else 20,
                         'daily_avg': 4658.0,
                         'weekly': calc_gross,
@@ -2506,8 +2506,8 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                     'active_prs_count': 290,
                     'review_prs_count': 241,
                     'merged_prs_count': 49,
-                    'daily': 3800.0,
-                    'daily_prs': 18,
+                    'daily': 4200.0,
+                    'daily_prs': 20,
                     'daily_avg': 4658.0,
                     'weekly': 60555.0,
                     'weekly_avg': 60555.0,
