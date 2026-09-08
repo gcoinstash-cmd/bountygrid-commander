@@ -1830,6 +1830,7 @@ def resolve_github_link(tx, desc_str):
     elif "lily-sdk" in d_low: matched_repo = "Lilly-Protocol/lily-sdk"
     elif "lily" in d_low or "soroban" in d_low: matched_repo = "Lilly-Protocol/lily-contracts"
     elif "schematic-trace-solver" in d_low or "trace" in d_low: matched_repo = "tscircuit/schematic-trace-solver"
+    elif "circuit-json" in d_low or "circuit" in d_low: matched_repo = "tscircuit/circuit-json"
     elif "jlcsearch" in d_low: matched_repo = "tscircuit/jlcsearch"
     elif "tscircuit" in d_low or "core" in d_low: matched_repo = "tscircuit/core"
     elif "twenty" in d_low: matched_repo = "twentyhq/twenty"
