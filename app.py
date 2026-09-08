@@ -729,10 +729,10 @@ HTML_PAGE = """<!DOCTYPE html>
                     <div class="kpi-card">
                         <div class="kpi-label">
                             <span>Today Revenue</span>
-                            <span style="color:var(--accent-purple);">Today Wave 5</span>
+                            <span style="color:var(--accent-purple);">Today Wave 1</span>
                         </div>
                         <div class="kpi-value" id="stat-daily-rev" style="color:var(--accent-purple);">+$4,500.00</div>
-                        <div class="kpi-sub up" id="stat-daily-label">25 PRs Dispatched Today</div>
+                        <div class="kpi-sub up" id="stat-daily-label">5 PRs Dispatched Today</div>
                     </div>
                 </div>
 
@@ -1716,7 +1716,7 @@ HTML_PAGE = """<!DOCTYPE html>
                     all_txs.push({tx, date: raw_d, val: net_val, status: st_str});
 
                     if (!st_str.includes('Closed')) {
-                        if (raw_d === todayStr || raw_d === '2026-09-07') {
+                        if (raw_d === todayStr || raw_d === '2026-09-08') {
                             todayRev += net_val;
                             todayCount++;
                         }
@@ -1777,8 +1777,8 @@ HTML_PAGE = """<!DOCTYPE html>
                     active_prs_count: active_txs.length,
                     review_prs_count: review_txs.length,
                     merged_prs_count: merged_txs.length,
-                    daily: todayRev || 5550.0,
-                    daily_prs: todayCount || 25,
+                    daily: todayRev || 1050.0,
+                    daily_prs: todayCount || 5,
                     daily_avg: 4658.0,
                     weekly: gross,
                     weekly_avg: gross,
@@ -2473,8 +2473,8 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                     'active_prs_count': 289,
                     'review_prs_count': 257,
                     'merged_prs_count': 32,
-                    'daily': 5550.0,
-                    'daily_prs': 25,
+                    'daily': 1050.0,
+                    'daily_prs': 5,
                     'daily_avg': 4658.0,
                     'weekly': 60205.0,
                     'weekly_avg': 60205.0,
